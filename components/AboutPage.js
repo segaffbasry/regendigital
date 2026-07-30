@@ -22,7 +22,7 @@ const founders = [
     name: "Taylor",
     title: "Co-Founder",
     focus: "Strategy & client partnerships",
-    image: "/images/founders/taylor.webp",
+    image: "/images/founders/taylor-portrait.webp",
     bio: "Taylor’s career spans luxury brand marketing, social media strategy, and business growth, giving her a rare combination of creative instinct and commercial rigour. She leads on strategy and client partnerships at Regen, bringing the kind of analytical depth to content and campaigns that most agencies reserve for their biggest budgets. If there’s a smarter way to position your brand or reach your audience, Taylor will find it.",
   },
 ];
