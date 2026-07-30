@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const audiences = [
   {
@@ -43,6 +43,45 @@ const audiences = [
 export default function WhoWeHelpTabs() {
   const [activeIndex, setActiveIndex] = useState(0);
   const active = audiences[activeIndex];
+  const list = useRef(null);
+  /* The strip scrolls sideways on narrow screens. These flags drive the edge
+     fades so it is obvious there are more audiences either side. */
+  const [edges, setEdges] = useState({ start: false, end: false });
+
+  const measureEdges = useCallback(() => {
+    const element = list.current;
+    if (!element) return;
+
+    const max = element.scrollWidth - element.clientWidth;
+    setEdges({
+      start: element.scrollLeft > 4,
+      end: max > 4 && element.scrollLeft < max - 4,
+    });
+  }, []);
+
+  useEffect(() => {
+    const element = list.current;
+    if (!element) return undefined;
+
+    measureEdges();
+    element.addEventListener("scroll", measureEdges, { passive: true });
+    window.addEventListener("resize", measureEdges);
+
+    return () => {
+      element.removeEventListener("scroll", measureEdges);
+      window.removeEventListener("resize", measureEdges);
+    };
+  }, [measureEdges]);
+
+  /* Keep the selected tab in view when it is picked from a clipped strip. */
+  useEffect(() => {
+    const element = list.current;
+    const tab = element?.querySelector(`#who-tab-${activeIndex}`);
+    if (!element || !tab) return;
+
+    const offset = tab.offsetLeft - element.clientWidth / 2 + tab.offsetWidth / 2;
+    element.scrollTo({ left: Math.max(0, offset), behavior: "smooth" });
+  }, [activeIndex]);
 
   return (
     <section
@@ -54,7 +93,6 @@ export default function WhoWeHelpTabs() {
         <div className="who-tabs__hero">
           <span className="who-tabs__atmosphere" aria-hidden="true" />
           <div className="who-tabs__intro">
-            <p className="home-kicker">Built for ambitious B2B teams</p>
             <h2 id="who-we-help-title">Who we help</h2>
             <p>
               We work with SaaS, AI, tech, and professional services businesses
@@ -62,26 +100,36 @@ export default function WhoWeHelpTabs() {
             </p>
           </div>
           <div
-            className="who-tabs__list"
-            role="tablist"
-            aria-label="Who Regen helps"
-            style={{ "--active-index": activeIndex }}
+            className={`who-tabs__rail${edges.start ? " is-scrolled" : ""}${
+              edges.end ? " has-more" : ""
+            }`}
           >
-            <span className="who-tabs__highlight" aria-hidden="true" />
-            {audiences.map((audience, index) => (
-              <button
-                aria-controls="who-tabs-panel"
-                aria-selected={index === activeIndex}
-                className={index === activeIndex ? "is-active" : ""}
-                id={`who-tab-${index}`}
-                key={audience.label}
-                onClick={() => setActiveIndex(index)}
-                role="tab"
-                type="button"
-              >
-                {audience.label}
-              </button>
-            ))}
+            <div
+              className="who-tabs__list"
+              ref={list}
+              role="tablist"
+              aria-label="Who Regen helps"
+              style={{ "--active-index": activeIndex }}
+            >
+              <span className="who-tabs__highlight" aria-hidden="true" />
+              {audiences.map((audience, index) => (
+                <button
+                  aria-controls="who-tabs-panel"
+                  aria-selected={index === activeIndex}
+                  className={index === activeIndex ? "is-active" : ""}
+                  id={`who-tab-${index}`}
+                  key={audience.label}
+                  onClick={() => setActiveIndex(index)}
+                  role="tab"
+                  type="button"
+                >
+                  {audience.label}
+                </button>
+              ))}
+            </div>
+            <span className="who-tabs__more" aria-hidden="true">
+              <span className="cta-arrow" />
+            </span>
           </div>
         </div>
 

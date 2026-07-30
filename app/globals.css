@@ -1597,12 +1597,6 @@ figure, blockquote { margin: 0; }
   font-size: clamp(15px, 1.35vw, 21px);
 }
 
-.testimonial-card__stars {
-  font-size: clamp(16px, 1.7vw, 24px);
-  letter-spacing: .12em;
-  white-space: nowrap;
-}
-
 .testimonial-card blockquote {
   margin: auto 0 0;
   padding-top: clamp(48px, 7vw, 92px);
@@ -1875,10 +1869,6 @@ figure, blockquote { margin: 0; }
 
   .testimonial-card__person {
     grid-template-columns: auto 1fr;
-  }
-
-  .testimonial-card__stars {
-    grid-column: 1 / -1;
   }
 
   .audit-page__support {

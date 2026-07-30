@@ -101,7 +101,6 @@ export default function HomeClosingSections() {
         <div className="final-cta-stage__sticky">
           <div className="home-section home-section--blue final-cta">
             <div className="final-cta__content">
-              <p className="home-kicker">Get in Touch</p>
               <StaggerText lineReveal>
                 Tell us what you&apos;re trying to achieve.
               </StaggerText>
@@ -117,7 +116,6 @@ export default function HomeClosingSections() {
 
       <section className="home-section home-section--bone faq-section">
         <div className="home-section__intro">
-          <p className="home-kicker">Questions, answered.</p>
           <StaggerText lineReveal>FAQs</StaggerText>
         </div>
         <div className="faq-list">

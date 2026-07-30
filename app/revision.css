@@ -491,7 +491,7 @@
 
 .testimonial-card__person {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr;
   gap: clamp(14px, 1.8vw, 22px);
   align-items: center;
 }
@@ -516,12 +516,6 @@
 .testimonial-card__identity > span {
   color: rgba(5, 5, 5, .56);
   font-size: clamp(14px, 1.15vw, 17px);
-}
-
-.testimonial-card__stars {
-  font-size: clamp(14px, 1.35vw, 19px);
-  letter-spacing: .12em;
-  white-space: nowrap;
 }
 
 .testimonial-card blockquote {
@@ -804,10 +798,6 @@
 
   .testimonial-card__person {
     grid-template-columns: auto 1fr;
-  }
-
-  .testimonial-card__stars {
-    grid-column: 1 / -1;
   }
 
   .audit-page__support {
@@ -1615,10 +1605,6 @@
   font-size: clamp(12px, .9vw, 14px);
 }
 
-.testimonial-card__stars {
-  font-size: 12px;
-}
-
 .testimonial-card blockquote {
   padding-top: clamp(20px, 2.4vw, 30px);
   font-size: clamp(14px, 1.05vw, 16px);
@@ -1744,5 +1730,367 @@
 
   .service-stack__copy {
     min-height: 190px;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Feedback pass: no section kickers, smaller testimonial cards, service cards
+   swipe sideways on phones, and section headings stop clipping their ascenders.
+   --------------------------------------------------------------------------- */
+
+/* The kicker used to sit in the first column of the intro grid. With it gone
+   the heading takes the full width instead of the narrow leading track. */
+.home-section__intro,
+.what-we-do .home-section__intro,
+.proof-section .home-section__intro,
+.faq-section .home-section__intro {
+  display: block;
+}
+
+/* The line mask only had slack for descenders, so the tops of tall letters were
+   being clipped. Padding and margin cancel out, so this stays layout-neutral. */
+.section-reveal__line-mask {
+  margin-top: -.3em;
+  padding-top: .3em;
+}
+
+.testimonial-card {
+  width: clamp(300px, 27vw, 390px);
+  min-height: clamp(280px, 23.5vw, 336px);
+  padding: clamp(20px, 1.8vw, 26px);
+}
+
+.testimonial-card__avatar {
+  width: clamp(44px, 3.5vw, 54px);
+  height: clamp(44px, 3.5vw, 54px);
+}
+
+.testimonial-card__identity strong {
+  font-size: clamp(15px, 1.15vw, 17px);
+}
+
+.testimonial-card__identity > span {
+  font-size: clamp(11px, .82vw, 13px);
+}
+
+.testimonial-card blockquote {
+  padding-top: clamp(18px, 2vw, 26px);
+  font-size: clamp(13px, .95vw, 15px);
+  line-height: 1.4;
+}
+
+@media (max-width: 760px) {
+  .testimonial-card {
+    width: min(78vw, 340px);
+    min-height: 310px;
+  }
+}
+
+/* Phones: the service cards scroll across rather than down, bleeding to the
+   screen edges so the next card always peeks in. */
+@media (max-width: 560px) {
+  .service-stack {
+    display: flex;
+    width: auto;
+    grid-template-columns: none;
+    gap: 12px;
+    margin-inline: calc(var(--page-gutter) * -1);
+    padding-inline: var(--page-gutter);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--page-gutter);
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .service-stack::-webkit-scrollbar {
+    display: none;
+  }
+
+  .service-stack__step {
+    width: min(74vw, 320px);
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+  }
+
+  .service-stack__card,
+  .service-stack__card--blue,
+  .service-stack__card--orange,
+  .service-stack__card--sky,
+  .service-stack__card--black,
+  .service-stack__card--lavender,
+  .service-stack__card--cream {
+    height: 100%;
+    min-height: 260px;
+  }
+
+  .service-stack__copy {
+    min-height: 210px;
+  }
+}
+
+/* The Helvetica face is loaded as a single weight, so asking for 700 inside the
+   family renders identically to the body copy. Drop to the system stack for the
+   emphasised runs so bold actually reads as bold. */
+.home-body-large strong {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+}
+
+/* ---------------------------------------------------------------------------
+   Mobile feedback pass: an obvious Contact button in the menu, a compact About
+   page with no blue wash, no duplicated methodology diagram, tighter section
+   spacing, and a visible "there is more" cue on the audience tabs.
+   --------------------------------------------------------------------------- */
+
+.who-tabs__rail {
+  position: relative;
+  z-index: 2;
+}
+
+.who-tabs__more {
+  display: none;
+}
+
+@media (max-width: 1050px) {
+  /* The strip is wider than the screen, so it needs edge fades and an arrow to
+     say so — otherwise the audiences past the fold look like they don't exist. */
+  .who-tabs__rail {
+    margin-inline: calc(var(--who-inset) * -1);
+  }
+
+  .who-tabs__list {
+    grid-auto-flow: column;
+    grid-template-columns: none;
+    grid-auto-columns: minmax(132px, max-content);
+    margin-inline: 0;
+    padding-right: 58px;
+    padding-left: var(--who-inset);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: var(--who-inset);
+    scrollbar-width: none;
+  }
+
+  .who-tabs__list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .who-tabs__list button {
+    scroll-snap-align: start;
+  }
+
+  .who-tabs__rail::before,
+  .who-tabs__rail::after {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    bottom: 0;
+    width: 52px;
+    content: "";
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+  }
+
+  .who-tabs__rail::before {
+    left: 0;
+    background: linear-gradient(90deg, rgba(6, 6, 6, .72), rgba(6, 6, 6, 0));
+  }
+
+  .who-tabs__rail::after {
+    right: 0;
+    background: linear-gradient(270deg, rgba(6, 6, 6, .78), rgba(6, 6, 6, 0));
+  }
+
+  .who-tabs__rail.is-scrolled::before,
+  .who-tabs__rail.has-more::after {
+    opacity: 1;
+  }
+
+  .who-tabs__more {
+    position: absolute;
+    z-index: 4;
+    right: 12px;
+    bottom: 20px;
+    display: grid;
+    width: 32px;
+    height: 32px;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--white);
+    color: var(--black);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+  }
+
+  .who-tabs__rail.has-more .who-tabs__more {
+    opacity: 1;
+  }
+
+  .who-tabs__more .cta-arrow {
+    width: 13px;
+    height: 13px;
+    opacity: 1;
+    transform: rotate(45deg);
+  }
+}
+
+@media (max-width: 760px) {
+  /* Contact was a 13px link lost under the audit pill. It gets equal billing. */
+  .site-header__mobile-footer {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .site-header__mobile-secondary {
+    display: block;
+  }
+
+  /* Scoped to the parent so it outranks the dimmed `.site-header__mobile-secondary a`. */
+  .site-header__mobile-secondary .site-header__mobile-contact {
+    display: flex;
+    width: 100%;
+    min-height: 50px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 18px;
+    border: 1px solid rgba(255, 255, 255, .55);
+    border-radius: 999px;
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 600;
+    opacity: 1;
+    text-decoration: none;
+  }
+
+  .site-header__mobile-contact .cta-arrow {
+    width: 13px;
+    height: 13px;
+    flex: 0 0 13px;
+    opacity: 1;
+  }
+
+  .site-header__mobile-audit {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  /* The steps already spell out Audit / Test / Amplify, so the stacked diagram
+     is a straight repeat on a narrow screen. */
+  .methodology-visual {
+    display: none;
+  }
+
+  .methodology-scroll {
+    min-height: 0;
+    padding-block: clamp(44px, 8vw, 60px);
+  }
+
+  .methodology-scroll__sticky {
+    height: auto;
+    gap: 0;
+    padding: 0;
+  }
+
+  /* About: compact hero, no dead space before the founders. */
+  .about-hero {
+    min-height: 0;
+    padding-top: clamp(104px, 26vw, 132px);
+    padding-bottom: clamp(28px, 7vw, 40px);
+  }
+
+  .about-hero h1 {
+    font-size: clamp(48px, 13.5vw, 68px);
+    line-height: .92;
+  }
+
+  .about-hero__intro {
+    margin-top: 16px;
+    font-size: clamp(17px, 4.6vw, 20px);
+  }
+
+  .about-founders {
+    padding-block: clamp(40px, 9vw, 56px);
+  }
+
+  .about-founders__title {
+    margin-bottom: clamp(20px, 5vw, 28px);
+  }
+
+  .about-founders__grid {
+    gap: clamp(36px, 9vw, 48px);
+  }
+
+  /* A portrait crop for portraits — the 4:3 landscape box read as filler. */
+  .about-founder-profile__portrait {
+    aspect-ratio: 4 / 5;
+  }
+
+  .about-founder-profile + .about-founder-profile {
+    margin-top: 0;
+  }
+
+  /* No blue wash and no 160svh of scrubbing: the brand card becomes a plain
+     panel that shows its statement outright. */
+  .about-card-stage {
+    height: auto;
+    min-height: 0;
+    padding: 0 var(--page-gutter) clamp(40px, 9vw, 56px);
+    background: var(--white);
+  }
+
+  .about-card-stage__sticky {
+    position: static;
+    height: auto;
+    place-items: stretch;
+  }
+
+  .about-brand-card {
+    width: 100%;
+    height: auto;
+    min-height: clamp(300px, 62vw, 380px);
+    padding: clamp(30px, 8vw, 44px) 0;
+    border-radius: 20px;
+    transform: none;
+  }
+
+  /* Stacked, the underline on one word lands on the circle of the next, so the
+     lines need more air than the inline layout does. */
+  .about-brand-card__statement {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: .26em;
+    margin-inline: clamp(20px, 6vw, 32px);
+    font-size: clamp(38px, 12vw, 58px);
+    white-space: normal;
+  }
+
+  /* The header sits over white here, not over the blue stage. */
+  .about-page .site-header.is-over-about-blue,
+  .about-page .site-header.is-on-light.is-over-about-blue {
+    color: var(--black);
+  }
+
+  .about-page .site-header.is-over-about-blue::before,
+  .about-page .site-header.is-on-light.is-over-about-blue::before {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, .94) 0%,
+      rgba(255, 255, 255, .62) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+
+  .about-manifesto {
+    padding-block: clamp(44px, 10vw, 60px);
+  }
+
+  .about-manifesto h2 {
+    margin-block: clamp(20px, 5vw, 30px);
   }
 }

@@ -45,7 +45,7 @@ export default function HomeSectionMotion() {
     const riseTargets = sections.flatMap((section) =>
       Array.from(
         section.querySelectorAll(
-          ".home-kicker, .home-body-large, .problem-section__copy > p, .final-cta > p:not(.home-kicker)"
+          ".home-body-large, .problem-section__copy > p, .final-cta > p"
         )
       )
     );
@@ -98,11 +98,10 @@ export default function HomeSectionMotion() {
       if (cancelled) return;
 
       sections.forEach((section) => {
-        const kicker = section.querySelector(".home-kicker");
         const heading = section.querySelector("[data-line-reveal]");
         const bodies = Array.from(
           section.querySelectorAll(
-            ".home-body-large, .problem-section__copy > p, .final-cta > p:not(.home-kicker)"
+            ".home-body-large, .problem-section__copy > p, .final-cta > p"
           )
         );
         const split = heading
@@ -127,14 +126,6 @@ export default function HomeSectionMotion() {
             const timeline = gsap.timeline({
               defaults: { ease: "power4.out" },
             });
-
-            if (kicker) {
-              timeline.to(
-                kicker,
-                { autoAlpha: 1, y: 0, duration: 0.72 },
-                0
-              );
-            }
 
             if (split) {
               timeline.to(

@@ -626,7 +626,10 @@ export default function SiteHeader({ animated = false }) {
           </div>
           <div className="site-header__mobile-footer">
             <div className="site-header__mobile-secondary" data-mobile-item>
-              <a href="/contact">Contact</a>
+              <a className="site-header__mobile-contact" href="/contact">
+                <span>Contact</span>
+                <span className="cta-arrow" aria-hidden="true" />
+              </a>
             </div>
             <a
               className="site-header__mobile-audit"

@@ -224,11 +224,10 @@ export default function HomePage() {
 
       <section className="home-section home-section--bone what-we-do" id="services">
         <div className="home-section__intro">
-          <p className="home-kicker">What We Do</p>
           <StaggerText lineReveal>B2B digital marketing that scales with your business</StaggerText>
         </div>
         <div className="home-section__split">
-          <p className="home-body-large">We connect strategy, positioning, content, paid media, and search into one system. Every channel has a clear job, every signal improves the next decision, and the whole plan is built around qualified pipeline and revenue.</p>
+          <p className="home-body-large">Regen believes marketing works best as one system that speak to each other, not a set of siloed tactics. We start with research, set the positioning and the plan, then deliver the channels and campaigns that carry it, from organic and paid social to Google Ads, SEO and GEO, and account-based marketing. Everything ladders up to one strategy built around your business, so the work holds its value as your market shifts. It&apos;s how we turn marketing into <strong>demand generation</strong>, <strong>lead generation</strong>, qualified pipeline, and revenue. You get a long-term growth partner and an extension of your team, not a one-channel supplier.</p>
           <div className="home-section__actions home-section__actions--services">
             <ArrowLink href="/services">Explore our services</ArrowLink>
             <ArrowLink href="/audit" className="home-link--blue">Free Audit</ArrowLink>
@@ -299,7 +298,6 @@ export default function HomePage() {
 
         <section className="home-section proof-section">
           <div className="home-section__intro">
-            <p className="home-kicker">Proof</p>
             <StaggerText lineReveal>What our clients say</StaggerText>
           </div>
           <div className="testimonial-marquee" aria-label="Client testimonials">
@@ -327,12 +325,9 @@ export default function HomePage() {
                           <strong>{testimonial.name}</strong>
                           <span>
                             {testimonial.role
-                              ? `${testimonial.company} — ${testimonial.role}`
+                              ? `${testimonial.company}, ${testimonial.role}`
                               : testimonial.company}
                           </span>
-                        </span>
-                        <span className="testimonial-card__stars" aria-label="5 out of 5 stars">
-                          ★★★★★
                         </span>
                       </header>
                       <blockquote>{testimonial.quote}</blockquote>
@@ -348,7 +343,6 @@ export default function HomePage() {
 
         <section className="home-section home-section--audit">
           <div className="home-section--audit__content">
-            <p className="home-kicker">Free Audit</p>
             <StaggerText lineReveal>Get your free digital marketing audit</StaggerText>
             <p className="home-body-large">Get a free digital marketing audit of your positioning, channels, and content from real strategists. You'll see exactly where your pipeline is leaking, what's working, and the first things we'd fix.</p>
             <ArrowLink href="/audit">Free Audit</ArrowLink>

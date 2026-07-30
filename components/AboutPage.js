@@ -55,6 +55,18 @@ export default function AboutPage() {
       frame = undefined;
       if (!stage.current) return;
 
+      /* On phones the brand card is a static panel rather than a scrubbed
+         sticky stage, so the statement is simply shown and there is no blue
+         backdrop for the header to sit over. */
+      if (window.matchMedia("(max-width: 760px)").matches) {
+        stage.current.style.setProperty("--about-progress", "0");
+        stage.current.style.setProperty("--about-reveal-progress", "1");
+        document
+          .querySelector(".site-header")
+          ?.classList.remove("is-over-about-blue");
+        return;
+      }
+
       const bounds = stage.current.getBoundingClientRect();
       const headerElement = document.querySelector(".site-header");
       const headerBottom = headerElement?.getBoundingClientRect().bottom || 0;
