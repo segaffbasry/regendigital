@@ -274,10 +274,24 @@ export default function HomePage() {
 
       <div className="home-gradient-sequence">
         <section className="home-section home-section--sand why-section">
-          <StaggerText lineReveal>Why Regen</StaggerText>
-          <p className="why-section__statement">Trust and performance.</p>
-          <p className="home-body-large">Every strategy we build stands on 2 things, trust and performance. We're not a legacy agency recycling tired digital marketing strategies and calling it innovation. We're an agile B2B marketing team built for SaaS, AI, tech, and professional services businesses that think forward, move fast, and expect more from their marketing. We challenge convention, reject cookie-cutter solutions, and build you a digital marketing strategy as specific to your business as the market you're competing in.</p>
-          <ArrowLink href="/audit">Free Audit</ArrowLink>
+          <div className="why-section__grid">
+            <div className="why-section__content">
+              <StaggerText lineReveal>Why Regen</StaggerText>
+              <p className="why-section__statement">Trust and performance.</p>
+              <p className="home-body-large">Every strategy we build stands on 2 things, trust and performance. We're not a legacy agency recycling tired digital marketing strategies and calling it innovation. We're an agile B2B marketing team built for SaaS, AI, tech, and professional services businesses that think forward, move fast, and expect more from their marketing. We challenge convention, reject cookie-cutter solutions, and build you a digital marketing strategy as specific to your business as the market you're competing in.</p>
+              <ArrowLink href="/audit">Free Audit</ArrowLink>
+            </div>
+            <figure className="why-section__image">
+              <img
+                src="/pics/new-asset.png"
+                alt="The Regen founders working together"
+                width="948"
+                height="790"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+          </div>
         </section>
 
         <section className="home-section proof-section">
