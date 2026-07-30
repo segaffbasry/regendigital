@@ -55,7 +55,7 @@ export default function WhoWeHelpTabs() {
           <span className="who-tabs__atmosphere" aria-hidden="true" />
           <div className="who-tabs__intro">
             <p className="home-kicker">Built for ambitious B2B teams</p>
-            <h2 id="who-we-help-title">Who We Help</h2>
+            <h2 id="who-we-help-title">Who we help</h2>
             <p>
               We work with SaaS, AI, tech, and professional services businesses
               driving growth.

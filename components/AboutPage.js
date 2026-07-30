@@ -7,6 +7,7 @@ import HomeSectionMotion from "./HomeSectionMotion";
 import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
 import StaggerText from "./StaggerText";
+import TiltMedia from "./TiltMedia";
 
 const founders = [
   {
@@ -28,46 +29,19 @@ const founders = [
 ];
 
 function FounderPortrait({ founder }) {
-  const portrait = useRef(null);
-
-  const handlePointerMove = (event) => {
-    if (
-      !portrait.current ||
-      window.matchMedia("(hover: none), (pointer: coarse)").matches
-    ) {
-      return;
-    }
-
-    const bounds = portrait.current.getBoundingClientRect();
-    const x = (event.clientX - bounds.left) / bounds.width;
-    const y = (event.clientY - bounds.top) / bounds.height;
-
-    portrait.current.style.setProperty("--tilt-x", `${(0.5 - y) * 7}deg`);
-    portrait.current.style.setProperty("--tilt-y", `${(x - 0.5) * 9}deg`);
-  };
-
-  const resetTilt = () => {
-    portrait.current?.style.setProperty("--tilt-x", "0deg");
-    portrait.current?.style.setProperty("--tilt-y", "0deg");
-  };
-
   return (
-    <div className="about-founder-profile__portrait-stage">
-      <div
-        className="about-founder-profile__portrait"
-        onPointerLeave={resetTilt}
-        onPointerMove={handlePointerMove}
-        ref={portrait}
-      >
-        <Image
-          alt={`${founder.name}, Regen co-founder`}
-          fill
-          priority={founder.number === "01"}
-          sizes="(max-width: 700px) 78vw, (max-width: 1000px) 42vw, 30vw"
-          src={founder.image}
-        />
-      </div>
-    </div>
+    <TiltMedia
+      className="about-founder-profile__portrait"
+      stageClassName="about-founder-profile__portrait-stage"
+    >
+      <Image
+        alt={`${founder.name}, Regen co-founder`}
+        fill
+        priority={founder.number === "01"}
+        sizes="(max-width: 700px) 78vw, (max-width: 1000px) 42vw, 30vw"
+        src={founder.image}
+      />
+    </TiltMedia>
   );
 }
 

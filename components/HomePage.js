@@ -6,6 +6,7 @@ import HomeSectionMotion from "./HomeSectionMotion";
 import TestimonialDrag from "./TestimonialDrag";
 import WhoWeHelpTabs from "./WhoWeHelpTabs";
 import MethodologySequence from "./MethodologySequence";
+import TiltMedia from "./TiltMedia";
 
 const services = [
   {
@@ -282,14 +283,16 @@ export default function HomePage() {
               <ArrowLink href="/audit">Free Audit</ArrowLink>
             </div>
             <figure className="why-section__image">
-              <img
-                src="/pics/new-asset.png"
-                alt="The Regen founders working together"
-                width="948"
-                height="790"
-                loading="lazy"
-                decoding="async"
-              />
+              <TiltMedia stageClassName="why-section__image-stage">
+                <img
+                  src="/pics/new-asset.png"
+                  alt="The Regen founders working together"
+                  width="948"
+                  height="790"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </TiltMedia>
             </figure>
           </div>
         </section>

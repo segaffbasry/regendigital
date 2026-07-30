@@ -119,7 +119,7 @@ export default function MethodologySequence() {
       <div className="methodology-scroll__sticky">
         <div className="methodology-scroll__copy">
           <header className="methodology-scroll__header">
-            <h2>How We Work</h2>
+            <h2>How we work</h2>
             <p>One connected methodology that turns a clear strategy into a marketing system built to learn and scale.</p>
           </header>
 
