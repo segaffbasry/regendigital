@@ -1397,7 +1397,7 @@ figure, blockquote { margin: 0; }
   min-height: clamp(500px, 48vw, 660px);
   background:
     linear-gradient(90deg, rgba(0, 0, 0, .78) 0%, rgba(0, 0, 0, .46) 52%, rgba(0, 0, 0, .3) 100%),
-    url("/images/founders/holly-taylor.jpg") center 48% / cover no-repeat;
+    url("/images/founders/holly-taylor.webp") center 48% / cover no-repeat;
 }
 
 .who-tabs__hero::before,
@@ -1619,7 +1619,7 @@ figure, blockquote { margin: 0; }
   overflow: hidden;
   background:
     linear-gradient(90deg, rgba(0, 0, 0, .76), rgba(0, 0, 0, .28)),
-    url("/images/founders/holly-taylor.jpg") center 48% / cover no-repeat;
+    url("/images/founders/holly-taylor.webp") center 48% / cover no-repeat;
   color: var(--white);
 }
 
@@ -1697,7 +1697,7 @@ figure, blockquote { margin: 0; }
   padding: clamp(150px, 18vh, 210px) var(--page-gutter) clamp(54px, 8vh, 96px);
   background:
     linear-gradient(90deg, rgba(0, 0, 0, .8), rgba(0, 0, 0, .2)),
-    url("/images/founders/holly-taylor.jpg") center 44% / cover no-repeat;
+    url("/images/founders/holly-taylor.webp") center 44% / cover no-repeat;
 }
 
 .audit-page__content {

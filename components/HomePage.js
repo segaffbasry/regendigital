@@ -19,7 +19,7 @@ const services = [
     href: "/services/go-to-market-and-launch",
     copy: "A joined-up launch system that turns a strong proposition into attention, demand and qualified pipeline.",
     tone: "orange",
-    image: "/pics/service-launch.png",
+    image: "/pics/service-launch.webp",
   },
   {
     title: "Organic Social",
@@ -32,7 +32,7 @@ const services = [
     href: "/services/paid-social",
     copy: "Paid campaigns built around real buyer insight, sharper creative and the outcomes your business needs.",
     tone: "black",
-    image: "/pics/service-paid-social.png",
+    image: "/pics/service-paid-social.webp",
   },
   {
     title: "Google Ads",
@@ -45,7 +45,7 @@ const services = [
     href: "/services/seo",
     copy: "Search visibility built to compound, capture demand, and make your expertise easier to find.",
     tone: "cream",
-    image: "/pics/service-seo.png",
+    image: "/pics/service-seo.webp",
   },
   {
     title: "GEO",
@@ -58,7 +58,7 @@ const services = [
     href: "/services/account-based-marketing",
     copy: "Focused campaigns that create relevance and momentum inside the accounts that matter most.",
     tone: "blue",
-    image: "/pics/service-abm.png",
+    image: "/pics/service-abm.webp",
   },
   {
     title: "Founder-Led Marketing",
@@ -71,7 +71,7 @@ const services = [
     href: "/services/creator-partnerships",
     copy: "Strategic partnerships that borrow trust, reach the right communities and create genuine advocacy.",
     tone: "sky",
-    image: "/pics/service-partnerships.png",
+    image: "/pics/service-partnerships.webp",
   },
 ];
 
@@ -124,7 +124,7 @@ const testimonialCards = [
   {
     company: "AgencyAI",
     name: "Max Modlin",
-    image: "/testimonials/max-modlin.png",
+    image: "/testimonials/max-modlin.webp",
     initials: "MM",
     quote: "What sets them apart is that they operate as a genuine strategic partner, not an external agency. Holly and Taylor are properly invested in seeing us succeed, and it shows in how they work: they keep me right on the strategic decisions, bring thinking to the table proactively, and treat our goals as their own. The combination is rare. They’re sharp on the strategy, reliable on the delivery, and genuinely good people to work with. They’ve become a team I trust to help steer the direction of the business, which is not something I’d say about most agencies.",
     tone: "lavender",

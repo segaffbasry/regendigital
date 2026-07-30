@@ -14,7 +14,7 @@ const founders = [
     name: "Holly",
     title: "Co-Founder",
     focus: "Creative direction & campaign execution",
-    image: "/images/founders/holly.jpg",
+    image: "/images/founders/holly.webp",
     bio: "Holly’s background spans sales, account-based marketing, and brand partnerships, giving her a sharp understanding of what actually drives buying decisions, not just engagement rates. She leads on creative direction and campaign execution at Regen, bringing the kind of creative precision and commercial instinct to content and campaigns that turns work into results. Holly is the reason clients say working with Regen feels like having an in-house team.",
   },
   {
@@ -22,7 +22,7 @@ const founders = [
     name: "Taylor",
     title: "Co-Founder",
     focus: "Strategy & client partnerships",
-    image: "/images/founders/taylor.jpg",
+    image: "/images/founders/taylor.webp",
     bio: "Taylor’s career spans luxury brand marketing, social media strategy, and business growth, giving her a rare combination of creative instinct and commercial rigour. She leads on strategy and client partnerships at Regen, bringing the kind of analytical depth to content and campaigns that most agencies reserve for their biggest budgets. If there’s a smarter way to position your brand or reach your audience, Taylor will find it.",
   },
 ];

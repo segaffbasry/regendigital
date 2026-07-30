@@ -127,13 +127,13 @@ export default function GreetingVideo() {
             loop
             muted
             playsInline
-            poster="/images/founders/holly.jpg"
+            poster="/images/founders/holly.webp"
             onError={() => setVideoAvailable(false)}
           >
             <source src={videoSource} type="video/mp4" />
           </video>
         ) : (
-          <img src="/images/founders/holly.jpg" alt="" />
+          <img src="/images/founders/holly.webp" alt="" />
         )}
         <span className="greeting-video__expand" aria-hidden="true" />
         <button
