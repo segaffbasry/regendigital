@@ -1955,29 +1955,31 @@
   .site-header__mobile-secondary .site-header__mobile-contact {
     display: flex;
     width: 100%;
-    min-height: 50px;
     align-items: center;
     justify-content: space-between;
-    padding: 0 18px;
     border: 1px solid rgba(255, 255, 255, .55);
     border-radius: 999px;
     color: var(--white);
-    font-size: 13px;
     font-weight: 600;
     opacity: 1;
     text-decoration: none;
   }
 
-  .site-header__mobile-contact .cta-arrow {
-    width: 13px;
-    height: 13px;
-    flex: 0 0 13px;
-    opacity: 1;
-  }
-
+  .site-header__mobile-secondary .site-header__mobile-contact,
   .site-header__mobile-audit {
     width: 100%;
+    min-height: 64px;
     justify-content: space-between;
+    padding: 0 24px;
+    font-size: 16px;
+  }
+
+  .site-header__mobile-contact .cta-arrow,
+  .site-header__mobile-audit .cta-arrow {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 16px;
+    opacity: 1;
   }
 
   /* The steps already spell out Audit / Test / Amplify, so the stacked diagram
