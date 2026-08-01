@@ -11,7 +11,9 @@ export default function TiltMedia({ children, className = "", stageClassName = "
   const handlePointerMove = (event) => {
     if (
       !frame.current ||
-      window.matchMedia("(hover: none), (pointer: coarse)").matches
+      window.matchMedia(
+        "(hover: none), (pointer: coarse), (prefers-reduced-motion: reduce)"
+      ).matches
     ) {
       return;
     }

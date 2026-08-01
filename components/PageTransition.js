@@ -8,6 +8,7 @@ export default function PageTransition() {
   const pathname = usePathname();
   const transitioning = useRef(false);
   const navigationTimer = useRef(null);
+  const failsafeTimer = useRef(null);
 
   useEffect(() => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -57,6 +58,12 @@ export default function PageTransition() {
       transitioning.current = true;
       document.documentElement.classList.add("route-is-changing");
 
+      window.clearTimeout(failsafeTimer.current);
+      failsafeTimer.current = window.setTimeout(() => {
+        document.documentElement.classList.remove("route-is-changing");
+        transitioning.current = false;
+      }, 1400);
+
       navigationTimer.current = window.setTimeout(() => {
         router.push(href);
       }, 190);
@@ -66,6 +73,7 @@ export default function PageTransition() {
     return () => {
       document.removeEventListener("click", handleNavigation);
       window.clearTimeout(navigationTimer.current);
+      window.clearTimeout(failsafeTimer.current);
     };
   }, [router]);
 
@@ -75,6 +83,7 @@ export default function PageTransition() {
     const revealFrame = window.requestAnimationFrame(() => {
       document.documentElement.classList.remove("route-is-changing");
       transitioning.current = false;
+      window.clearTimeout(failsafeTimer.current);
     });
 
     return () => window.cancelAnimationFrame(revealFrame);

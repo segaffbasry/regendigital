@@ -1,5 +1,6 @@
 import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
+import PrivacyMotion from "./PrivacyMotion";
 
 const contents = [
   ["information", "The information we collect"],
@@ -18,6 +19,7 @@ const contents = [
 export default function PrivacyPage() {
   return (
     <main className="privacy-page">
+      <PrivacyMotion />
       <SiteHeader />
 
       <section className="privacy-hero">

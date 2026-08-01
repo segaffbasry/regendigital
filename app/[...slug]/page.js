@@ -4,7 +4,10 @@ import ContactPage from "../../components/ContactPage";
 import HowWeWorkPage from "../../components/HowWeWorkPage";
 import InteriorPage from "../../components/InteriorPage";
 import PrivacyPage from "../../components/PrivacyPage";
+import ServicePage from "../../components/ServicePage";
+import WorkPage from "../../components/WorkPage";
 import { phaseOnePages } from "../../lib/site-structure";
+import { contentForPath } from "../../lib/page-content";
 
 export const dynamicParams = true;
 
@@ -38,14 +41,18 @@ export async function generateMetadata({ params }) {
   const page = resolvePage(slug);
   if (!page) return {};
 
+  const content = contentForPath(`/${slug.join("/")}`);
+
   return {
-    title: `${page.title} | Regen`,
+    title: content?.title || `${page.title} | Regen`,
+    description: content?.description,
   };
 }
 
 export default async function PhaseOnePage({ params }) {
   const { slug } = await params;
   const page = resolvePage(slug);
+  const content = contentForPath(`/${slug.join("/")}`);
   if (!page) notFound();
 
   if (slug.length === 1 && slug[0] === "contact") {
@@ -64,5 +71,13 @@ export default async function PhaseOnePage({ params }) {
     return <PrivacyPage />;
   }
 
-  return <InteriorPage title={page.title} section={page.section} />;
+  if (slug.length === 1 && slug[0] === "work") {
+    return <WorkPage />;
+  }
+
+  if (slug.length === 2 && slug[0] === "services") {
+    return <ServicePage content={content} />;
+  }
+
+  return <InteriorPage content={content} title={page.title} section={page.section} />;
 }

@@ -9,7 +9,7 @@ export default function HeroHandwriting({ children }) {
     const hasIntroLoader = Boolean(document.querySelector(".loader"));
     const timer = window.setTimeout(
       () => setIsWriting(true),
-      hasIntroLoader ? 3260 : 180
+      hasIntroLoader ? 1900 : 180
     );
 
     return () => window.clearTimeout(timer);

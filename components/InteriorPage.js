@@ -1,42 +1,205 @@
+import FaqItem from "./FaqItem";
+import InteriorMotion from "./InteriorMotion";
 import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
+import { contentForPath } from "../lib/page-content";
 
-export default function InteriorPage({ title, section }) {
-  const hasBlueHero = section === "Services";
-  const isAudit = section === "Free Audit";
+function ArrowLink({ href = "/contact", children }) {
+  return <a className="editorial-link" href={href}><span>{children}</span><span className="cta-arrow" aria-hidden="true" /></a>;
+}
 
-  if (isAudit) {
-    return (
-      <main className="audit-page">
-        <SiteHeader />
-        <section className="audit-page__hero">
-          <div className="audit-page__content">
-            <p>Free Audit</p>
-            <h1>Get your free digital marketing audit</h1>
-            <div className="audit-page__support">
-              <p>
-                A genuine audit from real strategists. We&apos;ll show you where
-                your pipeline is leaking, what&apos;s working, and the first
-                things we&apos;d fix.
-              </p>
-              <a className="home-link" href="/contact">
-                Start your audit
-                <span className="cta-arrow" aria-hidden="true" />
-              </a>
-            </div>
-          </div>
-        </section>
-        <SiteFooter />
-      </main>
-    );
-  }
+function HeroTitle({ children, accentWord, accentColor }) {
+  if (!accentWord) return children;
+
+  const start = children.toLocaleLowerCase().indexOf(accentWord.toLocaleLowerCase());
+  if (start === -1) return children;
+  const end = start + accentWord.length;
 
   return (
-    <main className={`page-shell${hasBlueHero ? " page-shell--blue-hero" : ""}`}>
+    <>
+      {children.slice(0, start)}
+      <span
+        className="editorial-hero__marked-word"
+        style={{ "--industry-mark": accentColor }}
+      >
+        {children.slice(start, end)}
+      </span>
+      {children.slice(end)}
+    </>
+  );
+}
+
+function CardGrid({ paths }) {
+  if (!paths?.length) return null;
+  return (
+    <section className="editorial-grid-wrap">
+      <p className="editorial-kicker">Explore</p>
+      <div className="editorial-card-grid">
+        {paths.map((path, index) => {
+          const item = contentForPath(path);
+          if (!item) return null;
+          return (
+            <a className="editorial-card" href={path} key={path}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h2>{item.h1}</h2>
+              <p>{item.entity || item.body}</p>
+              <i className="cta-arrow" aria-hidden="true" />
+            </a>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+const motionImages = [
+  "/pics/ChatGPT Image Jul 31, 2026, 10_26_27 AM.png",
+  "/pics/ChatGPT Image Jul 31, 2026, 10_26_34 AM.png",
+  "/pics/ChatGPT Image Jul 31, 2026, 10_27_29 AM.png",
+  "/pics/ChatGPT Image Jul 31, 2026, 10_29_03 AM.png",
+];
+
+const peopleImages = [
+  "/pics/Studio Meeting 2.jpeg",
+  "/pics/Bielke&Yang.jpeg",
+  "/pics/_ (68).jpeg",
+];
+
+function imageSetFor(page) {
+  const seed = Array.from(page.h1 || page.hero || "Regen").reduce((total, character) => total + character.charCodeAt(0), 0);
+  return {
+    primary: motionImages[seed % motionImages.length],
+    portrait: peopleImages[seed % peopleImages.length],
+    supporting: peopleImages[(seed + 1) % peopleImages.length],
+  };
+}
+
+function MediaPlaceholder({ format = "landscape", label = "Regen at work", note = "", src }) {
+  return (
+    <div className={`editorial-media editorial-media--${format}`} data-media-reveal>
+      <div className={`editorial-media__frame${src ? " editorial-media__frame--image" : ""}`}>
+        {src ? (
+          <div className="editorial-media__field editorial-media__field--image">
+            <img className="editorial-media__image" src={src} alt={label} />
+          </div>
+        ) : (
+          <>
+            <div className="editorial-media__field" aria-hidden="true">
+              <span className="editorial-media__cross editorial-media__cross--one" />
+              <span className="editorial-media__cross editorial-media__cross--two" />
+              <span className="editorial-media__scan" />
+            </div>
+            <span className="editorial-media__label">{label}</span>
+            <span className="editorial-media__note">{note}</span>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default function InteriorPage({ content, title, section }) {
+  const page = content || { hero: title, h1: title, section };
+  const tone = page.tone || (page.section === "Services" ? "blue" : "bone");
+  const media = imageSetFor(page);
+
+  return (
+    <main className={`editorial-page editorial-page--${tone}`}>
+      <InteriorMotion />
       <SiteHeader />
-      <section className="page-hero">
-        <p>{section}</p>
-        <h1>{title}</h1>
+      <section className="editorial-hero">
+        <p className="editorial-kicker">{page.section}</p>
+        <h1>
+          <HeroTitle accentWord={page.accentWord} accentColor={page.accentColor}>
+            {page.hero}
+          </HeroTitle>
+        </h1>
+        <div className="editorial-hero__foot">
+          <p>{page.entity || page.h1}</p>
+          <ArrowLink href={page.ctaHref}>{page.cta || "Book a Strategy Call"}</ArrowLink>
+        </div>
+      </section>
+
+      <section className="editorial-intro">
+        <p className="editorial-kicker">{page.h1}</p>
+        <p className="editorial-intro__body">{page.body}</p>
+      </section>
+
+      {!page.emptyWork ? (
+        <section className="editorial-media-stage">
+          <MediaPlaceholder label={`${page.h1} in motion`} src={media.primary} />
+        </section>
+      ) : null}
+
+      {page.included?.length ? (
+        <section className="editorial-included">
+          <div><p className="editorial-kicker">{page.listTitle || "What's included"}</p><h2>Everything connected.<br /><em>Nothing wasted.</em></h2></div>
+          <ol>{page.included.map((item, index) => <li key={item}><span>{String(index + 1).padStart(2, "0")}</span><p>{item}</p></li>)}</ol>
+        </section>
+      ) : null}
+
+      {page.steps?.length ? (
+        <section className="editorial-steps">
+          {page.steps.map(([number, name, copy]) => <article key={number}><span>{number}</span><h2>{name}</h2><p>{copy}</p></article>)}
+        </section>
+      ) : null}
+
+      {page.insight ? (
+        <section className="editorial-insight">
+          <p className="editorial-kicker">Good to know</p>
+          <div><h2>{page.insight[0]}</h2><p>{page.insight[1]}</p></div>
+        </section>
+      ) : null}
+
+      <CardGrid paths={page.cards} />
+
+      {!page.emptyWork ? (
+        <section className="editorial-media-pair" aria-label="Regen team imagery">
+          <MediaPlaceholder format="portrait" label="Regen team collaborating" src={media.portrait} />
+          <MediaPlaceholder format="square" label="A collaborative studio session" src={media.supporting} />
+        </section>
+      ) : null}
+
+      {page.emptyWork ? (
+        <section className="editorial-work-note">
+          <div>
+            <p className="editorial-kicker">Selected work</p>
+            <span>Case studies are being prepared.</span>
+          </div>
+          <div className="editorial-work-note__aside">
+            <p>In the meantime, tell us what you are solving and we&apos;ll share the work most relevant to your market, growth stage, and commercial goal.</p>
+            <ArrowLink href="/contact">Ask for relevant work</ArrowLink>
+          </div>
+        </section>
+      ) : null}
+
+      {page.faqs?.length ? (
+        <section className="editorial-faq">
+          <div><p className="editorial-kicker">FAQs</p><h2>Questions,<br /><em>answered.</em></h2></div>
+          <div className="editorial-faq__items">{page.faqs.map(([question, answer]) => <FaqItem question={question} answer={answer} key={question} />)}</div>
+        </section>
+      ) : null}
+
+      <section className="founder-cta">
+        <div className="founder-cta__copy">
+          <p className="editorial-kicker">Ready when you are</p>
+          <h2>Ready to move the business forward?</h2>
+          <p>Tell us where you want to grow. We&apos;ll bring a genuine point of view, useful guidance, and no hard sell.</p>
+        </div>
+        <div className="founder-cta__card">
+          <div className="founder-cta__faces" aria-label="Holly and Taylor, Regen co-founders">
+            <img src="/images/founders/holly.webp" alt="Holly, Regen co-founder" />
+            <img src="/images/founders/taylor-portrait.webp" alt="Taylor, Regen co-founder" />
+          </div>
+          <p className="editorial-kicker">Get started here</p>
+          <h3>{page.cta || "Book a Strategy Call"}</h3>
+          <p className="founder-cta__meta"><span aria-hidden="true">◷</span> 30 minute conversation</p>
+          <ul>
+            <li>Helpful advice and guidance</li>
+            <li>No sales pitch or obligation</li>
+          </ul>
+          <ArrowLink href={page.ctaHref}>{page.cta || "Book a Strategy Call"}</ArrowLink>
+        </div>
       </section>
       <SiteFooter />
     </main>

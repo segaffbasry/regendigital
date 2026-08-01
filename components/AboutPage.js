@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useLayoutEffect, useRef } from "react";
+import AboutSectionMotion from "./AboutSectionMotion";
 import HomeClosingSections from "./HomeClosingSections";
 import HomeSectionMotion from "./HomeSectionMotion";
 import SiteFooter from "./SiteFooter";
@@ -50,6 +51,15 @@ export default function AboutPage() {
   const revealProgress = useRef(0);
 
   useLayoutEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      stage.current?.style.setProperty("--about-progress", "0");
+      stage.current?.style.setProperty("--about-reveal-progress", "1");
+      document
+        .querySelector(".site-header")
+        ?.classList.remove("is-over-about-blue");
+      return;
+    }
+
     let frame;
     const updateStage = () => {
       frame = undefined;
@@ -105,6 +115,7 @@ export default function AboutPage() {
 
   return (
     <main className="about-page">
+      <AboutSectionMotion />
       <SiteHeader />
 
       <section className="about-hero">
@@ -133,7 +144,7 @@ export default function AboutPage() {
                 <p className="about-founder-profile__focus">{founder.focus}</p>
               </div>
               <div className="about-founder-profile__bio">
-                <p className="about-eyebrow">About {founder.name}</p>
+                <p className="about-eyebrow" data-founder-eyebrow>About {founder.name}</p>
                 <p>{founder.bio}</p>
               </div>
             </article>
@@ -206,7 +217,7 @@ export default function AboutPage() {
             commercial plan. That gives ambitious B2B teams a clearer route
             from attention to pipeline.
           </p>
-          <p data-about-reveal style={{ "--reveal-delay": "80ms" }}>
+          <p data-about-delay="80" data-about-reveal>
             We work closely with founders and commercial leaders, finding the
             message that matters and building the engine that carries it into
             market.

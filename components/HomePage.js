@@ -20,7 +20,7 @@ const services = [
     href: "/services/go-to-market-and-launch",
     copy: "A joined-up launch system that turns a strong proposition into attention, demand and qualified pipeline.",
     tone: "orange",
-    image: "/pics/service-launch.webp",
+    image: "/pics/ChatGPT Image Jul 31, 2026, 10_26_27 AM.png",
   },
   {
     title: "Organic Social",
@@ -33,7 +33,7 @@ const services = [
     href: "/services/paid-social",
     copy: "Paid campaigns built around real buyer insight, sharper creative and the outcomes your business needs.",
     tone: "black",
-    image: "/pics/service-paid-social.webp",
+    image: "/pics/ChatGPT Image Jul 31, 2026, 10_29_03 AM.png",
   },
   {
     title: "Google Ads",
@@ -46,7 +46,7 @@ const services = [
     href: "/services/seo",
     copy: "Search visibility built to compound, capture demand, and make your expertise easier to find.",
     tone: "cream",
-    image: "/pics/service-seo.webp",
+    image: "/pics/ChatGPT Image Jul 31, 2026, 10_27_29 AM.png",
   },
   {
     title: "GEO",
@@ -59,7 +59,7 @@ const services = [
     href: "/services/account-based-marketing",
     copy: "Focused campaigns that create relevance and momentum inside the accounts that matter most.",
     tone: "blue",
-    image: "/pics/service-abm.webp",
+    image: "/pics/ChatGPT Image Jul 31, 2026, 10_26_34 AM.png",
   },
   {
     title: "Founder-Led Marketing",
@@ -223,15 +223,29 @@ export default function HomePage() {
       </section>
 
       <section className="home-section home-section--bone what-we-do" id="services">
-        <div className="home-section__intro">
-          <StaggerText lineReveal>B2B digital marketing that scales with your business</StaggerText>
-        </div>
         <div className="home-section__split">
-          <p className="home-body-large">Regen believes marketing works best as one system that speak to each other, not a set of siloed tactics. We start with research, set the positioning and the plan, then deliver the channels and campaigns that carry it, from organic and paid social to Google Ads, SEO and GEO, and account-based marketing. Everything ladders up to one strategy built around your business, so the work holds its value as your market shifts. It&apos;s how we turn marketing into <strong>demand generation</strong>, <strong>lead generation</strong>, qualified pipeline, and revenue. You get a long-term growth partner and an extension of your team, not a one-channel supplier.</p>
-          <div className="home-section__actions home-section__actions--services">
-            <ArrowLink href="/services">Explore our services</ArrowLink>
-            <ArrowLink href="/audit" className="home-link--blue">Free Audit</ArrowLink>
+          <div className="what-we-do__content">
+            <div className="home-section__intro">
+              <StaggerText lineReveal>B2B digital marketing that scales with your business</StaggerText>
+            </div>
+            <div className="what-we-do__copy">
+              <p className="home-body-large">Regen believes marketing works best as one system that speak to each other, not a set of siloed tactics. We start with research, set the positioning and the plan, then deliver the channels and campaigns that carry it, from organic and paid social to Google Ads, SEO and GEO, and account-based marketing. Everything ladders up to one strategy built around your business, so the work holds its value as your market shifts. It&apos;s how we turn marketing into <strong>demand generation</strong>, <strong>lead generation</strong>, qualified pipeline, and revenue. You get a long-term growth partner and an extension of your team, not a one-channel supplier.</p>
+              <div className="home-section__actions home-section__actions--services">
+                <ArrowLink href="/services">Explore our services</ArrowLink>
+                <ArrowLink href="/audit" className="home-link--blue">Free Audit</ArrowLink>
+              </div>
+            </div>
           </div>
+          <TiltMedia
+            className="what-we-do__media-frame"
+            stageClassName="what-we-do__media"
+          >
+            <img
+              src="/pics/Studio Meeting 2.jpeg"
+              alt="A team collaborating around a table in a sunlit studio"
+              loading="lazy"
+            />
+          </TiltMedia>
           <div className="service-stack">
             {services.map((service, index) => (
               <article
@@ -343,7 +357,9 @@ export default function HomePage() {
 
         <section className="home-section home-section--audit">
           <div className="home-section--audit__content">
-            <StaggerText lineReveal>Get your free digital marketing audit</StaggerText>
+            <StaggerText lineReveal>
+              Get your free digital <span className="home-audit-title__keep">marketing audit</span>
+            </StaggerText>
             <p className="home-body-large">Get a free digital marketing audit of your positioning, channels, and content from real strategists. You'll see exactly where your pipeline is leaking, what's working, and the first things we'd fix.</p>
             <ArrowLink href="/audit">Free Audit</ArrowLink>
           </div>
