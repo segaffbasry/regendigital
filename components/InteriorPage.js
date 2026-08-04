@@ -4,6 +4,17 @@ import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
 import { contentForPath } from "../lib/page-content";
 
+const protectedTitleWords = new Set(["AI", "B2B", "GEO", "Google", "Regen", "SaaS", "SEO"]);
+
+function sentenceCaseTitle(title) {
+  let wordIndex = 0;
+  return title.replace(/[A-Za-z0-9]+(?:['’-][A-Za-z0-9]+)*/g, (word) => {
+    const isFirst = wordIndex++ === 0;
+    if (isFirst || protectedTitleWords.has(word) || /^[A-Z0-9]{2,}$/.test(word)) return word;
+    return word.toLocaleLowerCase();
+  });
+}
+
 function ArrowLink({ href = "/contact", children }) {
   return <a className="editorial-link" href={href}><span>{children}</span><span className="cta-arrow" aria-hidden="true" /></a>;
 }
@@ -106,14 +117,14 @@ export default function InteriorPage({ content, title, section }) {
   const media = imageSetFor(page);
 
   return (
-    <main className={`editorial-page editorial-page--${tone}`}>
+    <main className={`editorial-page editorial-page--${tone}${page.variant ? ` editorial-page--${page.variant}` : ""}`}>
       <InteriorMotion />
       <SiteHeader />
       <section className="editorial-hero">
         <p className="editorial-kicker">{page.section}</p>
         <h1>
           <HeroTitle accentWord={page.accentWord} accentColor={page.accentColor}>
-            {page.hero}
+            {sentenceCaseTitle(page.hero)}
           </HeroTitle>
         </h1>
         <div className="editorial-hero__foot">

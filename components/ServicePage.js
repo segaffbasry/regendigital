@@ -3,6 +3,17 @@ import ServiceMotion from "./ServiceMotion";
 import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
 
+const protectedTitleWords = new Set(["AI", "B2B", "GEO", "Google", "Regen", "SaaS", "SEO"]);
+
+function sentenceCaseTitle(title) {
+  let wordIndex = 0;
+  return title.replace(/[A-Za-z0-9]+(?:['’-][A-Za-z0-9]+)*/g, (word) => {
+    const isFirst = wordIndex++ === 0;
+    if (isFirst || protectedTitleWords.has(word) || /^[A-Z0-9]{2,}$/.test(word)) return word;
+    return word.toLocaleLowerCase();
+  });
+}
+
 function ArrowLink({ href = "/contact", children }) {
   return <a className="service-detail__link" href={href}><span>{children}</span><span className="cta-arrow" aria-hidden="true" /></a>;
 }
@@ -27,7 +38,7 @@ export default function ServicePage({ content: page }) {
 
       <section className="service-detail__hero">
         <p className="editorial-kicker">{page.h1}</p>
-        <h1>{page.hero}</h1>
+        <h1>{sentenceCaseTitle(page.hero)}</h1>
         <div className="service-detail__hero-meta">
           <p>{page.entity}</p>
           <ArrowLink href={page.ctaHref}>{page.cta}</ArrowLink>
@@ -106,7 +117,7 @@ export default function ServicePage({ content: page }) {
             <img src="/images/founders/holly.webp" alt="Holly, Regen co-founder" />
             <img src="/images/founders/taylor-portrait.webp" alt="Taylor, Regen co-founder" />
           </div>
-          <h3>Book your free digital marketing review</h3>
+          <h3>Book a strategy call</h3>
           <p className="service-detail__closing-meta"><span aria-hidden="true">◷</span> 30 minute session</p>
           <form className="service-detail__closing-form" action="/contact" method="get">
             <label>

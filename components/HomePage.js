@@ -10,26 +10,26 @@ import TiltMedia from "./TiltMedia";
 
 const services = [
   {
-    title: "Marketing Strategy & Consultancy",
+    title: "Marketing strategy & consultancy",
     href: "/services/marketing-strategy-consultancy",
     copy: "Research, positioning and a practical plan that gives every channel one clear commercial direction.",
     tone: "blue",
   },
   {
-    title: "Go-to-Market & Launch",
+    title: "Go-to-market & launch",
     href: "/services/go-to-market-and-launch",
     copy: "A joined-up launch system that turns a strong proposition into attention, demand and qualified pipeline.",
     tone: "blue",
     image: "/pics/ChatGPT Image Jul 31, 2026, 10_26_27 AM.png",
   },
   {
-    title: "Organic Social",
+    title: "Organic social",
     href: "/services/organic-social",
     copy: "Distinctive, expert-led content that builds recognition and makes your company worth following.",
     tone: "sky",
   },
   {
-    title: "Paid Social",
+    title: "Paid social",
     href: "/services/paid-social",
     copy: "Paid campaigns built around real buyer insight, sharper creative and the outcomes your business needs.",
     tone: "black",
@@ -55,20 +55,20 @@ const services = [
     tone: "sky",
   },
   {
-    title: "Account-Based Marketing",
+    title: "Account-based marketing",
     href: "/services/account-based-marketing",
     copy: "Focused campaigns that create relevance and momentum inside the accounts that matter most.",
     tone: "blue",
     image: "/pics/ChatGPT Image Jul 31, 2026, 10_26_34 AM.png",
   },
   {
-    title: "Founder-Led Marketing",
+    title: "Founder-led marketing",
     href: "/services/founder-led-marketing",
     copy: "A credible founder voice transformed into a repeatable platform for trust, authority and demand.",
     tone: "blue",
   },
   {
-    title: "Creator Partnerships",
+    title: "Creator partnerships",
     href: "/services/creator-partnerships",
     copy: "Strategic partnerships that borrow trust, reach the right communities and create genuine advocacy.",
     tone: "sky",
