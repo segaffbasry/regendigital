@@ -299,7 +299,7 @@ export default function HowWeWorkPage() {
       <section className="how-work-outro">
         <div>
           <div className="how-work-outro__faces" aria-label="Holly and Taylor, Regen co-founders">
-            <img src="/images/founders/holly.webp" alt="Holly, Regen co-founder" />
+            <img src="/images/founders/holly-updated.png" alt="Holly, Regen co-founder" />
             <img src="/images/founders/taylor-portrait.webp" alt="Taylor, Regen co-founder" />
           </div>
           <p>Ready to build the right system for your business?</p>

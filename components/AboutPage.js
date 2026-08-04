@@ -16,7 +16,7 @@ const founders = [
     name: "Holly",
     title: "Co-Founder",
     focus: "Creative direction & campaign execution",
-    image: "/images/founders/holly.webp",
+    image: "/images/founders/holly-updated.png",
     bio: "Holly’s background spans sales, account-based marketing, and brand partnerships, giving her a sharp understanding of what actually drives buying decisions, not just engagement rates. She leads on creative direction and campaign execution at Regen, bringing the kind of creative precision and commercial instinct to content and campaigns that turns work into results. Holly is the reason clients say working with Regen feels like having an in-house team.",
   },
   {

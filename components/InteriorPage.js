@@ -201,7 +201,7 @@ export default function InteriorPage({ content, title, section }) {
         </div>
         <div className="founder-cta__card">
           <div className="founder-cta__faces" aria-label="Holly and Taylor, Regen co-founders">
-            <img src="/images/founders/holly.webp" alt="Holly, Regen co-founder" />
+            <img src="/images/founders/holly-updated.png" alt="Holly, Regen co-founder" />
             <img src="/images/founders/taylor-portrait.webp" alt="Taylor, Regen co-founder" />
           </div>
           <p className="editorial-kicker">Get started here</p>

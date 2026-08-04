@@ -114,7 +114,7 @@ export default function ServicePage({ content: page }) {
         <div className="service-detail__closing-card">
           <span className="service-detail__closing-note">Get started here ↘</span>
           <div className="service-detail__closing-faces" aria-label="Holly and Taylor, Regen co-founders">
-            <img src="/images/founders/holly.webp" alt="Holly, Regen co-founder" />
+            <img src="/images/founders/holly-updated.png" alt="Holly, Regen co-founder" />
             <img src="/images/founders/taylor-portrait.webp" alt="Taylor, Regen co-founder" />
           </div>
           <h3>Book a strategy call</h3>
