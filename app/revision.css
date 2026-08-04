@@ -3705,6 +3705,25 @@
   box-shadow: 0 30px 80px rgba(26, 21, 13, .08);
 }
 
+.form-founder-faces {
+  display: flex;
+  margin-bottom: 18px;
+}
+
+.form-founder-faces img {
+  width: clamp(44px, 3.5vw, 54px);
+  aspect-ratio: 1;
+  border: 3px solid var(--white);
+  border-radius: 50%;
+  background: #deded8;
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+.form-founder-faces img + img {
+  margin-left: -12px;
+}
+
 .contact-form-card__top {
   display: grid;
   grid-template-columns: 1fr auto;

@@ -26,6 +26,10 @@ export default function AuditPage() {
 
         <div className="audit-review__card">
           <div className="audit-review__card-heading">
+            <div className="form-founder-faces" aria-label="Holly and Taylor, Regen co-founders">
+              <img src="/images/founders/holly-updated.png" alt="" />
+              <img src="/images/founders/taylor-portrait.webp" alt="" />
+            </div>
             <p className="editorial-kicker">Get started here</p>
             <h2>Book your free digital marketing review</h2>
             <p><span aria-hidden="true">◷</span> 30 minute review call</p>

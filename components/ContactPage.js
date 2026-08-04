@@ -59,6 +59,10 @@ export default function ContactPage() {
         <div className="contact-form-card" data-contact-form>
           <div className="contact-form-card__top">
             <div>
+              <div className="form-founder-faces" aria-label="Holly and Taylor, Regen co-founders">
+                <img src="/images/founders/holly-updated.png" alt="" />
+                <img src="/images/founders/taylor-portrait.webp" alt="" />
+              </div>
               <p className="contact-kicker">Start a conversation</p>
               <h2>What are you working on?</h2>
             </div>
