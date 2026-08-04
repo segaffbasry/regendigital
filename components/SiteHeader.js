@@ -195,11 +195,12 @@ export default function SiteHeader({ animated = false }) {
 
   useLayoutEffect(() => {
     const navElement = nav.current;
-    if (!navElement || !activeMenu) return;
+    const menuAreaElement = menuArea.current;
+    if (!navElement || !menuAreaElement || !activeMenu) return undefined;
 
     const activeTrigger = navElement.querySelector(".site-header__link.is-active-menu");
     const actions = Array.from(navElement.querySelectorAll(".site-header__action"));
-    if (!activeTrigger || !actions.length) return;
+    if (!activeTrigger || !actions.length) return undefined;
 
     const compactWidth = Math.ceil(
       activeTrigger.getBoundingClientRect().width +
@@ -208,6 +209,41 @@ export default function SiteHeader({ animated = false }) {
     );
 
     navElement.style.setProperty("--nav-compact-width", `${compactWidth}px`);
+
+    let frame = 0;
+    let startedAt = 0;
+
+    function updateSubmenuPosition(timestamp = 0) {
+      const submenu = menuAreaElement.querySelector(".site-header__submenu");
+      if (!submenu) return;
+
+      const areaBounds = menuAreaElement.getBoundingClientRect();
+      const triggerBounds = activeTrigger.getBoundingClientRect();
+      const submenuWidth = submenu.getBoundingClientRect().width;
+      const idealLeft = triggerBounds.left - areaBounds.left + (triggerBounds.width - submenuWidth) / 2;
+      const maximumLeft = Math.max(0, areaBounds.width - submenuWidth);
+      const left = Math.min(maximumLeft, Math.max(0, idealLeft));
+
+      menuAreaElement.style.setProperty("--submenu-left", `${Math.round(left)}px`);
+
+      if (timestamp) {
+        if (!startedAt) startedAt = timestamp;
+        if (timestamp - startedAt < 760) frame = window.requestAnimationFrame(updateSubmenuPosition);
+      }
+    }
+
+    function handleResize() {
+      updateSubmenuPosition();
+    }
+
+    updateSubmenuPosition();
+    frame = window.requestAnimationFrame(updateSubmenuPosition);
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener("resize", handleResize);
+    };
   }, [activeMenu]);
 
   useEffect(() => {
