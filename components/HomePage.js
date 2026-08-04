@@ -280,6 +280,9 @@ export default function HomePage() {
                   <div className="service-stack__copy">
                     <ServiceTitle>{service.title}</ServiceTitle>
                     <p>{service.copy}</p>
+                    <span className="service-stack__pill">
+                      Explore service <span className="cta-arrow" aria-hidden="true" />
+                    </span>
                   </div>
                 </a>
                 <span className="service-stack__corner" aria-hidden="true">

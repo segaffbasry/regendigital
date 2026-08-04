@@ -1331,7 +1331,7 @@ figure, blockquote { margin: 0; }
 .service-detail__faq h2,
 .service-detail__closing h2 { margin: 0; font-size: clamp(48px, 6vw, 94px); font-weight: 400; letter-spacing: -.06em; line-height: .91; }
 .service-detail__deliverables h2 { max-width: 980px; font-size: clamp(46px, 5vw, 78px); line-height: .94; }
-.service-detail__deliverables h2 em,
+.service-detail__deliverables h2 em { font-family: var(--font-editorial); font-style: italic; font-weight: 400; }
 .service-detail__faq h2 em { font-family: var(--font-serif); font-weight: 400; }
 .service-detail__closing h2 em { font-family: var(--font-editorial); font-style: italic; font-weight: 400; }
 .service-detail__deliverable-grid { display: grid; border-top: 1px solid rgba(10,10,10,.45); }

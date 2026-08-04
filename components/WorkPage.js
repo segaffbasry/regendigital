@@ -76,12 +76,18 @@ export default function WorkPage() {
           <p>Four partnerships across B2B, AI and production. Every case study leads with the outcome, then shows the work that made it happen.</p>
         </div>
         <div className="work-case-grid">
-          {cases.map((item) => (
-            <a className={`work-case${item.placeholder ? " work-case--placeholder" : ""}`} href={item.href} key={item.name}>
+          {cases.map((item) => {
+            const CaseElement = item.placeholder ? "article" : "a";
+            return (
+            <CaseElement
+              {...(item.placeholder ? { "aria-disabled": true } : { href: item.href })}
+              className={`work-case${item.placeholder ? " work-case--placeholder" : ""}`}
+              key={item.name}
+            >
               <div className="work-case__visual">
                 <img src={item.image} alt={`${item.name} case study`} />
                 <span className="work-case__proof">{item.proof}</span>
-                <span className="work-case__open"><Arrow /></span>
+                {!item.placeholder ? <span className="work-case__open"><Arrow /></span> : null}
               </div>
               <div className="work-case__caption">
                 <span>{item.number}</span>
@@ -89,8 +95,9 @@ export default function WorkPage() {
                 <p>{item.summary}</p>
                 <div><span>{item.service}</span><span>{item.sector}</span></div>
               </div>
-            </a>
-          ))}
+            </CaseElement>
+            );
+          })}
         </div>
       </section>
 
@@ -103,15 +110,22 @@ export default function WorkPage() {
           <div className="work-index__labels" aria-hidden="true">
             <span>Project</span><span>Discipline</span><span>Market</span><span>Result</span>
           </div>
-          {cases.map((item) => (
-            <a className="work-index__row" href={item.href} key={item.name}>
+          {cases.map((item) => {
+            const RowElement = item.placeholder ? "div" : "a";
+            return (
+            <RowElement
+              {...(item.placeholder ? { "aria-disabled": true } : { href: item.href })}
+              className={`work-index__row${item.placeholder ? " work-index__row--placeholder" : ""}`}
+              key={item.name}
+            >
               <strong>{item.name}</strong>
               <span>{item.service}</span>
               <span>{item.sector}</span>
               <span>{item.proof}</span>
-              <Arrow />
-            </a>
-          ))}
+              {!item.placeholder ? <Arrow /> : null}
+            </RowElement>
+            );
+          })}
         </div>
       </section>
 

@@ -5,36 +5,43 @@ import { useCallback, useEffect, useRef, useState } from "react";
 const audiences = [
   {
     label: "Founders",
+    icon: "human-resources-businessman",
     title: "Marketing built to match what you have made.",
     copy: "You have built something that works. We clarify your value so the market understands exactly what you do, then build the complete marketing system that drives brand recognition and bottom-line revenue.",
   },
   {
     label: "Commercial Leaders",
+    icon: "business-management-team-up",
     title: "A strategy-led team that plugs straight in.",
     copy: "For VPs of Marketing, Heads of Marketing, CMOs, and revenue leads who want a capable extension of their team. We manage the full lifecycle and connect early signals directly to qualified lead generation, pipeline creation, and revenue.",
   },
   {
     label: "Scale-ups",
+    icon: "strategy-business-success-peak",
     title: "Keep pace without losing focus.",
     copy: "Growing fast calls for marketing that moves just as quickly. We build the strategy and channels that scale demand while keeping the proposition clear and the team focused.",
   },
   {
     label: "New Markets",
+    icon: "worldwide-web-location-pin",
     title: "Enter a new market with intent.",
     copy: "We build the market-entry strategy and go-to-market plan, then run the launch that lands, learns, and creates momentum in the right places.",
   },
   {
     label: "Series A & B",
+    icon: "analytics-graph-stock",
     title: "Turn investment into visible growth.",
     copy: "Post-raise and under pressure to show progress, you need marketing that supports the next round. We turn investment into pipeline with a strategy that compounds.",
   },
   {
     label: "Pre-investment",
+    icon: "business-cash-idea",
     title: "Build the foundation that proves traction.",
     copy: "For self-funding teams preparing for the next step, we build a credible marketing foundation whether you raise later or grow on your own terms.",
   },
   {
     label: "Investors",
+    icon: "business-deal-men-cash-conversation",
     title: "One marketing partner across the portfolio.",
     copy: "Bring a single strategic partner across the whole portfolio, with a flexible system that respects what makes each business distinct.",
   },
@@ -140,19 +147,29 @@ export default function WhoWeHelpTabs() {
           key={active.label}
           role="tabpanel"
         >
-          <h3 aria-label={active.title}>
-            <span aria-hidden="true">
-              {active.title.split(" ").map((word, index) => (
-                <span
-                  className="who-tabs__title-word"
-                  key={`${active.label}-${word}-${index}`}
-                  style={{ "--word-index": index }}
-                >
-                  {word}
-                </span>
-              ))}
-            </span>
-          </h3>
+          <div className="who-tabs__heading">
+            <img
+              alt=""
+              aria-hidden="true"
+              className="who-tabs__icon"
+              height="64"
+              src={`https://api.iconify.design/streamline-freehand:${active.icon}.svg?color=%230028fa`}
+              width="64"
+            />
+            <h3 aria-label={active.title}>
+              <span aria-hidden="true">
+                {active.title.split(" ").map((word, index) => (
+                  <span
+                    className="who-tabs__title-word"
+                    key={`${active.label}-${word}-${index}`}
+                    style={{ "--word-index": index }}
+                  >
+                    {word}
+                  </span>
+                ))}
+              </span>
+            </h3>
+          </div>
           <div className="who-tabs__detail">
             <p>{active.copy}</p>
             <div className="who-tabs__proof">

@@ -199,7 +199,31 @@
 .editorial-card > span { font-size: 11px; }
 .editorial-card h2 { max-width: 620px; margin: 76px 0 20px; font-size: clamp(28px, 2.5vw, 40px); font-weight: 500; letter-spacing: -.04em; line-height: 1; }
 .editorial-card p { max-width: 560px; margin: 0; font-size: 15px; line-height: 1.3; }
-.editorial-card i { position: absolute; right: 28px; bottom: 28px; }
+.editorial-card__pill {
+  position: absolute;
+  right: 28px;
+  bottom: 26px;
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-family: var(--font-helv);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.editorial-card__pill i {
+  position: static;
+  display: block;
+  width: 10px;
+  height: 10px;
+  opacity: 1;
+}
 
 .editorial-faq {
   display: grid;
@@ -495,6 +519,28 @@
   line-height: 1.35;
 }
 
+.service-stack__pill {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  padding: 10px 14px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-family: var(--font-helv);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.service-stack__pill .cta-arrow {
+  width: 10px;
+  height: 10px;
+  opacity: 1;
+}
+
 .service-stack__card--image,
 .service-stack__card--image .service-stack__copy p,
 .service-stack__card--image .service-title__face {
@@ -572,6 +618,22 @@
 
 .who-tabs__panel h3 {
   font-size: clamp(38px, 3.8vw, 62px);
+}
+
+.who-tabs__heading {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(12px, 1.25vw, 18px);
+}
+
+.who-tabs__icon {
+  display: block;
+  width: clamp(42px, 4vw, 58px);
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
 }
 
 .who-tabs__detail > p {
@@ -1628,6 +1690,29 @@
 .work-index__row:focus-visible {
   background-color: var(--blue);
   color: var(--white);
+}
+
+.work-case--placeholder {
+  cursor: default;
+  color: rgba(5, 5, 5, .56);
+}
+
+.work-case--placeholder .work-case__visual img,
+.work-case--placeholder:hover .work-case__visual img {
+  filter: grayscale(1) saturate(0) contrast(.9);
+}
+
+.work-case--placeholder .work-case__visual::after,
+.work-case--placeholder:hover .work-case__visual::after {
+  background: rgba(236, 236, 232, .58);
+  opacity: 1;
+}
+
+.work-index__row--placeholder,
+.work-index__row--placeholder:hover {
+  padding-inline: 0;
+  color: rgba(255, 255, 255, .38);
+  cursor: default;
 }
 
 .work-closing {
@@ -3484,6 +3569,7 @@
   position: absolute;
   z-index: -1;
   inset: 0;
+  border-radius: 16px;
   background: var(--black);
   content: "";
   transform: scaleY(0);
@@ -4363,6 +4449,14 @@
     line-height: .98;
   }
 
+  .who-tabs__heading {
+    gap: 16px;
+  }
+
+  .who-tabs__icon {
+    width: clamp(36px, 3vw, 46px);
+  }
+
   .who-tabs__detail > p {
     min-height: 4.2em;
     font-size: clamp(13px, .9vw, 15px);
@@ -4377,58 +4471,6 @@
     font-size: clamp(18px, 1.4vw, 23px);
   }
 
-  .methodology-scroll {
-    min-height: 160svh;
-  }
-
-  .methodology-scroll__sticky {
-    gap: clamp(28px, 4vw, 60px);
-    padding: clamp(44px, 5.5vh, 62px) clamp(28px, 4.5vw, 72px) clamp(18px, 2.5vh, 30px);
-  }
-
-  .methodology-scroll__header h2 {
-    max-width: 470px;
-    font-size: clamp(34px, 3.7vw, 56px);
-  }
-
-  .methodology-scroll__header > p:last-child {
-    max-width: 450px;
-    margin-top: 12px;
-    font-size: clamp(13px, .9vw, 15px);
-  }
-
-  .methodology-scroll__steps {
-    width: min(100%, 520px);
-    margin: 24px 0 14px;
-  }
-
-  .methodology-scroll__step {
-    min-height: 44px;
-    padding-block: 6px;
-  }
-
-  .methodology-scroll__step strong {
-    font-size: clamp(20px, 1.7vw, 28px);
-  }
-
-  .methodology-scroll__step-copy > span {
-    font-size: clamp(12px, .82vw, 14px);
-    line-height: 1.32;
-  }
-
-  .methodology-scroll__step.is-active .methodology-scroll__step-copy > span {
-    min-height: 56px;
-    max-height: 56px;
-    margin-top: 6px;
-  }
-
-  .methodology-scroll__copy > .home-cta-pair {
-    margin-top: 4px;
-  }
-
-  .methodology-visual {
-    width: min(100%, 500px);
-  }
 }
 
 .final-cta-stage {
@@ -4461,6 +4503,14 @@
 }
 
 @media (max-width: 900px) {
+  .who-tabs__heading {
+    gap: 14px;
+  }
+
+  .who-tabs__icon {
+    width: 42px;
+  }
+
   .problem-section {
     padding-bottom: 18px;
   }
@@ -4468,11 +4518,6 @@
   .audience-section {
     padding-top: 8px;
     padding-bottom: 20px;
-  }
-
-  .methodology-scroll {
-    padding-top: 58px;
-    padding-bottom: 58px;
   }
 
   .final-cta-stage,

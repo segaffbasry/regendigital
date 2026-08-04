@@ -43,7 +43,9 @@ function CardGrid({ paths }) {
               <span>{String(index + 1).padStart(2, "0")}</span>
               <h2>{item.h1}</h2>
               <p>{item.entity || item.body}</p>
-              <i className="cta-arrow" aria-hidden="true" />
+              <span className="editorial-card__pill">
+                Explore <i className="cta-arrow" aria-hidden="true" />
+              </span>
             </a>
           );
         })}
