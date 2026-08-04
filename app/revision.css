@@ -1596,6 +1596,46 @@
   background: rgba(0, 40, 250, .1);
 }
 
+/* Match the denser service-page benchmark: the proposition and the opening
+   opportunity should share the first desktop viewport. */
+@media (min-width: 901px) {
+  .service-detail__hero {
+    min-height: 0;
+    justify-content: flex-start;
+    padding-top: clamp(58px, 7vh, 76px);
+    padding-bottom: 38px;
+  }
+
+  .service-detail__hero h1 {
+    max-width: 1080px;
+    margin-top: 18px;
+    margin-bottom: 28px;
+    font-size: clamp(44px, 5.1vw, 76px);
+    line-height: .93;
+  }
+
+  .service-detail__hero-meta > p {
+    max-width: 680px;
+    font-size: clamp(16px, 1.2vw, 20px);
+  }
+
+  .service-detail__opening {
+    gap: clamp(36px, 6vw, 96px);
+    padding-top: 48px;
+    padding-bottom: 54px;
+  }
+
+  .service-detail__opening > div {
+    min-height: 82px;
+  }
+
+  .service-detail__opening > p {
+    max-width: 940px;
+    font-size: clamp(20px, 1.8vw, 30px);
+    line-height: 1.2;
+  }
+}
+
 .work-featured {
   padding: 138px max(5vw, 28px) 92px;
   background: var(--work-paper);
