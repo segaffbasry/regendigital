@@ -252,7 +252,6 @@ export default function HomePage() {
               <div className="home-section__actions home-section__actions--services">
                 <ArrowLink href="/services">Explore our services</ArrowLink>
                 <ArrowLink href="/audit" className="home-link--blue">Free Audit</ArrowLink>
-                <ArrowLink href="/contact" className="home-link--blue">Book a call</ArrowLink>
               </div>
             </div>
           </div>
