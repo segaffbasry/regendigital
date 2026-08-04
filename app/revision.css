@@ -1692,6 +1692,22 @@
   color: var(--white);
 }
 
+.work-index__row {
+  transition:
+    background-color .35s ease,
+    border-color .35s ease,
+    border-radius .35s ease,
+    color .35s ease,
+    padding .45s cubic-bezier(.16, 1, .3, 1);
+}
+
+.work-index__row:hover,
+.work-index__row:focus-visible {
+  padding-inline: clamp(20px, 2vw, 32px);
+  border-top-color: transparent;
+  border-radius: 18px;
+}
+
 .work-case--placeholder {
   cursor: default;
   color: rgba(5, 5, 5, .56);
@@ -1711,8 +1727,23 @@
 .work-index__row--placeholder,
 .work-index__row--placeholder:hover {
   padding-inline: 0;
+  border-radius: 0;
+  background-color: transparent;
   color: rgba(255, 255, 255, .38);
   cursor: default;
+}
+
+@media (max-width: 700px) {
+  .work-index__row:hover,
+  .work-index__row:focus-visible {
+    padding-inline: 18px;
+    border-radius: 14px;
+  }
+
+  .work-index__row--placeholder,
+  .work-index__row--placeholder:hover {
+    padding-inline: 0;
+  }
 }
 
 .work-closing {
@@ -4066,7 +4097,7 @@
 }
 
 .how-work-partnership {
-  padding: clamp(76px, 9vw, 140px) var(--page-gutter);
+  padding: clamp(64px, 6.5vw, 96px) var(--page-gutter);
   background: var(--sand);
   color: var(--black);
 }
@@ -4090,9 +4121,9 @@
 }
 
 .how-work-partnership h2 {
-  max-width: 1050px;
+  max-width: 900px;
   margin: 0;
-  font-size: clamp(42px, 5.6vw, 88px);
+  font-size: clamp(38px, 4.35vw, 68px);
   font-weight: 500;
   letter-spacing: -.06em;
   line-height: .94;
@@ -4108,14 +4139,14 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
-  margin-top: clamp(64px, 8vw, 120px);
+  margin-top: clamp(44px, 5vw, 72px);
 }
 
 .how-work-principle {
   display: flex;
-  min-height: clamp(330px, 31vw, 480px);
+  min-height: clamp(250px, 22vw, 330px);
   flex-direction: column;
-  padding: clamp(24px, 2.6vw, 40px);
+  padding: clamp(22px, 2vw, 30px);
   border: 1px solid rgba(5, 5, 5, .16);
   border-radius: 22px;
   background: var(--white);
@@ -4145,9 +4176,9 @@
 }
 
 .how-work-principle h3 {
-  margin: auto 0 22px;
+  margin: auto 0 16px;
   font-family: var(--font-editorial);
-  font-size: clamp(32px, 3.4vw, 54px);
+  font-size: clamp(28px, 2.65vw, 42px);
   font-weight: 500;
   letter-spacing: -.035em;
   line-height: .98;
@@ -4156,8 +4187,8 @@
 .how-work-principle p {
   max-width: 430px;
   margin: 0;
-  font-size: clamp(14px, 1.08vw, 17px);
-  line-height: 1.45;
+  font-size: clamp(13px, .95vw, 15px);
+  line-height: 1.4;
 }
 
 .how-work-fit {
@@ -4167,9 +4198,9 @@
 
 .how-work-fit article {
   display: flex;
-  min-height: clamp(520px, 66svh, 720px);
+  min-height: clamp(360px, 46svh, 500px);
   flex-direction: column;
-  padding: clamp(60px, 7vw, 110px) var(--page-gutter);
+  padding: clamp(46px, 5vw, 74px) var(--page-gutter);
 }
 
 .how-work-fit__yes {
@@ -4183,9 +4214,9 @@
 }
 
 .how-work-fit h2 {
-  max-width: 720px;
-  margin: auto 0 30px;
-  font-size: clamp(38px, 4.7vw, 76px);
+  max-width: 620px;
+  margin: auto 0 20px;
+  font-size: clamp(34px, 3.65vw, 58px);
   font-weight: 500;
   letter-spacing: -.055em;
   line-height: .95;
@@ -4193,26 +4224,26 @@
 
 .how-work-fit article > span {
   max-width: 590px;
-  font-size: clamp(15px, 1.2vw, 19px);
-  line-height: 1.45;
+  font-size: clamp(14px, 1.05vw, 17px);
+  line-height: 1.4;
 }
 
 .how-work-investment {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(300px, .8fr);
-  gap: clamp(60px, 10vw, 170px);
+  gap: clamp(48px, 7vw, 110px);
   align-items: end;
-  min-height: 56svh;
-  padding: clamp(76px, 9vw, 140px) var(--page-gutter);
+  min-height: clamp(360px, 42svh, 460px);
+  padding: clamp(64px, 6.5vw, 96px) var(--page-gutter);
   background: var(--black);
   color: var(--white);
 }
 
 .how-work-investment h2 {
-  max-width: 900px;
-  margin: 28px 0 0;
+  max-width: 760px;
+  margin: 20px 0 0;
   font-family: var(--font-editorial);
-  font-size: clamp(42px, 5.5vw, 84px);
+  font-size: clamp(38px, 4.35vw, 66px);
   font-weight: 500;
   letter-spacing: -.04em;
   line-height: .96;
@@ -4222,8 +4253,8 @@
   max-width: 590px;
   margin: 0;
   color: rgba(255, 255, 255, .72);
-  font-size: clamp(15px, 1.2vw, 19px);
-  line-height: 1.5;
+  font-size: clamp(14px, 1.05vw, 17px);
+  line-height: 1.45;
 }
 
 .how-work-faq {
@@ -4364,10 +4395,10 @@
   .how-work-faq { grid-template-columns: 1fr; }
 
   .how-work-principles { grid-template-columns: 1fr; }
-  .how-work-principle { min-height: 300px; }
+  .how-work-principle { min-height: 240px; }
   .how-work-principle--blue { transform: none; }
   .how-work-fit { grid-template-columns: 1fr; }
-  .how-work-fit article { min-height: 500px; }
+  .how-work-fit article { min-height: 380px; }
   .how-work-outro { align-items: flex-start; flex-direction: column; }
 }
 
@@ -4375,7 +4406,8 @@
   .how-work-stage__intro h1 { font-size: 12vw; }
   .how-work-partnership, .how-work-investment, .how-work-faq { padding-block: 64px; }
   .how-work-partnership h2 br { display: none; }
-  .how-work-fit article { min-height: 430px; padding-block: 56px; }
+  .how-work-principle { min-height: 220px; }
+  .how-work-fit article { min-height: 330px; padding-block: 46px; }
   .how-work-outro { min-height: 0; padding-block: 70px; }
   .how-work-outro__faces img { width: 54px; }
 }

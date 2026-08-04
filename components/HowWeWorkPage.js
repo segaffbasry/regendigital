@@ -242,7 +242,7 @@ export default function HowWeWorkPage() {
       <section className="how-work-partnership">
         <header data-how-reveal>
           <p>How the engagement runs</p>
-          <h2>An extension of your team.<br /><em>Not another agency to chase.</em></h2>
+          <h2>An extension of your team.<br />{" "}<em>Not another agency to chase.</em></h2>
         </header>
         <div className="how-work-principles">
           <article className="how-work-principle">

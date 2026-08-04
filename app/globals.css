@@ -1442,7 +1442,10 @@ figure, blockquote { margin: 0; }
   color: var(--work-ink);
 }
 
-.work-page .site-header,
+.work-page .site-header {
+  color: var(--white);
+}
+
 .work-page .site-header.is-on-light {
   color: var(--work-ink);
 }
