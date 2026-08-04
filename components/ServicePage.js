@@ -7,10 +7,10 @@ function ArrowLink({ href = "/contact", children }) {
   return <a className="service-detail__link" href={href}><span>{children}</span><span className="cta-arrow" aria-hidden="true" /></a>;
 }
 
-function MediaSlot({ format = "wide", video = false }) {
+function MediaSlot({ format = "wide" }) {
   return (
     <div className={`service-media service-media--${format}`} data-service-media>
-      <span className="service-media__placeholder">Placeholder {video ? "video" : "image"}</span>
+      <span className="service-media__placeholder">Image coming soon</span>
     </div>
   );
 }
@@ -40,10 +40,6 @@ export default function ServicePage({ content: page }) {
           <span>{page.h1}</span>
         </div>
         <p>{page.body}</p>
-      </section>
-
-      <section className="service-detail__media-stage">
-        <MediaSlot index="01" video label={`${page.h1} — campaign, process, or motion edit`} />
       </section>
 
       <section className="service-detail__deliverables">
@@ -83,14 +79,6 @@ export default function ServicePage({ content: page }) {
         </section>
       ) : null}
 
-      <section className="service-detail__media-stage service-detail__media-stage--compact">
-        <div className="service-detail__media-intro">
-          <span className="service-media__play" aria-hidden="true" />
-          <h2>The strategy,<br />shown in motion.</h2>
-        </div>
-        <MediaSlot index="03" video label="Final campaign, platform walkthrough, or client result" />
-      </section>
-
       {page.faqs?.length ? (
         <section className="editorial-faq">
           <div><p className="editorial-kicker">FAQs</p><h2>Questions,<br /><em>answered.</em></h2></div>
@@ -101,22 +89,37 @@ export default function ServicePage({ content: page }) {
       <section className="service-detail__closing">
         <div className="service-detail__closing-copy">
           <p className="editorial-kicker">Start here</p>
-          <h2>Ready to make this<br /><em>work for</em> you?</h2>
-          <p>Talk directly with Holly and Taylor about where you want to grow and what is getting in the way.</p>
+          <h2>Ready to build demand<br /><em>that converts?</em></h2>
+          <p>An open conversation about your current marketing and where the business is heading, to see whether there is genuine potential for a collaboration.</p>
+          <div className="service-detail__closing-benefits">
+            <strong>Here&apos;s what you&apos;ll get:</strong>
+            <ul>
+              <li>Helpful advice and practical guidance</li>
+              <li>A clear view of your strongest next move</li>
+              <li>No obligation</li>
+            </ul>
+          </div>
         </div>
         <div className="service-detail__closing-card">
+          <span className="service-detail__closing-note">Get started here ↘</span>
           <div className="service-detail__closing-faces" aria-label="Holly and Taylor, Regen co-founders">
             <img src="/images/founders/holly.webp" alt="Holly, Regen co-founder" />
             <img src="/images/founders/taylor-portrait.webp" alt="Taylor, Regen co-founder" />
           </div>
-          <p className="editorial-kicker">Get started here</p>
-          <h3>{page.cta || "Book a Strategy Call"}</h3>
-          <p className="service-detail__closing-meta"><span aria-hidden="true">◷</span> 30 minute conversation</p>
-          <ul>
-            <li>Practical advice for your next move</li>
-            <li>No sales pitch or obligation</li>
-          </ul>
-          <ArrowLink href={page.ctaHref}>{page.cta || "Book a Strategy Call"}</ArrowLink>
+          <h3>Book your free digital marketing review</h3>
+          <p className="service-detail__closing-meta"><span aria-hidden="true">◷</span> 30 minute session</p>
+          <form className="service-detail__closing-form" action="/contact" method="get">
+            <label>
+              <span>Work email address</span>
+              <input type="email" name="email" placeholder="Your work email address*" required />
+            </label>
+            <label>
+              <span>How did you hear about us?</span>
+              <input type="text" name="source" placeholder="How did you hear about us?*" required />
+            </label>
+            <p>By submitting this form, you agree to our <a href="/privacy-policy">Privacy Policy</a>.</p>
+            <button className="service-detail__link service-detail__closing-submit" type="submit">Let&apos;s talk <span className="cta-arrow" aria-hidden="true" /></button>
+          </form>
         </div>
       </section>
 

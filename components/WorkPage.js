@@ -1,6 +1,5 @@
 import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
-import WorkHeroShowcase from "./WorkHeroShowcase";
 import WorkMotion from "./WorkMotion";
 
 const cases = [
@@ -36,6 +35,28 @@ const cases = [
       "/pics/_ (2) 1.png",
     ],
   },
+  {
+    number: "03",
+    name: "Agency AI",
+    service: "AI Transformation Marketing",
+    sector: "AI Industry",
+    image: "/pics/ChatGPT Image Jul 31, 2026, 10_26_34 AM.png",
+    href: "/contact",
+    summary: "A strategy-led partnership designed to turn complex AI transformation expertise into a clear, credible market position.",
+    proof: "Case study coming soon",
+    placeholder: true,
+  },
+  {
+    number: "04",
+    name: "Only Child",
+    service: "Organic Social",
+    sector: "Production Industry",
+    image: "/pics/Bielke&Yang.jpeg",
+    href: "/contact",
+    summary: "An embedded organic presence across Instagram and LinkedIn that gives the production agency consistent visibility.",
+    proof: "Case study coming soon",
+    placeholder: true,
+  },
 ];
 
 function Arrow() {
@@ -48,29 +69,29 @@ export default function WorkPage() {
       <WorkMotion />
       <SiteHeader />
 
-      <WorkHeroShowcase cases={cases} />
-
       <section className="work-featured" aria-labelledby="featured-work-title">
-        <div className="work-section-head">
-          <p className="editorial-kicker" id="featured-work-title">Featured case studies</p>
-          <p>Two partnerships. Two different markets. One standard: work that earns attention and creates momentum.</p>
+        <div className="work-results-hero">
+          <p className="editorial-kicker">Our work</p>
+          <h1 id="featured-work-title">Tangible results.<br /><em>Proven in the work.</em></h1>
+          <p>Four partnerships across B2B, AI and production. Every case study leads with the outcome, then shows the work that made it happen.</p>
         </div>
-
-        {cases.map((item) => (
-          <a className="work-case" href={item.href} key={item.name}>
-            <div className="work-case__visual">
-              <img src={item.image} alt={`${item.name} case study`} />
-              <span className="work-case__proof">{item.proof}</span>
-              <span className="work-case__open"><Arrow /></span>
-            </div>
-            <div className="work-case__caption">
-              <span>{item.number}</span>
-              <h2>{item.name}</h2>
-              <p>{item.summary}</p>
-              <div><span>{item.service}</span><span>{item.sector}</span></div>
-            </div>
-          </a>
-        ))}
+        <div className="work-case-grid">
+          {cases.map((item) => (
+            <a className={`work-case${item.placeholder ? " work-case--placeholder" : ""}`} href={item.href} key={item.name}>
+              <div className="work-case__visual">
+                <img src={item.image} alt={`${item.name} case study`} />
+                <span className="work-case__proof">{item.proof}</span>
+                <span className="work-case__open"><Arrow /></span>
+              </div>
+              <div className="work-case__caption">
+                <span>{item.number}</span>
+                <h2>{item.name}</h2>
+                <p>{item.summary}</p>
+                <div><span>{item.service}</span><span>{item.sector}</span></div>
+              </div>
+            </a>
+          ))}
+        </div>
       </section>
 
       <section className="work-index" aria-labelledby="work-index-title">

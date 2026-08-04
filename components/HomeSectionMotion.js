@@ -68,12 +68,12 @@ export default function HomeSectionMotion() {
           finalCta,
           {
             width: "100vw",
-            height: "100svh",
+            height: "60svh",
             borderRadius: 0,
           },
           {
             width: "calc(100vw - clamp(32px, 5vw, 96px))",
-            height: "82svh",
+            height: "52svh",
             borderRadius: 28,
             ease: "none",
             scrollTrigger: {

@@ -19,7 +19,7 @@ const services = [
     title: "Go-to-Market & Launch",
     href: "/services/go-to-market-and-launch",
     copy: "A joined-up launch system that turns a strong proposition into attention, demand and qualified pipeline.",
-    tone: "orange",
+    tone: "blue",
     image: "/pics/ChatGPT Image Jul 31, 2026, 10_26_27 AM.png",
   },
   {
@@ -39,7 +39,7 @@ const services = [
     title: "Google Ads",
     href: "/services/google-ads",
     copy: "High-intent search campaigns that meet buyers at the moment they are ready to act.",
-    tone: "lavender",
+    tone: "blue",
   },
   {
     title: "SEO",
@@ -65,7 +65,7 @@ const services = [
     title: "Founder-Led Marketing",
     href: "/services/founder-led-marketing",
     copy: "A credible founder voice transformed into a repeatable platform for trust, authority and demand.",
-    tone: "orange",
+    tone: "blue",
   },
   {
     title: "Creator Partnerships",
@@ -77,14 +77,14 @@ const services = [
 ];
 
 const clientLogos = [
-  { src: "/client-logos/client-01.png", alt: "MFD Solutions", scale: 1.75 },
-  { src: "/client-logos/client-02.png", alt: "Equals Might", scale: 1.2 },
-  { src: "/client-logos/client-03.png", alt: "Finden", scale: 0.72 },
-  { src: "/client-logos/client-04.png", alt: "AgencyAI", scale: 2.15 },
-  { src: "/client-logos/client-05.png", alt: "Pelicano", scale: 1.75 },
-  { src: "/client-logos/client-06.png", alt: "Gitano", scale: 1.65 },
-  { src: "/client-logos/IntusHQ/intushq.svg", alt: "IntusHQ", scale: 0.65 },
-  { src: "/client-logos/IntusHQ/ripl.svg", alt: "RIPL", scale: 0.65 },
+  { src: "/client-logos/client-01.png", alt: "MFD Solutions", scale: 1.58 },
+  { src: "/client-logos/client-02.png", alt: "Equals Mgmt", scale: 0.81 },
+  { src: "/client-logos/client-03.png", alt: "Finden", scale: 0.65 },
+  { src: "/client-logos/client-04.png", alt: "Agency AI", scale: 1.94 },
+  { src: "/client-logos/client-05.png", alt: "Pelicano", scale: 1.58 },
+  { src: "/client-logos/client-06.png", alt: "Gitano", scale: 1.49 },
+  { src: "/client-logos/IntusHQ/intushq.svg", alt: "IntusHQ", scale: 0.44 },
+  { src: "/client-logos/IntusHQ/ripl.svg", alt: "RIPL", scale: 0.44 },
 ];
 
 const testimonialCards = [
@@ -92,15 +92,20 @@ const testimonialCards = [
     company: "Finden",
     name: "Randeep Wilkhu",
     role: "Founder",
+    descriptor: "AI launch",
+    stat: "3rd / 280+",
+    statLabel: "Product Hunt launch",
     image: "/testimonials/randeep-wilkhu.jpg",
     initials: "RW",
     quote: "From day one, Regen approached our brand with the same care and urgency as an in-house team. Partnering with Regen for our re-launch was a standout experience. Our Product Hunt debut, placing 3rd out of 280+ companies, set a new benchmark and sparked momentum. What we valued most was their communication and ability to operate seamlessly. Regen helped us reintroduce Finden with a more polished, professional presence, and we’d recommend them to any company looking for partners who deliver and take responsibility.",
     tone: "white",
   },
   {
-    company: "Equals Mgmt.",
+    company: "Equals Mgmt",
     name: "Scott Pugnetti",
-    role: "Directors Agency",
+    descriptor: "Directors agency",
+    stat: "Always on",
+    statLabel: "Consistent brand presence",
     image: "/testimonials/scott-pugnetti.jpg",
     initials: "SP",
     quote: "Our social media page was constantly on pause and they’ve added consistency. Their keen eye for design and engaging content has led to us receiving constant compliments for our page. They are an integral part of our business and their professional and personable approach has made them a pleasure to deal with. They are always on top of current trends and I can’t overstate how crucial their work has been to the change in our brand identity and how this has increased our perceived value.",
@@ -110,6 +115,9 @@ const testimonialCards = [
     company: "Lucy Mills",
     name: "Lucy Mills",
     role: "TV Presenter",
+    descriptor: "Personal brand",
+    stat: "2 weeks",
+    statLabel: "From audit to action plan",
     image: "/testimonials/lucy-mills.jpg",
     initials: "LM",
     quote: "I found Taylor and Holly after noticing a total uplift on my friend’s business profile, managed by Regen. From there, a fully fleshed-out audit of my socials was produced and a bespoke package pulled together in two weeks. I’ve fallen head over heels for the way Regen work together with me and my brand. They’re an extension of the team, and I love the collaborative approach where we build something together. My following is growing and clients are recognising the geniuses now working with me: innovative, creative, thoughtful and on the ball.",
@@ -119,14 +127,20 @@ const testimonialCards = [
     company: "Only Child",
     name: "Dana Leonard",
     role: "Founder",
+    descriptor: "Production agency",
+    stat: "2 channels",
+    statLabel: "Instagram + LinkedIn",
     image: "/testimonials/dana-leonard.png",
     initials: "DL",
     quote: "Regeneration feel like a true extension of our team. They understand the production industry, know how to position creative work across Instagram and LinkedIn, and communicate clearly and consistently throughout. Working with them feels seamless, and we trust them completely with our brand presence.",
     tone: "sand",
   },
   {
-    company: "AgencyAI",
+    company: "Agency AI",
     name: "Max Modlin",
+    descriptor: "AI transformation agency",
+    stat: "One team",
+    statLabel: "Embedded strategic partnership",
     image: "/testimonials/max-modlin.webp",
     initials: "MM",
     quote: "What sets them apart is that they operate as a genuine strategic partner, not an external agency. Holly and Taylor are properly invested in seeing us succeed, and it shows in how they work: they keep me right on the strategic decisions, bring thinking to the table proactively, and treat our goals as their own. The combination is rare. They’re sharp on the strategy, reliable on the delivery, and genuinely good people to work with. They’ve become a team I trust to help steer the direction of the business, which is not something I’d say about most agencies.",
@@ -195,7 +209,10 @@ export default function HomePage() {
           </StaggerText>
           <div className="home-hero__bottom hero-anim">
             <p>Regen is a B2B digital marketing agency for SaaS, AI, tech, and professional services. We pair a strong strategic foundation with content, paid, and search to turn pipeline into predictable revenue.</p>
-            <ArrowLink href="/audit" className="home-link--sand">Free Audit</ArrowLink>
+            <div className="home-hero__actions">
+              <ArrowLink href="/audit" className="home-link--sand">Free Audit</ArrowLink>
+              <ArrowLink href="/contact" className="home-link--outline">Book a call</ArrowLink>
+            </div>
           </div>
         </div>
         <div className="client-strip" aria-label="Client logo strip">
@@ -235,6 +252,7 @@ export default function HomePage() {
               <div className="home-section__actions home-section__actions--services">
                 <ArrowLink href="/services">Explore our services</ArrowLink>
                 <ArrowLink href="/audit" className="home-link--blue">Free Audit</ArrowLink>
+                <ArrowLink href="/contact" className="home-link--blue">Book a call</ArrowLink>
               </div>
             </div>
           </div>
@@ -279,7 +297,10 @@ export default function HomePage() {
           <StaggerText lineReveal>Businesses get overlooked when their digital marketing falls flat</StaggerText>
           <div className="problem-section__copy">
             <p>If your growth has stagnated, your pipeline is unpredictable, and your acquisition costs keep climbing, it is usually a positioning problem. Too often, companies switch on paid ads and organic content before nailing their strategy and messaging. Spend goes up, but the revenue does not follow. We fix your foundation first, then run the marketing that turns the pipeline into predictable revenue.</p>
-            <ArrowLink href="/audit" className="home-link--sand">Free Audit</ArrowLink>
+            <div className="home-cta-pair">
+              <ArrowLink href="/audit" className="home-link--sand">Free Audit</ArrowLink>
+              <ArrowLink href="/contact" className="home-link--blue">Book a call</ArrowLink>
+            </div>
           </div>
         </section>
 
@@ -295,7 +316,10 @@ export default function HomePage() {
               <StaggerText lineReveal>Why Regen</StaggerText>
               <p className="why-section__statement">Trust and performance.</p>
               <p className="home-body-large">Every strategy we build stands on 2 things, trust and performance. We're not a legacy agency recycling tired digital marketing strategies and calling it innovation. We're an agile B2B marketing team built for SaaS, AI, tech, and professional services businesses that think forward, move fast, and expect more from their marketing. We challenge convention, reject cookie-cutter solutions, and build you a digital marketing strategy as specific to your business as the market you're competing in.</p>
-              <ArrowLink href="/audit">Free Audit</ArrowLink>
+              <div className="home-cta-pair">
+                <ArrowLink href="/audit">Free Audit</ArrowLink>
+                <ArrowLink href="/contact" className="home-link--blue">Book a call</ArrowLink>
+              </div>
             </div>
             <figure className="why-section__image">
               <TiltMedia stageClassName="why-section__image-stage">
@@ -340,13 +364,16 @@ export default function HomePage() {
                         <span className="testimonial-card__identity">
                           <strong>{testimonial.name}</strong>
                           <span>
-                            {testimonial.role
-                              ? `${testimonial.company}, ${testimonial.role}`
-                              : testimonial.company}
+                            {testimonial.company}
+                            {testimonial.descriptor ? ` · ${testimonial.descriptor}` : ""}
                           </span>
                         </span>
                       </header>
                       <blockquote>{testimonial.quote}</blockquote>
+                      <footer className="testimonial-card__stat">
+                        <strong>{testimonial.stat}</strong>
+                        <span>{testimonial.statLabel}</span>
+                      </footer>
                     </article>
                   ))}
                 </div>
@@ -363,7 +390,10 @@ export default function HomePage() {
               Get your free digital <span className="home-audit-title__keep">marketing audit</span>
             </StaggerText>
             <p className="home-body-large">Get a free digital marketing audit of your positioning, channels, and content from real strategists. You'll see exactly where your pipeline is leaking, what's working, and the first things we'd fix.</p>
-            <ArrowLink href="/audit">Free Audit</ArrowLink>
+            <div className="home-cta-pair home-cta-pair--on-dark">
+              <ArrowLink href="/audit">Free Audit</ArrowLink>
+              <ArrowLink href="/contact" className="home-link--blue">Book a call</ArrowLink>
+            </div>
           </div>
         </section>
       </div>

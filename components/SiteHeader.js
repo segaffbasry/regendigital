@@ -90,7 +90,7 @@ export default function SiteHeader({ animated = false }) {
     navElement.style.setProperty("--nav-full-width", `${navElement.getBoundingClientRect().width}px`);
 
     const links = Array.from(navElement.querySelectorAll(".site-header__link"));
-    const audit = navElement.querySelector(".site-header__audit");
+    const actions = Array.from(navElement.querySelectorAll(".site-header__action"));
 
     links.forEach((link) => {
       link.style.setProperty("--item-width", `${link.getBoundingClientRect().width}px`);
@@ -125,20 +125,20 @@ export default function SiteHeader({ animated = false }) {
       };
     });
 
-    if (audit) {
-      audit.addEventListener("pointerenter", hidePill);
-      audit.addEventListener("focus", hidePill);
-    }
+    actions.forEach((action) => {
+      action.addEventListener("pointerenter", hidePill);
+      action.addEventListener("focus", hidePill);
+    });
 
     navElement.addEventListener("pointerleave", hidePill);
     navElement.addEventListener("focusout", handleFocusOut);
 
     return () => {
       cleanups.forEach((cleanup) => cleanup());
-      if (audit) {
-        audit.removeEventListener("pointerenter", hidePill);
-        audit.removeEventListener("focus", hidePill);
-      }
+      actions.forEach((action) => {
+        action.removeEventListener("pointerenter", hidePill);
+        action.removeEventListener("focus", hidePill);
+      });
       navElement.removeEventListener("pointerleave", hidePill);
       navElement.removeEventListener("focusout", handleFocusOut);
     };
@@ -198,13 +198,13 @@ export default function SiteHeader({ animated = false }) {
     if (!navElement || !activeMenu) return;
 
     const activeTrigger = navElement.querySelector(".site-header__link.is-active-menu");
-    const audit = navElement.querySelector(".site-header__audit");
-    if (!activeTrigger || !audit) return;
+    const actions = Array.from(navElement.querySelectorAll(".site-header__action"));
+    if (!activeTrigger || !actions.length) return;
 
     const compactWidth = Math.ceil(
       activeTrigger.getBoundingClientRect().width +
-      audit.getBoundingClientRect().width +
-      14
+      actions.reduce((width, action) => width + action.getBoundingClientRect().width, 0) +
+      (actions.length * 7)
     );
 
     navElement.style.setProperty("--nav-compact-width", `${compactWidth}px`);
@@ -504,7 +504,7 @@ export default function SiteHeader({ animated = false }) {
             <NavLabel>Why Regen</NavLabel>
             <span className="site-header__chevron" aria-hidden="true" />
           </button>
-          <a className="site-header__audit cta-motion" href="/audit">
+          <a className="site-header__audit site-header__action cta-motion" href="/audit">
             <span className="cta-motion__fill" aria-hidden="true" />
             <span className="cta-motion__clip">
               <span className="cta-motion__roll">
@@ -512,6 +512,9 @@ export default function SiteHeader({ animated = false }) {
                 <span aria-hidden="true">Free Audit</span>
               </span>
             </span>
+          </a>
+          <a className="site-header__call site-header__action" href="/contact">
+            <span>Book a call</span>
           </a>
         </nav>
         {menu && (

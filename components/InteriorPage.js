@@ -184,7 +184,7 @@ export default function InteriorPage({ content, title, section }) {
         <div className="founder-cta__copy">
           <p className="editorial-kicker">Ready when you are</p>
           <h2>Ready to move the business forward?</h2>
-          <p>Tell us where you want to grow. We&apos;ll bring a genuine point of view, useful guidance, and no hard sell.</p>
+          <p>An open conversation about your current marketing and where the business is heading, to see whether there is genuine potential for a collaboration.</p>
         </div>
         <div className="founder-cta__card">
           <div className="founder-cta__faces" aria-label="Holly and Taylor, Regen co-founders">
@@ -196,7 +196,7 @@ export default function InteriorPage({ content, title, section }) {
           <p className="founder-cta__meta"><span aria-hidden="true">◷</span> 30 minute conversation</p>
           <ul>
             <li>Helpful advice and guidance</li>
-            <li>No sales pitch or obligation</li>
+            <li>No obligation</li>
           </ul>
           <ArrowLink href={page.ctaHref}>{page.cta || "Book a Strategy Call"}</ArrowLink>
         </div>
