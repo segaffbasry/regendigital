@@ -1038,11 +1038,11 @@
 }
 
 .about-founder-profile__portrait--holly img {
-  transform: scale(1.1) translateY(6%) translateZ(18px);
+  transform: scale(1.25) translateY(-3%) translateZ(18px);
 }
 
 .about-founder-profile__portrait--holly:hover img {
-  transform: scale(1.13) translateY(6%) translateZ(18px);
+  transform: scale(1.28) translateY(-3%) translateZ(18px);
 }
 
 .about-founder-profile__identity {

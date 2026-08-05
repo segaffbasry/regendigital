@@ -27,7 +27,12 @@ export default function ServiceMotion() {
 
         try {
           context.add(() => {
-            const split = new SplitText(title, { type: "lines", mask: "lines", aria: "auto" });
+            const split = new SplitText(title, {
+              type: "lines",
+              mask: "lines",
+              linesClass: "service-reveal-line",
+              aria: "auto",
+            });
             splits.push(split);
             gsap.set(title, { visibility: "visible" });
             gsap.set(split.lines, { yPercent: 108, rotate: 1 });

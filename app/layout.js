@@ -3,6 +3,7 @@ import "./revision.css";
 import "./industry-systems.css";
 import "./method-system.css";
 import "./about-depth.css";
+import "./client-feedback.css";
 import PageTransition from "../components/PageTransition";
 import SmoothScroll from "../components/SmoothScroll";
 

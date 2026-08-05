@@ -18,18 +18,8 @@ function ArrowLink({ href = "/contact", children }) {
   return <a className="service-detail__link" href={href}><span>{children}</span><span className="cta-arrow" aria-hidden="true" /></a>;
 }
 
-function MediaSlot({ format = "wide" }) {
-  return (
-    <div className={`service-media service-media--${format}`} data-service-media>
-      <span className="service-media__placeholder">Image coming soon</span>
-    </div>
-  );
-}
-
 export default function ServicePage({ content: page }) {
-  const midpoint = Math.ceil((page.included?.length || 0) / 2);
-  const firstDeliverables = page.included?.slice(0, midpoint) || [];
-  const remainingDeliverables = page.included?.slice(midpoint) || [];
+  const deliverables = page.included || [];
 
   return (
     <main className="service-detail">
@@ -37,7 +27,6 @@ export default function ServicePage({ content: page }) {
       <SiteHeader />
 
       <section className="service-detail__hero">
-        <p className="editorial-kicker">{page.h1}</p>
         <h1>{sentenceCaseTitle(page.hero)}</h1>
         <div className="service-detail__hero-meta">
           <p>{page.entity}</p>
@@ -46,10 +35,6 @@ export default function ServicePage({ content: page }) {
       </section>
 
       <section className="service-detail__opening">
-        <div>
-          <p className="editorial-kicker">The opportunity</p>
-          <span>{page.h1}</span>
-        </div>
         <p>{page.body}</p>
       </section>
 
@@ -59,27 +44,12 @@ export default function ServicePage({ content: page }) {
           <h2>Everything the work<br /><em>needs to perform.</em></h2>
         </header>
         <div className="service-detail__deliverable-grid service-detail__deliverable-grid--primary">
-          {firstDeliverables.map((item, index) => (
+          {deliverables.map((item, index) => (
             <article className="service-deliverable" key={item}>
               <span>{String(index + 1).padStart(2, "0")}</span>
               <h3>{item}</h3>
             </article>
           ))}
-        </div>
-      </section>
-
-      <section className="service-detail__media-pair" aria-label="Media placeholders">
-        <MediaSlot index="02" format="portrait" label={`${page.h1} — people, detail, or behind the scenes`} />
-        <div className="service-detail__media-pair-copy">
-          <p className="editorial-kicker">Built around the work</p>
-          <div className="service-detail__deliverable-grid service-detail__deliverable-grid--stack">
-            {remainingDeliverables.map((item, index) => (
-              <article className="service-deliverable" key={item}>
-                <span>{String(index + midpoint + 1).padStart(2, "0")}</span>
-                <h3>{item}</h3>
-              </article>
-            ))}
-          </div>
         </div>
       </section>
 

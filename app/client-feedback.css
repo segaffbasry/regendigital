@@ -1,0 +1,246 @@
+/* Final client-feedback layer. Kept separate so these intentional refinements
+   remain authoritative over the historical revision passes. */
+
+/* Homepage service cards -------------------------------------------------- */
+.service-stack__corner {
+  box-shadow: none;
+}
+
+.service-stack__copy {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto 1fr auto;
+  align-items: start;
+}
+
+.service-stack__copy .service-title {
+  display: block;
+  min-height: 2.16em;
+}
+
+.service-stack__copy p {
+  align-self: start;
+  margin: 0;
+}
+
+.service-stack__inline-link {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  align-self: end;
+  gap: 7px;
+  margin-top: 12px;
+  padding: 0;
+  border: 0;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.service-stack__inline-link > span {
+  display: inline-block;
+  transition: transform .28s cubic-bezier(.16, 1, .3, 1);
+}
+
+.service-stack__card:hover .service-stack__inline-link > span,
+.service-stack__card:focus-visible .service-stack__inline-link > span {
+  transform: translateX(4px);
+}
+
+/* Give animated card titles enough room for g/y/p descenders. */
+.service-title__word {
+  height: 1.22em;
+  vertical-align: -.18em;
+}
+
+.service-title__face {
+  height: 1.22em;
+  flex-basis: 1.22em;
+  align-items: flex-start;
+  padding-top: .08em;
+}
+
+.service-stack__card:hover .service-title__track,
+.service-stack__card:focus-visible .service-title__track {
+  transform: translateY(-1.22em);
+}
+
+/* Why Regen: a light editorial panel floating within the team image. */
+.why-section {
+  padding-inline: var(--page-gutter);
+}
+
+.why-section__grid {
+  position: relative;
+  display: block;
+  min-height: clamp(520px, 52vw, 720px);
+  overflow: hidden;
+  border-radius: 22px;
+  isolation: isolate;
+}
+
+.why-section__image,
+.why-section__image-stage,
+.why-section__image .tilt-media,
+.why-section__image .tilt-media__frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.why-section__image {
+  z-index: 0;
+}
+
+.why-section__image::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(7, 7, 7, .22), rgba(7, 7, 7, .02) 70%);
+  content: "";
+  pointer-events: none;
+}
+
+.why-section__image .tilt-media__frame,
+.why-section__image .tilt-media__frame:hover {
+  aspect-ratio: auto;
+  border-radius: 0;
+  box-shadow: none;
+  transform: none;
+}
+
+.why-section__image img,
+.why-section__image .tilt-media__frame:hover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+}
+
+.why-section__content {
+  position: absolute;
+  z-index: 2;
+  left: clamp(20px, 4vw, 64px);
+  bottom: clamp(20px, 4vw, 60px);
+  width: min(720px, calc(100% - 40px));
+  padding: clamp(24px, 3.2vw, 48px);
+  border: 1px solid rgba(10, 10, 10, .08);
+  border-radius: 18px;
+  background: rgba(247, 245, 240, .95);
+  box-shadow: 0 24px 70px rgba(17, 14, 11, .14);
+  color: var(--black);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.why-section h2 {
+  margin: 0 0 clamp(20px, 2.2vw, 30px);
+}
+
+.why-section .home-body-large {
+  max-width: 640px;
+  margin: 0 0 26px;
+}
+
+/* Service-page structure and title clipping ------------------------------ */
+.service-reveal-line-mask {
+  margin-block: -.16em;
+  padding-block: .16em;
+}
+
+.service-reveal-line {
+  overflow: visible;
+}
+
+.service-detail__hero h1,
+.service-detail__deliverables h2 {
+  overflow: visible;
+  padding-bottom: .08em;
+}
+
+.service-detail__opening {
+  display: block;
+}
+
+.service-detail__opening > p {
+  max-width: 1040px;
+  margin-left: auto;
+}
+
+.service-detail__deliverable-grid--primary {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.service-detail__deliverable-grid--primary .service-deliverable {
+  min-height: clamp(180px, 15vw, 225px);
+  border-left: 1px solid rgba(10, 10, 10, .3);
+}
+
+.service-detail__deliverable-grid--primary .service-deliverable:nth-child(3n + 1) {
+  border-left: 0;
+}
+
+.service-detail__deliverable-grid--primary .service-deliverable:nth-child(n + 4) {
+  border-top: 1px solid rgba(10, 10, 10, .3);
+}
+
+/* Testimonial cards no longer contain the decorative stat footer. */
+.testimonial-card blockquote {
+  margin-bottom: 0;
+}
+
+@media (max-width: 900px) {
+  .why-section__grid {
+    min-height: 620px;
+  }
+
+  .why-section__content {
+    right: 16px;
+    bottom: 16px;
+    left: 16px;
+    width: auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .service-stack__copy .service-title {
+    min-height: 2.16em;
+  }
+
+  .why-section__grid {
+    min-height: 640px;
+  }
+
+  .why-section__image img,
+  .why-section__image .tilt-media__frame:hover img {
+    object-position: 62% center;
+  }
+
+  .why-section__content {
+    padding: 24px 20px;
+  }
+
+  .service-detail__deliverable-grid--primary {
+    grid-template-columns: 1fr;
+  }
+
+  .service-detail__opening {
+    padding-bottom: 36px;
+  }
+
+  .service-detail__deliverables {
+    padding-top: 42px;
+  }
+
+  .service-detail__deliverable-grid--primary .service-deliverable,
+  .service-detail__deliverable-grid--primary .service-deliverable:nth-child(3n + 1) {
+    min-height: 150px;
+    border-top: 1px solid rgba(10, 10, 10, .3);
+    border-left: 0;
+  }
+
+  .service-detail__deliverable-grid--primary .service-deliverable:first-child {
+    border-top: 0;
+  }
+}
