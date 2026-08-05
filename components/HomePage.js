@@ -83,6 +83,7 @@ const clientLogos = [
   { src: "/client-logos/client-04.png", alt: "Agency AI", scale: 1.94 },
   { src: "/client-logos/client-05.png", alt: "Pelicano", scale: 1.58 },
   { src: "/client-logos/client-06.png", alt: "Gitano", scale: 1.49 },
+  { src: "/client-logos/juno.svg", alt: "Juno", scale: 0.42 },
   { src: "/client-logos/IntusHQ/intushq.svg", alt: "IntusHQ", scale: 0.44 },
   { src: "/client-logos/IntusHQ/ripl.svg", alt: "RIPL", scale: 0.44 },
 ];
