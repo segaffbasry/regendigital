@@ -1,5 +1,7 @@
 import FaqItem from "./FaqItem";
+import IndustrySystemGraphic, { IndustryCardGraphic } from "./IndustrySystemGraphic";
 import InteriorMotion from "./InteriorMotion";
+import MethodologySystemGraphic from "./MethodologySystemGraphic";
 import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
 import { contentForPath } from "../lib/page-content";
@@ -49,9 +51,11 @@ function CardGrid({ paths }) {
         {paths.map((path, index) => {
           const item = contentForPath(path);
           if (!item) return null;
+          const industryType = item.industryKey;
           return (
-            <a className="editorial-card" href={path} key={path}>
+            <a className={`editorial-card${industryType ? ` editorial-card--industry editorial-card--${industryType}` : ""}`} href={path} key={path}>
               <span>{String(index + 1).padStart(2, "0")}</span>
+              {industryType ? <IndustryCardGraphic type={industryType} /> : null}
               <h2>{item.h1}</h2>
               <p>{item.entity || item.body}</p>
               <span className="editorial-card__pill">
@@ -115,6 +119,8 @@ export default function InteriorPage({ content, title, section }) {
   const page = content || { hero: title, h1: title, section };
   const tone = page.tone || (page.section === "Services" ? "blue" : "bone");
   const media = imageSetFor(page);
+  const isMethodology = page.variant === "methodology";
+  const isIndustryDetail = Boolean(page.industryKey);
 
   return (
     <main className={`editorial-page editorial-page--${tone}${page.variant ? ` editorial-page--${page.variant}` : ""}`}>
@@ -138,7 +144,10 @@ export default function InteriorPage({ content, title, section }) {
         <p className="editorial-intro__body">{page.body}</p>
       </section>
 
-      {!page.emptyWork ? (
+      {isMethodology ? <MethodologySystemGraphic /> : null}
+      {isIndustryDetail ? <IndustrySystemGraphic type={page.industryKey} /> : null}
+
+      {!page.emptyWork && !isMethodology && !isIndustryDetail ? (
         <section className="editorial-media-stage">
           <MediaPlaceholder label={`${page.h1} in motion`} src={media.primary} />
         </section>
@@ -166,7 +175,7 @@ export default function InteriorPage({ content, title, section }) {
 
       <CardGrid paths={page.cards} />
 
-      {!page.emptyWork ? (
+      {!page.emptyWork && !isMethodology && !isIndustryDetail ? (
         <section className="editorial-media-pair" aria-label="Regen team imagery">
           <MediaPlaceholder format="portrait" label="Regen team collaborating" src={media.portrait} />
           <MediaPlaceholder format="square" label="A collaborative studio session" src={media.supporting} />

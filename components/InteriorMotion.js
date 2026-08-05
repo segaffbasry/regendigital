@@ -41,11 +41,15 @@ export default function InteriorMotion() {
             gsap.set(heroTitle, { visibility: "visible" });
             gsap.set(heroSplit.lines, { yPercent: 115, rotate: 1.5 });
 
-            gsap.timeline({ defaults: { ease: "power4.out" } })
+            const heroTimeline = gsap.timeline({ defaults: { ease: "power4.out" } })
               .to(heroSplit.lines, { yPercent: 0, rotate: 0, duration: 1.18, stagger: 0.11 }, 0.08)
               .to(heroKicker, { autoAlpha: 1, y: 0, duration: .7 }, 0.18)
-              .to(heroFoot, { autoAlpha: 1, y: 0, duration: .85, stagger: .1 }, 0.4)
-              .to(".editorial-hero__marked-word", { "--mark-scale": 1, duration: .8, ease: "power3.out" }, .72);
+              .to(heroFoot, { autoAlpha: 1, y: 0, duration: .85, stagger: .1 }, 0.4);
+
+            const markedWord = root.querySelector(".editorial-hero__marked-word");
+            if (markedWord) {
+              heroTimeline.to(markedWord, { "--mark-scale": 1, duration: .8, ease: "power3.out" }, .72);
+            }
 
             const intro = root.querySelector(".editorial-intro__body");
             if (intro) {

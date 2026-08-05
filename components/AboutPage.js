@@ -2,6 +2,12 @@
 
 import Image from "next/image";
 import { useLayoutEffect, useRef } from "react";
+import {
+  AboutDepthHero,
+  AboutDepthPrinciples,
+  AboutDepthStory,
+  AboutDepthSystem,
+} from "./AboutDepthSections";
 import AboutSectionMotion from "./AboutSectionMotion";
 import HomeClosingSections from "./HomeClosingSections";
 import HomeSectionMotion from "./HomeSectionMotion";
@@ -17,6 +23,12 @@ const founders = [
     title: "Co-Founder",
     focus: "Creative direction & campaign execution",
     image: "/images/founders/holly-updated.png",
+    expertise: [
+      "Creative direction",
+      "Account-based marketing",
+      "Campaign execution",
+      "Brand partnerships",
+    ],
     bio: "Holly’s background spans sales, account-based marketing, and brand partnerships, giving her a sharp understanding of what actually drives buying decisions, not just engagement rates. She leads on creative direction and campaign execution at Regen, bringing the kind of creative precision and commercial instinct to content and campaigns that turns work into results. Holly is the reason clients say working with Regen feels like having an in-house team.",
   },
   {
@@ -25,6 +37,12 @@ const founders = [
     title: "Co-Founder",
     focus: "Strategy & client partnerships",
     image: "/images/founders/taylor-portrait.webp",
+    expertise: [
+      "Strategy",
+      "Positioning",
+      "Client partnerships",
+      "Business growth",
+    ],
     bio: "Taylor’s career spans luxury brand marketing, social media strategy, and business growth, giving her a rare combination of creative instinct and commercial rigour. She leads on strategy and client partnerships at Regen, bringing the kind of analytical depth to content and campaigns that most agencies reserve for their biggest budgets. If there’s a smarter way to position your brand or reach your audience, Taylor will find it.",
   },
 ];
@@ -32,7 +50,7 @@ const founders = [
 function FounderPortrait({ founder }) {
   return (
     <TiltMedia
-      className="about-founder-profile__portrait"
+      className={`about-founder-profile__portrait${founder.name === "Holly" ? " about-founder-profile__portrait--holly" : ""}`}
       stageClassName="about-founder-profile__portrait-stage"
     >
       <Image
@@ -118,15 +136,8 @@ export default function AboutPage() {
       <AboutSectionMotion />
       <SiteHeader />
 
-      <section className="about-hero">
-        <StaggerText as="h1" aria-label="About Regen" lineReveal>
-          About Regen
-        </StaggerText>
-        <p className="about-hero__intro" data-about-reveal>
-          A strategy-led B2B marketing agency for SaaS, AI, tech, and
-          professional services.
-        </p>
-      </section>
+      <AboutDepthHero />
+      <AboutDepthStory />
 
       <section className="about-founders" aria-labelledby="about-founders-title">
         <h2 className="about-founders__title" id="about-founders-title">
@@ -146,11 +157,17 @@ export default function AboutPage() {
               <div className="about-founder-profile__bio">
                 <p className="about-eyebrow" data-founder-eyebrow>About {founder.name}</p>
                 <p>{founder.bio}</p>
+                <ul className="about-founder-profile__expertise" aria-label={`${founder.name}'s areas of expertise`}>
+                  {founder.expertise.map((item) => <li key={item}>{item}</li>)}
+                </ul>
               </div>
             </article>
           ))}
         </div>
       </section>
+
+      <AboutDepthSystem />
+      <AboutDepthPrinciples />
 
       <section className="about-card-stage" ref={stage} aria-label="Regen introduction">
         <div className="about-card-stage__sticky">

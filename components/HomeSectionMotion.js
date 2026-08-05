@@ -45,7 +45,7 @@ export default function HomeSectionMotion() {
     const riseTargets = sections.flatMap((section) =>
       Array.from(
         section.querySelectorAll(
-          ".home-body-large, .problem-section__copy > p, .final-cta > p"
+          ".home-body-large, .problem-section__copy > p, .final-cta__content > p"
         )
       )
     );
@@ -101,7 +101,7 @@ export default function HomeSectionMotion() {
         const heading = section.querySelector("[data-line-reveal]");
         const bodies = Array.from(
           section.querySelectorAll(
-            ".home-body-large, .problem-section__copy > p, .final-cta > p"
+            ".home-body-large, .problem-section__copy > p, .final-cta__content > p"
           )
         );
         const split = heading

@@ -17,7 +17,7 @@ export default function AboutSectionMotion() {
     );
     const riseTargets = Array.from(
       document.querySelectorAll(
-        ".about-hero__intro, .about-eyebrow:not([data-founder-eyebrow]), .about-manifesto__copy > p, .about-build-statement__eyebrow, .about-build-statement__line"
+        ".about-page [data-about-reveal]"
       )
     );
 
