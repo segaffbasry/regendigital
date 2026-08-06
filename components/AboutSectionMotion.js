@@ -28,7 +28,7 @@ export default function AboutSectionMotion() {
     const observers = [];
     const animations = [];
     const splits = [];
-    const founderGrid = document.querySelector(".about-founders__grid");
+    const founderGrid = document.querySelector(".about-team__layout");
 
     if (founderGrid) {
       const founderReveal = gsap.fromTo(

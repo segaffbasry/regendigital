@@ -14,55 +14,50 @@ import HomeSectionMotion from "./HomeSectionMotion";
 import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
 import StaggerText from "./StaggerText";
-import TiltMedia from "./TiltMedia";
 
 const founders = [
   {
-    number: "01",
-    name: "Holly",
-    title: "Co-Founder",
-    focus: "Creative direction & campaign execution",
-    image: "/images/founders/holly-updated.png",
-    expertise: [
-      "Creative direction",
-      "Account-based marketing",
-      "Campaign execution",
-      "Brand partnerships",
-    ],
-    bio: "Holly’s background spans sales, account-based marketing, and brand partnerships, giving her a sharp understanding of what actually drives buying decisions, not just engagement rates. She leads on creative direction and campaign execution at Regen, bringing the kind of creative precision and commercial instinct to content and campaigns that turns work into results. Holly is the reason clients say working with Regen feels like having an in-house team.",
+    name: "Taylor",
+    image: "/images/founders/taylor-portrait.webp",
+    experience: "Ex VistaJet + Pelorus",
+    focus: "Leads strategy and client partnerships.",
   },
   {
-    number: "02",
-    name: "Taylor",
-    title: "Co-Founder",
-    focus: "Strategy & client partnerships",
-    image: "/images/founders/taylor-portrait.webp",
-    expertise: [
-      "Strategy",
-      "Positioning",
-      "Client partnerships",
-      "Business growth",
-    ],
-    bio: "Taylor’s career spans luxury brand marketing, social media strategy, and business growth, giving her a rare combination of creative instinct and commercial rigour. She leads on strategy and client partnerships at Regen, bringing the kind of analytical depth to content and campaigns that most agencies reserve for their biggest budgets. If there’s a smarter way to position your brand or reach your audience, Taylor will find it.",
+    name: "Holly",
+    image: "/images/founders/holly-updated.png",
+    experience: "Ex Estée Lauder + Klarna",
+    focus: "Leads creative direction and campaign execution.",
   },
 ];
 
-function FounderPortrait({ founder }) {
-  return (
-    <TiltMedia
-      className={`about-founder-profile__portrait${founder.name === "Holly" ? " about-founder-profile__portrait--holly" : ""}`}
-      stageClassName="about-founder-profile__portrait-stage"
-    >
-      <Image
-        alt={`${founder.name}, Regen co-founder`}
-        fill
-        priority={founder.number === "01"}
-        sizes="(max-width: 700px) 78vw, (max-width: 1000px) 42vw, 30vw"
-        src={founder.image}
-      />
-    </TiltMedia>
-  );
-}
+const teamMembers = [
+  {
+    name: "Max Modlin",
+    experience: "Ex Barclays + Morgan Stanley",
+    description:
+      "AI partner, ex Barclays and Morgan Stanley. From workflow automation to bespoke AI builds, bringing the tech layer behind every Regen strategy.",
+  },
+  {
+    name: "Ben Sanford",
+    experience: "Ex American Express",
+    description: "Google Ads. Owner of Acquired Lead, ex-American Express.",
+  },
+  {
+    name: "Cam Elson",
+    description:
+      "Social media assistant. From daily scheduling to community management, keeping every client channel live, consistent, and on brand.",
+  },
+  {
+    name: "Jordan Stimpson",
+    description:
+      "Web design and build. Founder of Jords Co, a design studio for B2B brands.",
+  },
+  {
+    name: "Segaf Basry",
+    description:
+      "Design lead. From web design concepts to finished campaign assets, leading the creative output behind every Regen campaign.",
+  },
+];
 
 export default function AboutPage() {
   const stage = useRef(null);
@@ -139,30 +134,44 @@ export default function AboutPage() {
       <AboutDepthHero />
       <AboutDepthStory />
 
-      <section className="about-founders" aria-labelledby="about-founders-title">
-        <h2 className="about-founders__title" id="about-founders-title">
-          Meet the founders
+      <section className="about-team" aria-labelledby="about-team-title">
+        <h2 className="about-team__title" id="about-team-title">
+          Meet the team
         </h2>
-        <div className="about-founders__grid">
-          {founders.map((founder) => (
-            <article className="about-founder-profile" key={founder.name}>
-              <FounderPortrait founder={founder} />
-              <div className="about-founder-profile__identity">
-                <p className="about-founder-profile__number">
-                  {founder.number} / {founder.title}
-                </p>
-                <h3>{founder.name}</h3>
-                <p className="about-founder-profile__focus">{founder.focus}</p>
-              </div>
-              <div className="about-founder-profile__bio">
-                <p className="about-eyebrow" data-founder-eyebrow>About {founder.name}</p>
-                <p>{founder.bio}</p>
-                <ul className="about-founder-profile__expertise" aria-label={`${founder.name}'s areas of expertise`}>
-                  {founder.expertise.map((item) => <li key={item}>{item}</li>)}
-                </ul>
-              </div>
-            </article>
-          ))}
+        <div className="about-team__layout">
+          <div className="about-team__founders">
+            {founders.map((founder) => (
+              <article
+                className={`about-team__founder about-team__founder--${founder.name.toLowerCase()}`}
+                key={founder.name}
+              >
+                <div className="about-team__founder-image">
+                  <Image
+                    alt={`${founder.name}, Regen co-founder`}
+                    fill
+                    sizes="(max-width: 700px) 44vw, (max-width: 1180px) 42vw, 28vw"
+                    src={founder.image}
+                  />
+                </div>
+                <h3>{founder.name}, Co-Founder</h3>
+                <p className="about-team__experience">{founder.experience}</p>
+                <p className="about-team__founder-focus">{founder.focus}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="about-team__members">
+            {teamMembers.map((member) => (
+              <article className="about-team__member" key={member.name}>
+                <div className="about-team__portrait-placeholder" aria-hidden="true" />
+                <h3>{member.name}</h3>
+                {member.experience ? (
+                  <p className="about-team__experience">{member.experience}</p>
+                ) : null}
+                <p className="about-team__member-description">{member.description}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
