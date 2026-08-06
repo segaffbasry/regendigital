@@ -16,6 +16,7 @@ export default function HomeSectionMotion() {
     const precedingSection = bridge?.previousElementSibling;
     const finalCtaStage = document.querySelector(".final-cta-stage");
     const finalCta = finalCtaStage?.querySelector(".final-cta");
+    const isAboutPage = Boolean(finalCtaStage?.closest(".about-page"));
     let bridgeObserver = null;
 
     if (bridge && audienceSection) {
@@ -68,12 +69,12 @@ export default function HomeSectionMotion() {
           finalCta,
           {
             width: "100vw",
-            height: "60svh",
+            height: isAboutPage ? "48svh" : "60svh",
             borderRadius: 0,
           },
           {
             width: "calc(100vw - clamp(32px, 5vw, 96px))",
-            height: "52svh",
+            height: isAboutPage ? "42svh" : "52svh",
             borderRadius: 28,
             ease: "none",
             scrollTrigger: {
