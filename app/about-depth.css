@@ -140,7 +140,6 @@
   grid-template-columns: 38px 1fr;
   align-items: center;
   padding-left: 0;
-  border-bottom: 1px solid rgba(255, 255, 255, .16);
   font-family: var(--font-helv);
   font-size: clamp(15px, 1.2vw, 19px);
   font-weight: 500;
@@ -148,7 +147,6 @@
 
 .about-depth-hero__signal-track strong {
   min-height: 68px;
-  border-bottom: 0;
   color: var(--about-depth-blue);
 }
 
