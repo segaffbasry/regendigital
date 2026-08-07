@@ -101,7 +101,12 @@ export default function ServicePage({ content: page }) {
 
       {page.worthIt ? (
         <section className="service-detail__worth">
-          <h2>Why SEO is worth it <em>for B2B</em></h2>
+          <h2>
+            Why SEO is worth{" "}
+            <span className="service-detail__worth-keep">
+              it <em>for B2B</em>
+            </span>
+          </h2>
           <p>{page.worthIt}</p>
         </section>
       ) : null}

@@ -19,14 +19,16 @@ const founders = [
   {
     name: "Taylor",
     image: "/images/founders/taylor-portrait.webp",
-    experience: "Ex VistaJet + Pelorus",
-    focus: "Leads strategy and client partnerships.",
+    title: "Co-Founder",
+    previousCompany: "Ex VistaJet + Pelorus",
+    bio: "Leads strategy and client partnerships.",
   },
   {
     name: "Holly",
     image: "/images/founders/holly-updated.png",
-    experience: "Ex Estée Lauder + Klarna",
-    focus: "Leads creative direction and campaign execution.",
+    title: "Co-Founder",
+    previousCompany: "Ex Estée Lauder + Klarna",
+    bio: "Leads creative direction and campaign execution.",
   },
 ];
 
@@ -34,33 +36,37 @@ const teamMembers = [
   {
     name: "Max Modlin",
     image: "/pics/Max.png",
-    experience: "Ex Barclays + Morgan Stanley",
-    description:
-      "AI partner, ex Barclays and Morgan Stanley. From workflow automation to bespoke AI builds, bringing the tech layer behind every Regen strategy.",
+    title: "AI Partner",
+    previousCompany: "Ex Barclays + Morgan Stanley",
+    bio:
+      "From workflow automation to bespoke AI builds, bringing the tech layer behind every Regen strategy.",
   },
   {
     name: "Ben Sanford",
     image: "/pics/Ben.png",
-    experience: "Ex American Express",
-    description: "Google Ads. Owner of Acquired Lead, ex-American Express.",
+    title: "Google Ads",
+    previousCompany: "Ex American Express",
+    bio: "Owner of Acquired Lead.",
   },
   {
     name: "Cam Elson",
     image: "/pics/Cam.png",
-    description:
-      "Social media assistant. From daily scheduling to community management, keeping every client channel live, consistent, and on brand.",
+    title: "Social Media Assistant",
+    bio:
+      "From daily scheduling to community management, keeping every client channel live, consistent, and on brand.",
   },
   {
     name: "Jordan Stimpson",
     image: "/pics/Jordan.png",
-    description:
-      "Web design and build. Founder of Jords Co, a design studio for B2B brands.",
+    title: "Web Design and Build",
+    bio: "Founder of Jords Co, a design studio for B2B brands.",
   },
   {
     name: "Segaf Basry",
     image: "/pics/Segaf.png",
-    description:
-      "Design lead. From web design concepts to finished campaign assets, leading the creative output behind every Regen campaign.",
+    title: "Design Lead",
+    bio:
+      "From web design concepts to finished campaign assets, leading the creative output behind every Regen campaign.",
   },
 ];
 
@@ -158,9 +164,14 @@ export default function AboutPage() {
                     src={founder.image}
                   />
                 </div>
-                <h3>{founder.name}, Co-Founder</h3>
-                <p className="about-team__experience">{founder.experience}</p>
-                <p className="about-team__founder-focus">{founder.focus}</p>
+                <h3>{founder.name}</h3>
+                <p className="about-team__role">{founder.title}</p>
+                <p className="about-team__experience">
+                  {founder.previousCompany}
+                </p>
+                <p className="about-team__bio about-team__founder-focus">
+                  {founder.bio}
+                </p>
               </article>
             ))}
           </div>
@@ -177,10 +188,15 @@ export default function AboutPage() {
                   />
                 </div>
                 <h3>{member.name}</h3>
-                {member.experience ? (
-                  <p className="about-team__experience">{member.experience}</p>
+                <p className="about-team__role">{member.title}</p>
+                {member.previousCompany ? (
+                  <p className="about-team__experience">
+                    {member.previousCompany}
+                  </p>
                 ) : null}
-                <p className="about-team__member-description">{member.description}</p>
+                <p className="about-team__bio about-team__member-description">
+                  {member.bio}
+                </p>
               </article>
             ))}
           </div>

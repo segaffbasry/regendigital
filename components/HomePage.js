@@ -256,6 +256,10 @@ export default function HomePage() {
               loading="lazy"
             />
           </TiltMedia>
+          <div className="service-stack__mobile-cue" aria-hidden="true">
+            <span>Explore our services</span>
+            <span>Swipe&nbsp; &rarr;</span>
+          </div>
           <div className="service-stack">
             {services.map((service, index) => (
               <article

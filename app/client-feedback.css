@@ -1934,3 +1934,94 @@
     transition: none !important;
   }
 }
+
+/* Mobile feedback pass: keep nearby content visually and semantically joined. */
+.service-stack__mobile-cue {
+  display: none;
+}
+
+.about-page .about-team__role {
+  margin: 10px 0 0;
+  font-family: var(--font-helv);
+  font-size: clamp(14px, 1vw, 17px);
+  font-weight: 600;
+  letter-spacing: -.025em;
+  line-height: 1.1;
+}
+
+.about-page .about-team__role + .about-team__experience {
+  margin-top: 5px;
+}
+
+@media (max-width: 620px) {
+  .service-detail--seo .service-detail__worth-keep {
+    white-space: nowrap;
+  }
+
+  .service-detail--seo .service-detail__worth h2 em {
+    display: inline;
+  }
+}
+
+@media (max-width: 560px) {
+  .what-we-do .service-stack__mobile-cue {
+    display: flex;
+    grid-column: 1;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: -20px;
+    font-family: var(--font-helv);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: -.015em;
+  }
+
+  .what-we-do .service-stack__mobile-cue span:last-child {
+    color: rgba(5, 5, 5, .62);
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .what-we-do .service-stack__step {
+    width: min(82vw, 340px);
+  }
+
+  .audience-section .who-tabs__panel {
+    min-height: 0;
+    gap: 18px;
+    margin: 0;
+    padding: 26px 20px 30px;
+    border-radius: 0 0 13px 13px;
+  }
+
+  .audience-section .who-tabs__detail {
+    min-height: 0;
+  }
+
+  .audience-section .who-tabs__panel h3 {
+    font-size: clamp(30px, 9.5vw, 40px);
+    line-height: 1;
+  }
+
+  .audience-section .who-tabs__detail > p {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .audience-section .who-tabs__proof {
+    display: none;
+  }
+
+  .about-page .about-team__role {
+    margin-top: 7px;
+    font-size: 12px;
+  }
+
+  .about-page .about-team__role + .about-team__experience {
+    margin-top: 4px;
+  }
+
+  .about-page .about-team__bio {
+    margin-top: 6px;
+  }
+}
