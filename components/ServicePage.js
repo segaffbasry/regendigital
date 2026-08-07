@@ -14,6 +14,24 @@ function sentenceCaseTitle(title) {
   });
 }
 
+function serviceHeroTitle(page) {
+  const title = sentenceCaseTitle(page.hero);
+  const emphasis = page.heroEmphasis;
+  if (!emphasis) return title;
+
+  const start = title.toLocaleLowerCase().indexOf(emphasis.toLocaleLowerCase());
+  if (start === -1) return title;
+
+  const end = start + emphasis.length;
+  return (
+    <>
+      {title.slice(0, start)}
+      <em className="service-detail__hero-emphasis">{title.slice(start, end)}</em>
+      {title.slice(end)}
+    </>
+  );
+}
+
 function ArrowLink({ href = "/contact", children }) {
   return <a className="service-detail__link" href={href}><span>{children}</span><span className="cta-arrow" aria-hidden="true" /></a>;
 }
@@ -27,7 +45,8 @@ export default function ServicePage({ content: page }) {
       <SiteHeader />
 
       <section className="service-detail__hero">
-        <h1>{sentenceCaseTitle(page.hero)}</h1>
+        {page.heroPill ? <p className="service-detail__hero-pill">{page.heroPill}</p> : null}
+        <h1>{serviceHeroTitle(page)}</h1>
         <div className="service-detail__hero-meta">
           <p>{page.entity}</p>
           <ArrowLink href={page.ctaHref}>{page.cta}</ArrowLink>

@@ -1248,3 +1248,32 @@
     gap: 32px;
   }
 }
+
+/* SEO service hero: retain the shared structure while giving the proposition
+   the same sans/Newsreader contrast as the homepage headline. */
+.service-detail__hero-pill {
+  align-self: flex-start;
+  width: fit-content;
+  margin: 0;
+  padding: 8px 14px;
+  border: 1px solid rgba(5, 5, 5, .24);
+  border-radius: 999px;
+  font-family: var(--font-helv);
+  font-size: clamp(11px, .8vw, 13px);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.service-detail__hero-emphasis {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -.045em;
+}
+
+@media (max-width: 620px) {
+  .service-detail__hero-pill {
+    padding: 7px 12px;
+    font-size: 11px;
+  }
+}
