@@ -558,14 +558,15 @@
   margin-inline: auto;
   border: 1px solid rgba(5, 5, 5, .16);
   border-radius: clamp(16px, 1.5vw, 24px);
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, .78) 0%, rgba(0, 0, 0, .46) 52%, rgba(0, 0, 0, .3) 100%),
+    url("/IntusHQ/image%205.png") center 48% / cover no-repeat;
 }
 
 .who-tabs__hero {
   min-height: clamp(480px, 40vw, 540px);
   padding-inline: var(--who-inset);
-  background:
-    linear-gradient(90deg, rgba(0, 0, 0, .78) 0%, rgba(0, 0, 0, .46) 52%, rgba(0, 0, 0, .3) 100%),
-    url("/IntusHQ/image%205.png") center 48% / cover no-repeat;
+  background: transparent;
 }
 
 .who-tabs__hero::before,
@@ -613,9 +614,9 @@
 .who-tabs__panel {
   min-height: clamp(320px, 26vw, 390px);
   grid-template-columns: minmax(280px, .8fr) minmax(380px, 1.2fr);
-  margin-inline: 0;
+  margin-inline: var(--who-inset);
   padding-inline: var(--who-inset);
-  border-radius: 0 0 clamp(16px, 1.5vw, 24px) clamp(16px, 1.5vw, 24px);
+  border-radius: 0 clamp(12px, 1vw, 16px) clamp(12px, 1vw, 16px);
   background: #f1ebdf;
 }
 
@@ -1150,6 +1151,10 @@
     grid-template-columns: 1fr;
   }
 
+  .who-tabs {
+    --who-inset: 20px;
+  }
+
   .service-stack__card,
   .service-stack__card--blue,
   .service-stack__card--orange,
@@ -1171,8 +1176,9 @@
   }
 
   .who-tabs__panel {
-    margin-inline: 0;
-    padding-inline: var(--page-gutter);
+    margin-inline: var(--who-inset);
+    margin-bottom: var(--who-inset);
+    padding-inline: 22px;
   }
 
   .who-tabs__proof {
