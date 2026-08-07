@@ -160,7 +160,7 @@ export default function AboutPage() {
                   <Image
                     alt={`${founder.name}, Regen co-founder`}
                     fill
-                    sizes="(max-width: 700px) 44vw, (max-width: 1180px) 42vw, 28vw"
+                    sizes="(max-width: 700px) 44vw, (max-width: 1180px) 42vw, 46vw"
                     src={founder.image}
                   />
                 </div>
