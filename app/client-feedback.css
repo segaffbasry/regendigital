@@ -1306,10 +1306,10 @@
 
 .service-detail--seo .service-detail__hero {
   width: auto;
-  min-height: min(620px, 72svh);
+  min-height: min(530px, 64svh);
   justify-content: center;
   margin: 8px clamp(14px, 2.2vw, 34px) 0;
-  padding: clamp(58px, 6vw, 92px) clamp(28px, 4.4vw, 72px) clamp(52px, 5.4vw, 82px);
+  padding: clamp(48px, 5vw, 72px) clamp(28px, 4.4vw, 72px) clamp(44px, 4.4vw, 64px);
   overflow: hidden;
   border: 1px solid rgba(5, 5, 5, .09);
   border-radius: clamp(24px, 3vw, 44px);
@@ -1318,8 +1318,8 @@
 
 .service-detail--seo .service-detail__hero h1 {
   max-width: 1120px;
-  margin-block: clamp(30px, 3.8vw, 52px) clamp(34px, 4vw, 54px);
-  font-size: clamp(54px, 6.4vw, 98px);
+  margin-block: clamp(24px, 3vw, 38px) clamp(28px, 3vw, 40px);
+  font-size: clamp(50px, 5.5vw, 84px);
   line-height: .91;
 }
 
@@ -1336,9 +1336,9 @@
 .service-detail--seo .service-detail__opening {
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(390px, .92fr);
-  gap: clamp(64px, 8vw, 132px);
+  gap: clamp(48px, 6.5vw, 96px);
   align-items: center;
-  padding: clamp(90px, 9vw, 142px) max(7vw, 28px) clamp(104px, 10vw, 158px);
+  padding: clamp(64px, 6.5vw, 96px) max(7vw, 28px) clamp(72px, 7vw, 106px);
   background: var(--white);
 }
 
@@ -1348,13 +1348,13 @@
 
 .service-detail--seo .service-detail__opening-copy p {
   margin: 0;
-  font-size: clamp(18px, 1.45vw, 24px);
+  font-size: clamp(17px, 1.25vw, 21px);
   letter-spacing: -.022em;
-  line-height: 1.45;
+  line-height: 1.4;
 }
 
 .service-detail--seo .service-detail__opening-copy p + p {
-  margin-top: clamp(22px, 2.3vw, 34px);
+  margin-top: clamp(18px, 1.8vw, 26px);
 }
 
 .seo-result-graphic {
@@ -1617,26 +1617,27 @@
 }
 
 .service-detail--seo .service-detail__deliverables {
-  padding: clamp(88px, 9vw, 138px) max(5vw, 28px) clamp(96px, 10vw, 154px);
+  padding: clamp(64px, 6vw, 92px) max(5vw, 28px) clamp(72px, 7vw, 104px);
   background: var(--white);
 }
 
 .service-detail--seo .service-detail__deliverables > header {
   display: block;
-  margin-bottom: clamp(42px, 5vw, 72px);
+  margin-bottom: clamp(34px, 3.6vw, 52px);
 }
 
 .service-detail--seo .service-detail__deliverables .editorial-kicker {
-  margin: 0 0 18px;
+  margin: 0 0 14px;
 }
 
 .service-detail--seo .service-detail__deliverables h2 {
   max-width: 900px;
+  font-size: clamp(42px, 4.2vw, 66px);
 }
 
 .service-detail--seo .service-detail__deliverable-grid--primary {
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(12px, 1.4vw, 22px);
+  gap: clamp(12px, 1.2vw, 18px);
   border: 0;
 }
 
@@ -1644,8 +1645,8 @@
 .service-detail--seo .service-detail__deliverable-grid--primary .service-deliverable + .service-deliverable,
 .service-detail--seo .service-detail__deliverable-grid--primary .service-deliverable:nth-child(3n + 1),
 .service-detail--seo .service-detail__deliverable-grid--primary .service-deliverable:nth-child(n + 4) {
-  min-height: clamp(245px, 22vw, 340px);
-  padding: clamp(24px, 2.3vw, 36px);
+  min-height: clamp(210px, 18vw, 290px);
+  padding: clamp(22px, 2vw, 30px);
   border: 1px solid rgba(5, 5, 5, .08);
   border-radius: clamp(16px, 1.7vw, 24px);
   background: var(--service-paper);
@@ -1667,16 +1668,16 @@
 
 .service-detail--seo .service-deliverable h3 {
   margin: auto 0 0;
-  font-size: clamp(21px, 1.7vw, 29px);
+  font-size: clamp(19px, 1.45vw, 25px);
   line-height: 1.02;
   transition: color .25s ease, transform .4s cubic-bezier(.16, 1, .3, 1);
 }
 
 .service-detail--seo .service-deliverable p {
   max-width: 390px;
-  margin: 13px 0 0;
+  margin: 10px 0 0;
   color: rgba(5, 5, 5, .68);
-  font-size: clamp(14px, 1.08vw, 17px);
+  font-size: clamp(13px, .95vw, 15.5px);
   letter-spacing: -.015em;
   line-height: 1.35;
   transition: color .25s ease, transform .4s cubic-bezier(.16, 1, .3, 1);
@@ -1699,7 +1700,7 @@
 
 .service-detail--seo .service-detail__insight {
   display: block;
-  padding: clamp(92px, 10vw, 158px) max(7vw, 28px);
+  padding: clamp(68px, 6.5vw, 104px) max(7vw, 28px);
   background: var(--service-paper);
   color: var(--service-ink);
 }
@@ -1711,12 +1712,12 @@
 .service-detail--seo .service-detail__insight h2 {
   position: relative;
   width: fit-content;
-  margin: 0 0 clamp(30px, 3.4vw, 48px);
-  padding: 18px 28px 20px;
+  margin: 0 0 clamp(26px, 2.6vw, 36px);
+  padding: 15px 24px 17px;
   border: 1px solid rgba(5, 5, 5, .26);
   border-radius: 999px;
   font-family: var(--font-editorial);
-  font-size: clamp(40px, 5vw, 76px);
+  font-size: clamp(36px, 4.2vw, 62px);
   font-style: italic;
   font-weight: 400;
   letter-spacing: -.05em;
@@ -1739,7 +1740,7 @@
 .service-detail--seo .service-detail__insight p {
   max-width: 780px;
   margin: 0;
-  font-size: clamp(19px, 1.65vw, 27px);
+  font-size: clamp(18px, 1.4vw, 22px);
   letter-spacing: -.025em;
   line-height: 1.38;
 }
@@ -1747,16 +1748,16 @@
 .service-detail--seo .service-detail__worth {
   display: grid;
   grid-template-columns: minmax(280px, .85fr) minmax(0, 1.15fr);
-  gap: clamp(56px, 9vw, 150px);
+  gap: clamp(44px, 6vw, 96px);
   align-items: start;
-  padding: clamp(92px, 10vw, 158px) max(7vw, 28px);
+  padding: clamp(68px, 6.5vw, 104px) max(7vw, 28px);
   background: var(--white);
 }
 
 .service-detail--seo .service-detail__worth h2 {
   max-width: 600px;
   margin: 0;
-  font-size: clamp(44px, 5vw, 78px);
+  font-size: clamp(40px, 4.2vw, 66px);
   font-weight: 400;
   letter-spacing: -.055em;
   line-height: .94;
@@ -1772,17 +1773,93 @@
 .service-detail--seo .service-detail__worth p {
   max-width: 760px;
   margin: 4px 0 0;
-  font-size: clamp(19px, 1.65vw, 27px);
+  font-size: clamp(18px, 1.4vw, 22px);
   letter-spacing: -.025em;
   line-height: 1.4;
 }
 
 .service-detail--seo .editorial-faq {
+  gap: clamp(40px, 6vw, 86px);
+  padding-block: clamp(68px, 6.5vw, 104px);
   padding-inline: max(7vw, 28px);
 }
 
+.service-detail--seo .editorial-faq h2 {
+  margin-top: 22px;
+  font-size: clamp(34px, 3.6vw, 54px);
+}
+
+.service-detail--seo .editorial-faq summary {
+  padding-block: 18px;
+  font-size: clamp(16px, 1.2vw, 19px);
+}
+
+.service-detail--seo .editorial-faq .faq-answer p {
+  padding-bottom: 20px;
+  font-size: 15px;
+}
+
 .service-detail--seo .service-detail__closing {
+  gap: clamp(44px, 6vw, 90px);
+  padding-top: 72px;
+  padding-bottom: 68px;
   background: var(--white);
+}
+
+.service-detail--seo .service-detail__closing-copy h2 {
+  font-size: clamp(44px, 5vw, 76px);
+}
+
+.service-detail--seo .service-detail__closing-copy > p:not(.editorial-kicker) {
+  margin: 26px 0 32px;
+  font-size: clamp(16px, 1.15vw, 19px);
+}
+
+.service-detail--seo .service-detail__closing-benefits {
+  padding-top: 20px;
+}
+
+.service-detail--seo .service-detail__closing-benefits strong {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.service-detail--seo .service-detail__closing-benefits ul {
+  gap: 5px;
+  font-size: 15px;
+}
+
+.service-detail--seo .service-detail__closing-card {
+  width: min(100%, 560px);
+  padding: clamp(24px, 2.5vw, 36px);
+}
+
+.service-detail--seo .service-detail__closing-faces {
+  margin-bottom: 18px;
+}
+
+.service-detail--seo .service-detail__closing-card img {
+  width: 54px;
+  height: 54px;
+}
+
+.service-detail--seo .service-detail__closing-card h3 {
+  margin: 18px 0 22px;
+  font-size: clamp(32px, 3vw, 48px);
+}
+
+.service-detail--seo .service-detail__closing-meta {
+  padding-block: 14px;
+  font-size: 14px;
+}
+
+.service-detail--seo .service-detail__closing-form {
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.service-detail--seo .service-detail__closing-form input {
+  min-height: 50px;
 }
 
 @container (max-width: 465px) {
@@ -1817,7 +1894,7 @@
 @media (max-width: 980px) {
   .service-detail--seo .service-detail__opening {
     grid-template-columns: 1fr;
-    gap: 72px;
+    gap: 52px;
   }
 
   .service-detail--seo .service-detail__opening-copy {
@@ -1834,40 +1911,44 @@
 
   .service-detail--seo .service-detail__worth {
     grid-template-columns: 1fr;
-    gap: 42px;
+    gap: 32px;
   }
 }
 
 @media (max-width: 620px) {
   .service-detail--seo .service-detail__hero {
-    min-height: min(570px, 76svh);
+    min-height: 0;
     margin-inline: 10px;
-    padding: 54px 20px 44px;
+    padding: 44px 20px 38px;
     border-radius: 24px;
   }
 
   .service-detail--seo .service-detail__hero h1 {
-    margin-block: 28px 34px;
-    font-size: clamp(46px, 13.4vw, 64px);
+    margin-block: 24px 28px;
+    font-size: clamp(42px, 11.8vw, 54px);
     line-height: .92;
   }
 
   .service-detail--seo .service-detail__hero-meta > p {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .service-detail--seo .service-detail__opening {
-    gap: 50px;
-    padding: 72px 20px 88px;
+    gap: 36px;
+    padding: 56px 20px 64px;
   }
 
   .service-detail--seo .service-detail__opening-copy p {
-    font-size: 18px;
-    line-height: 1.45;
+    font-size: 17px;
+    line-height: 1.4;
   }
 
   .service-detail--seo .service-detail__deliverables {
-    padding: 72px 20px 88px;
+    padding: 56px 20px 64px;
+  }
+
+  .service-detail--seo .service-detail__deliverables > header {
+    margin-bottom: 32px;
   }
 
   .service-detail--seo .service-detail__deliverable-grid--primary {
@@ -1878,30 +1959,54 @@
   .service-detail--seo .service-detail__deliverable-grid--primary .service-deliverable + .service-deliverable,
   .service-detail--seo .service-detail__deliverable-grid--primary .service-deliverable:nth-child(3n + 1),
   .service-detail--seo .service-detail__deliverable-grid--primary .service-deliverable:nth-child(n + 4) {
-    min-height: 230px;
-    padding: 24px;
+    min-height: 195px;
+    padding: 20px;
   }
 
   .service-detail--seo .service-detail__insight,
   .service-detail--seo .service-detail__worth {
-    padding: 78px 20px 84px;
+    padding: 58px 20px 64px;
   }
 
   .service-detail--seo .service-detail__insight h2 {
-    padding: 14px 20px 16px;
-    font-size: clamp(34px, 10vw, 48px);
+    padding: 12px 18px 14px;
+    font-size: clamp(30px, 8.8vw, 40px);
+  }
+
+  .service-detail--seo .service-detail__insight p,
+  .service-detail--seo .service-detail__worth p {
+    font-size: 17px;
   }
 
   .service-detail--seo .service-detail__worth {
-    gap: 30px;
+    gap: 22px;
   }
 
   .service-detail--seo .service-detail__worth h2 {
-    font-size: clamp(42px, 12vw, 58px);
+    font-size: clamp(38px, 10.5vw, 48px);
   }
 
   .service-detail--seo .editorial-faq {
+    gap: 36px;
+    padding-block: 56px 60px;
     padding-inline: 20px;
+  }
+
+  .service-detail--seo .editorial-faq summary {
+    padding-block: 16px;
+  }
+
+  .service-detail--seo .service-detail__closing {
+    gap: 40px;
+    padding: 56px 20px 60px;
+  }
+
+  .service-detail--seo .service-detail__closing-copy h2 {
+    font-size: clamp(40px, 11vw, 50px);
+  }
+
+  .service-detail--seo .service-detail__closing-card {
+    padding: 24px;
   }
 }
 

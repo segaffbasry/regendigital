@@ -39,14 +39,15 @@ const teamMembers = [
     title: "AI Partner",
     previousCompany: "Ex Barclays + Morgan Stanley",
     bio:
-      "From workflow automation to bespoke AI builds, bringing the tech layer behind every Regen strategy.",
+      "AI Partner who builds credible, effective AI systems across a range of businesses, bringing that expertise into Regen's strategy as we grow.",
   },
   {
     name: "Ben Sanford",
     image: "/pics/Ben.png",
-    title: "Google Ads",
+    title: "Google Ads Partner",
     previousCompany: "Ex American Express",
-    bio: "Owner of Acquired Lead.",
+    bio:
+      "Google Ads partner working alongside Regen to extend paid search expertise across the team. Specialising in B2B Google Ads strategies built to drive measurable results.",
   },
   {
     name: "Cam Elson",
@@ -59,7 +60,9 @@ const teamMembers = [
     name: "Jordan Stimpson",
     image: "/pics/Jordan.png",
     title: "Web Design and Build",
-    bio: "Founder of Jords Co, a design studio for B2B brands.",
+    previousCompany: "Founder of Jords Co, a design studio for B2B brands",
+    bio:
+      "Jordan's our go-to for highly technical builds, sites with heavy animation and serious detail.",
   },
   {
     name: "Segaf Basry",
