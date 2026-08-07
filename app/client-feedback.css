@@ -1271,6 +1271,14 @@
   letter-spacing: -.045em;
 }
 
+.service-detail__hero-pill ~ .service-detail__hero-meta {
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  justify-content: start;
+  justify-items: start;
+  gap: clamp(18px, 2vw, 24px);
+}
+
 @media (max-width: 620px) {
   .service-detail__hero-pill {
     padding: 7px 12px;
