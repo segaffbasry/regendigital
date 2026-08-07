@@ -548,18 +548,21 @@
 }
 
 .audience-section {
-  padding-inline: 0;
+  padding-inline: var(--page-gutter);
 }
 
 .who-tabs {
   --who-inset: clamp(24px, 3.4vw, 52px);
-  border: 0;
-  border-radius: 0;
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  border: 1px solid rgba(5, 5, 5, .16);
+  border-radius: clamp(16px, 1.5vw, 24px);
 }
 
 .who-tabs__hero {
   min-height: clamp(480px, 40vw, 540px);
-  padding-inline: var(--page-gutter);
+  padding-inline: var(--who-inset);
   background:
     linear-gradient(90deg, rgba(0, 0, 0, .78) 0%, rgba(0, 0, 0, .46) 52%, rgba(0, 0, 0, .3) 100%),
     url("/IntusHQ/image%205.png") center 48% / cover no-repeat;
@@ -611,8 +614,8 @@
   min-height: clamp(320px, 26vw, 390px);
   grid-template-columns: minmax(280px, .8fr) minmax(380px, 1.2fr);
   margin-inline: 0;
-  padding-inline: var(--page-gutter);
-  border-radius: 0;
+  padding-inline: var(--who-inset);
+  border-radius: 0 0 clamp(16px, 1.5vw, 24px) clamp(16px, 1.5vw, 24px);
   background: #f1ebdf;
 }
 
