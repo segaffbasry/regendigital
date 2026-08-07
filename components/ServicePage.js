@@ -1,4 +1,5 @@
 import FaqItem from "./FaqItem";
+import SeoHeroGraphic from "./SeoHeroGraphic";
 import ServiceMotion from "./ServiceMotion";
 import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
@@ -38,9 +39,11 @@ function ArrowLink({ href = "/contact", children }) {
 
 export default function ServicePage({ content: page }) {
   const deliverables = page.included || [];
+  const isSeoLayout = page.layout === "seo";
+  const openingParagraphs = page.openingParagraphs || [page.body];
 
   return (
-    <main className="service-detail">
+    <main className={`service-detail${isSeoLayout ? " service-detail--seo" : ""}`}>
       <ServiceMotion />
       <SiteHeader />
 
@@ -54,7 +57,14 @@ export default function ServicePage({ content: page }) {
       </section>
 
       <section className="service-detail__opening">
-        <p>{page.body}</p>
+        {isSeoLayout ? (
+          <>
+            <div className="service-detail__opening-copy">
+              {openingParagraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            </div>
+            <SeoHeroGraphic />
+          </>
+        ) : <p>{page.body}</p>}
       </section>
 
       <section className="service-detail__deliverables">
@@ -67,6 +77,7 @@ export default function ServicePage({ content: page }) {
             <article className="service-deliverable" key={item}>
               <span>{String(index + 1).padStart(2, "0")}</span>
               <h3>{item}</h3>
+              {page.includedDetails?.[index] ? <p>{page.includedDetails[index]}</p> : null}
             </article>
           ))}
         </div>
@@ -74,8 +85,24 @@ export default function ServicePage({ content: page }) {
 
       {page.insight ? (
         <section className="service-detail__insight">
-          <p className="editorial-kicker">Good to know</p>
-          <div><h2>{page.insight[0]}</h2><p>{page.insight[1]}</p></div>
+          {isSeoLayout ? (
+            <div className="service-detail__insight-copy">
+              <h2>“{page.insight[0]}”</h2>
+              <p>{page.insight[1]}</p>
+            </div>
+          ) : (
+            <>
+              <p className="editorial-kicker">Good to know</p>
+              <div><h2>{page.insight[0]}</h2><p>{page.insight[1]}</p></div>
+            </>
+          )}
+        </section>
+      ) : null}
+
+      {page.worthIt ? (
+        <section className="service-detail__worth">
+          <h2>Why SEO is worth it <em>for B2B</em></h2>
+          <p>{page.worthIt}</p>
         </section>
       ) : null}
 
@@ -88,7 +115,7 @@ export default function ServicePage({ content: page }) {
 
       <section className="service-detail__closing">
         <div className="service-detail__closing-copy">
-          <p className="editorial-kicker">Start here</p>
+          {!page.hideClosingPrompts ? <p className="editorial-kicker">Start here</p> : null}
           <h2>Ready to build demand<br /><em>that converts?</em></h2>
           <p>An open conversation about your current marketing and where the business is heading, to see whether there is genuine potential for a collaboration.</p>
           <div className="service-detail__closing-benefits">
@@ -101,7 +128,7 @@ export default function ServicePage({ content: page }) {
           </div>
         </div>
         <div className="service-detail__closing-card">
-          <span className="service-detail__closing-note">Get started here ↘</span>
+          {!page.hideClosingPrompts ? <span className="service-detail__closing-note">Get started here ↘</span> : null}
           <div className="service-detail__closing-faces" aria-label="Holly and Taylor, Regen co-founders">
             <img src="/images/founders/holly-updated.png" alt="Holly, Regen co-founder" />
             <img src="/images/founders/taylor-portrait.webp" alt="Taylor, Regen co-founder" />

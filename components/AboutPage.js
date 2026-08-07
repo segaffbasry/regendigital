@@ -33,27 +33,32 @@ const founders = [
 const teamMembers = [
   {
     name: "Max Modlin",
+    image: "/pics/Max.png",
     experience: "Ex Barclays + Morgan Stanley",
     description:
       "AI partner, ex Barclays and Morgan Stanley. From workflow automation to bespoke AI builds, bringing the tech layer behind every Regen strategy.",
   },
   {
     name: "Ben Sanford",
+    image: "/pics/Ben.png",
     experience: "Ex American Express",
     description: "Google Ads. Owner of Acquired Lead, ex-American Express.",
   },
   {
     name: "Cam Elson",
+    image: "/pics/Cam.png",
     description:
       "Social media assistant. From daily scheduling to community management, keeping every client channel live, consistent, and on brand.",
   },
   {
     name: "Jordan Stimpson",
+    image: "/pics/Jordan.png",
     description:
       "Web design and build. Founder of Jords Co, a design studio for B2B brands.",
   },
   {
     name: "Segaf Basry",
+    image: "/pics/Segaf.png",
     description:
       "Design lead. From web design concepts to finished campaign assets, leading the creative output behind every Regen campaign.",
   },
@@ -163,7 +168,14 @@ export default function AboutPage() {
           <div className="about-team__members">
             {teamMembers.map((member) => (
               <article className="about-team__member" key={member.name}>
-                <div className="about-team__portrait-placeholder" aria-hidden="true" />
+                <div className="about-team__portrait">
+                  <Image
+                    alt={`${member.name}, Regen team member`}
+                    fill
+                    sizes="(max-width: 760px) 72px, (max-width: 1180px) 9vw, 7.2vw"
+                    src={member.image}
+                  />
+                </div>
                 <h3>{member.name}</h3>
                 {member.experience ? (
                   <p className="about-team__experience">{member.experience}</p>
