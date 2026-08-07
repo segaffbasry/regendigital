@@ -72,7 +72,7 @@ const services = [
     href: "/services/creator-partnerships",
     copy: "Strategic partnerships that borrow trust, reach the right communities and create genuine advocacy.",
     tone: "sky",
-    image: "/pics/ChatGPT Image Jul 31, 2026, 10_26_27 AM.png",
+    image: "/pics/creator-partnerships.png",
   },
 ];
 
