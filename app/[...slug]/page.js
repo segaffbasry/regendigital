@@ -81,7 +81,7 @@ export default async function PhaseOnePage({ params }) {
   }
 
   if (slug.length === 2 && slug[0] === "services") {
-    return <ServicePage content={content} />;
+    return <ServicePage content={content} serviceKey={slug[1]} />;
   }
 
   return <InteriorPage content={content} title={page.title} section={page.section} />;

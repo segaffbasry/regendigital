@@ -1,5 +1,5 @@
 import FaqItem from "./FaqItem";
-import SeoHeroGraphic from "./SeoHeroGraphic";
+import ServiceHeroGraphic from "./ServiceHeroGraphic";
 import ServiceMotion from "./ServiceMotion";
 import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
@@ -37,13 +37,13 @@ function ArrowLink({ href = "/contact", children }) {
   return <a className="service-detail__link" href={href}><span>{children}</span><span className="cta-arrow" aria-hidden="true" /></a>;
 }
 
-export default function ServicePage({ content: page }) {
+export default function ServicePage({ content: page, serviceKey }) {
   const deliverables = page.included || [];
   const isSeoLayout = page.layout === "seo";
   const openingParagraphs = page.openingParagraphs || [page.body];
 
   return (
-    <main className={`service-detail${isSeoLayout ? " service-detail--seo" : ""}`}>
+    <main className={`service-detail service-detail--visual${isSeoLayout ? " service-detail--seo" : ""}`}>
       <ServiceMotion />
       <SiteHeader />
 
@@ -57,14 +57,10 @@ export default function ServicePage({ content: page }) {
       </section>
 
       <section className="service-detail__opening">
-        {isSeoLayout ? (
-          <>
-            <div className="service-detail__opening-copy">
-              {openingParagraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-            </div>
-            <SeoHeroGraphic />
-          </>
-        ) : <p>{page.body}</p>}
+        <div className="service-detail__opening-copy">
+          {openingParagraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+        </div>
+        <ServiceHeroGraphic serviceKey={serviceKey} />
       </section>
 
       <section className="service-detail__deliverables">
