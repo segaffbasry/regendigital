@@ -126,7 +126,7 @@ function ProfessionalServicesGraphic() {
   );
 }
 
-function InvestorGraphic() {
+export function InvestorGraphic() {
   const companies = [[126, 104], [126, 210], [126, 316], [310, 104], [310, 316], [494, 104], [494, 316], [654, 210]];
   return (
     <svg aria-hidden="true" viewBox="0 0 760 420">

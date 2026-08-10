@@ -4,6 +4,7 @@ import AuditPage from "../../components/AuditPage";
 import ContactPage from "../../components/ContactPage";
 import HowWeWorkPage from "../../components/HowWeWorkPage";
 import InteriorPage from "../../components/InteriorPage";
+import InvestorPartnershipPage from "../../components/InvestorPartnershipPage";
 import PrivacyPage from "../../components/PrivacyPage";
 import ServicePage from "../../components/ServicePage";
 import WorkPage from "../../components/WorkPage";
@@ -47,6 +48,7 @@ export async function generateMetadata({ params }) {
   return {
     title: content?.title || `${page.title} | Regen`,
     description: content?.description,
+    robots: content?.robots,
   };
 }
 
@@ -58,6 +60,10 @@ export default async function PhaseOnePage({ params }) {
 
   if (slug.length === 1 && slug[0] === "contact") {
     return <ContactPage />;
+  }
+
+  if (slug.length === 2 && slug[0] === "investors" && slug[1] === "partnership-call") {
+    return <InvestorPartnershipPage />;
   }
 
   if (slug.length === 1 && slug[0] === "about") {
