@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 
 const closeDuration = 650;
 
-export default function FaqItem({ question, answer }) {
+export default function FaqItem({ question, answer, defaultOpen = false }) {
   const details = useRef(null);
   const closeTimer = useRef(null);
 
@@ -30,7 +30,7 @@ export default function FaqItem({ question, answer }) {
   }
 
   return (
-    <details ref={details}>
+    <details ref={details} defaultOpen={defaultOpen}>
       <summary onClick={handleSummaryClick}>
         {question}
         <span aria-hidden="true">+</span>

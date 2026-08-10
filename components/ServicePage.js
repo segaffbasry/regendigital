@@ -15,22 +15,25 @@ function sentenceCaseTitle(title) {
   });
 }
 
-function serviceHeroTitle(page) {
-  const title = sentenceCaseTitle(page.hero);
-  const emphasis = page.heroEmphasis;
-  if (!emphasis) return title;
+function emphasizedText(text, emphasis, className) {
+  if (!emphasis) return text;
 
-  const start = title.toLocaleLowerCase().indexOf(emphasis.toLocaleLowerCase());
-  if (start === -1) return title;
+  const start = text.toLocaleLowerCase().indexOf(emphasis.toLocaleLowerCase());
+  if (start === -1) return text;
 
   const end = start + emphasis.length;
   return (
     <>
-      {title.slice(0, start)}
-      <em className="service-detail__hero-emphasis">{title.slice(start, end)}</em>
-      {title.slice(end)}
+      {text.slice(0, start)}
+      <em className={className}>{text.slice(start, end)}</em>
+      {text.slice(end)}
     </>
   );
+}
+
+function serviceHeroTitle(page) {
+  const title = sentenceCaseTitle(page.hero);
+  return emphasizedText(title, page.heroEmphasis, "service-detail__hero-emphasis");
 }
 
 function ArrowLink({ href = "/contact", children }) {
@@ -39,11 +42,13 @@ function ArrowLink({ href = "/contact", children }) {
 
 export default function ServicePage({ content: page, serviceKey }) {
   const deliverables = page.included || [];
-  const isSeoLayout = page.layout === "seo";
   const openingParagraphs = page.openingParagraphs || [page.body];
+  const insightParagraphs = page.insight
+    ? [page.insight[1], ...(page.worthIt ? [page.worthIt] : [])]
+    : [];
 
   return (
-    <main className={`service-detail service-detail--visual${isSeoLayout ? " service-detail--seo" : ""}`}>
+    <main className="service-detail service-detail--visual service-detail--refined" data-service={serviceKey}>
       <ServiceMotion />
       <SiteHeader />
 
@@ -58,6 +63,11 @@ export default function ServicePage({ content: page, serviceKey }) {
 
       <section className="service-detail__opening">
         <div className="service-detail__opening-copy">
+          {page.openingTitle ? (
+            <h2>
+              {emphasizedText(page.openingTitle, page.openingTitleEmphasis, "service-detail__opening-emphasis")}
+            </h2>
+          ) : null}
           {openingParagraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
         </div>
         <ServiceHeroGraphic serviceKey={serviceKey} />
@@ -81,36 +91,22 @@ export default function ServicePage({ content: page, serviceKey }) {
 
       {page.insight ? (
         <section className="service-detail__insight">
-          {isSeoLayout ? (
-            <div className="service-detail__insight-copy">
-              <h2>“{page.insight[0]}”</h2>
-              <p>{page.insight[1]}</p>
-            </div>
-          ) : (
-            <>
-              <p className="editorial-kicker">Good to know</p>
-              <div><h2>{page.insight[0]}</h2><p>{page.insight[1]}</p></div>
-            </>
-          )}
-        </section>
-      ) : null}
-
-      {page.worthIt ? (
-        <section className="service-detail__worth">
-          <h2>
-            Why SEO is worth{" "}
-            <span className="service-detail__worth-keep">
-              it <em>for B2B</em>
-            </span>
-          </h2>
-          <p>{page.worthIt}</p>
+          {page.insightImage ? (
+            <figure className="service-detail__insight-media">
+              <img src={page.insightImage} alt={page.insightImageAlt || ""} loading="lazy" decoding="async" />
+            </figure>
+          ) : null}
+          <div className="service-detail__insight-copy">
+            <h2>“{page.insight[0]}”</h2>
+            {insightParagraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+          </div>
         </section>
       ) : null}
 
       {page.faqs?.length ? (
         <section className="editorial-faq">
           <div><p className="editorial-kicker">FAQs</p><h2>Questions,<br /><em>answered.</em></h2></div>
-          <div className="editorial-faq__items">{page.faqs.map(([question, answer]) => <FaqItem question={question} answer={answer} key={question} />)}</div>
+          <div className="editorial-faq__items">{page.faqs.map(([question, answer], index) => <FaqItem question={question} answer={answer} defaultOpen={index === 0} key={question} />)}</div>
         </section>
       ) : null}
 
