@@ -166,7 +166,7 @@ export function IndustryCardGraphic({ type }) {
   );
 }
 
-export default function IndustrySystemGraphic({ type = "tech" }) {
+export default function IndustrySystemGraphic({ body, type = "tech" }) {
   const meta = industryMeta[type] || industryMeta.tech;
 
   return (
@@ -178,7 +178,7 @@ export default function IndustrySystemGraphic({ type = "tech" }) {
       <div className="industry-system__copy">
         <p className="editorial-kicker">{meta.eyebrow}</p>
         <h2>{meta.title}</h2>
-        <p>{meta.detail}</p>
+        <p>{body || meta.detail}</p>
       </div>
       <div className="industry-system__visual">
         <GraphicFor type={type} />

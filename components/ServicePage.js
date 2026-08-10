@@ -1,5 +1,6 @@
 import FaqItem from "./FaqItem";
 import ServiceHeroGraphic from "./ServiceHeroGraphic";
+import ServiceInsightGraphic from "./ServiceInsightGraphic";
 import ServiceMotion from "./ServiceMotion";
 import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
@@ -91,7 +92,11 @@ export default function ServicePage({ content: page, serviceKey }) {
 
       {page.insight ? (
         <section className="service-detail__insight">
-          {page.insightImage ? (
+          {page.insightGraphic ? (
+            <figure className="service-detail__insight-media service-detail__insight-media--graphic">
+              <ServiceInsightGraphic variant={page.insightGraphic} />
+            </figure>
+          ) : page.insightImage ? (
             <figure className="service-detail__insight-media">
               <img src={page.insightImage} alt={page.insightImageAlt || ""} loading="lazy" decoding="async" />
             </figure>

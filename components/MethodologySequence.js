@@ -115,9 +115,10 @@ export default function MethodologySequence() {
 
     const start = section.offsetTop;
     const distance = section.offsetHeight - window.innerHeight;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     window.scrollTo({
       top: start + distance * ((index + 0.08) / 3),
-      behavior: "smooth",
+      behavior: reduceMotion ? "auto" : "smooth",
     });
   };
 
@@ -165,22 +166,18 @@ export default function MethodologySequence() {
         </div>
 
         <div className={`methodology-visual methodology-visual--${activeStep + 1}`} aria-hidden="true">
-          <div ref={visualRef} className="methodology-foundations">
-            {[...steps].reverse().map((step, reverseIndex) => {
-              const index = steps.length - reverseIndex - 1;
-              return (
-                <div
-                  className={`methodology-foundation methodology-foundation--${index + 1}${index <= activeStep ? " is-built" : ""}`}
-                  key={step.title}
-                >
-                  <span>{step.number}</span>
-                  <strong>{step.title}</strong>
-                  <i />
-                </div>
-              );
-            })}
-            <span className="methodology-foundations__caption">
-              One connected system, built in sequence.
+          <div ref={visualRef} className="methodology-growth">
+            <div className="methodology-growth__bars">
+              {steps.map((step, index) => (
+                <span
+                  className={`methodology-growth__bar methodology-growth__bar--${index + 1}${index <= activeStep ? " is-built" : ""}`}
+                  key={step.number}
+                />
+              ))}
+            </div>
+            <span className="methodology-growth__trajectory" />
+            <span className="methodology-growth__caption">
+              Each stage builds on the last.
             </span>
           </div>
         </div>

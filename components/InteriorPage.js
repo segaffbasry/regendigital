@@ -123,7 +123,10 @@ export default function InteriorPage({ content, title, section }) {
   const isIndustryDetail = Boolean(page.industryKey);
 
   return (
-    <main className={`editorial-page editorial-page--${tone}${page.variant ? ` editorial-page--${page.variant}` : ""}`}>
+    <main
+      className={`editorial-page editorial-page--${tone}${page.variant ? ` editorial-page--${page.variant}` : ""}${isIndustryDetail ? " editorial-page--industry-detail" : ""}`}
+      data-industry={isIndustryDetail ? page.industryKey : undefined}
+    >
       <InteriorMotion />
       <SiteHeader />
       <section className="editorial-hero">
@@ -139,13 +142,15 @@ export default function InteriorPage({ content, title, section }) {
         </div>
       </section>
 
-      <section className="editorial-intro">
-        <p className="editorial-kicker">{page.h1}</p>
-        <p className="editorial-intro__body">{page.body}</p>
-      </section>
+      {!isIndustryDetail ? (
+        <section className="editorial-intro">
+          <p className="editorial-kicker">{page.h1}</p>
+          <p className="editorial-intro__body">{page.body}</p>
+        </section>
+      ) : null}
 
       {isMethodology ? <MethodologySystemGraphic /> : null}
-      {isIndustryDetail ? <IndustrySystemGraphic type={page.industryKey} /> : null}
+      {isIndustryDetail ? <IndustrySystemGraphic body={page.body} type={page.industryKey} /> : null}
 
       {!page.emptyWork && !isMethodology && !isIndustryDetail ? (
         <section className="editorial-media-stage">
