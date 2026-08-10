@@ -241,8 +241,16 @@
 .editorial-faq summary span { font-size: 26px; font-weight: 400; transition: transform .3s; }
 .editorial-faq details[open] summary span { transform: rotate(45deg); }
 .editorial-faq .faq-answer { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .45s ease; }
-.editorial-faq details[open] .faq-answer { grid-template-rows: 1fr; }
-.editorial-faq details.is-closing .faq-answer { grid-template-rows: 0fr; }
+.editorial-faq details[open] .faq-answer {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  transform: translateY(0);
+}
+.editorial-faq details.is-closing .faq-answer {
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transform: translateY(-10px);
+}
 .editorial-faq .faq-answer > div { overflow: hidden; }
 .editorial-faq .faq-answer p { max-width: 680px; margin: 0; padding: 0 42px 26px 0; font-size: 16px; line-height: 1.42; }
 
