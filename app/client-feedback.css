@@ -193,7 +193,7 @@
   width: 78%;
   height: 50%;
   border-top: var(--trajectory-stroke) solid var(--blue);
-  border-radius: 52% 52% 0 0;
+  border-radius: 62% 8% 0 0 / 100% 18% 0 0;
   filter: drop-shadow(0 5px 7px rgba(0, 40, 250, .2));
   opacity: .68;
   transform: rotate(-11deg);
@@ -201,32 +201,19 @@
   transition: opacity .55s ease, filter .55s ease;
 }
 
-.methodology-growth__trajectory::before,
+.methodology-growth__trajectory::before {
+  content: none;
+}
+
 .methodology-growth__trajectory::after {
   position: absolute;
+  top: clamp(-12px, -.85vw, -9px);
+  right: clamp(-14px, -1vw, -10px);
+  width: clamp(50px, 5vw, 66px);
+  height: clamp(28px, 2.5vw, 34px);
   background: var(--blue);
-  clip-path: polygon(0 0, 100% 50%, 0 100%, 27% 50%);
+  clip-path: polygon(0 38%, 58% 38%, 58% 0, 100% 50%, 58% 100%, 58% 62%, 0 62%);
   content: "";
-  transform-origin: left center;
-}
-
-.methodology-growth__trajectory::before {
-  top: clamp(-4px, -.28vw, -2px);
-  right: clamp(-15px, -1vw, -10px);
-  width: clamp(24px, 2vw, 30px);
-  height: var(--trajectory-stroke);
-  border-radius: 999px;
-  clip-path: none;
-  transform: rotate(8deg);
-}
-
-.methodology-growth__trajectory::after {
-  top: clamp(-15px, -1vw, -11px);
-  right: clamp(-33px, -2.4vw, -24px);
-  width: clamp(28px, 2.4vw, 36px);
-  height: clamp(30px, 2.6vw, 38px);
-  clip-path: polygon(0 0, 100% 50%, 0 100%);
-  transform: rotate(8deg);
 }
 
 .methodology-visual--2 .methodology-growth__trajectory {
