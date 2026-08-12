@@ -8,6 +8,29 @@ import { contentForPath } from "../lib/page-content";
 
 const protectedTitleWords = new Set(["AI", "B2B", "GEO", "Google", "Regen", "SaaS", "SEO"]);
 
+const industryHeroMedia = {
+  saas: [
+    { after: 1, src: "/images/founders/holly-taylor.webp", position: "50% 50%" },
+    { after: 4, src: "/pics/Studio Meeting 2.jpeg", position: "50% 43%" },
+  ],
+  ai: [
+    { after: 1, src: "/Scene.webp", position: "27% 50%" },
+    { after: 4, src: "/pics/service-launch.webp", position: "50% 30%" },
+  ],
+  tech: [
+    { after: 1, src: "/pics/service-seo.webp", position: "50% 0%" },
+    { after: 4, src: "/pics/service-paid-social.webp", position: "51% 53%", scale: 1.12 },
+  ],
+  "professional-services": [
+    { after: 1, src: "/pics/Bielke&Yang.jpeg", position: "50% 45%" },
+    { after: 5, src: "/pics/service-partnerships.webp", position: "50% 45%" },
+  ],
+  investors: [
+    { after: 1, src: "/pics/_ (68).jpeg", position: "50% 48%" },
+    { after: 5, src: "/images/founders/holly-taylor.webp", position: "50% 50%" },
+  ],
+};
+
 function sentenceCaseTitle(title) {
   let wordIndex = 0;
   return title.replace(/[A-Za-z0-9]+(?:['’-][A-Za-z0-9]+)*/g, (word) => {
@@ -40,6 +63,46 @@ function HeroTitle({ children, accentWord, accentColor }) {
       {children.slice(end)}
     </>
   );
+}
+
+function IndustryHeroTitle({ page, title }) {
+  const media = industryHeroMedia[page.industryKey];
+  if (!media?.length) {
+    return <HeroTitle accentWord={page.accentWord} accentColor={page.accentColor}>{title}</HeroTitle>;
+  }
+
+  const accentStart = page.accentWord
+    ? title.toLocaleLowerCase().indexOf(page.accentWord.toLocaleLowerCase())
+    : -1;
+  const accentEnd = accentStart === -1 ? -1 : accentStart + page.accentWord.length;
+  const words = title.split(" ");
+  let cursor = 0;
+
+  return words.map((word, index) => {
+    const start = cursor;
+    const end = start + word.length;
+    const isMarked = accentStart !== -1 && start < accentEnd && end > accentStart;
+    const titleMedia = media.find((item) => item.after === index);
+    cursor = end + 1;
+
+    return (
+      <span className="editorial-hero__title-part" key={`${word}-${index}`}>
+        {index > 0 ? " " : null}
+        {isMarked ? (
+          <span className="editorial-hero__marked-word" style={{ "--industry-mark": page.accentColor }}>{word}</span>
+        ) : word}
+        {titleMedia ? (
+          <span className="editorial-hero__media" aria-hidden="true">
+            <img
+              src={titleMedia.src}
+              alt=""
+              style={{ objectPosition: titleMedia.position, transform: `scale(${titleMedia.scale || 1})` }}
+            />
+          </span>
+        ) : null}
+      </span>
+    );
+  });
 }
 
 function CardGrid({ paths }) {
@@ -117,6 +180,7 @@ function MediaPlaceholder({ format = "landscape", label = "Regen at work", note 
 
 export default function InteriorPage({ content, title, section }) {
   const page = content || { hero: title, h1: title, section };
+  const heroTitle = sentenceCaseTitle(page.hero);
   const tone = page.tone || (page.section === "Services" ? "blue" : "bone");
   const media = imageSetFor(page);
   const isMethodology = page.variant === "methodology";
@@ -131,10 +195,12 @@ export default function InteriorPage({ content, title, section }) {
       <SiteHeader />
       <section className="editorial-hero">
         <p className="editorial-kicker">{page.section}</p>
-        <h1>
-          <HeroTitle accentWord={page.accentWord} accentColor={page.accentColor}>
-            {sentenceCaseTitle(page.hero)}
-          </HeroTitle>
+        <h1 aria-label={heroTitle}>
+          {isIndustryDetail ? (
+            <IndustryHeroTitle page={page} title={heroTitle} />
+          ) : (
+            <HeroTitle accentWord={page.accentWord} accentColor={page.accentColor}>{heroTitle}</HeroTitle>
+          )}
         </h1>
         <div className="editorial-hero__foot">
           <p>{page.entity || page.h1}</p>

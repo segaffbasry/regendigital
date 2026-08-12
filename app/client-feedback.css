@@ -1535,6 +1535,21 @@
   object-fit: cover;
 }
 
+@media (min-width: 921px) {
+  .site-header__nav {
+    gap: 10px;
+  }
+
+  .site-header__link {
+    padding-inline: 7px;
+  }
+
+  .site-header__nav .site-header__audit,
+  .site-header__nav .site-header__call {
+    margin-left: 0;
+  }
+}
+
 .service-detail--refined .service-detail__hero-meta {
   max-width: 720px;
 }
