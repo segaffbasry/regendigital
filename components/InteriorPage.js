@@ -10,24 +10,24 @@ const protectedTitleWords = new Set(["AI", "B2B", "GEO", "Google", "Regen", "Saa
 
 const industryHeroMedia = {
   saas: [
-    { after: 1, src: "/images/founders/holly-taylor.webp", position: "50% 50%" },
-    { after: 4, src: "/pics/Studio Meeting 2.jpeg", position: "50% 43%" },
+    { after: 1, src: "/images/industries/saas-detail.webp", position: "50% 50%" },
+    { after: 4, src: "/images/industries/saas-team.webp", position: "50% 50%" },
   ],
   ai: [
-    { after: 1, src: "/Scene.webp", position: "27% 50%" },
-    { after: 4, src: "/pics/service-launch.webp", position: "50% 30%" },
+    { after: 1, src: "/images/industries/ai-detail.webp", position: "50% 50%" },
+    { after: 4, src: "/images/industries/ai-team.webp", position: "50% 50%" },
   ],
   tech: [
-    { after: 1, src: "/pics/service-seo.webp", position: "50% 0%" },
-    { after: 4, src: "/pics/service-paid-social.webp", position: "51% 53%", scale: 1.12 },
+    { after: 1, src: "/images/industries/tech-detail.webp", position: "50% 50%" },
+    { after: 4, src: "/images/industries/tech-team.webp", position: "50% 50%" },
   ],
   "professional-services": [
-    { after: 1, src: "/pics/Bielke&Yang.jpeg", position: "50% 45%" },
-    { after: 5, src: "/pics/service-partnerships.webp", position: "50% 45%" },
+    { after: 1, src: "/images/industries/professional-services-detail.webp", position: "50% 50%" },
+    { after: 5, src: "/images/industries/professional-services-team.webp", position: "50% 50%" },
   ],
   investors: [
-    { after: 1, src: "/pics/_ (68).jpeg", position: "50% 48%" },
-    { after: 5, src: "/images/founders/holly-taylor.webp", position: "50% 50%" },
+    { after: 1, src: "/images/industries/investors-detail.webp", position: "50% 50%" },
+    { after: 5, src: "/images/industries/investors-team.webp", position: "50% 50%" },
   ],
 };
 
@@ -194,7 +194,7 @@ export default function InteriorPage({ content, title, section }) {
       <InteriorMotion />
       <SiteHeader />
       <section className="editorial-hero">
-        <p className="editorial-kicker">{page.section}</p>
+        {!isIndustryDetail ? <p className="editorial-kicker">{page.section}</p> : null}
         <h1 aria-label={heroTitle}>
           {isIndustryDetail ? (
             <IndustryHeroTitle page={page} title={heroTitle} />
@@ -232,8 +232,13 @@ export default function InteriorPage({ content, title, section }) {
       ) : null}
 
       {page.steps?.length ? (
-        <section className="editorial-steps">
-          {page.steps.map(([number, name, copy]) => <article key={number}><span>{number}</span><h2>{name}</h2><p>{copy}</p></article>)}
+        <section className={`editorial-steps${isMethodology ? " editorial-steps--methodology" : ""}`}>
+          {page.steps.map(([number, name, copy], index) => (
+            <article key={number}>
+              <span>{number}</span><h2>{name}</h2><p>{copy}</p>
+              {isMethodology && index === 0 ? <img src="/images/methodology-audit.webp" alt="" loading="lazy" /> : null}
+            </article>
+          ))}
         </section>
       ) : null}
 

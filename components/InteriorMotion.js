@@ -21,7 +21,7 @@ export default function InteriorMotion() {
     let cancelled = false;
 
     gsap.set(heroTitle, { visibility: "hidden" });
-    gsap.set(heroKicker, { autoAlpha: 0, y: 16 });
+    if (heroKicker) gsap.set(heroKicker, { autoAlpha: 0, y: 16 });
     gsap.set(heroFoot, { autoAlpha: 0, y: 24 });
 
     const context = gsap.context(() => {
@@ -42,9 +42,10 @@ export default function InteriorMotion() {
             gsap.set(heroSplit.lines, { yPercent: 115, rotate: 1.5 });
 
             const heroTimeline = gsap.timeline({ defaults: { ease: "power4.out" } })
-              .to(heroSplit.lines, { yPercent: 0, rotate: 0, duration: 1.18, stagger: 0.11 }, 0.08)
-              .to(heroKicker, { autoAlpha: 1, y: 0, duration: .7 }, 0.18)
-              .to(heroFoot, { autoAlpha: 1, y: 0, duration: .85, stagger: .1 }, 0.4);
+              .to(heroSplit.lines, { yPercent: 0, rotate: 0, duration: 1.18, stagger: 0.11 }, 0.08);
+
+            if (heroKicker) heroTimeline.to(heroKicker, { autoAlpha: 1, y: 0, duration: .7 }, 0.18);
+            heroTimeline.to(heroFoot, { autoAlpha: 1, y: 0, duration: .85, stagger: .1 }, 0.4);
 
             const markedWord = root.querySelector(".editorial-hero__marked-word");
             if (markedWord) {
@@ -128,7 +129,7 @@ export default function InteriorMotion() {
       splits.forEach((split) => split.revert());
       context.revert();
       gsap.set(heroTitle, { clearProps: "visibility" });
-      gsap.set(heroKicker, { clearProps: "opacity,visibility,transform" });
+      if (heroKicker) gsap.set(heroKicker, { clearProps: "opacity,visibility,transform" });
       gsap.set(heroFoot, { clearProps: "opacity,visibility,transform" });
     };
   }, []);

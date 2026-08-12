@@ -1506,35 +1506,6 @@
   text-wrap: balance;
 }
 
-.service-detail__hero-title-part {
-  display: inline;
-}
-
-.service-detail__hero-media {
-  display: inline-block;
-  width: .92em;
-  height: .56em;
-  margin: 0 .13em;
-  overflow: hidden;
-  border: 1px solid rgba(5, 5, 5, .12);
-  border-radius: .16em;
-  background: #ddd8cb;
-  box-shadow: 0 .08em .22em rgba(17, 14, 11, .1);
-  vertical-align: .04em;
-  transform: rotate(-2deg);
-}
-
-.service-detail__hero-title-part:nth-of-type(2n) .service-detail__hero-media {
-  transform: rotate(2deg);
-}
-
-.service-detail__hero-media img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 @media (min-width: 921px) {
   .site-header__nav {
     gap: 10px;
@@ -3084,12 +3055,6 @@
     line-height: .92;
   }
 
-  .service-detail__hero-media {
-    width: .82em;
-    height: .5em;
-    margin-inline: .08em;
-  }
-
   .service-detail--refined .service-detail__hero-meta {
     gap: 18px;
   }
@@ -3257,6 +3222,138 @@
 
   .service-detail--refined .service-detail__worth h2 em {
     display: inline;
+  }
+}
+
+/* The methodology steps mirror the compact, image-led Audit / Test / Amplify reference. */
+.editorial-page--methodology .editorial-steps--methodology {
+  display: grid;
+  grid-template-columns: minmax(0, 1.85fr) repeat(2, minmax(0, 1fr));
+  gap: clamp(10px, 1vw, 14px);
+  padding: clamp(12px, 1.4vw, 20px);
+  background: var(--white);
+  color: var(--black);
+}
+
+.editorial-page--methodology .editorial-steps--methodology article {
+  position: relative;
+  display: grid;
+  min-height: clamp(300px, 27vw, 390px);
+  padding: clamp(20px, 2vw, 30px);
+  overflow: hidden;
+  border: 0;
+  border-radius: clamp(18px, 1.7vw, 26px);
+  background: #252235;
+  color: var(--white);
+  grid-template-rows: auto auto 1fr;
+}
+
+.editorial-page--methodology .editorial-steps--methodology article:first-child {
+  background: #e8e7f7;
+  color: var(--black);
+}
+
+.editorial-page--methodology .editorial-steps--methodology article > span {
+  position: relative;
+  z-index: 2;
+  color: currentColor;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .12em;
+}
+
+.editorial-page--methodology .editorial-steps--methodology article h2 {
+  position: relative;
+  z-index: 2;
+  max-width: 12ch;
+  margin: 14px 0 0;
+  font-family: var(--font-helv);
+  font-size: clamp(24px, 2.25vw, 38px);
+  font-weight: 500;
+  letter-spacing: -.05em;
+  line-height: .96;
+}
+
+.editorial-page--methodology .editorial-steps--methodology article p {
+  position: relative;
+  z-index: 2;
+  align-self: end;
+  max-width: 34ch;
+  margin: clamp(84px, 9vw, 132px) 0 0;
+  color: currentColor;
+  font-size: clamp(14px, 1vw, 16px);
+  line-height: 1.35;
+}
+
+.editorial-page--methodology .editorial-steps--methodology article:first-child p {
+  max-width: min(42ch, 58%);
+}
+
+.editorial-page--methodology .editorial-steps--methodology article img {
+  position: absolute;
+  right: -5%;
+  bottom: -10%;
+  width: 56%;
+  height: 82%;
+  object-fit: cover;
+  object-position: 58% 50%;
+  border-radius: 999px 999px 22px 999px;
+  filter: saturate(.72) contrast(.94);
+}
+
+.editorial-page--methodology .editorial-steps--methodology article:nth-child(2)::after,
+.editorial-page--methodology .editorial-steps--methodology article:nth-child(3)::after {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: 0 0 0 9px rgba(0, 40, 250, .16);
+  content: "";
+}
+
+@media (max-width: 900px) {
+  .editorial-page--methodology .editorial-steps--methodology {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .editorial-page--methodology .editorial-steps--methodology article:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 620px) {
+  .editorial-page--methodology .editorial-steps--methodology {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .editorial-page--methodology .editorial-steps--methodology article,
+  .editorial-page--methodology .editorial-steps--methodology article:first-child {
+    min-height: 270px;
+    grid-column: auto;
+    padding: 22px;
+  }
+
+  .editorial-page--methodology .editorial-steps--methodology article p {
+    margin-top: 72px;
+  }
+
+  .editorial-page--methodology .editorial-steps--methodology article:first-child p {
+    max-width: none;
+    margin-top: 160px;
+  }
+
+  .editorial-page--methodology .editorial-steps--methodology article img {
+    top: 68px;
+    right: 18px;
+    bottom: auto;
+    width: 46%;
+    height: 112px;
+    border-radius: 999px 999px 18px 999px;
   }
 }
 
