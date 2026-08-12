@@ -193,7 +193,6 @@ function OrganicSocialComposition() {
       <div className="service-art__surface service-art__piece organic-post organic-post--one"><span>POINT OF VIEW</span><strong>An idea worth saving.</strong><i /><i /></div>
       <div className="service-art__surface service-art__piece organic-post organic-post--two"><span>CUSTOMER PROOF</span><strong>Show the work.</strong><i /><i /></div>
       <div className="service-art__surface service-art__piece organic-post organic-post--three"><span>CONVERSATION</span><strong>Invite a response.</strong><i /><i /></div>
-      <span className="service-art__chip service-art__piece organic-reaction organic-reaction--one">Saved</span>
       <span className="service-art__chip service-art__piece organic-reaction organic-reaction--two">Reply</span>
     </div>
   );

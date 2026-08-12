@@ -13,10 +13,6 @@ export default function ServiceInsightGraphic({ variant }) {
       role="img"
       aria-label="Organic social builds visibility into trust, then turns that trust into a place on the buyer's shortlist."
     >
-      <div className="service-insight-graphic__topline" aria-hidden="true">
-        <span>Organic signal</span>
-        <span>Always on</span>
-      </div>
       <div className="service-insight-graphic__journey" aria-hidden="true">
         <span className="service-insight-graphic__route" />
         {organicStages.map(([number, label], index) => (
@@ -28,11 +24,6 @@ export default function ServiceInsightGraphic({ variant }) {
             <strong>{label}</strong>
           </span>
         ))}
-      </div>
-      <div className="service-insight-graphic__foot" aria-hidden="true">
-        <span>Consistent content</span>
-        <i />
-        <span>Pipeline ready</span>
       </div>
     </div>
   );

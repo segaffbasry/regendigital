@@ -171,7 +171,7 @@ export default function InteriorPage({ content, title, section }) {
         </section>
       ) : null}
 
-      {page.insight ? (
+      {page.insight && !isIndustryDetail ? (
         <section className="editorial-insight">
           <p className="editorial-kicker">Good to know</p>
           <div><h2>{page.insight[0]}</h2><p>{page.insight[1]}</p></div>
