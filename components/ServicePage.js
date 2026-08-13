@@ -1,9 +1,10 @@
 import FaqItem from "./FaqItem";
-import ServiceHeroGraphic from "./ServiceHeroGraphic";
-import ServiceInsightGraphic from "./ServiceInsightGraphic";
+import ClientLogoStrip from "./ClientLogoStrip";
+import ServiceAnimation from "./ServiceAnimation";
 import ServiceMotion from "./ServiceMotion";
 import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
+import "../app/service-feedback.css";
 
 const protectedTitleWords = new Set(["AI", "B2B", "GEO", "Google", "Regen", "SaaS", "SEO"]);
 
@@ -44,15 +45,19 @@ function ServiceHeroTitle({ page }) {
 }
 
 function ArrowLink({ href = "/contact", children }) {
-  return <a className="service-detail__link" href={href}><span>{children}</span><span className="cta-arrow" aria-hidden="true" /></a>;
+  return <a className="service-detail__link cta-button" href={href}><span>{children}</span><span className="cta-arrow" aria-hidden="true" /></a>;
 }
 
 export default function ServicePage({ content: page, serviceKey }) {
   const deliverables = page.included || [];
   const openingParagraphs = page.openingParagraphs || [page.body];
-  const insightParagraphs = page.insight
-    ? [page.insight[1], ...(page.worthIt ? [page.worthIt] : [])]
-    : [];
+  const existingFaqs = page.faqs || [];
+  const insightFaq = page.insight
+    ? [page.insight[0], page.insight[1], page.worthIt || null]
+    : null;
+  const faqs = insightFaq
+    ? [insightFaq, ...existingFaqs.filter(([question]) => question !== insightFaq[0])]
+    : existingFaqs;
 
   return (
     <main className="service-detail service-detail--visual service-detail--refined" data-service={serviceKey}>
@@ -66,6 +71,7 @@ export default function ServicePage({ content: page, serviceKey }) {
           <p>{page.entity}</p>
           <ArrowLink href={page.ctaHref}>{page.cta}</ArrowLink>
         </div>
+        <ClientLogoStrip variant="compact" />
       </section>
 
       <section className="service-detail__opening">
@@ -77,7 +83,7 @@ export default function ServicePage({ content: page, serviceKey }) {
           ) : null}
           {openingParagraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
         </div>
-        <ServiceHeroGraphic serviceKey={serviceKey} />
+        <ServiceAnimation serviceKey={serviceKey} />
       </section>
 
       <section className="service-detail__deliverables">
@@ -96,38 +102,24 @@ export default function ServicePage({ content: page, serviceKey }) {
         </div>
       </section>
 
-      {page.insight ? (
-        <section className="service-detail__insight">
-          {page.insightGraphic ? (
-            <figure className="service-detail__insight-media service-detail__insight-media--graphic">
-              <ServiceInsightGraphic variant={page.insightGraphic} />
-            </figure>
-          ) : page.insightImage ? (
-            <figure className="service-detail__insight-media">
-              <img
-                src={page.insightImage}
-                alt={page.insightImageAlt || ""}
-                loading="lazy"
-                decoding="async"
-                style={{
-                  "--service-image-position": page.insightImagePosition || "50% 50%",
-                  "--service-image-scale": page.insightImageScale || 1,
-                  "--service-image-origin": page.insightImageOrigin || "50% 50%",
-                }}
-              />
-            </figure>
-          ) : null}
-          <div className="service-detail__insight-copy">
-            <h2>“{page.insight[0]}”</h2>
-            {insightParagraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-          </div>
-        </section>
-      ) : null}
-
-      {page.faqs?.length ? (
+      {faqs.length ? (
         <section className="editorial-faq">
           <div><p className="editorial-kicker">FAQs</p><h2>Questions,<br /><em>answered.</em></h2></div>
-          <div className="editorial-faq__items">{page.faqs.map(([question, answer], index) => <FaqItem question={question} answer={answer} defaultOpen={index === 0} key={question} />)}</div>
+          <div className="editorial-faq__items">
+            {faqs.map(([question, answer, continuation], index) => (
+              <FaqItem
+                question={question}
+                answer={continuation ? (
+                  <>
+                    {answer}
+                    <span className="service-faq__continuation">{continuation}</span>
+                  </>
+                ) : answer}
+                defaultOpen={index === 0}
+                key={question}
+              />
+            ))}
+          </div>
         </section>
       ) : null}
 
@@ -163,7 +155,7 @@ export default function ServicePage({ content: page, serviceKey }) {
               <input type="text" name="source" placeholder="How did you hear about us?*" required />
             </label>
             <p>By submitting this form, you agree to our <a href="/privacy-policy">Privacy Policy</a>.</p>
-            <button className="service-detail__link service-detail__closing-submit" type="submit">Let&apos;s talk <span className="cta-arrow" aria-hidden="true" /></button>
+            <button className="service-detail__link service-detail__closing-submit cta-button" type="submit">Let&apos;s talk <span className="cta-arrow" aria-hidden="true" /></button>
           </form>
         </div>
       </section>

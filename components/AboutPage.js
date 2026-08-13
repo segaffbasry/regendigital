@@ -5,7 +5,6 @@ import { useLayoutEffect, useRef } from "react";
 import {
   AboutDepthHero,
   AboutDepthPrinciples,
-  AboutDepthStory,
   AboutDepthSystem,
 } from "./AboutDepthSections";
 import AboutSectionMotion from "./AboutSectionMotion";
@@ -146,7 +145,6 @@ export default function AboutPage() {
       <SiteHeader />
 
       <AboutDepthHero />
-      <AboutDepthStory />
 
       <section className="about-team" aria-labelledby="about-team-title">
         <h2 className="about-team__title" id="about-team-title">

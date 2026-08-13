@@ -70,7 +70,7 @@ export default function PartnershipForm() {
           By sending this, you agree to our <a href="/privacy-policy">privacy policy</a>.
           Prefer email? Write to <a href="mailto:info@regendigital.co">info@regendigital.co</a>.
         </p>
-        <button type="submit">
+        <button className="cta-button" type="submit">
           <span>Request the call</span>
           <span className="contact-submit-arrow" aria-hidden="true">
             <img src="/download.svg" alt="" />

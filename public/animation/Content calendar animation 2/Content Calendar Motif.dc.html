@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  body { margin:0; background:#EDEAE2; -webkit-font-smoothing:antialiased; }
+  a { color:#0028FA; text-decoration:none; }
+  a:hover { color:#001BB0; }
+  @keyframes blockIn{
+    0%{opacity:0;transform:translateY(-16px) scale(.94);animation-timing-function:cubic-bezier(.18,1.22,.3,1)}
+    4%{opacity:1;transform:translateY(0) scale(1)}
+    88%{opacity:1;transform:translateY(0) scale(1);animation-timing-function:cubic-bezier(.4,0,.7,.4)}
+    93%{opacity:0;transform:translateY(10px) scale(.975)}
+    100%{opacity:0;transform:translateY(-16px) scale(.94)}
+  }
+  @keyframes chipA{
+    0%,27%{background:#F5F4F1;border-color:#E4E2DB;color:#6F6E6A;animation-timing-function:cubic-bezier(.4,0,.2,1)}
+    30%,56%{background:var(--accent);border-color:var(--accent);color:#fff;animation-timing-function:cubic-bezier(.4,0,.2,1)}
+    59%,100%{background:#0B0B0B;border-color:#0B0B0B;color:#fff}
+  }
+  @keyframes chipB{
+    0%,38%{background:#F5F4F1;border-color:#E4E2DB;color:#6F6E6A;animation-timing-function:cubic-bezier(.4,0,.2,1)}
+    41%,66%{background:var(--accent);border-color:var(--accent);color:#fff;animation-timing-function:cubic-bezier(.4,0,.2,1)}
+    69%,100%{background:#0B0B0B;border-color:#0B0B0B;color:#fff}
+  }
+  @keyframes labDesA{0%,27%{opacity:1}28.5%,93%{opacity:0}100%{opacity:1}}
+  @keyframes labSchA{0%,28.5%{opacity:0}30%,56%{opacity:1}57.5%,100%{opacity:0}}
+  @keyframes labPosA{0%,57.5%{opacity:0}59%,93%{opacity:1}100%{opacity:0}}
+  @keyframes labDesB{0%,38%{opacity:1}39.5%,93%{opacity:0}100%{opacity:1}}
+  @keyframes labSchB{0%,39.5%{opacity:0}41%,66%{opacity:1}67.5%,100%{opacity:0}}
+  @keyframes labPosB{0%,67.5%{opacity:0}69%,93%{opacity:1}100%{opacity:0}}
+  @keyframes tickA{
+    0%,57%{opacity:0;transform:scale(.3);animation-timing-function:cubic-bezier(.2,1.5,.4,1)}
+    62%{opacity:1;transform:scale(1.18)}
+    66%,93%{opacity:1;transform:scale(1)}
+    100%{opacity:0;transform:scale(.3)}
+  }
+  @keyframes tickB{
+    0%,67%{opacity:0;transform:scale(.3);animation-timing-function:cubic-bezier(.2,1.5,.4,1)}
+    72%{opacity:1;transform:scale(1.18)}
+    76%,93%{opacity:1;transform:scale(1)}
+    100%{opacity:0;transform:scale(.3)}
+  }
+  @keyframes sweep{
+    0%{opacity:0;transform:translateY(-8px)}
+    5%{opacity:1;transform:translateY(0)}
+    90%{opacity:1;transform:translateY(0)}
+    96%,100%{opacity:0;transform:translateY(-8px)}
+  }
+</style>
+</helmet>
+
+<div ref="{{ setRoot }}" data-om-exportable-video-with-duration-secs="15" data-screen-label="Content calendar motif" style="--accent:#0028FA; --loop:15s; --d:0s;  --grey:#F5F4F1; --greyline:#E4E2DB; --greytext:#6F6E6A; box-sizing:border-box; width:100%; max-width:1200px; min-height:800px; margin:0 auto; padding:64px 40px; display:flex; align-items:center; justify-content:center; background:#EDEAE2; font-family:'Poppins','Montserrat',-apple-system,'Segoe UI',system-ui,sans-serif;">
+
+  <div style="box-sizing:border-box; width:100%; max-width:1120px; padding:34px 36px 38px; background:#FFFFFF; border:1px solid #EDEAE2; border-radius:16px; box-shadow:0 1px 2px rgba(24,20,10,.04), 0 18px 44px -22px rgba(24,20,10,.16);">
+
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:26px;">
+      <span style="font-size:15px; font-weight:600; letter-spacing:-.01em; color:#0B0B0B;">Content calendar</span>
+      <div style="display:flex; align-items:center; gap:8px;">
+        <span style="display:block; width:44px; height:8px; border-radius:4px; background:#EEEDE9;"></span>
+        <span style="display:block; width:26px; height:8px; border-radius:4px; background:#EEEDE9;"></span>
+        <span style="display:block; width:8px; height:8px; border-radius:4px; background:var(--accent);"></span>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:14px; margin-bottom:12px;">
+      <span style="font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:#A3A19A;">Mon</span>
+      <span style="font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:#A3A19A;">Tue</span>
+      <span style="font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:#A3A19A;">Wed</span>
+      <span style="font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:#A3A19A;">Thu</span>
+      <span style="font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:#A3A19A;">Fri</span>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(5,1fr); grid-template-rows:repeat(2,1fr); gap:14px;">
+
+      <div style="box-sizing:border-box; height:108px; padding:10px; border-radius:12px; background:#FCFBF9; border:1px solid #F1EFEA;">
+        <div style="--d:0s; animation:blockIn var(--loop) linear var(--d) infinite both;">
+          <div style="box-sizing:border-box; display:flex; align-items:center; gap:8px; height:48px; padding:0 12px; border-radius:11px; background:var(--grey); border:1px solid var(--greyline); color:var(--greytext); box-shadow:0 1px 2px rgba(24,20,10,.04);">
+            <span style="width:20px; height:20px; border-radius:5px; background:currentColor; opacity:.26; flex:none;"></span>
+            <span style="font-size:12px; font-weight:600; letter-spacing:.005em; white-space:nowrap;">Designing</span>
+          </div>
+          <div data-bars="1" style="display:flex; flex-direction:column; gap:6px; padding:14px 3px 0;">
+            <span style="display:block; height:5px; width:66%; border-radius:3px; background:#EDEBE6;"></span>
+            <span style="display:block; height:5px; width:38%; border-radius:3px; background:#F2F0EC;"></span>
+          </div>
+        </div>
+      </div>
+
+      <div style="box-sizing:border-box; height:108px; padding:10px; border-radius:12px; background:#FCFBF9; border:1px solid #F1EFEA;">
+        <div style="--d:.32s; animation:blockIn var(--loop) linear var(--d) infinite both;">
+          <div style="box-sizing:border-box; display:flex; align-items:center; gap:8px; height:48px; padding:0 12px; border-radius:11px; box-shadow:0 1px 2px rgba(24,20,10,.04); border:1px solid var(--greyline); background:var(--grey); color:var(--greytext); animation:chipA var(--loop) linear var(--d) infinite both;">
+            <span style="width:20px; height:20px; border-radius:5px; background:currentColor; opacity:.26; flex:none;"></span>
+            <span style="position:relative; display:block; flex:none; width:68px; height:16px;">
+              <span style="position:absolute; left:0; top:0; line-height:16px; font-size:12px; font-weight:600; white-space:nowrap; animation:labDesA var(--loop) linear var(--d) infinite both;">Designing</span>
+              <span style="position:absolute; left:0; top:0; line-height:16px; font-size:12px; font-weight:600; white-space:nowrap; animation:labSchA var(--loop) linear var(--d) infinite both;">Scheduled</span>
+              <span style="position:absolute; left:0; top:0; line-height:16px; font-size:12px; font-weight:600; white-space:nowrap; animation:labPosA var(--loop) linear var(--d) infinite both;">Posted</span>
+            </span>
+            <span style="flex:none; width:18px; height:18px; border-radius:9px; background:var(--accent); display:flex; align-items:center; justify-content:center; animation:tickA var(--loop) linear var(--d) infinite both;">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5.3 4 7.2 8 2.9" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+          <div data-bars="1" style="display:flex; flex-direction:column; gap:6px; padding:14px 3px 0;">
+            <span style="display:block; height:5px; width:58%; border-radius:3px; background:#EDEBE6;"></span>
+            <span style="display:block; height:5px; width:34%; border-radius:3px; background:#F2F0EC;"></span>
+          </div>
+        </div>
+      </div>
+
+      <div style="box-sizing:border-box; height:108px; padding:10px; border-radius:12px; background:#FCFBF9; border:1px solid #F1EFEA;">
+        <div style="--d:.64s; animation:blockIn var(--loop) linear var(--d) infinite both;">
+          <div style="box-sizing:border-box; display:flex; align-items:center; gap:8px; height:48px; padding:0 12px; border-radius:11px; background:var(--accent); border:1px solid var(--accent); color:#fff; box-shadow:0 2px 8px -2px rgba(0,40,250,.35);">
+            <span style="width:20px; height:20px; border-radius:5px; background:currentColor; opacity:.3; flex:none;"></span>
+            <span style="font-size:12px; font-weight:600; letter-spacing:.005em; white-space:nowrap;">Scheduled</span>
+          </div>
+          <div data-bars="1" style="display:flex; flex-direction:column; gap:6px; padding:14px 3px 0;">
+            <span style="display:block; height:5px; width:72%; border-radius:3px; background:#EDEBE6;"></span>
+            <span style="display:block; height:5px; width:30%; border-radius:3px; background:#F2F0EC;"></span>
+          </div>
+        </div>
+      </div>
+
+      <div style="box-sizing:border-box; height:108px; border-radius:12px; background:#FCFBF9; border:1px dashed #E9E6DF;"></div>
+
+      <div style="box-sizing:border-box; height:108px; padding:10px; border-radius:12px; background:#FCFBF9; border:1px solid #F1EFEA;">
+        <div style="--d:.96s; animation:blockIn var(--loop) linear var(--d) infinite both;">
+          <div style="box-sizing:border-box; display:flex; align-items:center; gap:8px; height:48px; padding:0 12px; border-radius:11px; background:#0B0B0B; border:1px solid #0B0B0B; color:#fff; box-shadow:0 1px 2px rgba(24,20,10,.06);">
+            <span style="width:20px; height:20px; border-radius:5px; background:currentColor; opacity:.24; flex:none;"></span>
+            <span style="font-size:12px; font-weight:600; letter-spacing:.005em; white-space:nowrap; flex:1;">Posted</span>
+            <span style="flex:none; width:18px; height:18px; border-radius:9px; background:var(--accent); display:flex; align-items:center; justify-content:center;">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5.3 4 7.2 8 2.9" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+          <div data-bars="1" style="display:flex; flex-direction:column; gap:6px; padding:14px 3px 0;">
+            <span style="display:block; height:5px; width:52%; border-radius:3px; background:#EDEBE6;"></span>
+            <span style="display:block; height:5px; width:40%; border-radius:3px; background:#F2F0EC;"></span>
+          </div>
+        </div>
+      </div>
+
+      <div style="box-sizing:border-box; height:108px; padding:10px; border-radius:12px; background:#FCFBF9; border:1px solid #F1EFEA;">
+        <div style="--d:1.28s; animation:blockIn var(--loop) linear var(--d) infinite both;">
+          <div style="box-sizing:border-box; display:flex; align-items:center; gap:8px; height:48px; padding:0 12px; border-radius:11px; background:var(--grey); border:1px solid var(--greyline); color:var(--greytext); box-shadow:0 1px 2px rgba(24,20,10,.04);">
+            <span style="width:20px; height:20px; border-radius:5px; background:currentColor; opacity:.26; flex:none;"></span>
+            <span style="font-size:12px; font-weight:600; letter-spacing:.005em; white-space:nowrap;">Designing</span>
+          </div>
+          <div data-bars="1" style="display:flex; flex-direction:column; gap:6px; padding:14px 3px 0;">
+            <span style="display:block; height:5px; width:62%; border-radius:3px; background:#EDEBE6;"></span>
+            <span style="display:block; height:5px; width:36%; border-radius:3px; background:#F2F0EC;"></span>
+          </div>
+        </div>
+      </div>
+
+      <div style="box-sizing:border-box; height:108px; border-radius:12px; background:#FCFBF9; border:1px dashed #E9E6DF;"></div>
+
+      <div style="box-sizing:border-box; height:108px; padding:10px; border-radius:12px; background:#FCFBF9; border:1px solid #F1EFEA;">
+        <div style="--d:1.6s; animation:blockIn var(--loop) linear var(--d) infinite both;">
+          <div style="box-sizing:border-box; display:flex; align-items:center; gap:8px; height:48px; padding:0 12px; border-radius:11px; box-shadow:0 1px 2px rgba(24,20,10,.04); border:1px solid var(--greyline); background:var(--grey); color:var(--greytext); animation:chipB var(--loop) linear var(--d) infinite both;">
+            <span style="width:20px; height:20px; border-radius:5px; background:currentColor; opacity:.26; flex:none;"></span>
+            <span style="position:relative; display:block; flex:none; width:68px; height:16px;">
+              <span style="position:absolute; left:0; top:0; line-height:16px; font-size:12px; font-weight:600; white-space:nowrap; animation:labDesB var(--loop) linear var(--d) infinite both;">Designing</span>
+              <span style="position:absolute; left:0; top:0; line-height:16px; font-size:12px; font-weight:600; white-space:nowrap; animation:labSchB var(--loop) linear var(--d) infinite both;">Scheduled</span>
+              <span style="position:absolute; left:0; top:0; line-height:16px; font-size:12px; font-weight:600; white-space:nowrap; animation:labPosB var(--loop) linear var(--d) infinite both;">Posted</span>
+            </span>
+            <span style="flex:none; width:18px; height:18px; border-radius:9px; background:var(--accent); display:flex; align-items:center; justify-content:center; animation:tickB var(--loop) linear var(--d) infinite both;">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5.3 4 7.2 8 2.9" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+          <div data-bars="1" style="display:flex; flex-direction:column; gap:6px; padding:14px 3px 0;">
+            <span style="display:block; height:5px; width:70%; border-radius:3px; background:#EDEBE6;"></span>
+            <span style="display:block; height:5px; width:32%; border-radius:3px; background:#F2F0EC;"></span>
+          </div>
+        </div>
+      </div>
+
+      <div style="box-sizing:border-box; height:108px; padding:10px; border-radius:12px; background:#FCFBF9; border:1px solid #F1EFEA;">
+        <div style="--d:1.92s; animation:blockIn var(--loop) linear var(--d) infinite both;">
+          <div style="box-sizing:border-box; display:flex; align-items:center; gap:8px; height:48px; padding:0 12px; border-radius:11px; background:var(--accent); border:1px solid var(--accent); color:#fff; box-shadow:0 2px 8px -2px rgba(0,40,250,.35);">
+            <span style="width:20px; height:20px; border-radius:5px; background:currentColor; opacity:.3; flex:none;"></span>
+            <span style="font-size:12px; font-weight:600; letter-spacing:.005em; white-space:nowrap;">Scheduled</span>
+          </div>
+          <div data-bars="1" style="display:flex; flex-direction:column; gap:6px; padding:14px 3px 0;">
+            <span style="display:block; height:5px; width:56%; border-radius:3px; background:#EDEBE6;"></span>
+            <span style="display:block; height:5px; width:42%; border-radius:3px; background:#F2F0EC;"></span>
+          </div>
+        </div>
+      </div>
+
+      <div style="box-sizing:border-box; height:108px; padding:10px; border-radius:12px; background:#FCFBF9; border:1px solid #F1EFEA;">
+        <div style="--d:2.24s; animation:blockIn var(--loop) linear var(--d) infinite both;">
+          <div style="box-sizing:border-box; display:flex; align-items:center; gap:8px; height:48px; padding:0 12px; border-radius:11px; background:var(--grey); border:1px solid var(--greyline); color:var(--greytext); box-shadow:0 1px 2px rgba(24,20,10,.04);">
+            <span style="width:20px; height:20px; border-radius:5px; background:currentColor; opacity:.26; flex:none;"></span>
+            <span style="font-size:12px; font-weight:600; letter-spacing:.005em; white-space:nowrap;">Designing</span>
+          </div>
+          <div data-bars="1" style="display:flex; flex-direction:column; gap:6px; padding:14px 3px 0;">
+            <span style="display:block; height:5px; width:64%; border-radius:3px; background:#EDEBE6;"></span>
+            <span style="display:block; height:5px; width:28%; border-radius:3px; background:#F2F0EC;"></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:800},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#0028FA&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#0028FA&quot;,&quot;#0B0B0B&quot;,&quot;#3D5AFE&quot;,&quot;#0F62FE&quot;],&quot;section&quot;:&quot;Look&quot;},&quot;background&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#EDEAE2&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#EDEAE2&quot;,&quot;#F6F4EE&quot;,&quot;#FFFFFF&quot;,&quot;transparent&quot;],&quot;section&quot;:&quot;Look&quot;},&quot;loopSeconds&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:15,&quot;min&quot;:8,&quot;max&quot;:26,&quot;step&quot;:1,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;showCaptionBars&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Look&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      setRoot: (el) => {
+        if (!el) return;
+        const p = this.props || {};
+        if (p.accent) el.style.setProperty('--accent', p.accent);
+        if (p.loopSeconds) {
+          el.style.setProperty('--loop', p.loopSeconds + 's');
+          el.setAttribute('data-om-exportable-video-with-duration-secs', String(p.loopSeconds));
+        }
+        if (!el.__seekWired) {
+          el.__seekWired = true;
+          el.addEventListener('data-om-seek-to-time-frame', (e) => {
+            const t = ((e.detail && e.detail.time) || 0) * 1000;
+            el.getAnimations({ subtree: true }).forEach(a => {
+              try { a.pause(); a.currentTime = t; } catch (err) {}
+            });
+            clearTimeout(el.__resumeT);
+            el.__resumeT = setTimeout(() => {
+              el.getAnimations({ subtree: true }).forEach(a => { try { a.play(); } catch (err) {} });
+            }, 1200);
+          });
+        }
+        if (p.background) el.style.background = p.background;
+        const hide = p.showCaptionBars === false;
+        el.querySelectorAll('[data-bars]').forEach(b => { b.style.display = hide ? 'none' : 'flex'; });
+      }
+    };
+  }
+}
+
+</script>
+</body>
+</html>

@@ -13,7 +13,7 @@ export default function ServiceMotion() {
     if (!root || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const title = root.querySelector(".service-detail__hero h1");
-    const meta = gsap.utils.toArray(".service-detail__hero-meta > *");
+    const meta = gsap.utils.toArray(root.querySelectorAll(".service-detail__hero-meta > *"));
     if (!title) return;
 
     const splits = [];
@@ -49,7 +49,7 @@ export default function ServiceMotion() {
         gsap.set(meta, { autoAlpha: 1, y: 0 });
       });
 
-      gsap.utils.toArray("[data-service-media]").forEach((media) => {
+      gsap.utils.toArray(root.querySelectorAll("[data-service-media]")).forEach((media) => {
         gsap.from(media, {
           clipPath: "inset(7% 5% 7% 5% round 26px)",
           scale: .96,
@@ -59,7 +59,7 @@ export default function ServiceMotion() {
         });
       });
 
-      gsap.utils.toArray(".service-deliverable, .editorial-faq details").forEach((item, index) => {
+      gsap.utils.toArray(root.querySelectorAll(".service-deliverable, .editorial-faq details")).forEach((item, index) => {
         gsap.from(item, {
           autoAlpha: 0,
           y: 28,

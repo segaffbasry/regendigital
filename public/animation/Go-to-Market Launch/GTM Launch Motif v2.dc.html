@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script>window.OM_SCENES = '[{"name":"Position","dur":1.2,"desc":"The glowing dot appears at Position and breathes once"},{"name":"Build","dur":1.0,"desc":"The dot travels the gentle rise, drawing the blue line behind it"},{"name":"Prime","dur":0.5,"desc":"It pauses at Prime and the chip lights up"},{"name":"Approach","dur":1.0,"desc":"The dot climbs on to the Launch node as the camera leans in"},{"name":"Countdown","dur":2.1,"desc":"A 3-2-1 countdown ticks on the Launch node"},{"name":"Fire","dur":1.0,"desc":"Launch: particles and ripples burst out and the line kicks upward"},{"name":"Climb","dur":2.6,"desc":"The line steepens and accelerates while result chips pop up along it"},{"name":"Sustain","dur":2.9,"desc":"The dot settles at Sustain, holds high, then fades out to loop"}]';</script>
+<script>window.OM_PLAYBACK = '{"mode":"loop"}';</script>
+<script>/*EDITMODE-BEGIN*/window.TWEAK_DEFAULTS = {"motionEditor": true};/*EDITMODE-END*/</script>
+<style>
+  html, body { margin: 0; padding: 0; background: #EDEAE2; }
+  a { color: #0028FA; text-decoration: none; }
+  a:hover { color: #0020C8; }
+</style>
+</helmet>
+<x-import component-from-global-scope="GTMStage" from="./animations-v3.jsx ./gtm-motif-v2.jsx" accent="{{ accent }}" path-thickness="{{ pathThickness }}" show-markers="{{ showMarkers }}" hint-size="100%,100%" style="position:absolute;inset:0"></x-import>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#0028FA&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#0028FA&quot;,&quot;#0B0B0C&quot;,&quot;#0020C8&quot;]},&quot;pathThickness&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:4,&quot;min&quot;:2,&quot;max&quot;:8,&quot;step&quot;:0.5,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;},&quot;showMarkers&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      accent: this.props.accent ?? '#0028FA',
+      pathThickness: this.props.pathThickness ?? 4,
+      showMarkers: this.props.showMarkers ?? true,
+    };
+  }
+}
+</script>
+</body>
+</html>

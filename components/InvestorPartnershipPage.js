@@ -61,7 +61,7 @@ export default function InvestorPartnershipPage() {
             and manage a different agency.
           </p>
           <div className="partnership-hero__actions">
-            <a className="editorial-link" href="#partnership-call">
+            <a className="editorial-link cta-button" href="#partnership-call">
               <span>Request a partnership call</span>
               <span className="cta-arrow" aria-hidden="true" />
             </a>

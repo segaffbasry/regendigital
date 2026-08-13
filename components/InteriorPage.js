@@ -1,5 +1,7 @@
 import FaqItem from "./FaqItem";
+import IndustryHeroMedia from "./IndustryHeroMedia";
 import IndustrySystemGraphic, { IndustryCardGraphic } from "./IndustrySystemGraphic";
+import { IndustryRealities, IndustryStats } from "./IndustryStats";
 import InteriorMotion from "./InteriorMotion";
 import MethodologySystemGraphic from "./MethodologySystemGraphic";
 import SiteFooter from "./SiteFooter";
@@ -10,7 +12,7 @@ const protectedTitleWords = new Set(["AI", "B2B", "GEO", "Google", "Regen", "Saa
 
 const industryHeroMedia = {
   saas: [
-    { after: 1, src: "/images/industries/saas-detail.webp", position: "50% 50%" },
+    { after: 1, type: "logos" },
     { after: 4, src: "/images/industries/saas-team.webp", position: "50% 50%" },
   ],
   ai: [
@@ -41,7 +43,7 @@ function sentenceCaseTitle(title) {
 }
 
 function ArrowLink({ href = "/contact", children }) {
-  return <a className="editorial-link" href={href}><span>{children}</span><span className="cta-arrow" aria-hidden="true" /></a>;
+  return <a className="editorial-link cta-button" href={href}><span>{children}</span><span className="cta-arrow" aria-hidden="true" /></a>;
 }
 
 function HeroTitle({ children, accentWord, accentColor }) {
@@ -91,15 +93,7 @@ function IndustryHeroTitle({ page, title }) {
         {isMarked ? (
           <span className="editorial-hero__marked-word" style={{ "--industry-mark": page.accentColor }}>{word}</span>
         ) : word}
-        {titleMedia ? (
-          <span className="editorial-hero__media" aria-hidden="true">
-            <img
-              src={titleMedia.src}
-              alt=""
-              style={{ objectPosition: titleMedia.position, transform: `scale(${titleMedia.scale || 1})` }}
-            />
-          </span>
-        ) : null}
+        {titleMedia ? <IndustryHeroMedia media={titleMedia} /> : null}
       </span>
     );
   });
@@ -203,7 +197,7 @@ export default function InteriorPage({ content, title, section }) {
           )}
         </h1>
         <div className="editorial-hero__foot">
-          <p>{page.entity || page.h1}</p>
+          <p>{isIndustryDetail ? (page.heroBody || page.entity || page.h1) : (page.entity || page.h1)}</p>
           <ArrowLink href={page.ctaHref}>{page.cta || "Book a Strategy Call"}</ArrowLink>
         </div>
       </section>
@@ -217,6 +211,8 @@ export default function InteriorPage({ content, title, section }) {
 
       {isMethodology ? <MethodologySystemGraphic /> : null}
       {isIndustryDetail ? <IndustrySystemGraphic body={page.body} type={page.industryKey} /> : null}
+      {isIndustryDetail ? <IndustryStats stats={page.industryStats} /> : null}
+      {isIndustryDetail ? <IndustryRealities realities={page.industryRealities} /> : null}
 
       {!page.emptyWork && !isMethodology && !isIndustryDetail ? (
         <section className="editorial-media-stage">
@@ -224,7 +220,7 @@ export default function InteriorPage({ content, title, section }) {
         </section>
       ) : null}
 
-      {page.included?.length ? (
+      {page.included?.length && !page.industryRealities ? (
         <section className="editorial-included">
           <div><p className="editorial-kicker">{page.listTitle || "What's included"}</p><h2>Everything connected.<br /><em>Nothing wasted.</em></h2></div>
           <ol>{page.included.map((item, index) => <li key={item}><span>{String(index + 1).padStart(2, "0")}</span><p>{item}</p></li>)}</ol>

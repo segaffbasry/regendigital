@@ -8,7 +8,10 @@ export default function FaqItem({ question, answer, defaultOpen = false }) {
   const details = useRef(null);
   const closeTimer = useRef(null);
 
-  useEffect(() => () => window.clearTimeout(closeTimer.current), []);
+  useEffect(() => {
+    if (defaultOpen && details.current) details.current.open = true;
+    return () => window.clearTimeout(closeTimer.current);
+  }, [defaultOpen]);
 
   function handleSummaryClick(event) {
     const detailsElement = details.current;
@@ -30,7 +33,7 @@ export default function FaqItem({ question, answer, defaultOpen = false }) {
   }
 
   return (
-    <details ref={details} defaultOpen={defaultOpen}>
+    <details ref={details}>
       <summary onClick={handleSummaryClick}>
         {question}
         <span aria-hidden="true">+</span>

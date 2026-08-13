@@ -5,6 +5,8 @@ import "./method-system.css";
 import "./about-depth.css";
 import "./partnership-call.css";
 import "./client-feedback.css";
+import "./industry-feedback.css";
+import "./cta-feedback.css";
 import PageTransition from "../components/PageTransition";
 import SmoothScroll from "../components/SmoothScroll";
 

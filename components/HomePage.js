@@ -1,6 +1,7 @@
 import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
 import StaggerText from "./StaggerText";
+import ClientLogoStrip from "./ClientLogoStrip";
 import HomeClosingSections from "./HomeClosingSections";
 import HomeSectionMotion from "./HomeSectionMotion";
 import TestimonialDrag from "./TestimonialDrag";
@@ -14,13 +15,6 @@ const services = [
     href: "/services/marketing-strategy-consultancy",
     copy: "Research, positioning and a practical plan that gives every channel one clear commercial direction.",
     tone: "blue",
-  },
-  {
-    title: "Go-to-market & launch",
-    href: "/services/go-to-market-and-launch",
-    copy: "A joined-up launch system that turns a strong proposition into attention, demand and qualified pipeline.",
-    tone: "blue",
-    image: "/pics/ChatGPT Image Jul 31, 2026, 10_26_27 AM.png",
   },
   {
     title: "Organic social",
@@ -42,6 +36,13 @@ const services = [
     tone: "blue",
   },
   {
+    title: "Account-based marketing",
+    href: "/services/account-based-marketing",
+    copy: "Focused campaigns that create relevance and momentum inside the accounts that matter most.",
+    tone: "blue",
+    image: "/pics/ChatGPT Image Jul 31, 2026, 10_26_34 AM.png",
+  },
+  {
     title: "SEO",
     href: "/services/seo",
     copy: "Search visibility built to compound, capture demand, and make your expertise easier to find.",
@@ -55,11 +56,11 @@ const services = [
     tone: "sky",
   },
   {
-    title: "Account-based marketing",
-    href: "/services/account-based-marketing",
-    copy: "Focused campaigns that create relevance and momentum inside the accounts that matter most.",
+    title: "Go-to-market & launch",
+    href: "/services/go-to-market-and-launch",
+    copy: "A joined-up launch system that turns a strong proposition into attention, demand and qualified pipeline.",
     tone: "blue",
-    image: "/pics/ChatGPT Image Jul 31, 2026, 10_26_34 AM.png",
+    image: "/pics/ChatGPT Image Jul 31, 2026, 10_26_27 AM.png",
   },
   {
     title: "Founder-led marketing",
@@ -74,18 +75,6 @@ const services = [
     tone: "sky",
     image: "/pics/creator-partnerships.png",
   },
-];
-
-const clientLogos = [
-  { src: "/client-logos/client-01.png", alt: "MFD Solutions", scale: 1.58 },
-  { src: "/client-logos/client-02.png", alt: "Equals Mgmt", scale: 0.81 },
-  { src: "/client-logos/client-03.png", alt: "Finden", scale: 0.65 },
-  { src: "/client-logos/client-04.png", alt: "Agency AI", scale: 1.94 },
-  { src: "/client-logos/client-05.png", alt: "Pelicano", scale: 1.58 },
-  { src: "/client-logos/client-06.png", alt: "Gitano", scale: 1.49 },
-  { src: "/client-logos/juno.svg", alt: "Juno", scale: 0.42 },
-  { src: "/client-logos/IntusHQ/intushq.svg", alt: "IntusHQ", scale: 0.44 },
-  { src: "/client-logos/IntusHQ/ripl.svg", alt: "RIPL", scale: 0.44 },
 ];
 
 const testimonialCards = [
@@ -141,7 +130,7 @@ const testimonialCards = [
 
 function ArrowLink({ href, children, className = "" }) {
   return (
-    <a className={`home-link cta-motion ${className}`} href={href}>
+    <a className={`home-link cta-button cta-motion ${className}`} href={href}>
       <span className="cta-motion__fill" aria-hidden="true" />
       <span className="cta-motion__clip">
         <span className="cta-motion__roll">
@@ -206,30 +195,7 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-        <div className="client-strip" aria-label="Client logo strip">
-          <p>Trusted by ambitious B2B teams</p>
-          <div className="client-strip__viewport">
-            <div className="client-strip__track">
-              {[false, true].map((duplicate) => (
-                <div
-                  className="client-strip__logos"
-                  aria-hidden={duplicate ? "true" : undefined}
-                  key={duplicate ? "duplicate" : "primary"}
-                >
-                  {clientLogos.map((logo) => (
-                    <span className="client-strip__logo" key={`${duplicate ? "duplicate-" : ""}${logo.src}`}>
-                      <img
-                        src={logo.src}
-                        alt={duplicate ? "" : logo.alt}
-                        style={{ "--logo-scale": logo.scale }}
-                      />
-                    </span>
-                  ))}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        <ClientLogoStrip />
       </section>
 
       <section className="home-section home-section--bone what-we-do" id="services">

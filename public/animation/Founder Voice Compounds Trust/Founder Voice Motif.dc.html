@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  html, body { margin: 0; padding: 0; background: #EDEAE2; }
+  a { color: #0028FA; text-decoration: none; }
+  a:hover { color: #001FBE; }
+</style>
+<script>window.OM_SCENES = '[{"name":"Publish","dur":1.3,"desc":"The founder post settles onto the page and sends soft concentric pulses outward"},{"name":"Engage","dur":1.5,"desc":"A blue like and comment dots pop on while the counts tick up"},{"name":"Grow","dur":1.4,"desc":"The impressions number ticks up and the first inbound lead chips start sliding in"},{"name":"Inbound","dur":1.5,"desc":"The remaining New inbound lead chips finish stacking beside the post"},{"name":"Hold","dur":1.2,"desc":"Holds on the full picture, then fades back for a seamless loop"}]';</script>
+<script>window.OM_PLAYBACK = '{"mode":"loop"}';</script>
+<script>/*EDITMODE-BEGIN*/window.TWEAK_DEFAULTS = {"motionEditor": true};/*EDITMODE-END*/</script>
+</helmet>
+<x-import
+  component-from-global-scope="FounderVoice"
+  from="./animations-v3.jsx ./founder-voice.jsx"
+  accent="{{ accent }}"
+  chip-count="{{ chipCount }}"
+  followers-from="{{ followersFrom }}"
+  followers-to="{{ followersTo }}"
+  hint-size="100%,100%"
+></x-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#0028FA&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#0028FA&quot;,&quot;#111111&quot;,&quot;#0B6BFF&quot;]},&quot;chipCount&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:3,&quot;min&quot;:1,&quot;max&quot;:3,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Inbound&quot;},&quot;followersFrom&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:12480,&quot;min&quot;:100,&quot;max&quot;:999999,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Counts&quot;},&quot;followersTo&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:12631,&quot;min&quot;:100,&quot;max&quot;:999999,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Counts&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      accent: this.props.accent ?? '#0028FA',
+      chipCount: this.props.chipCount ?? 3,
+      followersFrom: this.props.followersFrom ?? 12480,
+      followersTo: this.props.followersTo ?? 12631,
+    };
+  }
+}
+</script>
+</body>
+</html>

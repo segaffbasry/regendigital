@@ -540,7 +540,7 @@ export default function SiteHeader({ animated = false }) {
             <NavLabel>Why Regen</NavLabel>
             <span className="site-header__chevron" aria-hidden="true" />
           </button>
-          <a className="site-header__audit site-header__action cta-motion" href="/audit">
+          <a className="site-header__audit site-header__action cta-motion cta-button" href="/audit">
             <span className="cta-motion__fill" aria-hidden="true" />
             <span className="cta-motion__clip">
               <span className="cta-motion__roll">
@@ -549,7 +549,7 @@ export default function SiteHeader({ animated = false }) {
               </span>
             </span>
           </a>
-          <a className="site-header__call site-header__action" href="/contact">
+          <a className="site-header__call site-header__action cta-button" href="/contact">
             <span>Book a call</span>
           </a>
         </nav>
@@ -665,13 +665,13 @@ export default function SiteHeader({ animated = false }) {
           </div>
           <div className="site-header__mobile-footer">
             <div className="site-header__mobile-secondary" data-mobile-item>
-              <a className="site-header__mobile-contact" href="/contact">
+              <a className="site-header__mobile-contact cta-button" href="/contact">
                 <span>Contact</span>
                 <span className="cta-arrow" aria-hidden="true" />
               </a>
             </div>
             <a
-              className="site-header__mobile-audit"
+              className="site-header__mobile-audit cta-button"
               href="/audit"
               data-mobile-item
             >

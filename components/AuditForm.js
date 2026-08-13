@@ -62,7 +62,7 @@ export default function AuditForm() {
       </div>
       <div className="audit-review__form-footer">
         <p>By sending this, you agree to our <a href="/privacy-policy">privacy policy</a>. No mailing lists or automated scores.</p>
-        <button type="submit">Request my free audit <span className="cta-arrow" aria-hidden="true" /></button>
+        <button className="cta-button" type="submit">Request my free audit <span className="cta-arrow" aria-hidden="true" /></button>
       </div>
       <p className="audit-review__status" aria-live="polite">{status}</p>
     </form>

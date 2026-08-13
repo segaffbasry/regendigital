@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  html, body { margin: 0; padding: 0; background: #EDEAE2; -webkit-font-smoothing: antialiased; }
+  a { color: #0028FA; text-decoration: none; }
+  a:hover { color: #0B0B0B; }
+</style>
+<script>window.OM_SCENES = '[{"name":"Pill","dur":0.85,"desc":"The blue AI mentions pill expands into view at the top"},{"name":"RowOne","dur":0.9,"desc":"ChatGPT, Gemini and Claude cards rise and settle in a quick staggered row"},{"name":"RowTwo","dur":0.75,"desc":"Perplexity and Grok cards rise into the second row"},{"name":"Marks","dur":1,"desc":"Blue ticks pop onto Gemini and Perplexity, muted crosses onto the rest"},{"name":"Hold","dur":1.5,"desc":"The full set floats gently while the pill pulses"},{"name":"Reset","dur":0.8,"desc":"Everything eases up and out so the loop seam is invisible"}]';</script>
+<script>window.OM_PLAYBACK = '{"mode":"loop"}';</script>
+<script>window.TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "accent": "#0028FA",
+  "background": "bone",
+  "motionEditor": true
+}/*EDITMODE-END*/;</script>
+</helmet>
+<x-import component-from-global-scope="GeoMotif" from="./animations-v3.jsx ./tweaks-panel.jsx ./geo-motif.jsx" hint-size="100%,100%"></x-import>
+</x-dc>
+</body>
+</html>

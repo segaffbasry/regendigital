@@ -56,7 +56,7 @@ const faqs = [
 
 function ClosingArrowLink({ href, children }) {
   return (
-    <a className="home-link cta-motion home-link--sand" href={href}>
+    <a className="home-link cta-motion home-link--sand cta-button" href={href}>
       <span className="cta-motion__fill" aria-hidden="true" />
       <span className="cta-motion__clip">
         <span className="cta-motion__roll">

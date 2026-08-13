@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  html, body { margin: 0; padding: 0; background: #EDEAE2; }
+  a { color: #0028FA; text-decoration: none; }
+  a:hover { color: #0B0B0C; }
+</style>
+<script>window.OM_SCENES = '[{"name":"Settle","dur":2,"desc":"The central target-account card settles in and the five role chips fade up around it"},{"name":"Champion","dur":1.15,"desc":"A connector draws to the Champion chip and it lights up with a tick"},{"name":"Technical","dur":1.15,"desc":"A connector draws to the Technical chip and it lights up with a tick"},{"name":"Economic","dur":1.15,"desc":"A connector draws to the Economic buyer chip and it lights up with a tick"},{"name":"User","dur":1.15,"desc":"A connector draws to the User chip and it lights up with a tick"},{"name":"Legal","dur":1.15,"desc":"A connector draws to the Legal chip and it lights up with a tick"},{"name":"Engaged","dur":2.6,"desc":"The whole committee is connected: a soft pulse ripples out across the ring"},{"name":"Reset","dur":1.7,"desc":"Connectors and lit states fade away and the card breathes out before the loop"}]';</script>
+<script>window.OM_PLAYBACK = '{"mode":"loop"}';</script>
+<script>window.TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "motionEditor": true,
+  "finale": true,
+  "ringRadius": 282,
+  "accent": "#0028FA"
+}/*EDITMODE-END*/;</script>
+</helmet>
+<x-import component-from-global-scope="ABMScene" from="./animations-v3.jsx ./tweaks-panel.jsx ./abm-scene.jsx" hint-size="100%,100%"></x-import>
+</x-dc>
+</body>
+</html>

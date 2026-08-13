@@ -56,30 +56,6 @@ export function AboutDepthHero() {
         </p>
       </div>
 
-      <div className="about-depth-hero__signal" aria-hidden="true">
-        <span className="about-depth-hero__signal-label">
-          One connected system
-        </span>
-        <div className="about-depth-hero__signal-track">
-          <span>
-            <i>01</i>
-            Strategy
-          </span>
-          <span>
-            <i>02</i>
-            Positioning
-          </span>
-          <span>
-            <i>03</i>
-            Demand
-          </span>
-          <strong>
-            <i>04</i>
-            Pipeline + revenue
-          </strong>
-        </div>
-      </div>
-
       <dl className="about-depth-hero__facts">
         {facts.map(([term, description]) => (
           <div key={term}>

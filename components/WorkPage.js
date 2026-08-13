@@ -134,7 +134,7 @@ export default function WorkPage() {
           <p className="editorial-kicker">Your project next</p>
           <h2>Ready to make the work<br /><em>worth showing?</em></h2>
         </div>
-        <a href="/contact"><span>Start a conversation</span><Arrow /></a>
+        <a className="cta-button" href="/contact"><span>Start a conversation</span><Arrow /></a>
       </section>
 
       <SiteFooter />

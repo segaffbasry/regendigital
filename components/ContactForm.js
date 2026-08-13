@@ -63,7 +63,7 @@ export default function ContactForm() {
           By sending this, you agree to our <a href="/privacy-policy">privacy policy</a>.
           No mailing lists, no hard sell.
         </p>
-        <button type="submit">
+        <button className="cta-button" type="submit">
           <span>Send enquiry</span>
           <span className="contact-submit-arrow" aria-hidden="true">
             <img src="/download.svg" alt="" />

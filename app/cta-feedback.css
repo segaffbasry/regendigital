@@ -1,0 +1,54 @@
+/* Opt-in primary CTA affordance. Intentionally leaves each CTA's legacy fill,
+   border, text colour, radius, and sizing untouched. */
+.cta-button.cta-button {
+  box-shadow:
+    0 12px 26px rgba(5, 5, 5, 0.18),
+    0 3px 8px rgba(5, 5, 5, 0.12);
+  transition:
+    background-color 250ms ease,
+    border-color 250ms ease,
+    box-shadow 250ms ease,
+    color 250ms ease,
+    transform 250ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cta-button.cta-button:is(:hover, :focus-visible) {
+  box-shadow:
+    0 18px 34px rgba(5, 5, 5, 0.22),
+    0 5px 10px rgba(5, 5, 5, 0.12);
+  transform: translateY(-2px);
+}
+
+.cta-button.cta-button:active {
+  box-shadow: 0 7px 14px rgba(5, 5, 5, 0.16);
+  transform: translateY(0) scale(0.98);
+}
+
+.cta-button.cta-button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+/* Light-page actions share the outlined surface-to-black interaction shown in
+   the client reference. Brand-blue header actions retain their campaign role. */
+.editorial-page--bone .cta-button.cta-button:not(.site-header__audit):not(.site-header__call),
+.service-detail--refined .cta-button.cta-button:not(.site-header__audit):not(.site-header__call),
+.about-page .cta-button.cta-button:not(.site-header__audit):not(.site-header__call) {
+  border-color: rgba(5, 5, 5, .58);
+  background: transparent;
+  color: var(--black);
+}
+
+.editorial-page--bone .cta-button.cta-button:not(.site-header__audit):not(.site-header__call):is(:hover, :focus-visible),
+.service-detail--refined .cta-button.cta-button:not(.site-header__audit):not(.site-header__call):is(:hover, :focus-visible),
+.about-page .cta-button.cta-button:not(.site-header__audit):not(.site-header__call):is(:hover, :focus-visible) {
+  border-color: var(--black);
+  background: var(--black);
+  color: var(--white);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-button.cta-button {
+    transition-duration: 0s;
+  }
+}

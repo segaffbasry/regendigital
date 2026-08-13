@@ -27,7 +27,7 @@ const steps = [
 function MethodologyLink() {
   return (
     <div className="home-cta-pair">
-      <a className="home-link cta-motion" href="/audit">
+      <a className="home-link cta-motion cta-button" href="/audit">
         <span className="cta-motion__fill" aria-hidden="true" />
         <span className="cta-motion__clip">
           <span className="cta-motion__roll">
@@ -37,7 +37,7 @@ function MethodologyLink() {
         </span>
         <span className="cta-arrow" aria-hidden="true" />
       </a>
-      <a className="home-link home-link--blue cta-motion" href="/contact">
+      <a className="home-link home-link--blue cta-motion cta-button" href="/contact">
         <span className="cta-motion__fill" aria-hidden="true" />
         <span className="cta-motion__clip">
           <span className="cta-motion__roll">

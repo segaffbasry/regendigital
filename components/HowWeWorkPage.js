@@ -304,7 +304,7 @@ export default function HowWeWorkPage() {
           </div>
           <p>Ready to build the right system for your business?</p>
         </div>
-        <a href="/contact">
+        <a className="cta-button" href="/contact">
           Book a strategy call
           <span className="cta-arrow" aria-hidden="true" />
         </a>
