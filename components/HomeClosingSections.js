@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import FaqItem from "./FaqItem";
 import StaggerText from "./StaggerText";
 
@@ -69,6 +72,24 @@ function ClosingArrowLink({ href, children }) {
   );
 }
 
+function ClosingSubmitButton({ children }) {
+  return (
+    <button
+      className="home-link cta-motion home-link--sand cta-button final-cta__submit"
+      type="submit"
+    >
+      <span className="cta-motion__fill" aria-hidden="true" />
+      <span className="cta-motion__clip">
+        <span className="cta-motion__roll">
+          <span>{children}</span>
+          <span aria-hidden="true">{children}</span>
+        </span>
+      </span>
+      <span className="cta-arrow" aria-hidden="true" />
+    </button>
+  );
+}
+
 function FaqQuestion({ children }) {
   return (
     <strong className="faq-question" aria-label={children}>
@@ -94,13 +115,37 @@ function FaqQuestion({ children }) {
   );
 }
 
-export default function HomeClosingSections() {
+export default function HomeClosingSections({ showLeadForm = false }) {
+  const [status, setStatus] = useState("");
+
+  function handleLeadSubmit(event) {
+    event.preventDefault();
+
+    const data = new FormData(event.currentTarget);
+    const name = String(data.get("name") || "").trim();
+    const email = String(data.get("email") || "").trim();
+    const subject = encodeURIComponent(`Strategy call enquiry from ${name}`);
+    const body = encodeURIComponent(
+      [`Name: ${name}`, `Work email: ${email}`, "", "I would like to book a strategy call."].join("\n")
+    );
+
+    setStatus("Opening your email app...");
+    window.location.href = `mailto:info@regendigital.co?subject=${subject}&body=${body}`;
+  }
+
   return (
     <>
-      <section className="final-cta-stage" aria-label="Get in touch">
+      <section
+        className={`final-cta-stage${showLeadForm ? " final-cta-stage--lead" : ""}`}
+        aria-label="Get in touch"
+      >
         <div className="final-cta-stage__sticky">
-          <div className="home-section home-section--blue final-cta">
-            <div className="final-cta__content">
+          <div
+            className={`home-section home-section--blue final-cta${showLeadForm ? " final-cta--lead" : ""}`}
+          >
+            <div
+              className={`final-cta__content${showLeadForm ? " final-cta__content--lead" : ""}`}
+            >
               <StaggerText lineReveal>
                 Tell us what you&apos;re trying to achieve.
               </StaggerText>
@@ -108,7 +153,63 @@ export default function HomeClosingSections() {
                 We&apos;ll come back with a genuine point of view, and if it&apos;s
                 a fit, put a strategy call in the diary.
               </p>
-              <ClosingArrowLink href="/contact">Book a Call</ClosingArrowLink>
+              {showLeadForm ? (
+                <>
+                  <div className="final-cta__hosts">
+                    <div
+                      className="final-cta__faces"
+                      aria-label="Holly and Taylor, Regen co-founders"
+                    >
+                      <img
+                        src="/images/founders/holly-updated.png"
+                        alt="Holly, Regen co-founder"
+                      />
+                      <img
+                        src="/images/founders/taylor-portrait.webp"
+                        alt="Taylor, Regen co-founder"
+                      />
+                    </div>
+                    <div>
+                      <strong>Holly &amp; Taylor</strong>
+                      <span>Your first conversation is with us.</span>
+                    </div>
+                  </div>
+                  <form className="final-cta__form" onSubmit={handleLeadSubmit}>
+                    <p>Start a conversation</p>
+                    <div className="final-cta__fields">
+                      <label>
+                        <span>Name</span>
+                        <input
+                          autoComplete="name"
+                          name="name"
+                          placeholder="Your name"
+                          required
+                          type="text"
+                        />
+                      </label>
+                      <label>
+                        <span>Work email</span>
+                        <input
+                          autoComplete="email"
+                          name="email"
+                          placeholder="you@company.com"
+                          required
+                          type="email"
+                        />
+                      </label>
+                    </div>
+                    <div className="final-cta__form-footer">
+                      <span>No mailing lists. No hard sell.</span>
+                      <ClosingSubmitButton>Book a Call</ClosingSubmitButton>
+                    </div>
+                    <p className="final-cta__status" aria-live="polite">
+                      {status}
+                    </p>
+                  </form>
+                </>
+              ) : (
+                <ClosingArrowLink href="/contact">Book a Call</ClosingArrowLink>
+              )}
             </div>
           </div>
         </div>

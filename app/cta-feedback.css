@@ -1,6 +1,7 @@
-/* Opt-in primary CTA affordance. Intentionally leaves each CTA's legacy fill,
-   border, text colour, radius, and sizing untouched. */
+/* Opt-in primary CTA affordance. Existing fills, text colours, and sizing stay
+   contextual while every primary action shares the same pill silhouette. */
 .cta-button.cta-button {
+  border-radius: 999px;
   box-shadow:
     0 12px 26px rgba(5, 5, 5, 0.18),
     0 3px 8px rgba(5, 5, 5, 0.12);
@@ -10,6 +11,14 @@
     box-shadow 250ms ease,
     color 250ms ease,
     transform 250ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Non-animated CTAs share one clear black interaction. Header actions and the
+   rolling homepage buttons keep their context-specific brand treatment. */
+.cta-button.cta-button:not(.cta-motion):not(.site-header__audit):not(.site-header__call):not(.site-header__mobile-contact):not(.site-header__mobile-audit):is(:hover, :focus-visible) {
+  border-color: var(--black);
+  background-color: var(--black);
+  color: var(--white);
 }
 
 .cta-button.cta-button:is(:hover, :focus-visible) {

@@ -279,7 +279,7 @@ export default function HomePage() {
           <div className="why-section__grid">
             <div className="why-section__content">
               <StaggerText lineReveal>Why Regen</StaggerText>
-              <p className="home-body-large">Every strategy we build stands on 2 things, trust and performance. We're not a legacy agency recycling tired digital marketing strategies and calling it innovation. We're an agile B2B marketing team built for SaaS, AI, tech, and professional services businesses that think forward, move fast, and expect more from their marketing. We challenge convention, reject cookie-cutter solutions, and build you a digital marketing strategy as specific to your business as the market you're competing in.</p>
+              <p className="home-body-large">We&apos;re not a legacy agency recycling tired digital marketing strategies and calling it innovation. We&apos;re an agile B2B marketing team built for SaaS, AI, tech, and professional services businesses that think forward, move fast, and expect more from their marketing. We challenge convention, reject cookie-cutter solutions, and build you a digital marketing strategy as specific to your business as the market you&apos;re competing in.</p>
               <div className="home-cta-pair">
                 <ArrowLink href="/audit">Free Audit</ArrowLink>
                 <ArrowLink href="/contact" className="home-link--blue">Book a call</ArrowLink>
@@ -358,7 +358,7 @@ export default function HomePage() {
         </section>
       </div>
 
-      <HomeClosingSections />
+      <HomeClosingSections showLeadForm />
 
       <HomeSectionMotion />
       <SiteFooter />

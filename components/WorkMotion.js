@@ -12,21 +12,6 @@ export default function WorkMotion() {
     if (!root || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const context = gsap.context(() => {
-      gsap.from(".work-hero__projects button", {
-        autoAlpha: 0,
-        x: -22,
-        duration: .8,
-        stagger: .07,
-        ease: "power3.out",
-      });
-      gsap.from(".work-hero__panel", {
-        autoAlpha: 0,
-        y: 26,
-        duration: 1,
-        delay: .12,
-        ease: "power4.out",
-      });
-
       gsap.utils.toArray(".work-case").forEach((card) => {
         const image = card.querySelector("img");
         gsap.from(card, {
@@ -46,16 +31,6 @@ export default function WorkMotion() {
         }
       });
 
-      gsap.utils.toArray(".work-index__row").forEach((row, index) => {
-        gsap.from(row, {
-          autoAlpha: 0,
-          y: 20,
-          duration: .65,
-          delay: index * .05,
-          ease: "power3.out",
-          scrollTrigger: { trigger: row, start: "top 93%", once: true },
-        });
-      });
     }, root);
 
     return () => {

@@ -410,6 +410,12 @@ figure, blockquote { margin: 0; }
   gap: 3px;
 }
 
+/* Keep the requested Services sequence reading down each column. */
+.site-header__submenu--services .site-header__submenu-grid {
+  grid-template-rows: repeat(5, minmax(42px, auto));
+  grid-auto-flow: column;
+}
+
 .site-header__submenu-grid a {
   min-height: 42px;
   padding: 10px 12px;
@@ -3244,8 +3250,8 @@ figure, blockquote { margin: 0; }
   padding: clamp(80px, 12vw, 180px) var(--page-gutter) clamp(64px, 8vw, 120px);
   border-bottom: 1px solid rgba(5, 5, 5, .14);
   background:
-    radial-gradient(circle at 84% 10%, rgba(213, 203, 255, .75), transparent 35%),
-    linear-gradient(180deg, #ffffff 0%, #f5f0e5 58%, #ece4ff 100%);
+    radial-gradient(circle at 84% 10%, rgba(0, 40, 250, .12), transparent 38%),
+    linear-gradient(180deg, #ffffff 0%, #f7f5ef 58%, #f3f2e9 100%);
 }
 
 .privacy-hero__eyebrow {
@@ -6796,7 +6802,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline
     180deg,
     #ffffff 0%,
     #f6f1e8 48%,
-    #e5ddff 100%
+    #eee8de 100%
   );
   color: var(--black);
 }

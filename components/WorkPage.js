@@ -63,6 +63,30 @@ function Arrow() {
   return <span className="work-arrow" aria-hidden="true" />;
 }
 
+function WorkCase({ item }) {
+  const content = (
+    <>
+      <div className="work-case__visual">
+        <img src={item.image} alt={`${item.name} case study`} />
+        <span className="work-case__proof">{item.proof}</span>
+        {!item.placeholder ? <span className="work-case__open"><Arrow /></span> : null}
+      </div>
+      <div className="work-case__caption">
+        <span>{item.number}</span>
+        <h2>{item.name}</h2>
+        <p>{item.summary}</p>
+        <div><span>{item.service}</span><span>{item.sector}</span></div>
+      </div>
+    </>
+  );
+
+  if (item.placeholder) {
+    return <article aria-disabled="true" className="work-case work-case--placeholder">{content}</article>;
+  }
+
+  return <a className="work-case" href={item.href}>{content}</a>;
+}
+
 export default function WorkPage() {
   return (
     <main className="work-page">
@@ -76,56 +100,7 @@ export default function WorkPage() {
           <p>Four partnerships across B2B, AI and production. Every case study leads with the outcome, then shows the work that made it happen.</p>
         </div>
         <div className="work-case-grid">
-          {cases.map((item) => {
-            const CaseElement = item.placeholder ? "article" : "a";
-            return (
-            <CaseElement
-              {...(item.placeholder ? { "aria-disabled": true } : { href: item.href })}
-              className={`work-case${item.placeholder ? " work-case--placeholder" : ""}`}
-              key={item.name}
-            >
-              <div className="work-case__visual">
-                <img src={item.image} alt={`${item.name} case study`} />
-                <span className="work-case__proof">{item.proof}</span>
-                {!item.placeholder ? <span className="work-case__open"><Arrow /></span> : null}
-              </div>
-              <div className="work-case__caption">
-                <span>{item.number}</span>
-                <h2>{item.name}</h2>
-                <p>{item.summary}</p>
-                <div><span>{item.service}</span><span>{item.sector}</span></div>
-              </div>
-            </CaseElement>
-            );
-          })}
-        </div>
-      </section>
-
-      <section className="work-index" aria-labelledby="work-index-title">
-        <div className="work-section-head work-section-head--index">
-          <p className="editorial-kicker" id="work-index-title">Index</p>
-          <h2>The work,<br /><em>at a glance.</em></h2>
-        </div>
-        <div className="work-index__table">
-          <div className="work-index__labels" aria-hidden="true">
-            <span>Project</span><span>Discipline</span><span>Market</span><span>Result</span>
-          </div>
-          {cases.map((item) => {
-            const RowElement = item.placeholder ? "div" : "a";
-            return (
-            <RowElement
-              {...(item.placeholder ? { "aria-disabled": true } : { href: item.href })}
-              className={`work-index__row${item.placeholder ? " work-index__row--placeholder" : ""}`}
-              key={item.name}
-            >
-              <strong>{item.name}</strong>
-              <span>{item.service}</span>
-              <span>{item.sector}</span>
-              <span>{item.proof}</span>
-              {!item.placeholder ? <Arrow /> : null}
-            </RowElement>
-            );
-          })}
+          {cases.map((item) => <WorkCase item={item} key={item.name} />)}
         </div>
       </section>
 

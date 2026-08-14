@@ -5,7 +5,6 @@ import { useLayoutEffect, useRef } from "react";
 import {
   AboutDepthHero,
   AboutDepthPrinciples,
-  AboutDepthSystem,
 } from "./AboutDepthSections";
 import AboutSectionMotion from "./AboutSectionMotion";
 import HomeClosingSections from "./HomeClosingSections";
@@ -204,7 +203,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <AboutDepthSystem />
       <AboutDepthPrinciples />
 
       <section className="about-card-stage" ref={stage} aria-label="Regen introduction">

@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import ServiceHeroGraphic from "./ServiceHeroGraphic";
 
 const animationByService = {
   "marketing-strategy-consultancy": {
@@ -50,26 +49,21 @@ const animationByService = {
 export default function ServiceAnimation({ serviceKey = "seo" }) {
   const visual = animationByService[serviceKey];
   const frame = useRef(null);
-  const [active, setActive] = useState(false);
+  const iframe = useRef(null);
+  const [shouldLoad, setShouldLoad] = useState(false);
   const [failed, setFailed] = useState(false);
   const [ready, setReady] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
 
   useEffect(() => {
-    setActive(false);
+    setShouldLoad(false);
     setFailed(false);
     setReady(false);
   }, [serviceKey]);
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => {
-      setReduceMotion(media.matches);
-      if (media.matches) {
-        setActive(false);
-        setReady(false);
-      }
-    };
+    const update = () => setReduceMotion(media.matches);
     update();
     media.addEventListener?.("change", update);
     return () => media.removeEventListener?.("change", update);
@@ -77,33 +71,32 @@ export default function ServiceAnimation({ serviceKey = "seo" }) {
 
   useEffect(() => {
     const element = frame.current;
-    if (!element || reduceMotion || failed || !visual) return;
+    if (!element || shouldLoad || reduceMotion || failed || !visual) return;
 
     if (!("IntersectionObserver" in window)) {
-      setActive(true);
+      setShouldLoad(true);
       return;
     }
 
     const observer = new IntersectionObserver(([entry]) => {
-      setActive(entry.isIntersecting);
-      if (!entry.isIntersecting) setReady(false);
+      if (!entry.isIntersecting) return;
+      setShouldLoad(true);
+      observer.disconnect();
     }, { rootMargin: "240px 0px", threshold: 0.01 });
 
     observer.observe(element);
     return () => observer.disconnect();
-  }, [failed, reduceMotion, visual]);
+  }, [failed, reduceMotion, shouldLoad, visual]);
 
   useEffect(() => {
-    if (!active || failed || ready) return;
+    if (!shouldLoad || failed || ready) return;
     const timer = window.setTimeout(() => setFailed(true), 12000);
     return () => window.clearTimeout(timer);
-  }, [active, failed, ready]);
+  }, [failed, ready, shouldLoad]);
 
   useEffect(() => {
-    if (!active || failed) return;
-
     const handleMessage = (event) => {
-      if (event.source !== frame.current?.querySelector("iframe")?.contentWindow) return;
+      if (event.source !== iframe.current?.contentWindow) return;
       if (event.data?.type === "__dc_animation_ready") setReady(true);
       if (event.data?.type === "__dc_animation_failed") {
         setReady(false);
@@ -113,29 +106,31 @@ export default function ServiceAnimation({ serviceKey = "seo" }) {
 
     window.addEventListener("message", handleMessage);
     return () => window.removeEventListener("message", handleMessage);
-  }, [active, failed]);
+  }, [serviceKey]);
+
+  const isReady = ready && shouldLoad && !reduceMotion && !failed;
 
   return (
     <figure
+      aria-busy={shouldLoad && !isReady && !failed}
       aria-label={visual?.title || "Illustrative service animation"}
-      className={`service-animation service-animation--${serviceKey}${ready ? " is-ready" : ""}`}
+      className={`service-animation service-animation--${serviceKey}${isReady ? " is-ready" : ""}`}
       data-service-media
       ref={frame}
       role="img"
       style={{ "--service-animation-ratio": visual?.ratio || "3 / 2" }}
     >
-      <div aria-hidden="true" className="service-animation__fallback">
-        <ServiceHeroGraphic serviceKey={serviceKey} />
-      </div>
-      {visual && active && !reduceMotion && !failed ? (
+      <div aria-hidden="true" className="service-animation__placeholder" />
+      {visual && shouldLoad && !reduceMotion && !failed ? (
         <iframe
           aria-hidden="true"
           className="service-animation__frame"
-          loading="lazy"
+          loading="eager"
           onError={() => {
             setReady(false);
             setFailed(true);
           }}
+          ref={iframe}
           referrerPolicy="no-referrer"
           sandbox="allow-scripts"
           src={visual.src}

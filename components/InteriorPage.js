@@ -12,7 +12,7 @@ const protectedTitleWords = new Set(["AI", "B2B", "GEO", "Google", "Regen", "Saa
 
 const industryHeroMedia = {
   saas: [
-    { after: 1, type: "logos" },
+    { after: 1, src: "/images/industries/saas-detail.webp", position: "50% 68%" },
     { after: 4, src: "/images/industries/saas-team.webp", position: "50% 50%" },
   ],
   ai: [
@@ -85,11 +85,12 @@ function IndustryHeroTitle({ page, title }) {
     const end = start + word.length;
     const isMarked = accentStart !== -1 && start < accentEnd && end > accentStart;
     const titleMedia = media.find((item) => item.after === index);
+    const followsMedia = media.some((item) => item.after === index - 1);
     cursor = end + 1;
 
     return (
       <span className="editorial-hero__title-part" key={`${word}-${index}`}>
-        {index > 0 ? " " : null}
+        {index > 0 && !followsMedia ? " " : null}
         {isMarked ? (
           <span className="editorial-hero__marked-word" style={{ "--industry-mark": page.accentColor }}>{word}</span>
         ) : word}

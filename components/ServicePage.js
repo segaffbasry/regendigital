@@ -147,12 +147,12 @@ export default function ServicePage({ content: page, serviceKey }) {
           <p className="service-detail__closing-meta"><span aria-hidden="true">◷</span> 30 minute session</p>
           <form className="service-detail__closing-form" action="/contact" method="get">
             <label>
-              <span>Work email address</span>
-              <input type="email" name="email" placeholder="Your work email address*" required />
+              <span>Name</span>
+              <input autoComplete="name" type="text" name="name" placeholder="Your name*" required />
             </label>
             <label>
-              <span>How did you hear about us?</span>
-              <input type="text" name="source" placeholder="How did you hear about us?*" required />
+              <span>Work email address</span>
+              <input autoComplete="email" type="email" name="email" placeholder="Your work email address*" required />
             </label>
             <p>By submitting this form, you agree to our <a href="/privacy-policy">Privacy Policy</a>.</p>
             <button className="service-detail__link service-detail__closing-submit cta-button" type="submit">Let&apos;s talk <span className="cta-arrow" aria-hidden="true" /></button>
