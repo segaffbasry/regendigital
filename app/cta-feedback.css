@@ -56,6 +56,33 @@
   color: var(--white);
 }
 
+/* Buttons placed on the brand-blue About panel use a white-to-blue inversion. */
+.about-page .final-cta.home-section--blue .home-link.cta-button {
+  border-color: rgba(255, 255, 255, .78);
+  background: transparent;
+  color: var(--white);
+}
+
+.about-page .final-cta.home-section--blue .home-link.cta-button .cta-motion__fill {
+  background: var(--white);
+}
+
+.about-page .final-cta.home-section--blue .home-link.cta-button .cta-motion__roll > span:nth-child(2) {
+  color: var(--blue);
+}
+
+.about-page .final-cta.home-section--blue .home-link.cta-button:is(:hover, :focus-visible) {
+  border-color: var(--white);
+  background: transparent;
+  color: var(--white);
+}
+
+.about-page .final-cta.home-section--blue .home-link.cta-button:is(:hover, :focus-visible) > .cta-arrow {
+  border-color: rgba(0, 40, 250, .28);
+  background: rgba(0, 40, 250, .08);
+  color: var(--blue);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .cta-button.cta-button {
     transition-duration: 0s;
