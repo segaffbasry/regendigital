@@ -423,7 +423,6 @@
 }
 
 .methodology-growth__trajectory {
-  --trajectory-stroke: clamp(7px, .75vw, 10px);
   position: absolute;
   z-index: 3;
   bottom: 22%;
@@ -431,12 +430,9 @@
   display: block;
   width: 78%;
   height: 50%;
-  border-top: var(--trajectory-stroke) solid var(--blue);
-  border-radius: 62% 8% 0 0 / 100% 18% 0 0;
+  background: url("/78.svg") center / 100% 100% no-repeat;
   filter: drop-shadow(0 5px 7px rgba(0, 40, 250, .2));
   opacity: .68;
-  transform: rotate(-11deg);
-  transform-origin: left center;
   transition: opacity .55s ease, filter .55s ease;
 }
 
@@ -445,14 +441,7 @@
 }
 
 .methodology-growth__trajectory::after {
-  position: absolute;
-  top: clamp(-12px, -.85vw, -9px);
-  right: clamp(-14px, -1vw, -10px);
-  width: clamp(50px, 5vw, 66px);
-  height: clamp(28px, 2.5vw, 34px);
-  background: var(--blue);
-  clip-path: polygon(0 38%, 58% 38%, 58% 0, 100% 50%, 58% 100%, 58% 62%, 0 62%);
-  content: "";
+  content: none;
 }
 
 .methodology-visual--2 .methodology-growth__trajectory {
