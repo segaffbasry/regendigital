@@ -8,7 +8,6 @@ import TestimonialDrag from "./TestimonialDrag";
 import WhoWeHelpTabs from "./WhoWeHelpTabs";
 import MethodologySequence from "./MethodologySequence";
 import TiltMedia from "./TiltMedia";
-import MarketingEcosystem from "./MarketingEcosystem";
 
 const services = [
   {
@@ -213,11 +212,22 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-          <div className="what-we-do__media">
-            <div className="what-we-do__media-frame">
-              <MarketingEcosystem />
-            </div>
-          </div>
+          <TiltMedia
+            className="what-we-do__media-frame"
+            stageClassName="what-we-do__media"
+          >
+            <video
+              aria-hidden="true"
+              autoPlay
+              loop
+              muted
+              playsInline
+              poster="/images/marketing-ecosystem-poster.png"
+              preload="metadata"
+            >
+              <source src="/videos/marketing-ecosystem.mp4" type="video/mp4" />
+            </video>
+          </TiltMedia>
           <div className="service-stack__mobile-cue" aria-hidden="true">
             <span>Explore our services</span>
             <span>Swipe&nbsp; &rarr;</span>
