@@ -3440,30 +3440,184 @@
   min-height: 0;
   aspect-ratio: 16 / 9;
   border-radius: 18px;
-  background: #f3f2e9 url("/images/marketing-ecosystem-poster.png") center / cover no-repeat;
+  background: #f3f2e9;
   box-shadow: 0 22px 52px rgba(17, 14, 11, .13);
 }
 
-.what-we-do__media-frame img,
-.what-we-do__media-frame video {
-  display: block;
+.marketing-ecosystem {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-}
-
-.what-we-do__media-frame img {
-  transform: scale(1.035) translateZ(18px);
-  transition: transform .6s cubic-bezier(.16, 1, .3, 1);
-}
-
-.what-we-do__media-frame video {
-  object-position: center;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, .7), transparent 34%),
+    #f3f2e9;
   pointer-events: none;
+  user-select: none;
 }
 
-.what-we-do__media-frame:hover img {
-  transform: scale(1.065) translateZ(18px);
+.marketing-ecosystem::before {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  width: 36%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(30, 57, 255, .07);
+  filter: blur(52px);
+  content: "";
+  transform: translate(-50%, -50%);
+}
+
+.marketing-ecosystem__network {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.marketing-ecosystem__globe {
+  fill: none;
+  stroke: #282720;
+  stroke-opacity: .12;
+  stroke-width: 1.25;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: marketing-ecosystem-globe 8s ease-in-out infinite;
+}
+
+.marketing-ecosystem__globe ellipse {
+  vector-effect: non-scaling-stroke;
+}
+
+.marketing-ecosystem__connections line {
+  stroke: var(--blue);
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  stroke-opacity: .28;
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+  animation: marketing-ecosystem-line 6s cubic-bezier(.16, 1, .3, 1) infinite;
+  animation-delay: var(--connection-delay);
+  animation-fill-mode: both;
+}
+
+.marketing-ecosystem__node {
+  position: absolute;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(5px, .45vw, 8px);
+  padding: clamp(5px, .5vw, 8px) clamp(7px, .75vw, 12px);
+  border: 1px solid rgba(25, 24, 20, .05);
+  border-radius: clamp(7px, .65vw, 11px);
+  background: rgba(255, 255, 255, .94);
+  box-shadow: 0 9px 24px rgba(34, 31, 25, .11);
+  color: #302f2a;
+  font-size: clamp(8px, .62vw, 12px);
+  font-weight: 650;
+  letter-spacing: .075em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+  animation: marketing-ecosystem-node 5.8s ease-in-out infinite;
+  animation-delay: var(--node-delay);
+  animation-fill-mode: both;
+}
+
+.marketing-ecosystem__node-icon {
+  display: grid;
+  width: clamp(12px, .9vw, 16px);
+  aspect-ratio: 1;
+  place-items: center;
+  color: var(--blue);
+}
+
+.marketing-ecosystem__node-icon svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.35;
+}
+
+.marketing-ecosystem__node--paid,
+.marketing-ecosystem__node--content {
+  padding: clamp(7px, .65vw, 10px) clamp(10px, .9vw, 15px);
+  font-size: clamp(9px, .72vw, 13px);
+}
+
+.marketing-ecosystem__node--social { top: 22.5%; left: 40.5%; }
+.marketing-ecosystem__node--paid { top: 32.7%; left: 52.7%; }
+.marketing-ecosystem__node--partnerships { top: 37.7%; left: 35.7%; }
+.marketing-ecosystem__node--abm { top: 27.3%; left: 58%; }
+.marketing-ecosystem__node--content { top: 68.4%; left: 65.9%; }
+.marketing-ecosystem__node--email { top: 77.5%; left: 50%; }
+.marketing-ecosystem__node--seo { top: 73.2%; left: 40.5%; }
+
+.marketing-ecosystem__hub {
+  position: absolute;
+  z-index: 4;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  width: clamp(48px, 8vw, 96px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: 0 18px 38px rgba(0, 40, 250, .25);
+  place-items: center;
+  transform: translate(-50%, -50%);
+  animation: marketing-ecosystem-hub 4.8s ease-in-out infinite;
+}
+
+.marketing-ecosystem__hub-ring {
+  position: absolute;
+  inset: -11%;
+  border: 1px solid rgba(0, 40, 250, .18);
+  border-radius: inherit;
+  animation: marketing-ecosystem-ring 4.8s ease-out infinite;
+}
+
+.marketing-ecosystem__hub img {
+  display: block;
+  width: 37%;
+  height: 40%;
+  object-fit: contain;
+}
+
+@keyframes marketing-ecosystem-globe {
+  0%, 100% { stroke-opacity: .1; transform: rotate(-1deg) scale(.99); }
+  50% { stroke-opacity: .17; transform: rotate(1deg) scale(1.01); }
+}
+
+@keyframes marketing-ecosystem-line {
+  0%, 12% { stroke-dashoffset: 1; stroke-opacity: .08; }
+  34%, 82% { stroke-dashoffset: 0; stroke-opacity: .38; }
+  100% { stroke-dashoffset: 0; stroke-opacity: .14; }
+}
+
+@keyframes marketing-ecosystem-node {
+  0%, 10% { opacity: 0; }
+  28%, 84% { opacity: 1; }
+  100% { opacity: .72; }
+}
+
+@keyframes marketing-ecosystem-hub {
+  0%, 100% { box-shadow: 0 18px 38px rgba(0, 40, 250, .22); transform: translate(-50%, -50%) scale(1); }
+  50% { box-shadow: 0 22px 48px rgba(0, 40, 250, .32); transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes marketing-ecosystem-ring {
+  0% { opacity: .7; transform: scale(.88); }
+  70%, 100% { opacity: 0; transform: scale(1.35); }
 }
 
 .what-we-do .service-stack {
@@ -4611,12 +4765,12 @@
   .how-work-outro__faces img { width: 54px; }
 }
 
-/* Keep the homepage services introduction inside one desktop viewport.
-   The previous 100% minimum on the copy recursively enlarged its grid row. */
+/* Keep the copy compact beside the fixed-ratio ecosystem graphic. */
 @media (min-width: 821px) {
   .what-we-do__content {
-    height: clamp(560px, calc(100svh - 112px), 760px);
+    height: auto;
     min-height: 0;
+    justify-content: center;
   }
 
   .what-we-do__media {
@@ -4624,15 +4778,11 @@
     min-height: 0;
   }
 
-  .what-we-do__content {
-    justify-content: flex-start;
-  }
-
   .what-we-do__copy {
-    flex: 1 1 auto;
+    flex: 0 0 auto;
     min-height: 0;
-    justify-content: flex-end;
-    margin-top: clamp(24px, 3.5vh, 42px);
+    justify-content: flex-start;
+    margin-top: clamp(28px, 3vw, 44px);
   }
 
   .what-we-do__media-frame {
@@ -4642,9 +4792,16 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .what-we-do__media-frame video {
-    display: none;
-  }
+  .marketing-ecosystem__globe,
+  .marketing-ecosystem__connections line,
+  .marketing-ecosystem__node,
+  .marketing-ecosystem__hub,
+  .marketing-ecosystem__hub-ring { animation: none; }
+}
+
+@media (forced-colors: active) {
+  .marketing-ecosystem__node,
+  .marketing-ecosystem__hub { border: 1px solid CanvasText; }
 }
 
 /* Keep the feedback palette authoritative over earlier responsive revisions. */
