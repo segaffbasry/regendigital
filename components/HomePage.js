@@ -216,11 +216,17 @@ export default function HomePage() {
             className="what-we-do__media-frame"
             stageClassName="what-we-do__media"
           >
-            <img
-              src="/pics/Studio Meeting 2.jpeg"
-              alt="A team collaborating around a table in a sunlit studio"
-              loading="lazy"
-            />
+            <video
+              aria-hidden="true"
+              autoPlay
+              loop
+              muted
+              playsInline
+              poster="/images/marketing-ecosystem-poster.png"
+              preload="metadata"
+            >
+              <source src="/videos/marketing-ecosystem.mp4" type="video/mp4" />
+            </video>
           </TiltMedia>
           <div className="service-stack__mobile-cue" aria-hidden="true">
             <span>Explore our services</span>

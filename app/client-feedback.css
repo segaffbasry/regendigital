@@ -3647,3 +3647,58 @@
     margin-top: 6px;
   }
 }
+
+/* 15 August homepage feedback: let the final audience tab meet the right edge. */
+@media (min-width: 1051px) {
+  .who-tabs.is-last-active .who-tabs__highlight {
+    border-top-right-radius: 0;
+  }
+
+  .who-tabs.is-last-active .who-tabs__highlight::after {
+    position: absolute;
+    inset: 0 auto 0 100%;
+    width: var(--who-inset);
+    border-radius: 0 14px 0 0;
+    background: inherit;
+    content: "";
+  }
+
+  .who-tabs.is-last-active .who-tabs__panel {
+    margin-right: 0;
+    border-top-right-radius: 0;
+  }
+}
+
+/* Use more of the desktop canvas for How We Work. */
+@media (min-width: 901px) {
+  .methodology-scroll__sticky {
+    grid-template-columns: minmax(0, 680px) minmax(380px, 620px);
+    gap: clamp(36px, 4vw, 72px);
+  }
+
+  .methodology-scroll__copy {
+    max-width: 680px;
+  }
+
+  .methodology-visual {
+    width: min(100%, 620px);
+  }
+
+  .methodology-growth {
+    max-width: 620px;
+  }
+}
+
+/* Increase the copy scale inside the compact homepage service cards. */
+.what-we-do .service-stack__copy .service-title {
+  font-size: clamp(22px, 1.5vw, 25px);
+}
+
+.what-we-do .service-stack__copy p {
+  font-size: clamp(14px, .8vw, 15px);
+  line-height: 1.4;
+}
+
+.what-we-do .service-stack__inline-link {
+  font-size: 13px;
+}

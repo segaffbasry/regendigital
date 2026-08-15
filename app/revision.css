@@ -3401,7 +3401,7 @@
   .editorial-media__scan { animation: none; }
 }
 
-/* New face-led image added to the homepage service introduction. */
+/* Homepage services introduction media. */
 .what-we-do .home-section__split {
   grid-template-columns: minmax(0, .84fr) minmax(340px, 1.16fr);
   align-items: stretch;
@@ -3428,22 +3428,38 @@
   margin-top: clamp(24px, 3vw, 44px);
 }
 
+.what-we-do__media {
+  align-self: center;
+}
+
 .what-we-do__media-frame {
   position: relative;
   overflow: hidden;
-  height: 100%;
-  min-height: clamp(540px, 50vw, 760px);
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 16 / 9;
   border-radius: 18px;
+  background: #f3f2e9 url("/images/marketing-ecosystem-poster.png") center / cover no-repeat;
   box-shadow: 0 22px 52px rgba(17, 14, 11, .13);
 }
 
-.what-we-do__media-frame img {
+.what-we-do__media-frame img,
+.what-we-do__media-frame video {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.what-we-do__media-frame img {
   transform: scale(1.035) translateZ(18px);
   transition: transform .6s cubic-bezier(.16, 1, .3, 1);
+}
+
+.what-we-do__media-frame video {
+  object-position: center;
+  pointer-events: none;
 }
 
 .what-we-do__media-frame:hover img {
@@ -3460,7 +3476,7 @@
   .what-we-do__media-frame {
     height: auto;
     min-height: 0;
-    aspect-ratio: 1.15;
+    aspect-ratio: 16 / 9;
   }
   .what-we-do .service-stack { grid-column: 1; }
 }
@@ -4598,9 +4614,13 @@
 /* Keep the homepage services introduction inside one desktop viewport.
    The previous 100% minimum on the copy recursively enlarged its grid row. */
 @media (min-width: 821px) {
-  .what-we-do__content,
-  .what-we-do__media {
+  .what-we-do__content {
     height: clamp(560px, calc(100svh - 112px), 760px);
+    min-height: 0;
+  }
+
+  .what-we-do__media {
+    height: auto;
     min-height: 0;
   }
 
@@ -4616,8 +4636,14 @@
   }
 
   .what-we-do__media-frame {
-    height: 100%;
+    height: auto;
     min-height: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .what-we-do__media-frame video {
+    display: none;
   }
 }
 

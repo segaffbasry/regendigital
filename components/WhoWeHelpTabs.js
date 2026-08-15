@@ -96,7 +96,7 @@ export default function WhoWeHelpTabs() {
       id="who-we-help"
       aria-labelledby="who-we-help-title"
     >
-      <div className="who-tabs">
+      <div className={`who-tabs${activeIndex === audiences.length - 1 ? " is-last-active" : ""}`}>
         <div className="who-tabs__hero">
           <span className="who-tabs__atmosphere" aria-hidden="true" />
           <div className="who-tabs__intro">
