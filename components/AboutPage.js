@@ -203,6 +203,71 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section
+        className="about-manifesto about-system-panel"
+        aria-labelledby="about-system-panel-title"
+      >
+        <div className="about-system-panel__inner">
+          <div className="about-system-panel__cards">
+            <article
+              className="about-system-card about-system-card--statement"
+              data-about-reveal
+            >
+              <p className="about-eyebrow">What we believe</p>
+              <StaggerText
+                as="h2"
+                id="about-system-panel-title"
+                lineReveal
+              >
+                Marketing should feel like <em>one intelligent system,</em> not
+                a collection of disconnected tactics.
+              </StaggerText>
+              <span className="about-system-card__arrow" aria-hidden="true" />
+            </article>
+
+            <article
+              className="about-system-card about-system-card--support about-system-card--plan"
+              data-about-delay="80"
+              data-about-reveal
+            >
+              <span className="about-system-card__number">01</span>
+              <p>
+                Regen brings strategy, creative, media, and search into one
+                commercial plan. That gives ambitious B2B teams a clearer
+                route from attention to pipeline.
+              </p>
+            </article>
+
+            <article
+              className="about-system-card about-system-card--support about-system-card--market"
+              data-about-delay="140"
+              data-about-reveal
+            >
+              <span className="about-system-card__number">02</span>
+              <p>
+                We work closely with founders and commercial leaders, finding
+                the message that matters and building the engine that carries
+                it into market.
+              </p>
+            </article>
+          </div>
+
+          <figure className="about-system-panel__visual" data-about-reveal>
+            <video
+              aria-label="An animated marketing system connecting Regen's channels"
+              autoPlay
+              loop
+              muted
+              playsInline
+              poster="/images/marketing-ecosystem-poster.png"
+              preload="metadata"
+            >
+              <source src="/videos/marketing-ecosystem.mp4" type="video/mp4" />
+            </video>
+          </figure>
+        </div>
+      </section>
+
       <AboutDepthPrinciples />
 
       <section className="about-card-stage" ref={stage} aria-label="Regen introduction">
@@ -253,28 +318,6 @@ export default function AboutPage() {
               </span>
             </p>
           </div>
-        </div>
-      </section>
-
-      <section className="about-manifesto">
-        <p className="about-eyebrow" data-about-reveal>
-          What we believe
-        </p>
-        <StaggerText lineReveal>
-          Marketing should feel like <em>one intelligent system,</em> not a
-          collection of disconnected tactics.
-        </StaggerText>
-        <div className="about-manifesto__copy">
-          <p data-about-reveal>
-            Regen brings strategy, creative, media, and search into one
-            commercial plan. That gives ambitious B2B teams a clearer route
-            from attention to pipeline.
-          </p>
-          <p data-about-delay="80" data-about-reveal>
-            We work closely with founders and commercial leaders, finding the
-            message that matters and building the engine that carries it into
-            market.
-          </p>
         </div>
       </section>
 
