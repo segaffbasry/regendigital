@@ -416,6 +416,13 @@ figure, blockquote { margin: 0; }
   grid-auto-flow: column;
 }
 
+/* Industries follows the same column-first reading order: the first three
+   entries fill the left column, then the remaining two fill the right. */
+.site-header__submenu--industries .site-header__submenu-grid {
+  grid-template-rows: repeat(3, minmax(42px, auto));
+  grid-auto-flow: column;
+}
+
 .site-header__submenu-grid a {
   min-height: 42px;
   padding: 10px 12px;

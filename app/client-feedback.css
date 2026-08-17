@@ -3433,7 +3433,7 @@
 .about-page .about-team__role {
   margin: 10px 0 0;
   font-family: var(--font-helv);
-  font-size: clamp(14px, 1vw, 17px);
+  font-size: clamp(15px, 1.1vw, 18px);
   font-weight: 600;
   letter-spacing: -.025em;
   line-height: 1.1;
@@ -3636,7 +3636,7 @@
 
   .about-page .about-team__role {
     margin-top: 7px;
-    font-size: 12px;
+    font-size: 13px;
   }
 
   .about-page .about-team__role + .about-team__experience {
