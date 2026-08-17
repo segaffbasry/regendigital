@@ -278,7 +278,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <HomeClosingSections />
+      <HomeClosingSections showLeadForm />
       <HomeSectionMotion />
       <SiteFooter />
     </main>
