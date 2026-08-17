@@ -2,6 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 
+const SERVICE_PLAYBACK_RATE = 1.45;
+const SERVICE_TIMELINE_SELECTOR = "[data-om-exportable-video-with-duration-secs]";
+
 const animationByService = {
   "marketing-strategy-consultancy": {
     src: "/animation/Marketing%20Strategy%20Assembly/Marketing%20Strategy%20Motif.dc.html?embed=1",
@@ -108,6 +111,99 @@ export default function ServiceAnimation({ serviceKey = "seo" }) {
     return () => window.removeEventListener("message", handleMessage);
   }, [serviceKey]);
 
+  useEffect(() => {
+    const frameElement = iframe.current;
+    if (!frameElement || !shouldLoad || reduceMotion || failed) return undefined;
+
+    let cancelled = false;
+    let animationFrame = 0;
+    let frameLoaded = false;
+    let inViewport = false;
+    let driverStartedAt = 0;
+    let elapsedBeforePause = 0;
+
+    const stopDriver = () => {
+      if (animationFrame && driverStartedAt) {
+        elapsedBeforePause += ((window.performance.now() - driverStartedAt) / 1000) * SERVICE_PLAYBACK_RATE;
+      }
+      window.cancelAnimationFrame(animationFrame);
+      animationFrame = 0;
+      driverStartedAt = 0;
+    };
+
+    const startDriver = () => {
+      if (
+        cancelled
+        || animationFrame
+        || !frameLoaded
+        || !inViewport
+        || document.visibilityState === "hidden"
+      ) return;
+
+      driverStartedAt = window.performance.now();
+
+      const driveTimeline = (now) => {
+        if (cancelled) return;
+
+        try {
+          const frameWindow = frameElement.contentWindow;
+          const timeline = frameElement.contentDocument?.querySelector(SERVICE_TIMELINE_SELECTOR);
+          const duration = Number(timeline?.getAttribute("data-om-exportable-video-with-duration-secs"));
+
+          if (frameWindow && timeline && Number.isFinite(duration) && duration > 0) {
+            const elapsed = elapsedBeforePause
+              + ((now - driverStartedAt) / 1000) * SERVICE_PLAYBACK_RATE;
+            timeline.dispatchEvent(new frameWindow.CustomEvent("data-om-seek-to-time-frame", {
+              detail: { playing: true, time: elapsed % duration },
+            }));
+          }
+        } catch {
+          // The next frame retries while the same-origin animation finishes booting.
+        }
+
+        animationFrame = window.requestAnimationFrame(driveTimeline);
+      };
+
+      animationFrame = window.requestAnimationFrame(driveTimeline);
+    };
+
+    const handleLoad = () => {
+      frameLoaded = true;
+      elapsedBeforePause = 0;
+      startDriver();
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "hidden") stopDriver();
+      else startDriver();
+    };
+
+    const observer = new IntersectionObserver(([entry]) => {
+      inViewport = entry.isIntersecting;
+      if (inViewport) startDriver();
+      else stopDriver();
+    }, { rootMargin: "160px 0px", threshold: 0.01 });
+
+    frameElement.addEventListener("load", handleLoad);
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    observer.observe(frameElement);
+
+    try {
+      frameLoaded = frameElement.contentDocument?.readyState === "complete";
+    } catch {
+      frameLoaded = false;
+    }
+    if (frameLoaded) startDriver();
+
+    return () => {
+      cancelled = true;
+      frameElement.removeEventListener("load", handleLoad);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      observer.disconnect();
+      stopDriver();
+    };
+  }, [failed, reduceMotion, serviceKey, shouldLoad]);
+
   const isReady = ready && shouldLoad && !reduceMotion && !failed;
 
   return (
@@ -132,7 +228,7 @@ export default function ServiceAnimation({ serviceKey = "seo" }) {
           }}
           ref={iframe}
           referrerPolicy="no-referrer"
-          sandbox="allow-scripts"
+          sandbox="allow-same-origin allow-scripts"
           src={visual.src}
           tabIndex={-1}
           title={visual.title}

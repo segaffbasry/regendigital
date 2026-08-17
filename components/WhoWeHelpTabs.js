@@ -90,72 +90,90 @@ export default function WhoWeHelpTabs() {
     element.scrollTo({ left: Math.max(0, offset), behavior: "smooth" });
   }, [activeIndex]);
 
+  const handleTabKeyDown = (event, index) => {
+    let nextIndex;
+
+    if (event.key === "ArrowRight") nextIndex = (index + 1) % audiences.length;
+    if (event.key === "ArrowLeft") nextIndex = (index - 1 + audiences.length) % audiences.length;
+    if (event.key === "Home") nextIndex = 0;
+    if (event.key === "End") nextIndex = audiences.length - 1;
+    if (nextIndex === undefined) return;
+
+    event.preventDefault();
+    setActiveIndex(nextIndex);
+    window.requestAnimationFrame(() => {
+      list.current?.querySelector(`#who-tab-${nextIndex}`)?.focus();
+    });
+  };
+
   return (
     <section
-      className="home-section audience-section"
+      className="home-section audience-section audience-section--home"
       id="who-we-help"
       aria-labelledby="who-we-help-title"
     >
-      <div className={`who-tabs${activeIndex === audiences.length - 1 ? " is-last-active" : ""}`}>
+      <div className="who-tabs">
         <div className="who-tabs__hero">
           <span className="who-tabs__atmosphere" aria-hidden="true" />
           <div className="who-tabs__intro">
             <h2 id="who-we-help-title">Who we help</h2>
             <p>
-              We work with SaaS, AI, tech, and professional services businesses
-              driving growth.
+              We work with the SaaS, AI, tech, and professional services businesses driving growth. Whether you&apos;re scaling an AI company, building authority in professional services like legal or construction, or competing in fast-moving tech, we combine a strategic foundation with content, paid, and search into one system that adapts as your industry does and turns pipeline into predictable revenue.
             </p>
           </div>
-          <div
-            className={`who-tabs__rail${edges.start ? " is-scrolled" : ""}${
-              edges.end ? " has-more" : ""
-            }`}
-          >
+          <div className="who-tabs__dock">
             <div
-              className="who-tabs__list"
-              ref={list}
-              role="tablist"
-              aria-label="Who Regen helps"
-              style={{ "--active-index": activeIndex }}
+              className={`who-tabs__rail${edges.start ? " is-scrolled" : ""}${
+                edges.end ? " has-more" : ""
+              }`}
             >
-              <span className="who-tabs__highlight" aria-hidden="true" />
-              {audiences.map((audience, index) => (
-                <button
-                  aria-controls="who-tabs-panel"
-                  aria-selected={index === activeIndex}
-                  className={index === activeIndex ? "is-active" : ""}
-                  id={`who-tab-${index}`}
-                  key={audience.label}
-                  onClick={() => setActiveIndex(index)}
-                  role="tab"
-                  type="button"
-                >
-                  {audience.label}
-                </button>
-              ))}
+              <div
+                className="who-tabs__list"
+                ref={list}
+                role="tablist"
+                aria-label="Who Regen helps"
+                style={{ "--active-index": activeIndex }}
+              >
+                <span className="who-tabs__highlight" aria-hidden="true" />
+                {audiences.map((audience, index) => (
+                  <button
+                    aria-controls="who-tabs-panel"
+                    aria-selected={index === activeIndex}
+                    className={index === activeIndex ? "is-active" : ""}
+                    id={`who-tab-${index}`}
+                    key={audience.label}
+                    onClick={() => setActiveIndex(index)}
+                    onKeyDown={(event) => handleTabKeyDown(event, index)}
+                    role="tab"
+                    tabIndex={index === activeIndex ? 0 : -1}
+                    type="button"
+                  >
+                    {audience.label}
+                  </button>
+                ))}
+              </div>
+              <span className="who-tabs__more" aria-hidden="true">
+                <span className="cta-arrow" />
+              </span>
             </div>
-            <span className="who-tabs__more" aria-hidden="true">
-              <span className="cta-arrow" />
-            </span>
-          </div>
-        </div>
 
-        <div
-          aria-labelledby={`who-tab-${activeIndex}`}
-          className="who-tabs__panel"
-          id="who-tabs-panel"
-          key={active.label}
-          role="tabpanel"
-        >
-          <div className="who-tabs__heading">
-            <h3>{active.title}</h3>
-          </div>
-          <div className="who-tabs__detail">
-            <p>{active.copy}</p>
-            <div className="who-tabs__proof" aria-label="What this gives you">
-              {active.outcomes.map((outcome) => (
-                <strong key={outcome}>{outcome}</strong>
-              ))}
+            <div
+              aria-labelledby={`who-tab-${activeIndex}`}
+              className="who-tabs__panel"
+              id="who-tabs-panel"
+              role="tabpanel"
+            >
+              <div className="who-tabs__heading">
+                <h3>{active.title}</h3>
+              </div>
+              <div className="who-tabs__detail">
+                <p>{active.copy}</p>
+                <div className="who-tabs__proof" aria-label="What this gives you">
+                  {active.outcomes.map((outcome) => (
+                    <strong key={outcome}>{outcome}</strong>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -65,13 +65,15 @@ export default function ServicePage({ content: page, serviceKey }) {
       <SiteHeader />
 
       <section className="service-detail__hero">
-        {page.heroPill ? <p className="service-detail__hero-pill">{page.heroPill}</p> : null}
-        <h1 aria-label={sentenceCaseTitle(page.hero)}><ServiceHeroTitle page={page} /></h1>
-        <div className="service-detail__hero-meta">
-          <p>{page.entity}</p>
-          <ArrowLink href={page.ctaHref}>{page.cta}</ArrowLink>
+        <div className="service-detail__hero-panel">
+          {page.heroPill ? <p className="service-detail__hero-pill">{page.heroPill}</p> : null}
+          <h1 aria-label={sentenceCaseTitle(page.hero)}><ServiceHeroTitle page={page} /></h1>
+          <div className="service-detail__hero-meta">
+            <p>{page.entity}</p>
+            <ArrowLink href={page.ctaHref}>{page.cta}</ArrowLink>
+          </div>
+          <ClientLogoStrip variant="compact" />
         </div>
-        <ClientLogoStrip variant="compact" />
       </section>
 
       <section className="service-detail__opening">

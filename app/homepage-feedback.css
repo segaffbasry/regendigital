@@ -1,0 +1,169 @@
+/* 17 August homepage feedback. This layer is intentionally homepage-scoped so
+   the shared service, methodology, and interior-page systems stay unchanged. */
+
+/* Let the ecosystem motion read as part of the section instead of a framed
+   video. The source background is exactly #f3f0e9. */
+.what-we-do,
+.what-we-do.is-audience-active {
+  background: #f3f0e9;
+}
+
+@media (min-width: 821px) {
+  .what-we-do .home-section__split {
+    grid-template-columns: minmax(0, .76fr) minmax(420px, 1.24fr);
+  }
+}
+
+.what-we-do__media {
+  width: 100%;
+  max-width: 780px;
+  justify-self: end;
+}
+
+.what-we-do__media-frame {
+  aspect-ratio: 1;
+  border-radius: 0;
+  background: #f3f0e9;
+  box-shadow: none;
+}
+
+.what-we-do__media-frame video {
+  object-fit: cover;
+}
+
+@media (max-width: 820px) {
+  .what-we-do__media {
+    max-width: 680px;
+    justify-self: center;
+  }
+
+  .what-we-do__media-frame {
+    aspect-ratio: 1;
+  }
+}
+
+/* Keep the Unify-inspired audience interaction on one dark backdrop. The dock
+   is deliberately partial-width and its panel has a stable block size, so
+   changing tabs never shifts the section or widens the last state. */
+.audience-section--home {
+  background: var(--white);
+}
+
+.audience-section--home .who-tabs {
+  overflow: hidden;
+  border-color: rgba(5, 5, 5, .12);
+  background: #080808;
+}
+
+.audience-section--home .who-tabs__hero {
+  min-height: clamp(660px, 56vw, 790px);
+  gap: clamp(34px, 4vw, 58px);
+  justify-content: flex-start;
+  padding-bottom: var(--who-inset);
+  background:
+    linear-gradient(90deg, rgba(5, 5, 5, .84) 0%, rgba(5, 5, 5, .62) 50%, rgba(5, 5, 5, .34) 100%),
+    url("/images/founders/holly-taylor.webp") center 47% / cover no-repeat;
+}
+
+.audience-section--home .who-tabs__intro {
+  width: min(52%, 720px);
+}
+
+.audience-section--home .who-tabs__dock {
+  width: min(88%, 1180px);
+  margin-top: auto;
+}
+
+.audience-section--home .who-tabs__rail {
+  margin-inline: 0;
+}
+
+.audience-section--home .who-tabs__list {
+  margin-top: 0;
+}
+
+.audience-section--home .who-tabs__panel {
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  min-height: clamp(250px, 20vw, 290px);
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+  margin: 0;
+  overflow: visible;
+  animation: none;
+}
+
+.audience-section--home .who-tabs__heading,
+.audience-section--home .who-tabs__detail {
+  min-width: 0;
+}
+
+.audience-section--home .who-tabs__panel h3,
+.audience-section--home .who-tabs__detail > p,
+.audience-section--home .who-tabs__proof {
+  animation: none;
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 1050px) {
+  .audience-section--home .who-tabs__intro {
+    width: min(78%, 720px);
+  }
+
+  .audience-section--home .who-tabs__dock {
+    width: 100%;
+  }
+
+  .audience-section--home .who-tabs__panel {
+    min-height: 430px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .audience-section--home .who-tabs__detail {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .audience-section--home {
+    padding-top: 20px;
+  }
+
+  .audience-section--home .who-tabs__hero {
+    min-height: 0;
+    gap: 32px;
+    padding-bottom: 20px;
+  }
+
+  .audience-section--home .who-tabs__intro {
+    width: 100%;
+  }
+
+  .audience-section--home .who-tabs__panel {
+    min-height: 360px;
+  }
+
+  .audience-section--home .who-tabs__proof {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .audience-section--home .who-tabs__panel {
+    min-height: 390px;
+  }
+}
+
+/* The marquee remains continuously moving, but is also operable by drag,
+   horizontal trackpad input, touch, and keyboard arrows. */
+.proof-section .testimonial-marquee:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .proof-section .testimonial-marquee {
+    scroll-behavior: smooth;
+  }
+}

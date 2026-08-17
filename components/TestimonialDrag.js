@@ -20,7 +20,8 @@ export default function TestimonialDrag() {
     let velocity = 0;
     let dragging = false;
     let hovering = false;
-    let autoSpeed = 0.42;
+    let autoSpeed = 0.5;
+    let lastTimestamp = 0;
 
     function wrapOffset() {
       if (!groupWidth) return;
@@ -33,17 +34,23 @@ export default function TestimonialDrag() {
       track.style.transform = `translate3d(${offset}px, 0, 0)`;
     }
 
-    function tick() {
+    function tick(timestamp) {
+      const frameScale = lastTimestamp
+        ? Math.min((timestamp - lastTimestamp) / (1000 / 60), 3)
+        : 1;
+      lastTimestamp = timestamp;
+
       if (!dragging) {
         if (Math.abs(velocity) > 0.05) {
-          offset += velocity;
-          velocity *= 0.9;
+          offset += velocity * frameScale;
+          velocity *= Math.pow(0.9, frameScale);
         } else if (!reduceMotion) {
           velocity = 0;
-          const targetSpeed = hovering ? 0.055 : 0.42;
+          const targetSpeed = hovering ? 0.09 : 0.5;
           const easing = hovering ? 0.075 : 0.055;
-          autoSpeed += (targetSpeed - autoSpeed) * easing;
-          offset -= autoSpeed;
+          const frameEasing = 1 - Math.pow(1 - easing, frameScale);
+          autoSpeed += (targetSpeed - autoSpeed) * frameEasing;
+          offset -= autoSpeed * frameScale;
         }
       }
 
@@ -97,12 +104,43 @@ export default function TestimonialDrag() {
       endDrag(event);
     }
 
+    function handleWheel(event) {
+      if (Math.abs(event.deltaX) <= Math.abs(event.deltaY)) return;
+
+      event.preventDefault();
+      hovering = true;
+      velocity = 0;
+      offset -= event.deltaX;
+      render();
+    }
+
+    function handleKeyDown(event) {
+      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+
+      event.preventDefault();
+      velocity = 0;
+      offset += event.key === "ArrowLeft" ? 180 : -180;
+      render();
+    }
+
+    function handleFocusIn() {
+      hovering = true;
+    }
+
+    function handleFocusOut() {
+      hovering = false;
+    }
+
     marquee.addEventListener("pointerdown", handlePointerDown);
     marquee.addEventListener("pointermove", handlePointerMove);
     marquee.addEventListener("pointerup", endDrag);
     marquee.addEventListener("pointercancel", endDrag);
     marquee.addEventListener("pointerenter", handlePointerEnter);
     marquee.addEventListener("pointerleave", handlePointerLeave);
+    marquee.addEventListener("wheel", handleWheel, { passive: false });
+    marquee.addEventListener("keydown", handleKeyDown);
+    marquee.addEventListener("focusin", handleFocusIn);
+    marquee.addEventListener("focusout", handleFocusOut);
     window.addEventListener("resize", measure);
     frame = window.requestAnimationFrame(tick);
 
@@ -114,6 +152,10 @@ export default function TestimonialDrag() {
       marquee.removeEventListener("pointercancel", endDrag);
       marquee.removeEventListener("pointerenter", handlePointerEnter);
       marquee.removeEventListener("pointerleave", handlePointerLeave);
+      marquee.removeEventListener("wheel", handleWheel);
+      marquee.removeEventListener("keydown", handleKeyDown);
+      marquee.removeEventListener("focusin", handleFocusIn);
+      marquee.removeEventListener("focusout", handleFocusOut);
       window.removeEventListener("resize", measure);
       marquee.classList.remove("is-dragging");
       track.style.removeProperty("transform");

@@ -77,21 +77,38 @@ export function IndustryStats({ stats }) {
       </header>
       <div className="industry-stats__grid">
         {stats.cards.map((card, index) => (
-          <article className="industry-stat-card" key={card.heading}>
-            <span className="industry-stat-card__number">{String(index + 1).padStart(2, "0")}</span>
+          <article className={`industry-stat-card industry-stat-card--${card.visual}`} key={card.heading}>
+            <div className="industry-stat-card__topline">
+              <span className="industry-stat-card__number">{String(index + 1).padStart(2, "0")}</span>
+              <span>Market signal</span>
+            </div>
             {statVisuals[card.visual]}
-            <h3>{card.heading}</h3>
-            <p>{card.copy}</p>
+            <div className="industry-stat-card__copy">
+              <h3>{card.heading}</h3>
+              <p>{card.copy}</p>
+              <span className="industry-stat-card__source">Source · {card.source}</span>
+            </div>
           </article>
         ))}
       </div>
       <a className="editorial-link cta-button industry-stats__cta" href="/audit">
         <span>Get Your Free Marketing Audit</span><span className="cta-arrow" aria-hidden="true" />
       </a>
-      <p className="industry-sources">
-        Sources: {stats.cards.map((card) => card.source).filter((source, index, all) => all.indexOf(source) === index).join(" · ")}
-      </p>
     </section>
+  );
+}
+
+function IndustryRealityTitle({ title }) {
+  const marker = title.toLocaleLowerCase().lastIndexOf(" of ");
+
+  if (marker === -1) return title;
+
+  const industryStart = marker + 4;
+  return (
+    <>
+      {title.slice(0, industryStart)}
+      <em>{title.slice(industryStart)}</em>
+    </>
   );
 }
 
@@ -100,18 +117,20 @@ export function IndustryRealities({ realities }) {
 
   return (
     <section className="industry-realities" aria-labelledby="industry-realities-title">
-      <header>
-        <p className="editorial-kicker">What&apos;s included</p>
-        <h2 id="industry-realities-title">{realities.title}</h2>
-      </header>
-      <div className="industry-realities__grid">
-        {realities.items.map((item, index) => (
-          <article key={item.heading}>
-            <span>{String(index + 1).padStart(2, "0")}</span>
-            <h3>{item.heading}</h3>
-            <p>{item.copy}</p>
-          </article>
-        ))}
+      <div className="industry-realities__panel">
+        <header>
+          <p className="editorial-kicker">What&apos;s included</p>
+          <h2 id="industry-realities-title"><IndustryRealityTitle title={realities.title} /></h2>
+        </header>
+        <div className="industry-realities__grid">
+          {realities.items.map((item, index) => (
+            <article key={item.heading}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h3>{item.heading}</h3>
+              <p>{item.copy}</p>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );

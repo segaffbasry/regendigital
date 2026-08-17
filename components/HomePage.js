@@ -6,7 +6,6 @@ import HomeClosingSections from "./HomeClosingSections";
 import HomeSectionMotion from "./HomeSectionMotion";
 import TestimonialDrag from "./TestimonialDrag";
 import WhoWeHelpTabs from "./WhoWeHelpTabs";
-import MethodologySequence from "./MethodologySequence";
 import TiltMedia from "./TiltMedia";
 
 const services = [
@@ -21,26 +20,26 @@ const services = [
     href: "/services/organic-social",
     copy: "Distinctive, expert-led content that builds recognition and makes your company worth following.",
     tone: "sky",
+    image: "/pics/ChatGPT Image Jul 31, 2026, 10_29_03 AM.png",
   },
   {
     title: "Paid social",
     href: "/services/paid-social",
     copy: "Paid campaigns built around real buyer insight, sharper creative and the outcomes your business needs.",
     tone: "black",
-    image: "/pics/ChatGPT Image Jul 31, 2026, 10_29_03 AM.png",
   },
   {
     title: "Google Ads",
     href: "/services/google-ads",
     copy: "High-intent search campaigns that meet buyers at the moment they are ready to act.",
     tone: "blue",
+    image: "/pics/ChatGPT Image Jul 31, 2026, 10_26_34 AM.png",
   },
   {
     title: "Account-based marketing",
     href: "/services/account-based-marketing",
     copy: "Focused campaigns that create relevance and momentum inside the accounts that matter most.",
     tone: "blue",
-    image: "/pics/ChatGPT Image Jul 31, 2026, 10_26_34 AM.png",
   },
   {
     title: "SEO",
@@ -262,23 +261,8 @@ export default function HomePage() {
       </section>
 
       <div className="problem-audience-bridge">
-        <section className="home-section problem-section">
-          <StaggerText lineReveal>
-            Businesses get overlooked when&nbsp;their digital marketing falls flat
-          </StaggerText>
-          <div className="problem-section__copy">
-            <p>If your growth has stagnated, your pipeline is unpredictable, and your acquisition costs keep climbing, it is usually a positioning problem. Too often, companies switch on paid ads and organic content before nailing their strategy and messaging. Spend goes up, but the revenue does not follow. We fix your foundation first, then run the marketing that turns the pipeline into predictable revenue.</p>
-            <div className="home-cta-pair">
-              <ArrowLink href="/audit" className="home-link--sand">Free Audit</ArrowLink>
-              <ArrowLink href="/contact" className="home-link--blue">Book a call</ArrowLink>
-            </div>
-          </div>
-        </section>
-
         <WhoWeHelpTabs />
       </div>
-
-      <MethodologySequence />
 
       <div className="home-gradient-sequence">
         <section className="home-section home-section--sand why-section">
@@ -310,7 +294,13 @@ export default function HomePage() {
           <div className="home-section__intro">
             <StaggerText lineReveal>What our clients say</StaggerText>
           </div>
-          <div className="testimonial-marquee" aria-label="Client testimonials">
+          <div
+            className="testimonial-marquee"
+            aria-label="Client testimonials. Drag, swipe, or use the left and right arrow keys to browse."
+            aria-roledescription="carousel"
+            role="region"
+            tabIndex={0}
+          >
             <div className="testimonial-marquee__track">
               {[0, 1].map((group) => (
                 <div

@@ -1,5 +1,30 @@
-.service-detail--refined .service-detail__hero {
+.service-detail.service-detail--refined {
+  --service-animation-surface: #edeae2;
+}
+
+.service-detail.service-detail--refined .service-detail__hero {
+  display: block;
+  width: auto;
+  min-height: 0;
+  margin: 0;
+  padding: 8px clamp(14px, 2.2vw, 34px) clamp(18px, 2.2vw, 34px);
+  border: 0;
+  border-radius: 0;
+  background: var(--service-animation-surface);
+}
+
+.service-detail--refined .service-detail__hero-panel {
+  min-height: min(470px, 58svh);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  padding: clamp(38px, 4vw, 56px) clamp(28px, 4.4vw, 72px) clamp(34px, 3.6vw, 50px);
+  overflow: hidden;
+  border: 1px solid rgba(5, 5, 5, .09);
+  border-radius: clamp(24px, 3vw, 44px);
+  background: var(--white);
+  color: var(--black);
   text-align: center;
 }
 
@@ -96,13 +121,18 @@
 }
 
 .service-detail.service-detail--refined .service-detail__opening {
-  --service-animation-surface: #edeae2;
   background: var(--service-animation-surface);
+}
+
+@media (min-width: 1241px) {
+  .service-detail.service-detail--refined .service-detail__opening {
+    grid-template-columns: minmax(360px, .78fr) minmax(560px, 1.22fr);
+  }
 }
 
 .service-animation {
   position: relative;
-  width: min(100%, 720px);
+  width: min(100%, 880px);
   aspect-ratio: var(--service-animation-ratio, 3 / 2);
   justify-self: end;
   overflow: hidden;
@@ -123,6 +153,8 @@
   background: var(--service-animation-surface, #edeae2);
   opacity: 0;
   pointer-events: none;
+  transform: scale(1.012);
+  transform-origin: center;
   transition: opacity .35s ease;
 }
 
@@ -163,6 +195,17 @@
 }
 
 @media (max-width: 760px) {
+  .service-detail.service-detail--refined .service-detail__hero {
+    margin: 0;
+    padding: 8px 10px 16px;
+  }
+
+  .service-detail--refined .service-detail__hero-panel {
+    min-height: 0;
+    padding: 34px 20px 30px;
+    border-radius: 24px;
+  }
+
   .service-detail--refined .service-detail__hero .client-strip--compact {
     grid-template-columns: 1fr;
     gap: 8px;
