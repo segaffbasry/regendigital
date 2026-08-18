@@ -1,7 +1,7 @@
 // ABM radial motif — one continuous composition.
 const { useComposition, CompositionStage, Easing, animate, clamp, interpolate } = window;
 
-const BONE = '#EDEAE2';
+const BONE = '#EEF0E5';
 const GREY = '#D9D6CE';
 const LINE = '#D8D5CC';
 const INK = '#0B0B0C';
