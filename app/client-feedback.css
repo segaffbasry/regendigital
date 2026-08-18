@@ -3834,15 +3834,28 @@
   margin: 0;
   border: 1px solid rgba(5, 5, 5, .1);
   border-radius: clamp(22px, 2vw, 30px);
-  background: #f3f0e9;
+  background: #f3f0e9 url("/images/marketing-ecosystem-poster.png") center / cover no-repeat;
 }
 
-.about-page .about-system-panel__visual video {
+.about-page .about-system-panel__visual .marketing-ecosystem-animation {
+  position: absolute;
+  inset-block: 0;
+  left: 50%;
   display: block;
-  width: 100%;
+  width: auto;
+  min-width: 100%;
   height: 100%;
-  object-fit: contain;
-  transform: scale(1.25);
+  aspect-ratio: 16 / 9;
+  border: 0;
+  background: #f3f0e9;
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-page .about-system-panel__visual .marketing-ecosystem-animation {
+    display: none;
+  }
 }
 
 @media (max-width: 1080px) {

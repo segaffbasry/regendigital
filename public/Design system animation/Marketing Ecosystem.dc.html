@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;1,800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  body { margin: 0; background: #F1EDE4; }
+  a { color: #0028FA; }
+  a:hover { color: #0020C2; }
+  [data-om-starter="animations-v3"] { background: #F1EDE4 !important; }
+  [data-omelette-chrome] { display: none !important; }
+  svg[data-om-exportable-video-with-duration-secs] { box-shadow: none !important; }
+</style>
+<script>window.OM_SCENES = '[{"name":"Nodes","dur":1.8,"desc":"Seven marketing channel cards pop in around a slowly turning globe"},{"name":"Connect","dur":1.4,"desc":"The globe wireframe and spokes draw in and the Regen mark forms at the core"},{"name":"Flow","dur":1.8,"desc":"The globe completes its rotation, cards passing front to back, and the graphic loops"}]';</script>
+<script>window.OM_PLAYBACK = '{"mode":"loop"}';</script>
+<script>window.TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "accent": "#0028FA",
+  "motionEditor": true
+}/*EDITMODE-END*/;</script>
+</helmet>
+<x-import component-from-global-scope="EcosystemVideo" from="./animations-v3.jsx ./tweaks-panel.jsx ./ecosystem-scene.jsx" hint-size="100%,100%"></x-import>
+</x-dc>
+</body>
+</html>

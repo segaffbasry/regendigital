@@ -9,6 +9,7 @@ import {
 import AboutSectionMotion from "./AboutSectionMotion";
 import HomeClosingSections from "./HomeClosingSections";
 import HomeSectionMotion from "./HomeSectionMotion";
+import MarketingEcosystemAnimation from "./MarketingEcosystemAnimation";
 import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
 import StaggerText from "./StaggerText";
@@ -253,17 +254,7 @@ export default function AboutPage() {
           </div>
 
           <figure className="about-system-panel__visual" data-about-reveal>
-            <video
-              aria-label="An animated marketing system connecting Regen's channels"
-              autoPlay
-              loop
-              muted
-              playsInline
-              poster="/images/marketing-ecosystem-poster.png"
-              preload="metadata"
-            >
-              <source src="/videos/marketing-ecosystem.mp4" type="video/mp4" />
-            </video>
+            <MarketingEcosystemAnimation title="An animated marketing system connecting Regen's channels" />
           </figure>
         </div>
       </section>
