@@ -72,7 +72,7 @@ export default function ServicePage({ content: page, serviceKey }) {
             <p>{page.entity}</p>
             <ArrowLink href={page.ctaHref}>{page.cta}</ArrowLink>
           </div>
-          <ClientLogoStrip variant="compact" />
+          <ClientLogoStrip />
         </div>
       </section>
 

@@ -7,7 +7,7 @@
    pages use a solid white header with no blur layer. */
 .service-detail--refined .site-header,
 .service-detail--refined .site-header.is-on-light {
-  background: var(--white);
+  background: var(--service-animation-surface);
 }
 
 .service-detail--refined .site-header::before,
@@ -22,24 +22,27 @@
   width: auto;
   min-height: 0;
   margin: 0;
-  padding: 8px clamp(14px, 2.2vw, 34px) clamp(18px, 2.2vw, 34px);
+  padding: 8px clamp(14px, 2.2vw, 34px) clamp(8px, 1vw, 16px);
   border: 0;
   border-radius: 0;
-  background: var(--white);
+  background: var(--service-animation-surface);
 }
 
 .service-detail--refined .service-detail__hero-panel {
+  --panel-pad-x: clamp(28px, 4.4vw, 72px);
+  --panel-pad-b: clamp(34px, 3.6vw, 50px);
+  --hero-rhythm: clamp(24px, 2.5vw, 38px);
   min-height: min(470px, 58svh);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: clamp(38px, 4vw, 56px) clamp(28px, 4.4vw, 72px) clamp(34px, 3.6vw, 50px);
+  padding: clamp(38px, 4vw, 56px) var(--panel-pad-x) var(--panel-pad-b);
   overflow: hidden;
-  border: 1px solid rgba(5, 5, 5, .09);
+  border: 1px solid rgba(255, 255, 255, .16);
   border-radius: clamp(24px, 3vw, 44px);
-  background: var(--service-paper);
-  color: var(--black);
+  background: var(--blue);
+  color: var(--white);
   text-align: center;
 }
 
@@ -47,7 +50,8 @@
   align-self: center;
 }
 
-.service-detail--refined .service-detail__hero h1 {
+.service-detail.service-detail--refined .service-detail__hero h1 {
+  margin-block: var(--hero-rhythm);
   margin-inline: auto;
 }
 
@@ -63,63 +67,21 @@
   margin-inline: auto;
 }
 
-.service-detail--refined .service-detail__hero .client-strip--compact {
-  width: min(100%, 1040px);
-  min-height: 54px;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: clamp(12px, 2vw, 28px);
-  margin: clamp(20px, 4vh, 36px) auto 0;
-  padding: 8px 12px;
-  overflow: hidden;
-  border-radius: 14px;
-  background: transparent;
-  color: var(--black);
+/* The hero logo strip is the home page's marquee verbatim — same label, sizing,
+   and movement. It only stretches to the panel's inner edges, so the blue edge
+   fades land on the rounded corners the way they land on the home page hero. */
+.service-detail--refined .service-detail__hero .client-strip {
+  align-self: stretch;
+  width: auto;
+  margin: var(--hero-rhythm) calc(-1 * var(--panel-pad-x)) calc(-1 * var(--panel-pad-b));
+  /* the home page lifts the strip to overlap its hero edge; inside the panel it
+     sits on its own baseline instead */
   transform: none;
 }
 
-.service-detail--refined .client-strip--compact > p {
-  max-width: 150px;
-  margin: 0;
-  font-size: 0.61rem;
-  line-height: 1.2;
-  text-align: left;
-}
-
-.service-detail--refined .client-strip--compact .client-strip__viewport,
-.service-detail--refined .client-strip--compact .client-strip__track,
-.service-detail--refined .client-strip--compact .client-strip__logos {
-  width: 100%;
-}
-
-.service-detail--refined .client-strip--compact .client-strip__viewport::before,
-.service-detail--refined .client-strip--compact .client-strip__viewport::after {
-  display: none;
-}
-
-.service-detail--refined .client-strip--compact .client-strip__track {
-  animation: none;
-}
-
-.service-detail--refined .client-strip--compact .client-strip__logos {
-  display: grid;
-  grid-template-columns: repeat(9, minmax(0, 1fr));
-  gap: clamp(3px, 0.65vw, 10px);
-}
-
-.service-detail--refined .client-strip--compact .client-strip__logo {
-  width: 100%;
-  min-width: 0;
-  min-height: 34px;
-  padding: 5px;
-  border-left-color: rgba(5, 5, 5, .18);
-}
-
-.service-detail--refined .client-strip--compact .client-strip__logo img {
-  width: 100%;
-  height: 26px;
-  max-width: 100%;
-  max-height: 26px;
-  filter: brightness(0);
+/* One rhythm value drives the gaps between every block in the hero panel. */
+.service-detail.service-detail--refined .service-detail__hero-meta {
+  gap: var(--hero-rhythm);
 }
 
 .service-detail--refined .service-detail__deliverables > header {
@@ -136,6 +98,9 @@
 }
 
 .service-detail.service-detail--refined .service-detail__opening {
+  /* the hero panel already carries plenty of air below the logo strip, so this
+     section starts closer to it than the stock template allows */
+  padding-top: clamp(22px, 2.4vw, 34px);
   background: var(--service-animation-surface);
 }
 
@@ -216,24 +181,12 @@
   }
 
   .service-detail--refined .service-detail__hero-panel {
+    --panel-pad-x: 20px;
+    --panel-pad-b: 30px;
+    --hero-rhythm: 22px;
     min-height: 0;
-    padding: 34px 20px 30px;
+    padding: 34px var(--panel-pad-x) var(--panel-pad-b);
     border-radius: 24px;
-  }
-
-  .service-detail--refined .service-detail__hero .client-strip--compact {
-    grid-template-columns: 1fr;
-    gap: 8px;
-    padding: 10px;
-  }
-
-  .service-detail--refined .client-strip--compact > p {
-    max-width: none;
-    text-align: center;
-  }
-
-  .service-detail--refined .client-strip--compact .client-strip__logos {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
 }
@@ -243,4 +196,25 @@
   .service-animation__placeholder {
     transition: none;
   }
+}
+
+/* ---- Hero panel on brand blue ----
+   The hero panel now sits on brand blue, so the pill and the call-to-action
+   invert to the white-on-blue treatment already used by the About page's
+   final CTA panel. */
+.service-detail--refined .service-detail__hero-panel .service-detail__hero-pill {
+  border-color: rgba(255, 255, 255, .42);
+  color: var(--white);
+}
+
+.service-detail--refined .service-detail__hero-panel .cta-button.cta-button:not(.site-header__audit):not(.site-header__call) {
+  border-color: rgba(255, 255, 255, .78);
+  background: transparent;
+  color: var(--white);
+}
+
+.service-detail--refined .service-detail__hero-panel .cta-button.cta-button:not(.site-header__audit):not(.site-header__call):is(:hover, :focus-visible) {
+  border-color: var(--white);
+  background: var(--white);
+  color: var(--blue);
 }
