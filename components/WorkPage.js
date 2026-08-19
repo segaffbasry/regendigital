@@ -5,6 +5,16 @@ import WorkMotion from "./WorkMotion";
 const cases = [
   {
     number: "01",
+    name: "Agency AI",
+    service: "Outbound Growth Engine",
+    sector: "AI & Automation",
+    image: "/pics/Max.png",
+    href: "/work/agency-ai",
+    summary: "A connected organic, search and outbound system that grew qualified traffic and started more of the right sales conversations.",
+    proof: "+15% referral traffic",
+  },
+  {
+    number: "02",
     name: "Film Pudding",
     service: "Organic Growth Strategy",
     sector: "Film Industry",
@@ -20,7 +30,7 @@ const cases = [
     ],
   },
   {
-    number: "02",
+    number: "03",
     name: "Finden",
     service: "Social Media Organic Re-Launch",
     sector: "AI & Tech Industry",
@@ -34,17 +44,6 @@ const cases = [
       "/pics/_ (1) 1.png",
       "/pics/_ (2) 1.png",
     ],
-  },
-  {
-    number: "03",
-    name: "Agency AI",
-    service: "AI Transformation Marketing",
-    sector: "AI Industry",
-    image: "/pics/ChatGPT Image Jul 31, 2026, 10_26_34 AM.png",
-    href: "/contact",
-    summary: "A strategy-led partnership designed to turn complex AI transformation expertise into a clear, credible market position.",
-    proof: "Case study coming soon",
-    placeholder: true,
   },
   {
     number: "04",
