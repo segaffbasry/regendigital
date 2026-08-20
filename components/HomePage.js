@@ -214,20 +214,6 @@ export default function HomePage() {
           >
             <MarketingEcosystemAnimation />
           </TiltMedia>
-          <div className="service-index">
-            {services.map((service) => (
-              <a className="service-index__card" href={service.href} key={service.href}>
-                <span className="service-index__eyebrow">{service.group}</span>
-                <span className="service-index__heading">
-                  <ServiceTitle>{service.title}</ServiceTitle>
-                </span>
-                <p className="service-index__copy">{service.copy}</p>
-                <span className="service-index__cta">
-                  Explore service <span aria-hidden="true">&rarr;</span>
-                </span>
-              </a>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -237,6 +223,23 @@ export default function HomePage() {
         </div>
         <div className="video-placeholder__frame">
           <span className="video-placeholder__label">Placeholder for video</span>
+        </div>
+      </section>
+
+      <section className="home-section services-section">
+        <div className="service-index">
+          {services.map((service) => (
+            <a className="service-index__card" href={service.href} key={service.href}>
+              <span className="service-index__eyebrow">{service.group}</span>
+              <span className="service-index__heading">
+                <ServiceTitle>{service.title}</ServiceTitle>
+              </span>
+              <p className="service-index__copy">{service.copy}</p>
+              <span className="service-index__cta">
+                Explore service <span aria-hidden="true">&rarr;</span>
+              </span>
+            </a>
+          ))}
         </div>
       </section>
 

@@ -2,8 +2,12 @@
    index — left-aligned copy on hairline rules, grouped by an eyebrow, with no
    cards, imagery, or pills competing with the section's motion piece. */
 
-.what-we-do .service-index {
-  grid-column: 1 / -1;
+.services-section {
+  background: var(--white);
+  color: var(--black);
+}
+
+.service-index {
   display: grid;
   width: 100%;
   grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -113,7 +117,7 @@
 }
 
 @media (max-width: 1180px) {
-  .what-we-do .service-index {
+  .service-index {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
@@ -134,7 +138,7 @@
 }
 
 @media (max-width: 860px) {
-  .what-we-do .service-index {
+  .service-index {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -155,7 +159,7 @@
 }
 
 @media (max-width: 620px) {
-  .what-we-do .service-index {
+  .service-index {
     grid-template-columns: minmax(0, 1fr);
   }
 
@@ -187,14 +191,17 @@
 }
 
 .video-placeholder .home-section__intro h2 {
+  max-width: none;
+  margin-inline: auto;
   font-size: clamp(34px, 3.75vw, 58px);
   line-height: 1;
+  text-align: center;
 }
 
 .video-placeholder__frame {
   display: grid;
   width: min(980px, 100%);
-  margin: clamp(28px, 3.5vw, 52px) 0 0;
+  margin: clamp(28px, 3.5vw, 52px) auto 0;
   aspect-ratio: 16 / 9;
   place-items: center;
   border: 1px solid rgba(5, 5, 5, .12);
