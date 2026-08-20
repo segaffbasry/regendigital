@@ -1,6 +1,12 @@
 /* "Why teams choose Regen?" — six reason cards on the home page.
-   Sits on a sand section like the surrounding blocks, so the cards lift off it
-   in white rather than needing their own background colour. */
+   The section holds its own white background rather than letting the
+   surrounding warm gradient through, so the beige cards read against it. */
+
+.home-gradient-sequence > .home-section.why-choose,
+.why-choose {
+  background: var(--white);
+  color: var(--black);
+}
 
 .why-choose__head {
   max-width: 1250px;
@@ -8,17 +14,18 @@
   text-align: center;
 }
 
-/* The stock section heading runs to 126px, which overpowers a six-card grid.
-   Still the same type, just scaled to sit with the cards. */
+/* Matched to the "B2B digital marketing that scales with your business"
+   heading, so the two section titles carry the same weight. */
 .why-choose__head h2 {
-  font-size: clamp(38px, 4.4vw, 76px);
+  margin-inline: auto;
+  font-size: clamp(40px, 4.7vw, 72px);
 }
 
 .why-choose__grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(14px, 1.4vw, 22px);
-  margin: clamp(44px, 5vw, 78px) auto 0;
+  margin: clamp(40px, 4.4vw, 66px) auto 0;
   padding: 0;
   list-style: none;
 }
@@ -26,34 +33,42 @@
 .why-choose__card {
   display: flex;
   flex-direction: column;
-  padding: clamp(24px, 2.4vw, 38px);
-  border: 1px solid rgba(5, 5, 5, .08);
-  border-radius: clamp(18px, 1.8vw, 26px);
-  background: rgba(255, 255, 255, .7);
+  padding: clamp(20px, 1.9vw, 30px);
+  border-radius: clamp(16px, 1.5vw, 22px);
+  background: var(--sand);
+  box-shadow:
+    0 1px 2px rgba(5, 5, 5, .04),
+    0 10px 24px rgba(5, 5, 5, .07);
 }
 
+/* A white chip with a blue rim and a soft blue bloom — the treatment SaaS
+   product UIs use for feature icons. */
 .why-choose__icon {
   display: flex;
-  width: clamp(46px, 3.6vw, 58px);
-  height: clamp(46px, 3.6vw, 58px);
+  width: clamp(38px, 2.9vw, 46px);
+  height: clamp(38px, 2.9vw, 46px);
   align-items: center;
   justify-content: center;
   /* the gap under the icon carries most of the card's rhythm */
-  margin-bottom: clamp(30px, 3.4vw, 54px);
-  border-radius: clamp(12px, 1.2vw, 17px);
-  background: var(--blue);
-  color: var(--white);
+  margin-bottom: clamp(24px, 2.6vw, 40px);
+  border-radius: clamp(10px, 1vw, 14px);
+  background: var(--white);
+  box-shadow:
+    0 0 0 1px rgba(0, 40, 250, .16),
+    0 0 0 4px rgba(0, 40, 250, .07),
+    0 4px 12px rgba(0, 40, 250, .14);
+  color: var(--blue);
 }
 
 .why-choose__icon svg {
-  width: 52%;
-  height: 52%;
+  width: 46%;
+  height: 46%;
 }
 
 .why-choose__card h3 {
-  margin: 0 0 clamp(10px, 1vw, 14px);
+  margin: 0 0 clamp(9px, .9vw, 13px);
   font-family: var(--font-editorial);
-  font-size: clamp(21px, 1.85vw, 30px);
+  font-size: clamp(20px, 1.7vw, 27px);
   font-style: italic;
   font-weight: 400;
   letter-spacing: -.03em;
@@ -63,7 +78,7 @@
 
 .why-choose__card p {
   margin: 0;
-  font-size: clamp(15px, 1.05vw, 17px);
+  font-size: clamp(14px, 1vw, 16px);
   letter-spacing: -.01em;
   line-height: 1.45;
 }
@@ -71,7 +86,7 @@
 .why-choose__actions {
   display: flex;
   justify-content: center;
-  margin-top: clamp(38px, 4vw, 62px);
+  margin-top: clamp(34px, 3.6vw, 56px);
 }
 
 @media (max-width: 1080px) {
@@ -86,6 +101,6 @@
   }
 
   .why-choose__icon {
-    margin-bottom: 22px;
+    margin-bottom: 20px;
   }
 }
