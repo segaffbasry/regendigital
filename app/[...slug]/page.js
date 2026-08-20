@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import AboutPage from "../../components/AboutPage";
 import AuditPage from "../../components/AuditPage";
 import ContactPage from "../../components/ContactPage";
-import HowWeWorkPage from "../../components/HowWeWorkPage";
 import InteriorPage from "../../components/InteriorPage";
 import InvestorPartnershipPage from "../../components/InvestorPartnershipPage";
 import PrivacyPage from "../../components/PrivacyPage";
@@ -72,10 +71,6 @@ export default async function PhaseOnePage({ params }) {
 
   if (slug.length === 1 && slug[0] === "audit") {
     return <AuditPage />;
-  }
-
-  if (slug.length === 1 && slug[0] === "how-we-work") {
-    return <HowWeWorkPage />;
   }
 
   if (slug.length === 1 && slug[0] === "privacy-policy") {
