@@ -231,6 +231,15 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="home-section video-placeholder">
+        <div className="home-section__intro">
+          <StaggerText lineReveal>How Regen helps B2B businesses</StaggerText>
+        </div>
+        <div className="video-placeholder__frame">
+          <span className="video-placeholder__label">Placeholder for video</span>
+        </div>
+      </section>
+
       <div className="problem-audience-bridge">
         <WhoWeHelpTabs />
       </div>
