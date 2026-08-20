@@ -21,7 +21,7 @@
    it is weighted to the left, where that copy sits. */
 .audience-section--home .who-tabs__hero {
   background:
-    linear-gradient(90deg, rgba(5, 5, 5, .82) 0%, rgba(5, 5, 5, .58) 50%, rgba(5, 5, 5, .32) 100%),
+    linear-gradient(90deg, rgba(5, 5, 5, .93 .80 .48) 0%, rgba(5, 5, 5, ) 46%, rgba(5, 5, 5, ) 100%),
     url("/images/founders/who-we-help.webp") center 50% / cover no-repeat;
 }
 
@@ -83,12 +83,11 @@
 .audience-section--home .who-tabs__stat-line {
   margin: 0 0 clamp(10px, 1vw, 15px);
   font-family: var(--font-editorial);
-  font-size: clamp(20px, 1.9vw, 29px);
+  font-size: clamp(13px, 1.42vw, 24px);
   font-style: italic;
   font-weight: 400;
   letter-spacing: -.025em;
   line-height: 1.1;
-  text-wrap: balance;
 }
 
 /* The opening copy and the stat's explanation read at one size. Without this
@@ -103,7 +102,7 @@
 
 .audience-section--home .who-tabs__stat-source {
   margin-top: clamp(14px, 1.4vw, 20px);
-  font-size: 10px;
+  font-size: 11px;
   font-style: italic;
   letter-spacing: .01em;
   opacity: .5;
