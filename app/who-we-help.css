@@ -40,7 +40,17 @@
   display: none;
 }
 
+/* Smaller tabs: less height and less padding either side, so each one sits
+   close to its label rather than reading as a long slab. */
+.audience-section--home .who-tabs__list button {
+  min-height: 42px;
+  padding: 10px clamp(11px, 1.2vw, 18px);
+  border-radius: 11px 11px 0 0;
+  font-size: clamp(13px, .95vw, 15px);
+}
+
 .audience-section--home .who-tabs__list button.is-active {
+  min-height: 52px;
   background: var(--sand);
   color: var(--black);
 }
