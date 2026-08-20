@@ -78,8 +78,12 @@
    the bottom of the column, so the gap is really the column's height: trimming
    that, the pad above the rule, and the height reserved for each outcome lets
    the whole panel come down with it. */
+/* Each tab carries a different amount of copy, so the panel used to grow and
+   shrink as you moved between them. Holding it at the tallest tab's height
+   keeps the box still. 570px is that tallest case, measured across the desktop
+   range -- the longest headline wrapping to three lines around 1600px wide. */
 .audience-section--home .who-tabs__panel {
-  min-height: clamp(190px, 15vw, 225px);
+  min-height: 570px;
 }
 
 .audience-section--home .who-tabs__detail {
