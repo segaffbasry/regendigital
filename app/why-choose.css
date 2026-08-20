@@ -14,11 +14,11 @@
   text-align: center;
 }
 
-/* Matched to the "B2B digital marketing that scales with your business"
-   heading, so the two section titles carry the same weight. */
+/* Deliberately smaller than the other section titles: this one sits directly
+   above a six-card grid and swamps it at the stock size. */
 .why-choose__head h2 {
   margin-inline: auto;
-  font-size: clamp(40px, 4.7vw, 72px);
+  font-size: clamp(30px, 3.3vw, 50px);
 }
 
 .why-choose__grid {

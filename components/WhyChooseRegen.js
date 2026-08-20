@@ -79,7 +79,7 @@ const reasons = [
   {
     icon: "chart",
     title: "Data drives every decision",
-    body: "We track CAC, LTV, pipeline velocity, and conversion at every stage, then act on it, killing what isn’t working and scaling what is. Every call is backed by evidence, and every result ties back to revenue.",
+    body: "We track CAC, LTV, pipeline velocity, and conversion at every stage, then act on it, killing what isn’t working and scaling what is.",
   },
   {
     icon: "bolt",
