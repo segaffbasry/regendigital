@@ -3861,6 +3861,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline
 }
 
 .client-strip {
+  --logo-zoom: 1.5;
   position: relative;
   z-index: 1;
   display: grid;
@@ -3937,7 +3938,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline
   width: 100%;
   height: 52px;
   object-fit: contain;
-  transform: scale(var(--logo-scale, 1));
+  /* --logo-scale balances the logos against each other; --logo-zoom sizes the
+     whole set at once without disturbing that balance. */
+  transform: scale(calc(var(--logo-scale, 1) * var(--logo-zoom, 1)));
   transform-origin: center;
 }
 
