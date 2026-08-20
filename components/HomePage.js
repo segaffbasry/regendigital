@@ -308,19 +308,6 @@ export default function HomePage() {
           </div>
           <ArrowLink href="/work" className="home-link--blue">See our work</ArrowLink>
         </section>
-
-        <section className="home-section home-section--audit">
-          <div className="home-section--audit__content">
-            <StaggerText lineReveal>
-              Get your free digital <span className="home-audit-title__keep">marketing audit</span>
-            </StaggerText>
-            <p className="home-body-large">Get a free digital marketing audit of your positioning, channels, and content from real strategists. You'll see exactly where your pipeline is leaking, what's working, and the first things we'd fix.</p>
-            <div className="home-cta-pair home-cta-pair--on-dark">
-              <ArrowLink href="/audit">Free Audit</ArrowLink>
-              <ArrowLink href="/contact" className="home-link--blue">Book a call</ArrowLink>
-            </div>
-          </div>
-        </section>
       </div>
 
       <HomeClosingSections showLeadForm />
