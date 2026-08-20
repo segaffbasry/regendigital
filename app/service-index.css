@@ -241,3 +241,32 @@
     max-width: 546px;
   }
 }
+
+/* A white plotting grid in the top-left corner of the film section, the same
+   construction as the blue about hero: two 1px gradients on the same cell
+   size, faded out with a mask. A radial mask anchored at the corner means it
+   dissolves into the sand across both axes rather than banding down one. */
+.video-placeholder {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.video-placeholder::before {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: min(72%, 1180px);
+  height: 100%;
+  background-image:
+    linear-gradient(#fff 1px, transparent 1px),
+    linear-gradient(90deg, #fff 1px, transparent 1px);
+  background-size:
+    clamp(52px, 5vw, 86px) clamp(52px, 5vw, 86px),
+    clamp(52px, 5vw, 86px) clamp(52px, 5vw, 86px);
+  -webkit-mask-image: radial-gradient(108% 128% at 0 0, #000 0 40%, rgba(0, 0, 0, .34) 68%, transparent 94%);
+  mask-image: radial-gradient(108% 128% at 0 0, #000 0 40%, rgba(0, 0, 0, .34) 68%, transparent 94%);
+  content: "";
+  pointer-events: none;
+}
