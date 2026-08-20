@@ -262,11 +262,12 @@
   background-image:
     linear-gradient(#fff 1px, transparent 1px),
     linear-gradient(90deg, #fff 1px, transparent 1px);
+  background-position: 0 100%;
   background-size:
-    clamp(52px, 5vw, 86px) clamp(52px, 5vw, 86px),
-    clamp(52px, 5vw, 86px) clamp(52px, 5vw, 86px);
-  -webkit-mask-image: radial-gradient(108% 128% at 0 0, #000 0 40%, rgba(0, 0, 0, .34) 68%, transparent 94%);
-  mask-image: radial-gradient(108% 128% at 0 0, #000 0 40%, rgba(0, 0, 0, .34) 68%, transparent 94%);
+    clamp(34px, 3.2vw, 56px) clamp(34px, 3.2vw, 56px),
+    clamp(34px, 3.2vw, 56px) clamp(34px, 3.2vw, 56px);
+  -webkit-mask-image: radial-gradient(108% 128% at 0 100%, #000 0 40%, rgba(0, 0, 0, .34) 68%, transparent 94%);
+  mask-image: radial-gradient(108% 128% at 0 100%, #000 0 40%, rgba(0, 0, 0, .34) 68%, transparent 94%);
   content: "";
   pointer-events: none;
 }
