@@ -207,7 +207,7 @@
 
 .video-placeholder__frame {
   display: grid;
-  width: min(980px, 100%);
+  width: min(784px, 100%, calc(56vh * 16 / 9));
   margin: clamp(28px, 3.5vw, 52px) auto 0;
   aspect-ratio: 16 / 9;
   place-items: center;
