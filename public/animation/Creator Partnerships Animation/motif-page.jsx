@@ -5,11 +5,11 @@ function MotifPage() {
   const [t, setTweak] = useTweaks(window.TWEAK_DEFAULTS);
   return React.createElement(
     'div',
-    { style: { width: '100%', height: '100%', background: '#EDEAE2' } },
+    { style: { width: '100%', height: '100%', background: '#EEF0E5' } },
     React.createElement(
       CompositionStage,
       {
-        width: 1200, height: 800, bg: '#EDEAE2',
+        width: 1200, height: 800, bg: '#EEF0E5',
         scenes: window.OM_SCENES, playback: window.OM_PLAYBACK,
       },
       React.createElement(CreatorLink, null)

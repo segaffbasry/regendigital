@@ -10,7 +10,7 @@
 <helmet>
 <style>
   html, body, #dc-root, #dc-root > .sc-host { width:100%; height:100%; overflow:hidden; }
-  body { margin:0; background:#EDEAE2; -webkit-font-smoothing:antialiased; }
+  body { margin:0; background:#EEF0E5; -webkit-font-smoothing:antialiased; }
   a { color:#0028FA; text-decoration:none; }
   a:hover { color:#001BB0; }
   @keyframes blockIn{
@@ -57,8 +57,8 @@
 </style>
 </helmet>
 
-<div style="position:relative; width:100%; height:100%; overflow:hidden; background:#EDEAE2;">
-<div ref="{{ setRoot }}" data-om-exportable-video-with-duration-secs="15" data-screen-label="Content calendar motif" style="--accent:#0028FA; --loop:15s; --d:0s; --grey:#F5F4F1; --greyline:#E4E2DB; --greytext:#6F6E6A; position:absolute; left:50%; top:50%; box-sizing:border-box; width:1200px; height:800px; margin:0; padding:64px 40px; display:flex; align-items:center; justify-content:center; background:#EDEAE2; font-family:'Poppins','Montserrat',-apple-system,'Segoe UI',system-ui,sans-serif; transform:translate(-50%,-50%); transform-origin:center center;">
+<div style="position:relative; width:100%; height:100%; overflow:hidden; background:#EEF0E5;">
+<div ref="{{ setRoot }}" data-om-exportable-video-with-duration-secs="15" data-screen-label="Content calendar motif" style="--accent:#0028FA; --loop:15s; --d:0s; --grey:#F5F4F1; --greyline:#E4E2DB; --greytext:#6F6E6A; position:absolute; left:50%; top:50%; box-sizing:border-box; width:1200px; height:800px; margin:0; padding:64px 40px; display:flex; align-items:center; justify-content:center; background:#EEF0E5; font-family:'Poppins','Montserrat',-apple-system,'Segoe UI',system-ui,sans-serif; transform:translate(-50%,-50%); transform-origin:center center;">
 
   <div style="box-sizing:border-box; width:100%; max-width:1120px; padding:34px 36px 38px; background:#FFFFFF; border:1px solid #EDEAE2; border-radius:16px; box-shadow:0 1px 2px rgba(24,20,10,.04), 0 18px 44px -22px rgba(24,20,10,.16);">
 
@@ -212,7 +212,7 @@
 </div>
 
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:800},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#0028FA&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#0028FA&quot;,&quot;#0B0B0B&quot;,&quot;#3D5AFE&quot;,&quot;#0F62FE&quot;],&quot;section&quot;:&quot;Look&quot;},&quot;background&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#EDEAE2&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#EDEAE2&quot;,&quot;#F6F4EE&quot;,&quot;#FFFFFF&quot;,&quot;transparent&quot;],&quot;section&quot;:&quot;Look&quot;},&quot;loopSeconds&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:15,&quot;min&quot;:8,&quot;max&quot;:26,&quot;step&quot;:1,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;showCaptionBars&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Look&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:800},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#0028FA&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#0028FA&quot;,&quot;#0B0B0B&quot;,&quot;#3D5AFE&quot;,&quot;#0F62FE&quot;],&quot;section&quot;:&quot;Look&quot;},&quot;background&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#EEF0E5&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#EEF0E5&quot;,&quot;#F6F4EE&quot;,&quot;#FFFFFF&quot;,&quot;transparent&quot;],&quot;section&quot;:&quot;Look&quot;},&quot;loopSeconds&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:15,&quot;min&quot;:8,&quot;max&quot;:26,&quot;step&quot;:1,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;showCaptionBars&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Look&quot;}}">
 class Component extends DCLogic {
   renderVals() {
     return {

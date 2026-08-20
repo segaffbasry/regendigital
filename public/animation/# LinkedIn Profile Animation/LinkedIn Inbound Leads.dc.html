@@ -9,14 +9,14 @@
 <x-dc>
 <helmet>
 <style>
-  body { margin:0; background:#EDEAE2; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif; -webkit-font-smoothing:antialiased; }
+  body { margin:0; background:#EEF0E5; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif; -webkit-font-smoothing:antialiased; }
   a { color:#0028FA; text-decoration:none; }
   a:hover { color:#001cb0; text-decoration:underline; }
 </style>
 </helmet>
-<div ref="{{ rootRef }}" style="width:100%;height:100vh;min-height:100%;background:#EDEAE2;position:relative;overflow:hidden">
+<div ref="{{ rootRef }}" style="width:100%;height:100vh;min-height:100%;background:#EEF0E5;position:relative;overflow:hidden">
   <div ref="{{ stageRef }}" style="width:1400px;height:900px;position:absolute;left:50%;top:50%;display:flex;align-items:center;justify-content:center;transform:translate(-50%,-50%);transform-origin:center center">
-    <div ref="{{ exportRef }}" data-om-exportable-video-with-duration-secs="12" style="width:1400px;height:900px;background:#EDEAE2;display:flex;align-items:center;justify-content:center">
+    <div ref="{{ exportRef }}" data-om-exportable-video-with-duration-secs="12" style="width:1400px;height:900px;background:#EEF0E5;display:flex;align-items:center;justify-content:center">
     <div ref="{{ winRef }}" style="width:1288px;height:812px;flex:none;border-radius:16px;background:#2a2b2e;box-shadow:0 50px 90px -30px rgba(30,26,20,.45), 0 12px 30px -12px rgba(30,26,20,.22);overflow:hidden;display:flex;flex-direction:column">
 
       <div style="height:40px;flex:none;display:flex;align-items:center;padding:0 16px;gap:8px">
@@ -105,7 +105,7 @@
   </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1400,&quot;height&quot;:900},&quot;accentColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#0028FA&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#0028FA&quot;,&quot;#0a66c2&quot;,&quot;#111111&quot;],&quot;section&quot;:&quot;Toasts&quot;},&quot;loopSeconds&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:12,&quot;min&quot;:8,&quot;max&quot;:20,&quot;step&quot;:1,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Toasts&quot;},&quot;backdropColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#EDEAE2&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#EDEAE2&quot;,&quot;#F5F2EA&quot;,&quot;#E4E0D6&quot;],&quot;section&quot;:&quot;Canvas&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1400,&quot;height&quot;:900},&quot;accentColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#0028FA&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#0028FA&quot;,&quot;#0a66c2&quot;,&quot;#111111&quot;],&quot;section&quot;:&quot;Toasts&quot;},&quot;loopSeconds&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:12,&quot;min&quot;:8,&quot;max&quot;:20,&quot;step&quot;:1,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Toasts&quot;},&quot;backdropColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#EEF0E5&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#EEF0E5&quot;,&quot;#F5F2EA&quot;,&quot;#E4E0D6&quot;],&quot;section&quot;:&quot;Canvas&quot;}}">
 class Component extends DCLogic {
   constructor(props) {
     super(props);
@@ -178,8 +178,8 @@ class Component extends DCLogic {
     if (!el) return;
     el.style.setProperty('--accent', this.props.accentColor ?? '#0028FA');
     el.style.setProperty('--loop', (this.props.loopSeconds ?? 12) + 's');
-    el.style.background = this.props.backdropColor ?? '#EDEAE2';
-    document.body.style.background = this.props.backdropColor ?? '#EDEAE2';
+    el.style.background = this.props.backdropColor ?? '#EEF0E5';
+    document.body.style.background = this.props.backdropColor ?? '#EEF0E5';
   }
   componentDidMount() {
     this.applyVars();

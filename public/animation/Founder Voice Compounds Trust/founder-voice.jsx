@@ -1,7 +1,7 @@
 // Founder-led marketing motif — one continuous composition.
 const { useComposition, CompositionStage, animate, Easing, clamp } = window;
 
-const BONE = '#EDEAE2';
+const BONE = '#EEF0E5';
 const INK = '#111111';
 const GREEK = '#DEDBD3';
 const GREEK_DARK = '#CFCBC2';

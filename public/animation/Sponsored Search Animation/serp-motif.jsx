@@ -1,7 +1,7 @@
 /* Paid-search motif — one continuous composition. */
 const { CompositionStage, useComposition, animate, Easing, clamp } = window;
 
-const BONE = '#EDEAE2';
+const BONE = '#EEF0E5';
 const GREY = '#D8D6D0';
 const GREY2 = '#E4E2DD';
 const INK = '#111111';

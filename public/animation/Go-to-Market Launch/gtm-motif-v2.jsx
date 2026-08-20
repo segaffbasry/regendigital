@@ -3,7 +3,7 @@ const { useComposition, animate, Easing, interpolate, clamp } = window;
 
 const W = 1200, H = 800;
 const FONT = "'Montserrat', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif";
-const BONE = '#EDEAE2';
+const BONE = '#EEF0E5';
 const INK = '#0B0B0C';
 const TRACK = '#DAD7CE';
 const GREY = '#D3D0C7';

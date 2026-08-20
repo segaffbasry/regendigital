@@ -2,10 +2,10 @@
    the shared service, methodology, and interior-page systems stay unchanged. */
 
 /* Let the ecosystem motion read as part of the section instead of a framed
-   video. The source background is exactly #f3f0e9. */
+   video. The source background matches the shared sand token. */
 .what-we-do,
 .what-we-do.is-audience-active {
-  background: #f3f0e9;
+  background: var(--sand);
 }
 
 @media (min-width: 821px) {
@@ -23,7 +23,7 @@
 .what-we-do__media-frame {
   aspect-ratio: 1;
   border-radius: 0;
-  background: #f3f0e9;
+  background: var(--sand);
   box-shadow: none;
 }
 
@@ -36,7 +36,7 @@
   height: 100%;
   aspect-ratio: 16 / 9;
   border: 0;
-  background: #f3f0e9;
+  background: var(--sand);
   pointer-events: none;
   transform: translateX(-50%);
 }
