@@ -60,6 +60,27 @@
   border-left-color: var(--white);
 }
 
+/* Close the drop between the copy and the outcomes. The outcomes are pushed to
+   the bottom of the column, so the gap is really the column's height: trimming
+   that, the pad above the rule, and the height reserved for each outcome lets
+   the whole panel come down with it. */
+.audience-section--home .who-tabs__panel {
+  min-height: clamp(190px, 15vw, 225px);
+}
+
+.audience-section--home .who-tabs__detail {
+  min-height: 0;
+}
+
+.audience-section--home .who-tabs__proof {
+  padding-top: clamp(22px, 2.2vw, 32px);
+}
+
+.audience-section--home .who-tabs__proof strong {
+  min-height: 0;
+  padding-top: 18px;
+}
+
 @media (max-width: 1050px) {
   .audience-section--home .who-tabs__detail {
     padding-left: 0;
