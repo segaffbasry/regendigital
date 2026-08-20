@@ -220,7 +220,6 @@ export default function HomePage() {
                 <span className="service-index__eyebrow">{service.group}</span>
                 <span className="service-index__heading">
                   <ServiceTitle>{service.title}</ServiceTitle>
-                  <span className="service-index__arrow" aria-hidden="true">&rarr;</span>
                 </span>
                 <p className="service-index__copy">{service.copy}</p>
                 <span className="service-index__cta">
