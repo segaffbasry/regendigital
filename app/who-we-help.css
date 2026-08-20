@@ -76,7 +76,7 @@
 .audience-section--home .who-tabs__stat-line {
   margin: 0 0 clamp(10px, 1vw, 15px);
   font-family: var(--font-editorial);
-  font-size: clamp(23px, 2.1vw, 32px);
+  font-size: clamp(20px, 1.9vw, 29px);
   font-style: italic;
   font-weight: 400;
   letter-spacing: -.025em;
@@ -84,7 +84,10 @@
   text-wrap: balance;
 }
 
-/* Matched to the paragraph above it. */
+/* The opening copy and the stat's explanation read at one size. Without this
+   the copy drops to 16px on narrower screens while the stat's does not, so the
+   two only matched at some widths. */
+.audience-section--home .who-tabs__detail > p,
 .audience-section--home .who-tabs__stat-body {
   margin: 0;
   font-size: clamp(18px, 1.7vw, 27px);
