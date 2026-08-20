@@ -185,8 +185,15 @@
    index. The heading repeats the services heading's scale exactly — the
    winning declarations for `.what-we-do .home-section__intro h2` — so the two
    sections read as one voice. Replace the frame with the real embed. */
+/* The intro and the film sit on one continuous sand block, above the white
+   services section. Stated here so the two never drift apart. */
+.what-we-do,
+.what-we-do.is-audience-active,
 .video-placeholder {
   background: var(--sand);
+}
+
+.video-placeholder {
   color: var(--black);
 }
 
