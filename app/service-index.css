@@ -223,3 +223,21 @@
   letter-spacing: .1em;
   text-transform: uppercase;
 }
+
+/* Homepage intro: the heading was penned into roughly a third of the page
+   while the ecosystem film took the rest. Give the words the larger share —
+   the heading now runs past the middle at any width, since the old 780px cap
+   fell short of halfway on wide screens — and take the film down by 30%. */
+@media (min-width: 821px) {
+  .what-we-do .home-section__split {
+    grid-template-columns: minmax(0, 1.24fr) minmax(0, .76fr);
+  }
+
+  .what-we-do .home-section__intro h2 {
+    max-width: none;
+  }
+
+  .what-we-do__media {
+    max-width: 546px;
+  }
+}
