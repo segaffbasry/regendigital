@@ -1,0 +1,68 @@
+/* "Who we help" — brought in line with the reference layout.
+   Kept in its own file so the section can be tuned without touching the four
+   stylesheets that already layer rules onto .who-tabs. */
+
+/* The image runs edge to edge: the section gutter and the framed card border
+   both come off, and the inset moves onto the hero so the copy still lines up
+   with the rest of the page. */
+.audience-section--home {
+  padding-inline: 0;
+}
+
+.audience-section--home .who-tabs {
+  --who-inset: var(--page-gutter);
+  max-width: none;
+  margin-inline: 0;
+  border: 0;
+  border-radius: 0;
+}
+
+.audience-section--home .who-tabs__dock {
+  width: 100%;
+}
+
+/* Tabs size to their labels and stop, rather than stretching seven equal
+   columns across the full width. */
+.audience-section--home .who-tabs__list {
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  grid-template-columns: none;
+  justify-content: start;
+}
+
+/* The sliding block assumed seven equal columns, so with packed tabs it can no
+   longer track the active one. The active tab carries its own shape instead. */
+.audience-section--home .who-tabs__highlight {
+  display: none;
+}
+
+.audience-section--home .who-tabs__list button.is-active {
+  background: var(--sand);
+  color: var(--black);
+}
+
+.audience-section--home .who-tabs__panel {
+  background: var(--sand);
+}
+
+/* A rule between the headline and the copy set beside it. */
+.audience-section--home .who-tabs__detail {
+  padding-left: clamp(24px, 2.8vw, 48px);
+  border-left: 1px solid var(--white);
+}
+
+/* The thin rules around the outcomes read white rather than dark. */
+.audience-section--home .who-tabs__proof strong {
+  border-top-color: var(--white);
+}
+
+.audience-section--home .who-tabs__proof strong + strong {
+  border-left-color: var(--white);
+}
+
+@media (max-width: 1050px) {
+  .audience-section--home .who-tabs__detail {
+    padding-left: 0;
+    border-left: 0;
+  }
+}
