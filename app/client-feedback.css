@@ -2955,7 +2955,7 @@
 
 .service-insight-graphic__stage--2 {
   width: 26cqi;
-  background: #b9cfff;
+  background: var(--light-blue);
   color: var(--black);
 }
 
@@ -3404,13 +3404,13 @@
   overflow: hidden;
   border: 0;
   border-radius: clamp(18px, 1.7vw, 26px);
-  background: #252235;
-  color: var(--white);
+  background: var(--light-blue);
+  color: var(--black);
   grid-template-rows: auto auto 1fr;
 }
 
 .editorial-page--methodology .editorial-steps--methodology article:first-child {
-  background: #e8e7f7;
+  background: var(--light-blue);
   color: var(--black);
 }
 
@@ -3642,7 +3642,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding: clamp(24px, 2.4vw, 38px);
-  background: #c8c1ff;
+  background: var(--light-blue);
 }
 
 .about-page .about-system-card--statement .about-eyebrow {

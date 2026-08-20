@@ -291,7 +291,7 @@
 }
 
 .about-depth-story__media figcaption strong {
-  color: #8fa2ff;
+  color: var(--light-blue);
   font-weight: 600;
 }
 

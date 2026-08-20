@@ -1259,10 +1259,6 @@
 
 .who-tabs__proof strong + strong {
   border-left-color: var(--blue);
-}.how-work-principle--lavender {
-  border-color: var(--blue);
-  background: var(--blue);
-  color: var(--white);
 }
 
 .home-hero__actions {
@@ -4299,10 +4295,11 @@
 .editorial-page--orange {
   --editorial-bg: var(--blue);
   --editorial-ink: var(--white);
-}.editorial-faq,
+}
+
+.editorial-faq,
 .how-work-fit__no,
-.service-detail__insight,
-.how-work-principle--lavender {
+.service-detail__insight {
   background: var(--blue);
   color: var(--white);
 }
