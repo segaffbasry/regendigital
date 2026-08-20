@@ -14,67 +14,62 @@ const services = [
   {
     title: "Marketing strategy & consultancy",
     href: "/services/marketing-strategy-consultancy",
+    group: "Strategy & direction",
     copy: "Research, positioning and a practical plan that gives every channel one clear commercial direction.",
-    tone: "blue",
-  },
-  {
-    title: "Organic social",
-    href: "/services/organic-social",
-    copy: "Distinctive, expert-led content that builds recognition and makes your company worth following.",
-    tone: "sky",
-    image: "/pics/ChatGPT Image Jul 31, 2026, 10_29_03 AM.png",
-  },
-  {
-    title: "Paid social",
-    href: "/services/paid-social",
-    copy: "Paid campaigns built around real buyer insight, sharper creative and the outcomes your business needs.",
-    tone: "black",
-  },
-  {
-    title: "Google Ads",
-    href: "/services/google-ads",
-    copy: "High-intent search campaigns that meet buyers at the moment they are ready to act.",
-    tone: "blue",
-    image: "/pics/ChatGPT Image Jul 31, 2026, 10_26_34 AM.png",
-  },
-  {
-    title: "Account-based marketing",
-    href: "/services/account-based-marketing",
-    copy: "Focused campaigns that create relevance and momentum inside the accounts that matter most.",
-    tone: "blue",
-  },
-  {
-    title: "SEO",
-    href: "/services/seo",
-    copy: "Search visibility built to compound, capture demand, and make your expertise easier to find.",
-    tone: "cream",
-    image: "/pics/ChatGPT Image Jul 31, 2026, 10_27_29 AM.png",
-  },
-  {
-    title: "GEO",
-    href: "/services/geo",
-    copy: "A clear, credible presence across the new generation of AI-powered discovery and answer engines.",
-    tone: "sky",
   },
   {
     title: "Go-to-market & launch",
     href: "/services/go-to-market-and-launch",
+    group: "Strategy & direction",
     copy: "A joined-up launch system that turns a strong proposition into attention, demand and qualified pipeline.",
-    tone: "blue",
-    image: "/pics/ChatGPT Image Jul 31, 2026, 10_26_27 AM.png",
+  },
+  {
+    title: "SEO",
+    href: "/services/seo",
+    group: "Search & visibility",
+    copy: "Search visibility built to compound, capture demand, and make your expertise easier to find.",
+  },
+  {
+    title: "GEO",
+    href: "/services/geo",
+    group: "Search & visibility",
+    copy: "A clear, credible presence across the new generation of AI-powered discovery and answer engines.",
+  },
+  {
+    title: "Paid social",
+    href: "/services/paid-social",
+    group: "Demand & acquisition",
+    copy: "Paid campaigns built around real buyer insight, sharper creative and the outcomes your business needs.",
+  },
+  {
+    title: "Google Ads",
+    href: "/services/google-ads",
+    group: "Demand & acquisition",
+    copy: "High-intent search campaigns that meet buyers at the moment they are ready to act.",
+  },
+  {
+    title: "Account-based marketing",
+    href: "/services/account-based-marketing",
+    group: "Demand & acquisition",
+    copy: "Focused campaigns that create relevance and momentum inside the accounts that matter most.",
+  },
+  {
+    title: "Organic social",
+    href: "/services/organic-social",
+    group: "Content & influence",
+    copy: "Distinctive, expert-led content that builds recognition and makes your company worth following.",
   },
   {
     title: "Founder-led marketing",
     href: "/services/founder-led-marketing",
+    group: "Content & influence",
     copy: "A credible founder voice transformed into a repeatable platform for trust, authority and demand.",
-    tone: "blue",
   },
   {
     title: "Creator partnerships",
     href: "/services/creator-partnerships",
+    group: "Content & influence",
     copy: "Strategic partnerships that borrow trust, reach the right communities and create genuine advocacy.",
-    tone: "sky",
-    image: "/pics/creator-partnerships.png",
   },
 ];
 
@@ -219,34 +214,19 @@ export default function HomePage() {
           >
             <MarketingEcosystemAnimation />
           </TiltMedia>
-          <div className="service-stack__mobile-cue" aria-hidden="true">
-            <span>Explore our services</span>
-            <span>Swipe&nbsp; &rarr;</span>
-          </div>
-          <div className="service-stack">
-            {services.map((service, index) => (
-              <article
-                className="service-stack__step"
-                key={service.href}
-                style={{ "--service-index": index }}
-              >
-                <a
-                  className={`service-stack__card service-stack__card--${service.tone}${service.image ? " service-stack__card--image" : ""}`}
-                  href={service.href}
-                  style={service.image ? { "--service-image": `url("${service.image}")` } : undefined}
-                >
-                  <div className="service-stack__copy">
-                    <ServiceTitle>{service.title}</ServiceTitle>
-                    <p>{service.copy}</p>
-                    <span className="service-stack__inline-link">
-                      Explore service <span aria-hidden="true">&rarr;</span>
-                    </span>
-                  </div>
-                </a>
-                <span className="service-stack__corner" aria-hidden="true">
-                  <span className="cta-arrow" />
+          <div className="service-index">
+            {services.map((service) => (
+              <a className="service-index__card" href={service.href} key={service.href}>
+                <span className="service-index__eyebrow">{service.group}</span>
+                <span className="service-index__heading">
+                  <ServiceTitle>{service.title}</ServiceTitle>
+                  <span className="service-index__arrow" aria-hidden="true">&rarr;</span>
                 </span>
-              </article>
+                <p className="service-index__copy">{service.copy}</p>
+                <span className="service-index__cta">
+                  Explore service <span aria-hidden="true">&rarr;</span>
+                </span>
+              </a>
             ))}
           </div>
         </div>

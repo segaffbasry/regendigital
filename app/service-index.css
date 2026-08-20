@@ -1,0 +1,171 @@
+/* 20 August services pass: the homepage service blocks become a flat, editorial
+   index — left-aligned copy on hairline rules, grouped by an eyebrow, with no
+   cards, imagery, or pills competing with the section's motion piece. */
+
+.what-we-do .service-index {
+  grid-column: 1 / -1;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 0;
+  row-gap: 0;
+  margin-top: clamp(34px, 4vw, 58px);
+  border-bottom: 1px solid rgba(5, 5, 5, .13);
+}
+
+.service-index__card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: clamp(22px, 2.2vw, 30px) clamp(18px, 2vw, 30px);
+  border-top: 1px solid rgba(5, 5, 5, .13);
+  color: var(--black);
+  text-decoration: none;
+  transition: background-color .35s ease;
+}
+
+/* Keep the outer columns flush with the section gutters. */
+.service-index__card:nth-child(3n + 1) {
+  padding-left: 0;
+}
+
+.service-index__card:nth-child(3n) {
+  padding-right: 0;
+}
+
+.service-index__card:not(:nth-child(3n + 1)) {
+  border-left: 1px solid rgba(5, 5, 5, .13);
+}
+
+.service-index__card:hover,
+.service-index__card:focus-visible {
+  background: rgba(5, 5, 5, .028);
+}
+
+.service-index__card:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.service-index__eyebrow {
+  display: block;
+  margin-bottom: clamp(12px, 1.2vw, 18px);
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.service-index__heading {
+  display: block;
+  font-size: clamp(21px, 1.5vw, 26px);
+  letter-spacing: -.02em;
+  line-height: 1.1;
+}
+
+.service-index__heading .service-title {
+  display: inline;
+  font-weight: 600;
+}
+
+.service-index__heading .service-title > span {
+  display: inline;
+}
+
+.service-index__arrow {
+  display: inline-block;
+  margin-left: .28em;
+  transition: transform .42s cubic-bezier(.16, 1, .3, 1);
+}
+
+.service-index__card:hover .service-title__track,
+.service-index__card:focus-visible .service-title__track {
+  transform: translateY(-1.22em);
+}
+
+.service-index__card:hover .service-index__arrow,
+.service-index__card:focus-visible .service-index__arrow {
+  transform: translateX(6px);
+}
+
+.service-index__copy {
+  max-width: 34ch;
+  margin: clamp(12px, 1.1vw, 16px) 0 0;
+  color: rgba(5, 5, 5, .72);
+  font-size: clamp(14px, .85vw, 15px);
+  line-height: 1.5;
+}
+
+.service-index__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: .45em;
+  margin-top: auto;
+  padding-top: clamp(18px, 2vw, 28px);
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .01em;
+}
+
+.service-index__cta > span {
+  display: inline-block;
+  transition: transform .42s cubic-bezier(.16, 1, .3, 1);
+}
+
+.service-index__card:hover .service-index__cta > span,
+.service-index__card:focus-visible .service-index__cta > span {
+  transform: translateX(5px);
+}
+
+@media (max-width: 1024px) {
+  .what-we-do .service-index {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .service-index__card:nth-child(3n + 1),
+  .service-index__card:nth-child(3n) {
+    padding-right: clamp(18px, 2vw, 30px);
+    padding-left: clamp(18px, 2vw, 30px);
+  }
+
+  .service-index__card:not(:nth-child(3n + 1)) {
+    border-left: 0;
+  }
+
+  .service-index__card:nth-child(odd) {
+    padding-left: 0;
+  }
+
+  .service-index__card:nth-child(even) {
+    padding-right: 0;
+    border-left: 1px solid rgba(5, 5, 5, .13);
+  }
+}
+
+@media (max-width: 620px) {
+  .what-we-do .service-index {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .service-index__card,
+  .service-index__card:nth-child(odd),
+  .service-index__card:nth-child(even) {
+    padding-right: 0;
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .service-index__copy {
+    max-width: 46ch;
+  }
+}
+
+/* The word-by-word editorial roll is a hover affordance only. */
+@media (hover: none) {
+  .service-index__card:hover .service-title__track {
+    transform: none;
+  }
+}

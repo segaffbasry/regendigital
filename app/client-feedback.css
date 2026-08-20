@@ -61,7 +61,7 @@
   aspect-ratio: 1;
   border: 3px solid var(--blue);
   border-radius: 50%;
-  background: #deded8;
+  background: var(--sand);
   object-fit: cover;
   object-position: center 20%;
 }
@@ -240,60 +240,6 @@
   }
 }
 
-/* Homepage service cards -------------------------------------------------- */
-.service-stack__corner {
-  box-shadow: none;
-}
-
-.service-stack__copy {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: auto 1fr auto;
-  align-items: start;
-}
-
-.service-stack__copy .service-title {
-  display: grid;
-  width: 100%;
-  max-width: none;
-  min-height: 2.44em;
-  align-items: center;
-  text-align: center;
-}
-
-.service-stack__copy .service-title > span {
-  width: 100%;
-}
-
-.service-stack__copy p {
-  align-self: start;
-  margin: 0;
-}
-
-.service-stack__inline-link {
-  display: inline-flex;
-  width: fit-content;
-  align-items: center;
-  align-self: end;
-  gap: 7px;
-  margin-top: 12px;
-  padding: 0;
-  border: 0;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 1;
-}
-
-.service-stack__inline-link > span {
-  display: inline-block;
-  transition: transform .28s cubic-bezier(.16, 1, .3, 1);
-}
-
-.service-stack__card:hover .service-stack__inline-link > span,
-.service-stack__card:focus-visible .service-stack__inline-link > span {
-  transform: translateX(4px);
-}
-
 /* Give animated card titles enough room for g/y/p descenders. */
 .service-title__word {
   height: 1.22em;
@@ -309,11 +255,6 @@
   flex-basis: 1.22em;
   align-items: flex-start;
   padding-top: .08em;
-}
-
-.service-stack__card:hover .service-title__track,
-.service-stack__card:focus-visible .service-title__track {
-  transform: translateY(-1.22em);
 }
 
 /* Homepage methodology: three stages that visibly build on one another. */
@@ -615,9 +556,6 @@
 }
 
 @media (max-width: 560px) {
-  .service-stack__copy .service-title {
-    min-height: 2.44em;
-  }
 
   .why-section__grid {
     min-height: 640px;
@@ -2917,7 +2855,7 @@
   aspect-ratio: 5 / 4;
   overflow: hidden;
   border-radius: clamp(18px, 2vw, 30px);
-  background: #e7e4d8;
+  background: var(--sand);
 }
 
 .service-detail--refined .service-detail__insight-media img {
@@ -3425,11 +3363,6 @@
   }
 }
 
-/* Mobile feedback pass: keep nearby content visually and semantically joined. */
-.service-stack__mobile-cue {
-  display: none;
-}
-
 .about-page .about-team__role {
   margin: 10px 0 0;
   font-family: var(--font-helv);
@@ -3586,27 +3519,6 @@
 }
 
 @media (max-width: 560px) {
-  .what-we-do .service-stack__mobile-cue {
-    display: flex;
-    grid-column: 1;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: -20px;
-    font-family: var(--font-helv);
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: -.015em;
-  }
-
-  .what-we-do .service-stack__mobile-cue span:last-child {
-    color: rgba(5, 5, 5, .62);
-    font-size: 12px;
-    font-weight: 500;
-  }
-
-  .what-we-do .service-stack__step {
-    width: min(82vw, 340px);
-  }
 
   .audience-section .who-tabs__panel {
     min-height: 0;
@@ -3687,20 +3599,6 @@
   .methodology-growth {
     max-width: 620px;
   }
-}
-
-/* Increase the copy scale inside the compact homepage service cards. */
-.what-we-do .service-stack__copy .service-title {
-  font-size: clamp(22px, 1.5vw, 25px);
-}
-
-.what-we-do .service-stack__copy p {
-  font-size: clamp(14px, .8vw, 15px);
-  line-height: 1.4;
-}
-
-.what-we-do .service-stack__inline-link {
-  font-size: 13px;
 }
 
 /* 18 August About feedback: turn the manifesto into an inset system made of
@@ -3834,7 +3732,7 @@
   margin: 0;
   border: 1px solid rgba(5, 5, 5, .1);
   border-radius: clamp(22px, 2vw, 30px);
-  background: #f3f0e9 url("/images/marketing-ecosystem-poster.png") center / cover no-repeat;
+  background: var(--sand);
 }
 
 .about-page .about-system-panel__visual .marketing-ecosystem-animation {
@@ -3847,12 +3745,17 @@
   height: 100%;
   aspect-ratio: 16 / 9;
   border: 0;
-  background: #f3f0e9;
+  background: var(--sand);
+  color-scheme: normal;
   pointer-events: none;
   transform: translateX(-50%);
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .about-page .about-system-panel__visual {
+    background: var(--sand) url("/images/marketing-ecosystem-poster.png") center / cover no-repeat;
+  }
+
   .about-page .about-system-panel__visual .marketing-ecosystem-animation {
     display: none;
   }
