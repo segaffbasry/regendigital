@@ -17,8 +17,12 @@
   border-radius: 0;
 }
 
+/* The intro copy keeps the hero's inset; the tabs and panel pull in a further
+   10% each side so the block reads closer to the reference than to a band that
+   runs the full width of a large screen. */
 .audience-section--home .who-tabs__dock {
-  width: 100%;
+  width: 80%;
+  margin-inline: auto;
 }
 
 /* Tabs size to their labels and stop, rather than stretching seven equal
