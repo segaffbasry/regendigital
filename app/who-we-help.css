@@ -59,6 +59,14 @@
   background: var(--sand);
 }
 
+/* Both copy blocks read at one size. Six rules across the other stylesheets
+   set these two independently and disagree, so they are settled here. */
+.audience-section--home .who-tabs__intro > p:last-child,
+.audience-section--home .who-tabs__detail > p {
+  font-size: 25px;
+  line-height: 1.38;
+}
+
 /* A rule between the headline and the copy set beside it. */
 .audience-section--home .who-tabs__detail {
   padding-left: clamp(24px, 2.8vw, 48px);
@@ -99,5 +107,13 @@
   .audience-section--home .who-tabs__detail {
     padding-left: 0;
     border-left: 0;
+  }
+}
+
+/* 25px is a desktop size; on a phone it would run to very few words a line. */
+@media (max-width: 760px) {
+  .audience-section--home .who-tabs__intro > p:last-child,
+  .audience-section--home .who-tabs__detail > p {
+    font-size: 18px;
   }
 }
