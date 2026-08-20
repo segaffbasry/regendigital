@@ -21,7 +21,7 @@
    it is weighted to the left, where that copy sits. */
 .audience-section--home .who-tabs__hero {
   background:
-    linear-gradient(90deg, rgba(5, 5, 5, .93 .80 .48) 0%, rgba(5, 5, 5, ) 46%, rgba(5, 5, 5, ) 100%),
+    linear-gradient(90deg, rgba(5, 5, 5, .88) 0%, rgba(5, 5, 5, .66) 46%, rgba(5, 5, 5, .30) 100%),
     url("/images/founders/who-we-help.webp") center 50% / cover no-repeat;
 }
 
@@ -96,7 +96,7 @@
 .audience-section--home .who-tabs__detail > p,
 .audience-section--home .who-tabs__stat-body {
   margin: 0;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.45;
 }
 
