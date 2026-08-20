@@ -65,6 +65,40 @@
   border-left: 1px solid var(--white);
 }
 
+/* The stat that replaces the outcome pair: a serif italic line, the point of it
+   at copy size underneath, then the source held back at the foot. */
+.audience-section--home .who-tabs__stat {
+  margin: auto 0 0;
+  padding-top: clamp(22px, 2.2vw, 32px);
+  border-top: 1px solid var(--white);
+}
+
+.audience-section--home .who-tabs__stat-line {
+  margin: 0 0 clamp(10px, 1vw, 15px);
+  font-family: var(--font-editorial);
+  font-size: clamp(23px, 2.1vw, 32px);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -.025em;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+/* Matched to the paragraph above it. */
+.audience-section--home .who-tabs__stat-body {
+  margin: 0;
+  font-size: clamp(18px, 1.7vw, 27px);
+  line-height: 1.35;
+}
+
+.audience-section--home .who-tabs__stat-source {
+  margin-top: clamp(14px, 1.4vw, 20px);
+  font-size: 12px;
+  font-style: italic;
+  letter-spacing: .01em;
+  opacity: .5;
+}
+
 /* The thin rules around the outcomes read white rather than dark. */
 .audience-section--home .who-tabs__proof strong {
   border-top-color: var(--white);
