@@ -3736,7 +3736,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline
 }
 
 .client-strip {
-  --logo-zoom: 1.5;
+  --logo-zoom: 1.35;
   position: relative;
   z-index: 1;
   display: grid;
@@ -3806,6 +3806,12 @@ a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline
   justify-content: center;
   overflow: hidden;
   border-left: 1px solid rgba(255, 255, 255, .2);
+}
+
+/* On the home page the strip sits at the very bottom of the hero; this lifts it
+   clear by a tenth of its own height, on top of the overlap the base rule applies. */
+.home-hero .client-strip {
+  transform: translateY(calc(-38px - 10%));
 }
 
 .client-strip__logo img {
