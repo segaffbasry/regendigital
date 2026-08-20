@@ -75,6 +75,11 @@ const audiences = [
     title: "One marketing partner across the portfolio.",
     copy: "Bring a single strategic partner across the whole portfolio, with a flexible system that respects what makes each business distinct.",
     outcomes: ["One strategic partner", "A flexible portfolio system"],
+    stat: {
+      line: "35% of startups fail because there was no market need.",
+      body: "A go-to-market problem, not an engineering one.",
+      source: "CB Insights",
+    },
   },
 ];
 
