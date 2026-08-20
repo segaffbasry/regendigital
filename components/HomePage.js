@@ -6,6 +6,7 @@ import HomeClosingSections from "./HomeClosingSections";
 import HomeSectionMotion from "./HomeSectionMotion";
 import TestimonialDrag from "./TestimonialDrag";
 import WhoWeHelpTabs from "./WhoWeHelpTabs";
+import WhyChooseRegen from "./WhyChooseRegen";
 import TiltMedia from "./TiltMedia";
 import MarketingEcosystemAnimation from "./MarketingEcosystemAnimation";
 
@@ -256,30 +257,7 @@ export default function HomePage() {
       </div>
 
       <div className="home-gradient-sequence">
-        <section className="home-section home-section--sand why-section">
-          <div className="why-section__grid">
-            <div className="why-section__content">
-              <StaggerText lineReveal>Why Regen</StaggerText>
-              <p className="home-body-large">We&apos;re not a legacy agency recycling tired digital marketing strategies and calling it innovation. We&apos;re an agile B2B marketing team built for SaaS, AI, tech, and professional services businesses that think forward, move fast, and expect more from their marketing. We challenge convention, reject cookie-cutter solutions, and build you a digital marketing strategy as specific to your business as the market you&apos;re competing in.</p>
-              <div className="home-cta-pair">
-                <ArrowLink href="/audit">Free Audit</ArrowLink>
-                <ArrowLink href="/contact" className="home-link--blue">Book a call</ArrowLink>
-              </div>
-            </div>
-            <figure className="why-section__image">
-              <TiltMedia stageClassName="why-section__image-stage">
-                <img
-                  src="/pics/new-asset.png"
-                  alt="The Regen founders working together"
-                  width="948"
-                  height="790"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </TiltMedia>
-            </figure>
-          </div>
-        </section>
+        <WhyChooseRegen />
 
         <section className="home-section proof-section">
           <div className="home-section__intro">

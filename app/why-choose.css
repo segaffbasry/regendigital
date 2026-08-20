@@ -1,0 +1,91 @@
+/* "Why teams choose Regen?" — six reason cards on the home page.
+   Sits on a sand section like the surrounding blocks, so the cards lift off it
+   in white rather than needing their own background colour. */
+
+.why-choose__head {
+  max-width: 1250px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* The stock section heading runs to 126px, which overpowers a six-card grid.
+   Still the same type, just scaled to sit with the cards. */
+.why-choose__head h2 {
+  font-size: clamp(38px, 4.4vw, 76px);
+}
+
+.why-choose__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 1.4vw, 22px);
+  margin: clamp(44px, 5vw, 78px) auto 0;
+  padding: 0;
+  list-style: none;
+}
+
+.why-choose__card {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(24px, 2.4vw, 38px);
+  border: 1px solid rgba(5, 5, 5, .08);
+  border-radius: clamp(18px, 1.8vw, 26px);
+  background: rgba(255, 255, 255, .7);
+}
+
+.why-choose__icon {
+  display: flex;
+  width: clamp(46px, 3.6vw, 58px);
+  height: clamp(46px, 3.6vw, 58px);
+  align-items: center;
+  justify-content: center;
+  /* the gap under the icon carries most of the card's rhythm */
+  margin-bottom: clamp(30px, 3.4vw, 54px);
+  border-radius: clamp(12px, 1.2vw, 17px);
+  background: var(--blue);
+  color: var(--white);
+}
+
+.why-choose__icon svg {
+  width: 52%;
+  height: 52%;
+}
+
+.why-choose__card h3 {
+  margin: 0 0 clamp(10px, 1vw, 14px);
+  font-family: var(--font-editorial);
+  font-size: clamp(21px, 1.85vw, 30px);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -.03em;
+  line-height: 1.04;
+  text-wrap: balance;
+}
+
+.why-choose__card p {
+  margin: 0;
+  font-size: clamp(15px, 1.05vw, 17px);
+  letter-spacing: -.01em;
+  line-height: 1.45;
+}
+
+.why-choose__actions {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(38px, 4vw, 62px);
+}
+
+@media (max-width: 1080px) {
+  .why-choose__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .why-choose__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .why-choose__icon {
+    margin-bottom: 22px;
+  }
+}
