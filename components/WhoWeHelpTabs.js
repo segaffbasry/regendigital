@@ -158,23 +158,34 @@ export default function WhoWeHelpTabs() {
               </span>
             </div>
 
-            <div
-              aria-labelledby={`who-tab-${activeIndex}`}
-              className="who-tabs__panel"
-              id="who-tabs-panel"
-              role="tabpanel"
-            >
-              <div className="who-tabs__heading">
-                <h3>{active.title}</h3>
-              </div>
-              <div className="who-tabs__detail">
-                <p>{active.copy}</p>
-                <div className="who-tabs__proof" aria-label="What this gives you">
-                  {active.outcomes.map((outcome) => (
-                    <strong key={outcome}>{outcome}</strong>
-                  ))}
+            {/* Every audience is rendered and the inactive ones are hidden
+                rather than removed, so the box is always as tall as the
+                wordiest tab and never resizes as you move between them. */}
+            <div className="who-tabs__panels">
+              {audiences.map((audience, index) => (
+                <div
+                  aria-hidden={index === activeIndex ? undefined : "true"}
+                  aria-labelledby={`who-tab-${index}`}
+                  className={`who-tabs__panel${
+                    index === activeIndex ? " is-active" : ""
+                  }`}
+                  id={index === activeIndex ? "who-tabs-panel" : undefined}
+                  key={audience.label}
+                  role="tabpanel"
+                >
+                  <div className="who-tabs__heading">
+                    <h3>{audience.title}</h3>
+                  </div>
+                  <div className="who-tabs__detail">
+                    <p>{audience.copy}</p>
+                    <div className="who-tabs__proof" aria-label="What this gives you">
+                      {audience.outcomes.map((outcome) => (
+                        <strong key={outcome}>{outcome}</strong>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>

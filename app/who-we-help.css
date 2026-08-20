@@ -82,11 +82,29 @@
    shrink as you moved between them. Holding it at the tallest tab's height
    keeps the box still. 570px is that tallest case, measured across the desktop
    range -- the longest headline wrapping to three lines around 1600px wide. */
-.audience-section--home .who-tabs__panel {
-  min-height: 570px;
+/* All seven panels sit in one grid cell, so the box takes the height of the
+   wordiest tab and holds it. No fixed number to keep in step with the copy,
+   and no dead space beyond what the tallest tab actually needs. */
+.audience-section--home .who-tabs__panels {
+  display: grid;
+}
+
+.audience-section--home .who-tabs__panels > .who-tabs__panel {
+  grid-area: 1 / 1;
+  min-height: 0;
+  padding-block: clamp(26px, 2.4vw, 36px);
+}
+
+.audience-section--home .who-tabs__panel:not(.is-active) {
+  visibility: hidden;
 }
 
 .audience-section--home .who-tabs__detail {
+  min-height: 0;
+}
+
+/* The copy reserved 4.2em whether it needed it or not. */
+.audience-section--home .who-tabs__detail > p {
   min-height: 0;
 }
 
