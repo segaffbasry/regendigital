@@ -198,7 +198,7 @@ export default function HomePage() {
         <div className="home-section__split">
           <div className="what-we-do__content">
             <div className="home-section__intro">
-              <StaggerText lineReveal>B2B digital marketing that scales with your business</StaggerText>
+              <StaggerText lineReveal><em>B2B digital marketing</em> that scales with your business</StaggerText>
             </div>
             <div className="what-we-do__copy">
               <p className="home-body-large">Regen believes marketing works best as one system that speak to each other, not a set of siloed tactics. We start with research, set the positioning and the plan, then deliver the channels and campaigns that carry it, from organic and paid social to Google Ads, SEO and GEO, and account-based marketing. Everything ladders up to one strategy built around your business, so the work holds its value as your market shifts. It&apos;s how we turn marketing into <strong>demand generation</strong>, <strong>lead generation</strong>, qualified pipeline, and revenue. You get a long-term growth partner and an extension of your team, not a one-channel supplier.</p>
@@ -219,7 +219,7 @@ export default function HomePage() {
 
       <section className="home-section video-placeholder">
         <div className="home-section__intro">
-          <StaggerText lineReveal>How Regen helps B2B businesses</StaggerText>
+          <StaggerText lineReveal>How <em>Regen helps B2B</em> businesses</StaggerText>
         </div>
         <div className="video-placeholder__frame">
           <span className="video-placeholder__label">Placeholder for video</span>
@@ -227,6 +227,10 @@ export default function HomePage() {
       </section>
 
       <section className="home-section services-section">
+        <header className="services-section__head">
+          <p className="editorial-kicker">Our services</p>
+          <StaggerText lineReveal><em>A connected system</em>, not a channel menu.</StaggerText>
+        </header>
         <div className="service-index">
           {services.map((service) => (
             <a className="service-index__card" href={service.href} key={service.href}>

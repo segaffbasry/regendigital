@@ -313,3 +313,40 @@
     font-size: calc(clamp(42px, 12vw, 64px) - 4px);
   }
 }
+
+/* The intro copy now runs to the same measure as its heading, rather than
+   stopping at 680px while the heading crosses the page. */
+.what-we-do .home-body-large {
+  max-width: none;
+}
+
+/* Editorial italic runs inside the homepage section titles, matching the
+   hero's treatment of "grows". */
+.what-we-do .home-section__intro h2 em,
+.video-placeholder .home-section__intro h2 em,
+.services-section .services-section__head h2 em {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* A kicker and title over the services index, built like the service pages'
+   "what's included" header. */
+.services-section__head {
+  max-width: 1250px;
+  margin: 0 auto clamp(32px, 3.6vw, 54px);
+  text-align: center;
+}
+
+.services-section__head .editorial-kicker {
+  margin: 0 0 14px;
+  color: rgba(5, 5, 5, .58);
+}
+
+.services-section .services-section__head h2 {
+  max-width: none;
+  margin: 0;
+  font-size: calc(clamp(34px, 3.75vw, 58px) - 4px);
+  letter-spacing: -.03em;
+  line-height: 1;
+}
