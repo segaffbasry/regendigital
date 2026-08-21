@@ -312,7 +312,7 @@
 }
 
 .industry-stat-visual--bars > span:first-child {
-  background: #b9c4ff;
+  background: var(--light-blue);
   box-shadow: none;
 }
 
@@ -429,7 +429,7 @@
 .industry-stat-visual--people > span {
   width: clamp(34px, 3.3vw, 50px);
   aspect-ratio: 1;
-  border: clamp(8px, .75vw, 12px) solid #c4ccff;
+  border: clamp(8px, .75vw, 12px) solid var(--light-blue);
   border-radius: 50%;
   background: var(--blue);
   box-shadow: 0 8px 20px rgba(0, 40, 250, .12);

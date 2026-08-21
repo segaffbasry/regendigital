@@ -2,7 +2,7 @@ const { CompositionStage, useComposition, Easing, clamp } = window;
 
 const STAGE_W = 1200, STAGE_H = 800;
 const STEP = 116, ROW_H = 104;
-const BONE = '#EDEAE2', BLUE = '#0028FA', INK = '#111111';
+const BONE = '#EEF0E5', BLUE = '#0028FA', INK = '#111111';
 
 // slot assignments per phase: index = row id, value = vertical slot
 const P0 = [0, 1, 2, 3, 4];

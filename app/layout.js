@@ -9,6 +9,7 @@ import "./industry-feedback.css";
 import "./cta-feedback.css";
 import "./homepage-feedback.css";
 import "./service-index.css";
+import "./case-study.css";
 import PageTransition from "../components/PageTransition";
 import SmoothScroll from "../components/SmoothScroll";
 

@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import AboutPage from "../../components/AboutPage";
 import AuditPage from "../../components/AuditPage";
+import CaseStudyPage from "../../components/CaseStudyPage";
 import ContactPage from "../../components/ContactPage";
 import InteriorPage from "../../components/InteriorPage";
 import InvestorPartnershipPage from "../../components/InvestorPartnershipPage";
@@ -48,6 +49,7 @@ export async function generateMetadata({ params }) {
     title: content?.title || `${page.title} | Regen`,
     description: content?.description,
     robots: content?.robots,
+    openGraph: content?.openGraph,
   };
 }
 
@@ -56,6 +58,7 @@ export default async function PhaseOnePage({ params }) {
   const page = resolvePage(slug);
   const content = contentForPath(`/${slug.join("/")}`);
   if (!page) notFound();
+  if (slug.length === 2 && slug[0] === "work" && !content) notFound();
 
   if (slug.length === 1 && slug[0] === "contact") {
     return <ContactPage />;
@@ -79,6 +82,10 @@ export default async function PhaseOnePage({ params }) {
 
   if (slug.length === 1 && slug[0] === "work") {
     return <WorkPage />;
+  }
+
+  if (slug.length === 2 && slug[0] === "work" && content?.caseStudy) {
+    return <CaseStudyPage content={content} />;
   }
 
   if (slug.length === 2 && slug[0] === "services") {

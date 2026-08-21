@@ -91,7 +91,7 @@ const testimonialCards = [
     image: "/testimonials/scott-pugnetti.jpg",
     initials: "SP",
     quote: "Our social media page was constantly on pause and they’ve added consistency. Their keen eye for design and engaging content has led to us receiving constant compliments for our page. They are an integral part of our business and their professional and personable approach has made them a pleasure to deal with. They are always on top of current trends and I can’t overstate how crucial their work has been to the change in our brand identity and how this has increased our perceived value.",
-    tone: "lavender",
+    tone: "light-blue",
   },
   {
     company: "Lucy Mills",
@@ -120,7 +120,7 @@ const testimonialCards = [
     image: "/testimonials/max-modlin.webp",
     initials: "MM",
     quote: "What sets them apart is that they operate as a genuine strategic partner, not an external agency. Holly and Taylor are properly invested in seeing us succeed, and it shows in how they work: they keep me right on the strategic decisions, bring thinking to the table proactively, and treat our goals as their own. The combination is rare. They’re sharp on the strategy, reliable on the delivery, and genuinely good people to work with. They’ve become a team I trust to help steer the direction of the business, which is not something I’d say about most agencies.",
-    tone: "lavender",
+    tone: "light-blue",
   },
 ];
 

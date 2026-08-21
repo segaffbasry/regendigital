@@ -1,7 +1,7 @@
 /* creator-link.jsx — the composition: Brand + Creator meet, link, co-create. */
 const { useComposition, animate, Easing, clamp } = window;
 
-const BONE = '#EDEAE2';
+const BONE = '#EEF0E5';
 const WHITE = '#FFFFFF';
 const INK = '#111111';
 const BLUE = '#0028FA';

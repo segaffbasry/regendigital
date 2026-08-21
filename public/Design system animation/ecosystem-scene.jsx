@@ -2,7 +2,7 @@
 const { CompositionStage, useComposition, Easing, animate, interpolate, clamp } = window;
 
 const CX = 960, CY = 545, RS = 372, SQUASH = 0.92;
-const BLUE = '#0028FA', BG = '#F1EDE4', INK = '#0A0C14', GREY = '#5B6276';
+const BLUE = '#0028FA', BG = '#EEF0E5', INK = '#0A0C14', GREY = '#5B6276';
 
 const MOTION = {
   pop: (start, delay = 0) => animate({ from: 0, to: 1, start: start + delay, end: start + delay + 0.6, ease: Easing.easeOutBack }),

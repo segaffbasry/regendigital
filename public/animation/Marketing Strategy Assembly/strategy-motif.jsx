@@ -1,7 +1,7 @@
 // Marketing Strategy motif — 5 pieces interlocking into one complete shape.
 const { CompositionStage, useComposition, animate, Easing } = window;
 
-const BONE = '#EDEAE2';
+const BONE = '#EEF0E5';
 const BLUE = '#0028FA';
 const INK = '#0B0B0C';
 const FONT = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif";

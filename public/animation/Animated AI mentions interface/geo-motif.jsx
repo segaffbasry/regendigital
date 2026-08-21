@@ -143,7 +143,7 @@ function Piece() {
   const { T, CUES, authoredTotal } = useComposition();
   const t = (window.useTweaks ? window.useTweaks(window.TWEAK_DEFAULTS || {}) : [{}])[0] || {};
   const accent = t.accent || '#0028FA';
-  const bg = t.background === 'transparent' ? 'transparent' : '#EDEAE2';
+  const bg = t.background === 'transparent' ? 'transparent' : '#EEF0E5';
   const exitP = animate({ from: 0, to: 1, start: CUES.Reset + 0.08, end: authoredTotal - 0.08, ease: Easing.easeInOutCubic })(T);
 
   return (
@@ -161,7 +161,7 @@ function GeoMotif() {
   const [t, setTweak] = useTweaks(window.TWEAK_DEFAULTS || {});
   return (
     <React.Fragment>
-      <CompositionStage width={W} height={H} scenes={window.OM_SCENES} playback={window.OM_PLAYBACK} bg={t.background === 'transparent' ? 'transparent' : '#EDEAE2'}>
+      <CompositionStage width={W} height={H} scenes={window.OM_SCENES} playback={window.OM_PLAYBACK} bg={t.background === 'transparent' ? 'transparent' : '#EEF0E5'}>
         <Piece />
       </CompositionStage>
       <TweaksPanel>
