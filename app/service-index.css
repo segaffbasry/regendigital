@@ -356,3 +356,11 @@
   letter-spacing: -.06em;
   line-height: .94;
 }
+
+.services-section__lede {
+  max-width: 680px;
+  margin: clamp(16px, 1.6vw, 22px) auto 0;
+  font-family: var(--font-helv);
+  font-size: clamp(15px, 1.15vw, 18px);
+  line-height: 1.42;
+}

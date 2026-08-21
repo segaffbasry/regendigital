@@ -234,6 +234,9 @@ export default function HomePage() {
             <br />
             not a channel menu.
           </StaggerText>
+          <p className="services-section__lede">
+            Regen builds marketing as one connected system, not a set of siloed tactics. We set the strategy first, then run the channels that carry it, from social and search to ABM, all laddering up to one plan built around your business and tied to pipeline and revenue.
+          </p>
         </header>
         <div className="service-index">
           {services.map((service) => (
