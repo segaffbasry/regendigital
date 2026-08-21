@@ -67,6 +67,12 @@
   background: var(--sand);
 }
 
+.audience-section--home .who-tabs__panel h3 {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-weight: 600;
+}
+
 /* A rule between the headline and the copy set beside it. */
 .audience-section--home .who-tabs__detail {
   padding-left: clamp(24px, 2.8vw, 48px);

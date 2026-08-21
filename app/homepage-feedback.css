@@ -1,6 +1,15 @@
 /* 17 August homepage feedback. This layer is intentionally homepage-scoped so
    the shared service, methodology, and interior-page systems stay unchanged. */
 
+/* Hero: 5% smaller title, and even space from title → copy and copy → buttons. */
+.home-hero h1 {
+  font-size: clamp(51px, 5.89vw, 106px);
+}
+
+.home-hero__bottom {
+  gap: clamp(20px, 2vw, 30px);
+}
+
 /* Let the ecosystem motion read as part of the section instead of a framed
    video. The source background is exactly #f3f0e9. */
 .what-we-do,
