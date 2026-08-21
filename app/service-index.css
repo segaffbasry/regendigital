@@ -354,7 +354,14 @@
   font-size: clamp(42px, 4.2vw, 66px);
   font-weight: 400;
   letter-spacing: -.06em;
-  line-height: .94;
+  line-height: .86;
+}
+
+/* SplitText line masks add padding so letters don't clip; that padding also
+   opens the two title lines. Pull the second line back to match the service
+   pages, where this heading is a native break with no masks. */
+.services-section .services-section__head h2 .section-reveal__line-mask + .section-reveal__line-mask {
+  margin-top: -.28em;
 }
 
 .services-section__lede {

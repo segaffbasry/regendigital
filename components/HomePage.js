@@ -229,13 +229,9 @@ export default function HomePage() {
       <section className="home-section services-section">
         <header className="services-section__head">
           <p className="editorial-kicker">Our services</p>
-          <StaggerText lineReveal>
-            <em>A connected system</em>,
-            <br />
-            not a channel menu.
-          </StaggerText>
+          <StaggerText lineReveal><em>A connected system</em>,<br />not a channel menu.</StaggerText>
           <p className="services-section__lede">
-            Regen builds marketing as one connected system, not a set of siloed tactics. We set the strategy first, then run the channels that carry it, from social and search to ABM, all laddering up to one plan built around your business and tied to pipeline and revenue.
+            We build marketing as one connected system, not siloed tactics. Strategy first, then the channels that deliver it, all built around your business and tied to pipeline and revenue, run by a partner that feels like an extension of your team.
           </p>
         </header>
         <div className="service-index">
