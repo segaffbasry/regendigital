@@ -81,8 +81,8 @@
 }
 
 .audience-section--home .who-tabs__hero {
-  min-height: clamp(560px, 46vw, 660px);
-  gap: clamp(12px, 1.4vw, 20px);
+  min-height: 0;
+  gap: var(--who-inset);
   justify-content: flex-start;
   padding-bottom: var(--who-inset);
   background:
@@ -96,7 +96,7 @@
 
 .audience-section--home .who-tabs__dock {
   width: min(88%, 1180px);
-  margin-top: auto;
+  margin-top: 0;
 }
 
 .audience-section--home .who-tabs__rail {
@@ -157,8 +157,8 @@
 
   .audience-section--home .who-tabs__hero {
     min-height: 0;
-    gap: 16px;
-    padding-bottom: 20px;
+    gap: var(--who-inset);
+    padding-bottom: var(--who-inset);
   }
 
   .audience-section--home .who-tabs__intro {
