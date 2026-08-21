@@ -229,7 +229,11 @@ export default function HomePage() {
       <section className="home-section services-section">
         <header className="services-section__head">
           <p className="editorial-kicker">Our services</p>
-          <StaggerText lineReveal><em>A connected system</em>, not a channel menu.</StaggerText>
+          <StaggerText lineReveal>
+            <em>A connected system</em>,
+            <br />
+            not a channel menu.
+          </StaggerText>
         </header>
         <div className="service-index">
           {services.map((service) => (

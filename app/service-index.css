@@ -348,5 +348,5 @@
   margin: 0;
   font-size: calc(clamp(34px, 3.75vw, 58px) - 4px);
   letter-spacing: -.03em;
-  line-height: 1;
+  line-height: 1.08;
 }
