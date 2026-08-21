@@ -73,6 +73,12 @@
   font-weight: 600;
 }
 
+@media (min-width: 1051px) {
+  .audience-section--home .who-tabs__heading {
+    justify-content: center;
+  }
+}
+
 /* A rule between the headline and the copy set beside it. */
 .audience-section--home .who-tabs__detail {
   padding-left: clamp(24px, 2.8vw, 48px);
