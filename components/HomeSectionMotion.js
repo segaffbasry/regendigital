@@ -69,7 +69,7 @@ export default function HomeSectionMotion() {
           finalCta,
           {
             width: "100vw",
-            height: isAboutPage ? "48svh" : "60svh",
+            height: isAboutPage ? "48svh" : "100%",
             borderRadius: 0,
           },
           {
@@ -79,7 +79,7 @@ export default function HomeSectionMotion() {
             ease: "none",
             scrollTrigger: {
               trigger: finalCtaStage,
-              start: "top 82%",
+              start: isAboutPage ? "top 82%" : "top 48%",
               end: "top 8%",
               scrub: 0.7,
               invalidateOnRefresh: true,

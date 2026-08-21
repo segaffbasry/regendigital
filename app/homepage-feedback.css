@@ -17,6 +17,16 @@
   background: var(--sand);
 }
 
+.home-section.what-we-do {
+  padding-top: clamp(22px, 2.2vw, 34px);
+  padding-bottom: clamp(12px, 1.4vw, 22px);
+}
+
+.home-section.video-placeholder {
+  padding-top: clamp(12px, 1.4vw, 22px);
+  padding-bottom: clamp(28px, 3vw, 44px);
+}
+
 @media (min-width: 821px) {
   .what-we-do .home-section__split {
     grid-template-columns: minmax(0, .76fr) minmax(420px, 1.24fr);
@@ -190,5 +200,24 @@
 @media (prefers-reduced-motion: reduce) {
   .proof-section .testimonial-marquee {
     scroll-behavior: smooth;
+  }
+}
+
+/* Keep the testimonials sand flush with the blue conversion panel until the
+   scroll animation insets the card. The stage matches the testimonials so a
+   seam never reads as a white block. */
+.final-cta-stage {
+  background: var(--sand);
+}
+
+@media (min-width: 701px) {
+  .final-cta-stage--lead .final-cta-stage__sticky {
+    align-items: stretch;
+  }
+
+  .final-cta-stage--lead .final-cta--lead {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
   }
 }
