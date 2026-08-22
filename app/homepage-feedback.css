@@ -260,6 +260,9 @@
   :root {
     --hero-header-h: 78px;
     --hero-gap: calc(2.5 * (clamp(104px, 15vh, 136px) - var(--hero-header-h)));
+    /* The gap between the parts of a single block, as against --hero-gap
+       between a block and the next thing along. */
+    --stack-gap: 30px;
   }
 
   .home-hero__content {
@@ -271,6 +274,13 @@
   /* The services section opened almost straight into its title, on 22px. */
   .home-section.what-we-do {
     padding-top: var(--hero-gap);
+  }
+
+  /* Inside a block -- title to copy, copy to buttons -- the stack sat on 20px
+     at this width while the desktop values were already near 30. */
+  .home-hero__bottom {
+    margin-top: var(--stack-gap);
+    gap: var(--stack-gap);
   }
 
   /* The logo strip is lifted up into the hero on wider screens. At this width
@@ -290,11 +300,18 @@
   .what-we-do__copy {
     min-height: 0;
     justify-content: flex-start;
-    margin-top: clamp(20px, 4vw, 32px);
+    margin-top: var(--stack-gap);
   }
 
   .what-we-do__copy .home-section__actions--services {
-    margin-top: clamp(20px, 3vw, 30px);
+    margin-top: var(--stack-gap);
+  }
+
+  /* The buttons stood 58px off the animation -- further from it than the copy
+     stands from the title -- which read as a break rather than one block. The
+     actions carry 12px of their own margin below, so this lands it at 36px. */
+  .what-we-do .home-section__split {
+    row-gap: 24px;
   }
 }
 
