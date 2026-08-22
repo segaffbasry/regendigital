@@ -3920,29 +3920,29 @@
   }
 }
 
-/* Header cluster 5% larger: same type and pills, just slightly bigger. */
+/* Header cluster larger: same type and pills, scaled as one group. */
 .site-header__nav {
-  padding: calc(6px * 1.05);
-  font-size: calc(16px * 1.05);
-  line-height: calc(20px * 1.05);
+  padding: calc(6px * 1.15);
+  font-size: calc(16px * 1.15);
+  line-height: calc(20px * 1.15);
 }
 
 .site-header__hover-pill {
-  top: calc(6px * 1.05);
-  bottom: calc(6px * 1.05);
+  top: calc(6px * 1.15);
+  bottom: calc(6px * 1.15);
 }
 
 .site-header__link {
-  min-height: calc(32px * 1.05);
-  padding-inline: calc(13px * 1.05);
-  font-size: calc(15px * 1.05);
-  line-height: calc(20px * 1.05);
+  min-height: calc(32px * 1.15);
+  padding-inline: calc(13px * 1.15);
+  font-size: calc(15px * 1.15);
+  line-height: calc(20px * 1.15);
 }
 
 .site-header__chevron {
-  width: calc(13px * 1.05);
-  height: calc(13px * 1.05);
-  flex-basis: calc(13px * 1.05);
+  width: calc(13px * 1.15);
+  height: calc(13px * 1.15);
+  flex-basis: calc(13px * 1.15);
 }
 
 .site-header__nav .site-header__audit,
@@ -3952,35 +3952,35 @@
 .page-shell--blue-hero .site-header.is-on-light .site-header__audit,
 .how-work-page .site-header__audit,
 .how-work-page .site-header.is-on-light .site-header__audit {
-  min-height: calc(34px * 1.05);
-  padding-inline: calc(17px * 1.05);
+  min-height: calc(34px * 1.15);
+  padding-inline: calc(17px * 1.15);
 }
 
 .site-header__audit > span {
-  font-size: calc(15px * 1.05);
-  line-height: calc(20px * 1.05);
+  font-size: calc(15px * 1.15);
+  line-height: calc(20px * 1.15);
 }
 
 .site-header__nav .site-header__call {
-  min-height: calc(34px * 1.05);
-  padding-inline: calc(17px * 1.05);
-  font-size: calc(15px * 1.05);
-  line-height: calc(20px * 1.05);
+  min-height: calc(34px * 1.15);
+  padding-inline: calc(17px * 1.15);
+  font-size: calc(15px * 1.15);
+  line-height: calc(20px * 1.15);
 }
 
 @media (min-width: 921px) {
   .site-header__nav {
-    gap: calc(10px * 1.05);
+    gap: calc(10px * 1.15);
   }
 
   .site-header__link {
-    padding-inline: calc(7px * 1.05);
+    padding-inline: calc(7px * 1.15);
   }
 }
 
 @media (max-width: 1180px) {
   .site-header__nav .site-header__call {
-    padding-inline: calc(11px * 1.05);
-    font-size: calc(11px * 1.05);
+    padding-inline: calc(11px * 1.15);
+    font-size: calc(11px * 1.15);
   }
 }
