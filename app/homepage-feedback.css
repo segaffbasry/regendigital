@@ -279,3 +279,16 @@
     margin-top: clamp(20px, 3vw, 30px);
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Typography consistency pass.
+   --------------------------------------------------------------------------- */
+
+/* The editorial italic inside a section title sat a size smaller than the sans
+   words beside it -- most obvious in "B2B digital marketing that scales with
+   your business" and "How Regen helps B2B businesses". Line-height is left to
+   inherit: zeroing it to hold the line box was tried and pulled the headings
+   4-5px tighter than they were, where inheriting costs under 2px. */
+.home-section h2 em {
+  font-size: calc(1em * var(--editorial-optical-scale) + var(--editorial-optical-offset));
+}

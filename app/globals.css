@@ -24,6 +24,22 @@
   --font-helv: "Helvetica Neue Regen", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-editorial: "Newsreader", Georgia, serif;
   --font-freehand: "Caveat", "Bradley Hand", "Segoe Print", cursive;
+  /* Newsreader's x-height is about 12% shorter than Helvetica Neue Regen's at
+     the same font-size (measured 13.65 vs 15.51 units of ink at 30px), so an
+     editorial phrase set inline in a sans line reads a size smaller than the
+     words either side of it. Scaling the italic by this factor brings the two
+     back to optical parity. Pair it with the matching line-height correction
+     so the taller inline box does not open up the leading.
+
+     Newsreader carries an optical-size axis, so its x-height per em climbs with
+     size (.449 at 26px up to .500 at 58px) while the sans holds a flat .517.
+     The correction therefore has to shrink as the type grows, and it tracks the
+     element's own size rather than the viewport -- titles of different sizes sit
+     on the same page. Solving x-height parity across the range fits a straight
+     line, within 1.5% from 30px to 66px, which covers every section title:
+         italic size = .912 x sans size + 6.3px */
+  --editorial-optical-scale: .912;
+  --editorial-optical-offset: 6.3px;
 }
 
 * { box-sizing: border-box; }

@@ -14,11 +14,10 @@
   text-align: center;
 }
 
-/* Deliberately smaller than the other section titles: this one sits directly
-   above a six-card grid and swamps it at the stock size. */
+/* Sized by the shared .home-section h2 rule so it matches every other title on
+   the home page; only the centring is section-specific. */
 .why-choose__head h2 {
   margin-inline: auto;
-  font-size: clamp(30px, 3.3vw, 50px);
 }
 
 .why-choose__grid {
