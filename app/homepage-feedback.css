@@ -251,17 +251,26 @@
 
   /* The header is fixed and a flat 78px tall through this whole range, and the
      hero content starts under it at y=0, so the space below the header is the
-     top padding less that 78px. --hero-gap doubles it, and the same gap is then
-     set above the logo strip, which carries 18px of its own padding. */
-  .home-hero {
+     top padding less that 78px. --hero-gap scales that up, and the same gap is
+     set above the logo strip -- which carries 18px of its own padding -- and
+     above the services title below the hero, so the three match.
+
+     The multiplier was 2; doubling still read tight, so it is 2.5. This is the
+     one number to change if the whole rhythm wants opening up or closing down. */
+  :root {
     --hero-header-h: 78px;
-    --hero-gap: calc(2 * (clamp(104px, 15vh, 136px) - var(--hero-header-h)));
+    --hero-gap: calc(2.5 * (clamp(104px, 15vh, 136px) - var(--hero-header-h)));
   }
 
   .home-hero__content {
     flex: 0 0 auto;
     padding-top: calc(var(--hero-header-h) + var(--hero-gap));
     padding-bottom: calc(var(--hero-gap) - 18px);
+  }
+
+  /* The services section opened almost straight into its title, on 22px. */
+  .home-section.what-we-do {
+    padding-top: var(--hero-gap);
   }
 
   /* The logo strip is lifted up into the hero on wider screens. At this width
