@@ -249,10 +249,19 @@
     min-height: 0;
   }
 
+  /* The header is fixed and a flat 78px tall through this whole range, and the
+     hero content starts under it at y=0, so the space below the header is the
+     top padding less that 78px. --hero-gap doubles it, and the same gap is then
+     set above the logo strip, which carries 18px of its own padding. */
+  .home-hero {
+    --hero-header-h: 78px;
+    --hero-gap: calc(2 * (clamp(104px, 15vh, 136px) - var(--hero-header-h)));
+  }
+
   .home-hero__content {
     flex: 0 0 auto;
-    padding-top: clamp(104px, 15vh, 136px);
-    padding-bottom: clamp(22px, 3vh, 32px);
+    padding-top: calc(var(--hero-header-h) + var(--hero-gap));
+    padding-bottom: calc(var(--hero-gap) - 18px);
   }
 
   /* The logo strip is lifted up into the hero on wider screens. At this width
