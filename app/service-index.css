@@ -369,3 +369,58 @@
   font-size: clamp(15px, 1.15vw, 18px);
   line-height: 1.42;
 }
+
+/* ---------------------------------------------------------------------------
+   Tablet pass. Between the stacked breakpoint and a laptop the homepage keeps
+   its desktop two-column layout but at two thirds the width, and several
+   things that are comfortable at 1500px are cramped at 1024. This layer is
+   last in the cascade so it settles the rules the earlier passes set.
+   --------------------------------------------------------------------------- */
+
+@media (min-width: 821px) and (max-width: 1366px) {
+  /* The hero ran straight into the services title on 22px. */
+  .home-section.what-we-do {
+    padding-top: clamp(48px, 5.5vw, 72px);
+    padding-bottom: clamp(24px, 2.6vw, 34px);
+  }
+
+  .home-section.video-placeholder {
+    padding-top: clamp(24px, 2.6vw, 34px);
+  }
+
+  /* The words took the larger share and the film was cut by 30%, which reads
+     at full width but leaves a squat animation beside a wide block of copy
+     here. Evening the columns narrows the copy -- so it runs taller and pushes
+     the next section down -- and gives the animation the width back. */
+  .what-we-do .home-section__split {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+  }
+
+  /* The panel was pinned to the full height of a 90svh stage, so its three
+     rows were pulled apart to fill it -- 72px under the title and 121px under
+     the lede, against a 22px row gap. Sizing it to its content closes those
+     back up and shrinks the box. */
+  .final-cta-stage--lead,
+  .final-cta-stage--lead .final-cta-stage__sticky {
+    min-height: max(76svh, 600px);
+    height: max(76svh, 600px);
+  }
+
+  .final-cta-stage--lead .final-cta-stage__sticky {
+    align-items: center;
+  }
+
+  .final-cta-stage--lead .final-cta--lead {
+    height: auto;
+    min-height: 0;
+  }
+
+  /* The form spans all three rows and is taller than the title, lede and
+     hosts stacked, so its height was being shared out between them -- 72px
+     under the title and 121px under the lede against a 22px row gap. Letting
+     the first two rows size to their own content packs the copy and leaves the
+     slack in the last row, beside the foot of the form. */
+  .final-cta--lead .final-cta__content--lead {
+    grid-template-rows: auto auto 1fr;
+  }
+}
