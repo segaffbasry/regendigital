@@ -309,9 +309,14 @@
 
   /* The buttons stood 58px off the animation -- further from it than the copy
      stands from the title -- which read as a break rather than one block. The
-     actions carry 12px of their own margin below, so this lands it at 36px. */
+     actions' own bottom margin comes off here so the gap is just the row gap,
+     with nothing else to add in when it is next adjusted. */
   .what-we-do .home-section__split {
-    row-gap: 24px;
+    row-gap: 18px;
+  }
+
+  .what-we-do__copy .home-section__actions--services {
+    margin-bottom: 0;
   }
 }
 
