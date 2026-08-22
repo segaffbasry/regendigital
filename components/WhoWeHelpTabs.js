@@ -116,6 +116,17 @@ export default function WhoWeHelpTabs() {
     };
   }, [measureEdges]);
 
+  /* The chevrons either side of the strip page it along by roughly a screen. */
+  const nudgeRail = useCallback((direction) => {
+    const element = list.current;
+    if (!element) return;
+
+    element.scrollBy({
+      left: direction * element.clientWidth * 0.8,
+      behavior: "smooth",
+    });
+  }, []);
+
   /* Keep the selected tab in view when it is picked from a clipped strip. */
   useEffect(() => {
     const element = list.current;
@@ -188,9 +199,24 @@ export default function WhoWeHelpTabs() {
                   </button>
                 ))}
               </div>
-              <span className="who-tabs__more" aria-hidden="true">
-                <span className="cta-arrow" />
-              </span>
+              <button
+                aria-label="Show earlier audiences"
+                className="who-tabs__nudge who-tabs__nudge--prev"
+                onClick={() => nudgeRail(-1)}
+                tabIndex={-1}
+                type="button"
+              >
+                <span aria-hidden="true" />
+              </button>
+              <button
+                aria-label="Show more audiences"
+                className="who-tabs__nudge who-tabs__nudge--next"
+                onClick={() => nudgeRail(1)}
+                tabIndex={-1}
+                type="button"
+              >
+                <span aria-hidden="true" />
+              </button>
             </div>
 
             {/* Every audience is rendered and the inactive ones are hidden

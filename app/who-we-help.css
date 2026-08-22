@@ -177,4 +177,88 @@
     padding-left: 0;
     border-left: 0;
   }
+
+  /* The 80% inset is a wide-screen move. Below this the block was floating in
+     a band of its own while the heading and intro above ran to the page
+     gutter, so it lines up with them instead. */
+  .audience-section--home .who-tabs__dock {
+    width: 100%;
+  }
+
+  /* The tab strip alone runs past the gutter to the screen edges, so a clipped
+     tab reads as "keep scrolling" rather than as the end of the row. */
+  .audience-section--home .who-tabs__rail {
+    margin-inline: calc(var(--who-inset) * -1);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   The audience strip runs wider than a phone screen. It used to say so with a
+   white disc pinned to the right, which read as a "go to the next section"
+   button rather than a control for the tabs. Two hairline chevrons sit just off
+   either end of the block instead, each appearing only when there is something
+   to scroll to on that side.
+   --------------------------------------------------------------------------- */
+
+.who-tabs__nudge {
+  display: none;
+}
+
+@media (max-width: 1050px) {
+  .who-tabs__nudge {
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    bottom: 0;
+    display: grid;
+    width: 32px;
+    padding: 0;
+    place-items: center;
+    border: 0;
+    background: none;
+    color: var(--white);
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* The strip is full-bleed and the panel below it stops at the gutter, so the
+     chevrons sit in that gutter — clear of the block on either side. */
+  .who-tabs__nudge--prev {
+    left: 0;
+  }
+
+  .who-tabs__nudge--next {
+    right: 0;
+  }
+
+  /* A bare chevron: two hairlines turned through 45 degrees. */
+  .who-tabs__nudge > span {
+    width: 8px;
+    height: 8px;
+    border-top: 1.5px solid currentColor;
+    border-right: 1.5px solid currentColor;
+    opacity: .78;
+  }
+
+  .who-tabs__nudge--prev > span {
+    transform: rotate(-135deg);
+  }
+
+  .who-tabs__nudge--next > span {
+    transform: rotate(45deg);
+  }
+
+  .who-tabs__rail.is-scrolled .who-tabs__nudge--prev,
+  .who-tabs__rail.has-more .who-tabs__nudge--next {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .who-tabs__nudge:focus-visible {
+    outline: 2px solid var(--white);
+    outline-offset: -4px;
+  }
 }

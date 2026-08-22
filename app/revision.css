@@ -2647,13 +2647,10 @@
   z-index: 2;
 }
 
-.who-tabs__more {
-  display: none;
-}
-
 @media (max-width: 1050px) {
-  /* The strip is wider than the screen, so it needs edge fades and an arrow to
-     say so — otherwise the audiences past the fold look like they don't exist. */
+  /* The strip is wider than the screen, so it needs edge fades and the chevrons
+     in who-we-help.css to say so — otherwise the audiences past the fold look
+     like they don't exist. */
   .who-tabs__rail {
     margin-inline: calc(var(--who-inset) * -1);
   }
@@ -2663,8 +2660,7 @@
     grid-template-columns: none;
     grid-auto-columns: minmax(132px, max-content);
     margin-inline: 0;
-    padding-right: 58px;
-    padding-left: var(--who-inset);
+    padding-inline: var(--who-inset);
     overflow-x: auto;
     overscroll-behavior-x: contain;
     scroll-snap-type: x proximity;
@@ -2706,34 +2702,6 @@
   .who-tabs__rail.is-scrolled::before,
   .who-tabs__rail.has-more::after {
     opacity: 1;
-  }
-
-  .who-tabs__more {
-    position: absolute;
-    z-index: 4;
-    right: 12px;
-    bottom: 20px;
-    display: grid;
-    width: 32px;
-    height: 32px;
-    place-items: center;
-    border-radius: 50%;
-    background: var(--white);
-    color: var(--black);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .25s ease;
-  }
-
-  .who-tabs__rail.has-more .who-tabs__more {
-    opacity: 1;
-  }
-
-  .who-tabs__more .cta-arrow {
-    width: 13px;
-    height: 13px;
-    opacity: 1;
-    transform: none;
   }
 }
 

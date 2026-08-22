@@ -232,3 +232,50 @@
     min-height: 100%;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Mobile pass. The homepage was laid out for the desktop grid and three things
+   broke once it collapsed to one column on a phone.
+   --------------------------------------------------------------------------- */
+
+/* 900px is where the hero's bottom row collapses from two columns to one, so
+   it is also where these two problems start. */
+@media (max-width: 900px) {
+  /* The hero held a full viewport with its copy pinned to the bottom, so a
+     third of the first screen was empty above the headline. Stacked, it sizes
+     to its own content instead, which also lets the section below peek in as a
+     scroll cue. */
+  .home-hero {
+    min-height: 0;
+  }
+
+  .home-hero__content {
+    flex: 0 0 auto;
+    padding-top: clamp(104px, 15vh, 136px);
+    padding-bottom: clamp(22px, 3vh, 32px);
+  }
+
+  /* The logo strip is lifted up into the hero on wider screens. At this width
+     that lift dragged its opaque blue over the two buttons and hid them, so it
+     sits directly under them instead. */
+  .home-hero .client-strip {
+    margin-bottom: 0;
+    transform: none;
+  }
+}
+
+@media (max-width: 820px) {
+  /* `min-height: 100%` on the copy resolved against the grid row rather than
+     the text, which reserved a dead band under the heading and then pushed the
+     block past the bottom of its own row — where the media below, opaque and
+     later in the DOM, painted over the two buttons. */
+  .what-we-do__copy {
+    min-height: 0;
+    justify-content: flex-start;
+    margin-top: clamp(20px, 4vw, 32px);
+  }
+
+  .what-we-do__copy .home-section__actions--services {
+    margin-top: clamp(20px, 3vw, 30px);
+  }
+}
