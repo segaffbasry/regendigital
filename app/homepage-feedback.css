@@ -83,8 +83,11 @@
     justify-self: center;
   }
 
+  /* Squared off, the frame stood 350px tall against a 350px column with a good
+     band of empty canvas above and below the artwork. Taking a little height
+     out of it trims that band and scales the graphic down with it. */
   .what-we-do__media-frame {
-    aspect-ratio: 1;
+    aspect-ratio: 8 / 7;
   }
 }
 
@@ -323,6 +326,16 @@
      with nothing else to add in when it is next adjusted. */
   .what-we-do .home-section__split {
     row-gap: 18px;
+  }
+
+  /* 12px each side put 24px between the animation and the next section's title.
+     Closing both brings that heading up towards the animation it follows. */
+  .home-section.what-we-do {
+    padding-bottom: 8px;
+  }
+
+  .home-section.video-placeholder {
+    padding-top: 8px;
   }
 
   .what-we-do__copy .home-section__actions--services {
