@@ -1,6 +1,17 @@
 /* 17 August homepage feedback. This layer is intentionally homepage-scoped so
    the shared service, methodology, and interior-page systems stay unchanged. */
 
+/* Homepage Newsreader italic matches the lighter service-page cut. */
+.home-hero .hero-title-3d__editorial,
+.home-section h2 em,
+.audience-section--home .who-tabs__panel h3,
+.audience-section--home .who-tabs__stat-line,
+.why-choose__card h3,
+.services-section .service-title__face--editorial,
+.faq-question__face--newsreader {
+  font-weight: 400;
+}
+
 /* Hero: 5% smaller title, and even space from title → copy and copy → buttons. */
 .home-hero h1 {
   font-size: clamp(51px, 5.89vw, 106px);

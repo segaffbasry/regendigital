@@ -70,7 +70,7 @@
 .audience-section--home .who-tabs__panel h3 {
   font-family: var(--font-editorial);
   font-style: italic;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 @media (min-width: 1051px) {
