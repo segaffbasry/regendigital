@@ -292,6 +292,16 @@
   }
 }
 
+/* The buttons carry a 38px drop shadow and the animation frame below them is an
+   opaque sand panel that comes later in the DOM, so once the two sat 18px apart
+   the frame painted over the bottom of the shadow and left a hard edge across
+   it. Lifting the copy column puts the animation behind it, so the shadow falls
+   over the frame instead of under it. No layout effect -- paint order only. */
+.what-we-do__content {
+  position: relative;
+  z-index: 1;
+}
+
 @media (max-width: 820px) {
   /* `min-height: 100%` on the copy resolved against the grid row rather than
      the text, which reserved a dead band under the heading and then pushed the
