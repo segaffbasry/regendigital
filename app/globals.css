@@ -6169,6 +6169,17 @@ a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline
   white-space: nowrap;
 }
 
+/* Every nav item hides its overflow, so the moment one is allowed to shrink its
+   label is clipped to the middle -- "Services" renders as "ic". That happens
+   whenever the text is wider than the room allows, which is the case on any
+   platform that falls back to Arial because the brand face did not load. The
+   items now hold their intrinsic width: if the row runs out of space it spills
+   rather than shredding every label. */
+.site-header__link,
+.site-header__nav .site-header__audit {
+  flex-shrink: 0;
+}
+
 .site-header__chevron {
   display: block;
   width: 13px;
