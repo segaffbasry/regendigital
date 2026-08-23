@@ -47,6 +47,16 @@ const cases = [
   },
   {
     number: "04",
+    name: "IntusHQ",
+    service: "Founder-Led ABM & Organic",
+    sector: "Wealth Tech & Family Office",
+    image: "/IntusHQ/image%205.png",
+    href: "/work/intushq",
+    summary: "A founder-led system across strategy, account-based marketing and organic social that put the platform in front of the families and offices it was built for.",
+    proof: "5x audience reached",
+  },
+  {
+    number: "05",
     name: "Only Child",
     service: "Organic Social",
     sector: "Production Industry",
@@ -96,7 +106,7 @@ export default function WorkPage() {
         <div className="work-results-hero">
           <p className="editorial-kicker">Our work</p>
           <h1 id="featured-work-title">Tangible results.<br /><em>Proven in the work.</em></h1>
-          <p>Four partnerships across B2B, AI and production. Every case study leads with the outcome, then shows the work that made it happen.</p>
+          <p>Five partnerships across B2B, AI, wealth tech and production. Every case study leads with the outcome, then shows the work that made it happen.</p>
         </div>
         <div className="work-case-grid">
           {cases.map((item) => <WorkCase item={item} key={item.name} />)}

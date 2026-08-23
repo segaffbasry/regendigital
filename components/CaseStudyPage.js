@@ -49,18 +49,21 @@ export default function CaseStudyPage({ content }) {
         </div>
       </section>
 
-      <section className="case-quote" aria-label="Client testimonial">
-        <blockquote data-case-reveal>
-          <p>{study.quote.text}</p>
-          <footer>
-            <img src={study.quote.image} alt="" />
-            <cite>
-              <strong>{study.quote.name}</strong>
-              <span>{study.quote.role}</span>
-            </cite>
-          </footer>
-        </blockquote>
-      </section>
+      {/* Not every case study has a quote cleared for use yet. */}
+      {study.quote ? (
+        <section className="case-quote" aria-label="Client testimonial">
+          <blockquote data-case-reveal>
+            <p>{study.quote.text}</p>
+            <footer>
+              <img src={study.quote.image} alt="" />
+              <cite>
+                <strong>{study.quote.name}</strong>
+                <span>{study.quote.role}</span>
+              </cite>
+            </footer>
+          </blockquote>
+        </section>
+      ) : null}
 
       <section className="case-about" aria-labelledby="case-about-title">
         <div className="case-section-heading" data-case-reveal>
@@ -76,7 +79,7 @@ export default function CaseStudyPage({ content }) {
         <div className="case-challenge__intro" data-case-reveal>
           <p className="case-kicker">The challenge</p>
           <h2 id="case-challenge-title"><SectionHeadline heading={study.challengeHeading} /></h2>
-          <p>{study.challengeIntro}</p>
+          {study.challengeIntro ? <p>{study.challengeIntro}</p> : null}
         </div>
         <div className="case-challenge__grid">
           {study.challenges.map((challenge, index) => (
@@ -95,7 +98,9 @@ export default function CaseStudyPage({ content }) {
             <p className="case-kicker">How Regen supported {study.client}</p>
             <h2 id="case-approach-title"><SectionHeadline heading={study.approachHeading} /></h2>
           </div>
-          <p className="case-approach__intro" data-case-reveal>{study.approachIntro}</p>
+          {study.approachIntro ? (
+            <p className="case-approach__intro" data-case-reveal>{study.approachIntro}</p>
+          ) : null}
         </div>
 
         <div className="case-approach__list">
@@ -113,7 +118,7 @@ export default function CaseStudyPage({ content }) {
         <div className="case-results__heading" data-case-reveal>
           <p className="case-kicker">The results</p>
           <h2 id="case-results-title"><SectionHeadline heading={study.resultsHeading} /></h2>
-          <p>{study.resultsIntro}</p>
+          {study.resultsIntro ? <p>{study.resultsIntro}</p> : null}
         </div>
         <div className="case-results__grid">
           {study.results.map((result, index) => (
@@ -124,7 +129,9 @@ export default function CaseStudyPage({ content }) {
             </article>
           ))}
         </div>
-        <p className="case-results__closing" data-case-reveal>{study.closing}</p>
+        {study.closing ? (
+          <p className="case-results__closing" data-case-reveal>{study.closing}</p>
+        ) : null}
       </section>
 
       <section className="case-next">
