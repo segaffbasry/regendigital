@@ -15,22 +15,6 @@ const cases = [
   },
   {
     number: "02",
-    name: "Film Pudding",
-    service: "Organic Growth Strategy",
-    sector: "Film Industry",
-    image: "/pics/Studio Meeting 2.jpeg",
-    href: "/work/film-pudding",
-    summary: "A creative-first organic system across Instagram and LinkedIn, built to sharpen positioning, deepen engagement, and make the studio more visible to the production industry.",
-    proof: "Instagram + LinkedIn",
-    heroResult: "Built a sharper organic presence that made the studio more visible to the production industry.",
-    media: [
-      "/pics/Studio Meeting 2.jpeg",
-      "/pics/Bielke&Yang.jpeg",
-      "/pics/_ (68).jpeg",
-    ],
-  },
-  {
-    number: "03",
     name: "Finden",
     service: "Social Media Organic Re-Launch",
     sector: "AI & Tech Industry",
@@ -46,7 +30,7 @@ const cases = [
     ],
   },
   {
-    number: "04",
+    number: "03",
     name: "IntusHQ",
     service: "Founder-Led ABM & Organic",
     sector: "Wealth Tech & Family Office",
@@ -54,17 +38,6 @@ const cases = [
     href: "/work/intushq",
     summary: "A founder-led system across strategy, account-based marketing and organic social that put the platform in front of the families and offices it was built for.",
     proof: "5x audience reached",
-  },
-  {
-    number: "05",
-    name: "Only Child",
-    service: "Organic Social",
-    sector: "Production Industry",
-    image: "/pics/Bielke&Yang.jpeg",
-    href: "/contact",
-    summary: "An embedded organic presence across Instagram and LinkedIn that gives the production agency consistent visibility.",
-    proof: "Case study coming soon",
-    placeholder: true,
   },
 ];
 
@@ -106,7 +79,7 @@ export default function WorkPage() {
         <div className="work-results-hero">
           <p className="editorial-kicker">Our work</p>
           <h1 id="featured-work-title">Tangible results.<br /><em>Proven in the work.</em></h1>
-          <p>Five partnerships across B2B, AI, wealth tech and production. Every case study leads with the outcome, then shows the work that made it happen.</p>
+          <p>Three partnerships across B2B, AI and wealth tech. Every case study leads with the outcome, then shows the work that made it happen.</p>
         </div>
         <div className="work-case-grid">
           {cases.map((item) => <WorkCase item={item} key={item.name} />)}
