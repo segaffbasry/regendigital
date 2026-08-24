@@ -51,7 +51,7 @@
 }
 
 .industry-stats {
-  --stats-canvas: #ebe7dc;
+  --stats-canvas: #EEF0E5;
   --stat-accent: var(--blue);
   position: relative;
   isolation: isolate;
@@ -62,14 +62,7 @@
 }
 
 .industry-stats::before {
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: clamp(18px, 2vw, 30px);
-  background: var(--black);
-  content: "";
+  content: none;
 }
 
 .industry-stats::after {
