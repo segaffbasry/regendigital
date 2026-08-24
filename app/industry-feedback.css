@@ -112,7 +112,6 @@
   gap: clamp(18px, 1.8vw, 28px);
   align-items: stretch;
   margin-inline: auto;
-  padding-top: 24px;
 }
 
 .industry-stat-card {
@@ -122,76 +121,18 @@
   isolation: isolate;
   display: grid;
   min-width: 0;
-  min-height: clamp(560px, 43vw, 680px);
-  grid-template-rows: auto minmax(230px, 1fr) auto;
-  padding: clamp(24px, 2.3vw, 36px);
+  min-height: clamp(460px, 34vw, 540px);
+  grid-template-rows: minmax(180px, 240px) auto;
+  padding: 0 clamp(24px, 2.3vw, 36px) clamp(24px, 2.3vw, 36px);
+  overflow: hidden;
   border: 1px solid var(--card-line);
-  border-radius: 12px clamp(28px, 2.6vw, 42px) clamp(28px, 2.6vw, 42px);
+  border-radius: 32px;
   background: var(--card-surface);
   box-shadow: 0 24px 55px rgba(27, 23, 15, .09), 0 4px 12px rgba(27, 23, 15, .04);
 }
 
-.industry-stat-card:nth-child(2) {
-  --card-surface: #f5f2e9;
-  border-radius: clamp(28px, 2.6vw, 42px) 12px clamp(28px, 2.6vw, 42px);
-}
-
-.industry-stat-card:nth-child(3) {
-  --card-surface: #fbfaf6;
-  border-radius: clamp(28px, 2.6vw, 42px) clamp(28px, 2.6vw, 42px) 12px clamp(28px, 2.6vw, 42px);
-}
-
-/* Raised shoulders and small cut-outs give each card its own silhouette while
-   keeping the cards visually part of the surrounding cream field. */
 .industry-stat-card::before {
-  position: absolute;
-  z-index: 1;
-  top: -22px;
-  left: 0;
-  width: 43%;
-  height: 34px;
-  border: 1px solid var(--card-line);
-  border-bottom: 0;
-  border-radius: 22px 22px 0 0;
-  background: var(--card-surface);
-  box-shadow: 0 -12px 28px rgba(27, 23, 15, .04);
-  content: "";
-}
-
-.industry-stat-card:nth-child(2)::before {
-  left: 50%;
-  width: 48%;
-  transform: translateX(-50%);
-}
-
-.industry-stat-card:nth-child(3)::before {
-  right: 0;
-  left: auto;
-  width: 40%;
-}
-
-.industry-stat-card::after {
-  position: absolute;
-  z-index: 2;
-  top: -1px;
-  right: 28px;
-  width: 54px;
-  height: 22px;
-  border-radius: 0 0 17px 17px;
-  background: var(--stats-canvas);
-  content: "";
-}
-
-.industry-stat-card:nth-child(2)::after {
-  right: auto;
-  left: 26px;
-}
-
-.industry-stat-card:nth-child(3)::after {
-  right: auto;
-  left: 50%;
-  width: 66px;
-  transform: translateX(-50%);
+  content: none;
 }
 
 .industry-stat-card > * {
@@ -199,21 +140,6 @@
   z-index: 3;
 }
 
-.industry-stat-card__topline {
-  display: flex;
-  min-height: 22px;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  color: rgba(5, 5, 5, .46);
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: .1em;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
-.industry-stat-card__number,
 .industry-realities__grid article > span {
   font-size: 10px;
   font-weight: 600;
@@ -221,8 +147,7 @@
 }
 
 .industry-stat-card__copy {
-  padding-top: clamp(22px, 2vw, 30px);
-  border-top: 1px solid var(--card-line);
+  padding-top: clamp(12px, 1.2vw, 18px);
 }
 
 .industry-stat-card h3 {
@@ -257,8 +182,8 @@
 .industry-stat-visual {
   position: relative;
   z-index: 1;
-  height: clamp(230px, 20vw, 310px);
-  margin: clamp(18px, 2vw, 28px) clamp(-8px, -.55vw, -2px) clamp(16px, 1.8vw, 26px);
+  height: clamp(180px, 16vw, 240px);
+  margin: 0 clamp(-8px, -.55vw, -2px) clamp(10px, 1vw, 16px);
   overflow: visible;
   border: 0;
   border-radius: 0;
@@ -280,6 +205,38 @@
   font-style: normal;
   letter-spacing: .05em;
   text-transform: uppercase;
+}
+
+.industry-stat-visual--asset {
+  display: grid;
+  place-items: center;
+}
+
+.industry-stat-visual--asset img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.industry-stat-visual--asset-cost img {
+  transform: translateY(-12px) scale(1.04);
+  animation: stat-asset-float 7s ease-in-out infinite;
+}
+
+.industry-stat-visual--asset-market img {
+  animation: none;
+}
+
+.industry-stat-visual--asset-journey img {
+  animation: none;
+}
+
+@keyframes stat-asset-float {
+  0%, 100% { transform: translateY(-12px) scale(1.04); }
+  50% { transform: translateY(-17px) scale(1.04); }
 }
 
 .industry-stat-visual--bars {
@@ -771,11 +728,11 @@
   }
 
   .industry-stat-card {
-    min-height: 580px;
+    min-height: 500px;
   }
 
   .industry-stat-visual {
-    height: clamp(240px, 42vw, 310px);
+    height: clamp(200px, 36vw, 260px);
   }
 
   .industry-realities__grid {
@@ -846,8 +803,8 @@
   }
 
   .industry-stat-card {
-    min-height: 540px;
-    padding: 22px;
+    min-height: 470px;
+    padding: 0 22px 22px;
   }
 
   .industry-stat-card h3 {
@@ -855,7 +812,7 @@
   }
 
   .industry-stat-visual {
-    height: 230px;
+    height: 200px;
     margin-inline: 0;
   }
 
@@ -893,5 +850,11 @@
 
   .about-page .about-team__founder-image {
     aspect-ratio: 4 / 3;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .industry-stat-visual--asset img {
+    animation: none;
   }
 }

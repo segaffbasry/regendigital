@@ -1,0 +1,32 @@
+<svg width="2000" height="1161" viewBox="0 0 2000 1161" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+  rect:not(:first-of-type) { transform-box: fill-box; transform-origin: center; animation: market-tile-drift 4s ease-in-out infinite; }
+  rect:nth-of-type(3), rect:nth-of-type(6), rect:nth-of-type(9), rect:nth-of-type(11) { animation-delay: -.8s; }
+  rect:nth-of-type(4), rect:nth-of-type(5), rect:nth-of-type(8), rect:nth-of-type(10) { animation-delay: -1.6s; }
+  rect:nth-of-type(7), rect:nth-of-type(12) { animation: market-blue-pulse 2.6s ease-in-out infinite; }
+  rect:nth-of-type(12) { animation-delay: -1.3s; }
+  @keyframes market-tile-drift {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+  }
+  @keyframes market-blue-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.09); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    rect { animation: none !important; }
+  }
+</style>
+<rect width="2000" height="1161" fill="white"/>
+<rect x="873" y="115" width="254" height="262" rx="48" fill="#EEF0E5"/>
+<rect x="545" y="115" width="255" height="262" rx="48" fill="#EEF0E5"/>
+<rect x="1200" y="115" width="255" height="262" rx="48" fill="#EEF0E5"/>
+<rect x="218" y="449" width="255" height="263" rx="48" fill="#EEF0E5"/>
+<rect x="873" y="449" width="254" height="263" rx="48" fill="#EEF0E5"/>
+<rect x="545" y="449" width="255" height="263" rx="48" fill="#0C27F0"/>
+<rect x="1200" y="449" width="255" height="263" rx="48" fill="#EEF0E5"/>
+<rect x="1527" y="449" width="255" height="263" rx="48" fill="#EEF0E5"/>
+<rect x="873" y="784" width="254" height="262" rx="48" fill="#EEF0E5"/>
+<rect x="545" y="784" width="255" height="262" rx="48" fill="#EEF0E5"/>
+<rect x="1200" y="784" width="255" height="262" rx="48" fill="#0C27F0"/>
+</svg>

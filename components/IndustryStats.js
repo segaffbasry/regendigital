@@ -1,19 +1,17 @@
 const statVisuals = {
   "saas-cost": (
-    <div className="industry-stat-visual industry-stat-visual--bars" aria-hidden="true">
-      <span style={{ "--bar-height": "34%" }}><i>Then</i></span>
-      <span style={{ "--bar-height": "82%" }}><i>Now</i></span>
-      <strong>+60%</strong>
+    <div className="industry-stat-visual industry-stat-visual--asset industry-stat-visual--asset-cost" aria-hidden="true">
+      <img src="/asset/Winning%20Customers%20Costs%20More.svg" alt="" />
     </div>
   ),
   "saas-market": (
-    <div className="industry-stat-visual industry-stat-visual--figure" aria-hidden="true">
-      <strong>$300bn+</strong><span>and growing</span><i>↗</i>
+    <div className="industry-stat-visual industry-stat-visual--asset industry-stat-visual--asset-market" aria-hidden="true">
+      <img src="/asset/AI%20Huge,%20Crowd%20Market.svg" alt="" />
     </div>
   ),
   "saas-journey": (
-    <div className="industry-stat-visual industry-stat-visual--ring" style={{ "--ring-value": "17%" }} aria-hidden="true">
-      <strong>17%</strong><span>with suppliers</span>
+    <div className="industry-stat-visual industry-stat-visual--asset industry-stat-visual--asset-journey" aria-hidden="true">
+      <img src="/asset/Buyers%20Decide%20Without%20You.svg" alt="" />
     </div>
   ),
   "professional-clarity": (
@@ -76,12 +74,8 @@ export function IndustryStats({ stats }) {
         <h2 id="industry-stats-title">{stats.title}</h2>
       </header>
       <div className="industry-stats__grid">
-        {stats.cards.map((card, index) => (
+        {stats.cards.map((card) => (
           <article className={`industry-stat-card industry-stat-card--${card.visual}`} key={card.heading}>
-            <div className="industry-stat-card__topline">
-              <span className="industry-stat-card__number">{String(index + 1).padStart(2, "0")}</span>
-              <span>Market signal</span>
-            </div>
             {statVisuals[card.visual]}
             <div className="industry-stat-card__copy">
               <h3>{card.heading}</h3>
