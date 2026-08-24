@@ -12,8 +12,8 @@ import "../app/results-section.css";
 const results = [
   {
     client: "Agency AI",
-    value: "+15%",
-    lead: "Increase in referral traffic in the first 30 days from ",
+    headline: "15% increase in referral traffic",
+    lead: "In the first 30 days, from ",
     emphasis: "organic, search and outbound",
     logo: "/client-logos/client-04.png",
     logoScale: 2.4,
@@ -21,8 +21,8 @@ const results = [
   },
   {
     client: "IntusHQ",
-    value: "5x",
-    lead: "More of the target audience reached from ",
+    headline: "5x the target audience reached",
+    lead: "From ",
     emphasis: "account-based marketing and founder-led social",
     logo: "/client-logos/IntusHQ/intushq.svg",
     logoScale: 0.62,
@@ -30,8 +30,8 @@ const results = [
   },
   {
     client: "Finden",
-    value: "3rd",
-    lead: "Of more than 280 companies at launch, from ",
+    headline: "Placed 3rd out of 280+ companies",
+    lead: "At launch, from ",
     emphasis: "organic social and Product Hunt",
     logo: "/client-logos/client-03.png",
     logoScale: 0.86,
@@ -47,7 +47,7 @@ export default function ResultsSection() {
       <div className="results-section__grid">
         {results.map((result) => (
           <article className="result-card" key={result.client}>
-            <strong className="result-card__value">{result.value}</strong>
+            <h3 className="result-card__headline">{result.headline}</h3>
             <p className="result-card__label">
               {result.lead}
               <b>{result.emphasis}</b>
