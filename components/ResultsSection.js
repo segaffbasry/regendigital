@@ -16,7 +16,7 @@ const results = [
     lead: "In the first 30 days, from ",
     emphasis: "organic, search and outbound",
     logo: "/client-logos/client-04.png",
-    logoScale: 2.4,
+    logoScale: 3,
     href: "/work/agency-ai",
   },
   {
@@ -50,7 +50,7 @@ export default function ResultsSection() {
             <h3 className="result-card__headline">{result.headline}</h3>
             <p className="result-card__label">
               {result.lead}
-              <b>{result.emphasis}</b>
+              <b>{result.emphasis}</b>.
             </p>
             <span className="result-card__logo">
               <img

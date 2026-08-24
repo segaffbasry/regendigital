@@ -3,7 +3,9 @@
    client's mark under each number. */
 
 .results-section {
-  padding: clamp(56px, 6vw, 96px) var(--page-gutter);
+  /* Top is lighter than the foot: the section above already carries its own
+     bottom padding, so a matching top made the title drift away from it. */
+  padding: clamp(40px, 4.6vw, 74px) var(--page-gutter) clamp(56px, 6vw, 96px);
   background: #fff;
   color: var(--black);
   text-align: center;
