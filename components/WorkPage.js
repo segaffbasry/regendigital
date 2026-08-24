@@ -16,13 +16,13 @@ const cases = [
   {
     number: "02",
     name: "Finden",
-    service: "Social Media Organic Re-Launch",
+    service: "Go-to-Market Relaunch",
     sector: "AI & Tech Industry",
     image: "/pics/ChatGPT Image Jul 31, 2026, 10_27_29 AM.png",
     href: "/work/finden",
-    summary: "A more polished, professional market reintroduction, combining organic social with a Product Hunt launch that created immediate momentum.",
-    proof: "3rd of 280+ launches",
-    heroResult: "Reintroduced Finden with a polished social presence and a top-three Product Hunt launch.",
+    summary: "A connected relaunch across organic, Product Hunt, creator content, and paid social that multiplied landing page views on flat spend.",
+    proof: "+511% landing page views",
+    heroResult: "Grew landing page views by 511% and placed 3rd out of 280+ companies on launch day.",
     media: [
       "/pics/ChatGPT Image Jul 31, 2026, 10_27_29 AM.png",
       "/pics/_ (1) 1.png",

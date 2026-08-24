@@ -32,6 +32,20 @@ function ArrowLink({ href, children }) {
   );
 }
 
+function WorkMedia({ items, variant }) {
+  if (!items?.length) return null;
+
+  return (
+    <section className={`case-work-media case-work-media--${variant}`} aria-label={`${variant === "feature" ? "Featured" : "More"} work from the project`}>
+      {items.map((item) => (
+        <figure data-case-reveal key={item.src}>
+          <img src={item.src} alt={item.alt} />
+        </figure>
+      ))}
+    </section>
+  );
+}
+
 export default function CaseStudyPage({ content }) {
   const study = content.caseStudy;
 
@@ -75,6 +89,8 @@ export default function CaseStudyPage({ content }) {
         </div>
       </section>
 
+      <WorkMedia items={study.media?.feature} variant="feature" />
+
       <section className="case-challenge" aria-labelledby="case-challenge-title">
         <div className="case-challenge__intro" data-case-reveal>
           <p className="case-kicker">The challenge</p>
@@ -113,6 +129,8 @@ export default function CaseStudyPage({ content }) {
           ))}
         </div>
       </section>
+
+      <WorkMedia items={study.media?.gallery} variant="gallery" />
 
       <section className="case-results" aria-labelledby="case-results-title">
         <div className="case-results__heading" data-case-reveal>
