@@ -32,7 +32,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: clamp(26px, 2.6vw, 40px);
+  padding: clamp(20px, 1.9vw, 28px);
   border-radius: clamp(16px, 1.5vw, 22px);
   background: var(--regen-sky);
   text-align: left;
@@ -44,7 +44,8 @@
 .result-card__value {
   margin: 0;
   font-family: var(--font-editorial);
-  font-size: clamp(44px, 4.2vw, 66px);
+  font-size: clamp(36px, 3.3vw, 52px);
+  font-style: italic;
   font-weight: 600;
   letter-spacing: -.045em;
   line-height: .95;
@@ -60,7 +61,7 @@
   line-height: 1.45;
   /* Guarantees the gap above the mark even on the card with the longest
      sentence, where margin-top: auto below has no slack left to give. */
-  margin-bottom: clamp(26px, 3vw, 46px);
+  margin-bottom: clamp(18px, 1.8vw, 26px);
 }
 
 /* The brand face only carries 500 to 600, so weight alone barely separates the
@@ -74,7 +75,7 @@
    the row however long the sentence above them runs. */
 .result-card__logo {
   display: flex;
-  height: 44px;
+  height: 34px;
   align-items: center;
   /* box-sizing is border-box globally, so any padding here would eat the height
      the image relies on. The spacing lives on the label above instead. */
@@ -87,9 +88,8 @@
   height: 100%;
   object-fit: contain;
   object-position: left center;
-  /* White source artwork, knocked back to ink for this light panel. */
-  filter: brightness(0);
-  opacity: .82;
+  /* Left as the white brand artwork. */
+  opacity: 1;
   transform: scale(var(--result-logo-scale, 1));
   transform-origin: left center;
 }

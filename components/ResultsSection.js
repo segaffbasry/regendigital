@@ -8,9 +8,7 @@ import "../app/results-section.css";
 
    The client logos are the same files the hero strip uses, and those are white
    artwork cut for the blue band. On the sky panel they would be invisible, so
-   they are knocked back to solid ink with a filter rather than kept as a second
-   set of files to maintain. Swap in dark artwork and drop the filter if the
-   brand colours are ever wanted here. */
+   they are kept as-is on the sky panel. */
 const results = [
   {
     client: "Agency AI",
@@ -27,7 +25,7 @@ const results = [
     lead: "More of the target audience reached from ",
     emphasis: "account-based marketing and founder-led social",
     logo: "/client-logos/IntusHQ/intushq.svg",
-    logoScale: 1.15,
+    logoScale: 0.62,
     href: "/work/intushq",
   },
   {
@@ -36,7 +34,7 @@ const results = [
     lead: "Of more than 280 companies at launch, from ",
     emphasis: "organic social and Product Hunt",
     logo: "/client-logos/client-03.png",
-    logoScale: 1.5,
+    logoScale: 0.86,
     href: "/work/finden",
   },
 ];
