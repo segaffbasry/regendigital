@@ -34,7 +34,7 @@ const cases = [
     name: "IntusHQ",
     service: "Founder-Led ABM & Organic",
     sector: "Wealth Tech & Family Office",
-    image: "/IntusHQ/image%205.png",
+    image: "/IntusHQ/intushq-cover.png",
     href: "/work/intushq",
     summary: "A founder-led system across strategy, account-based marketing and organic social that put the platform in front of the families and offices it was built for.",
     proof: "5x audience reached",

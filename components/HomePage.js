@@ -5,6 +5,7 @@ import ClientLogoStrip from "./ClientLogoStrip";
 import HomeClosingSections from "./HomeClosingSections";
 import HomeSectionMotion from "./HomeSectionMotion";
 import TestimonialDrag from "./TestimonialDrag";
+import ResultsSection from "./ResultsSection";
 import WhoWeHelpTabs from "./WhoWeHelpTabs";
 import WhyChooseRegen from "./WhyChooseRegen";
 import TiltMedia from "./TiltMedia";
@@ -249,6 +250,8 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      <ResultsSection />
 
       <div className="problem-audience-bridge">
         <WhoWeHelpTabs />

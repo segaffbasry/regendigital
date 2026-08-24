@@ -5,6 +5,7 @@ import ServiceMotion from "./ServiceMotion";
 import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
 import "../app/service-feedback.css";
+import ResultsSection from "./ResultsSection";
 
 const protectedTitleWords = new Set(["AI", "B2B", "GEO", "Google", "Regen", "SaaS", "SEO"]);
 
@@ -103,6 +104,8 @@ export default function ServicePage({ content: page, serviceKey }) {
           ))}
         </div>
       </section>
+
+      <ResultsSection />
 
       {faqs.length ? (
         <section className="editorial-faq">

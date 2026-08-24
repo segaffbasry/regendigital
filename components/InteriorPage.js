@@ -7,6 +7,7 @@ import MethodologySystemGraphic from "./MethodologySystemGraphic";
 import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
 import { contentForPath } from "../lib/page-content";
+import ResultsSection from "./ResultsSection";
 
 const protectedTitleWords = new Set(["AI", "B2B", "GEO", "Google", "Regen", "SaaS", "SEO"]);
 
@@ -227,6 +228,9 @@ export default function InteriorPage({ content, title, section }) {
           <ol>{page.included.map((item, index) => <li key={item}><span>{String(index + 1).padStart(2, "0")}</span><p>{item}</p></li>)}</ol>
         </section>
       ) : null}
+
+      {/* Industry pages only: the other interior pages are not proof pages. */}
+      {isIndustryDetail ? <ResultsSection /> : null}
 
       {page.steps?.length ? (
         <section className={`editorial-steps${isMethodology ? " editorial-steps--methodology" : ""}`}>
