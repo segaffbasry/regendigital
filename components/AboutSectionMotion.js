@@ -14,12 +14,12 @@ export default function AboutSectionMotion() {
 
     const headings = Array.from(
       document.querySelectorAll(".about-page [data-line-reveal]")
-    );
+    ).filter((heading) => !heading.closest(".final-cta"));
     const riseTargets = Array.from(
       document.querySelectorAll(
         ".about-page [data-about-reveal]"
       )
-    );
+    ).filter((target) => !target.closest(".final-cta"));
 
     gsap.set(headings, { visibility: "hidden" });
     gsap.set(riseTargets, { autoAlpha: 0, y: 24 });

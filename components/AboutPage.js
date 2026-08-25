@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { useLayoutEffect, useRef } from "react";
 import {
   AboutDepthHero,
   AboutDepthPrinciples,
@@ -73,72 +72,6 @@ const teamMembers = [
 ];
 
 export default function AboutPage() {
-  const stage = useRef(null);
-  const revealProgress = useRef(0);
-
-  useLayoutEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      stage.current?.style.setProperty("--about-progress", "0");
-      stage.current?.style.setProperty("--about-reveal-progress", "1");
-      document
-        .querySelector(".site-header")
-        ?.classList.remove("is-over-about-blue");
-      return;
-    }
-
-    let frame;
-    const updateStage = () => {
-      frame = undefined;
-      if (!stage.current) return;
-
-      /* On phones the brand card is a static panel rather than a scrubbed
-         sticky stage, so the statement is simply shown and there is no blue
-         backdrop for the header to sit over. */
-      if (window.matchMedia("(max-width: 760px)").matches) {
-        stage.current.style.setProperty("--about-progress", "0");
-        stage.current.style.setProperty("--about-reveal-progress", "1");
-        document
-          .querySelector(".site-header")
-          ?.classList.remove("is-over-about-blue");
-        return;
-      }
-
-      const bounds = stage.current.getBoundingClientRect();
-      const headerElement = document.querySelector(".site-header");
-      const headerBottom = headerElement?.getBoundingClientRect().bottom || 0;
-      const travel = Math.max(1, bounds.height - window.innerHeight);
-      const progress = Math.min(1, Math.max(0, -bounds.top / travel));
-      revealProgress.current = Math.max(revealProgress.current, progress);
-      stage.current.style.setProperty("--about-progress", progress.toFixed(4));
-      stage.current.style.setProperty(
-        "--about-reveal-progress",
-        revealProgress.current.toFixed(4)
-      );
-      headerElement?.classList.toggle(
-        "is-over-about-blue",
-        progress > 0.42 && bounds.bottom > headerBottom
-      );
-    };
-
-    const handleScroll = () => {
-      if (frame) return;
-      frame = window.requestAnimationFrame(updateStage);
-    };
-
-    updateStage();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
-      if (frame) window.cancelAnimationFrame(frame);
-      document
-        .querySelector(".site-header")
-        ?.classList.remove("is-over-about-blue");
-    };
-  }, []);
-
   return (
     <main className="about-page">
       <AboutSectionMotion />
@@ -223,7 +156,6 @@ export default function AboutPage() {
                 Marketing should feel like <em>one intelligent system,</em> not
                 a collection of disconnected tactics.
               </StaggerText>
-              <span className="about-system-card__arrow" aria-hidden="true" />
             </article>
 
             <article
@@ -260,57 +192,6 @@ export default function AboutPage() {
       </section>
 
       <AboutDepthPrinciples />
-
-      <section className="about-card-stage" ref={stage} aria-label="Regen introduction">
-        <div className="about-card-stage__sticky">
-          <div className="about-brand-card">
-            <p className="about-brand-card__statement">
-              <span className="about-brand-card__attract">
-                <span className="about-brand-card__word-mask">
-                  <span className="about-brand-card__word">Attract.</span>
-                </span>
-                <svg
-                  className="about-brand-card__mark"
-                  aria-hidden="true"
-                  preserveAspectRatio="none"
-                  viewBox="0 0 320 24"
-                >
-                  <path pathLength="1" d="M4 17C75 13 171 13 316 5" />
-                </svg>
-              </span>
-              <span className="about-brand-card__convert">
-                <span className="about-brand-card__word-mask">
-                  <span className="about-brand-card__word">Convert.</span>
-                </span>
-                <svg
-                  className="about-brand-card__mark"
-                  aria-hidden="true"
-                  preserveAspectRatio="none"
-                  viewBox="0 0 420 160"
-                >
-                  <path
-                    pathLength="1"
-                    d="M211 10C322 9 407 40 409 82C411 127 322 151 203 150C86 149 12 128 11 83C10 39 97 12 211 10Z"
-                  />
-                </svg>
-              </span>
-              <span className="about-brand-card__grow">
-                <span className="about-brand-card__word-mask">
-                  <span className="about-brand-card__word">Grow.</span>
-                </span>
-                <svg
-                  className="about-brand-card__mark"
-                  aria-hidden="true"
-                  preserveAspectRatio="none"
-                  viewBox="0 0 240 36"
-                >
-                  <path pathLength="1" d="M8 4L3 28L234 12" />
-                </svg>
-              </span>
-            </p>
-          </div>
-        </div>
-      </section>
 
       <HomeClosingSections showLeadForm />
       <HomeSectionMotion />

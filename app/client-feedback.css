@@ -3675,27 +3675,6 @@
   font-weight: 500;
 }
 
-.about-system-card__arrow {
-  position: absolute;
-  top: clamp(18px, 1.8vw, 27px);
-  right: clamp(18px, 1.8vw, 27px);
-  display: grid;
-  width: clamp(42px, 3.5vw, 54px);
-  aspect-ratio: 1;
-  place-items: center;
-  border: 1px solid rgba(5, 5, 5, .14);
-  border-radius: 13px;
-  background: rgba(255, 255, 255, .9);
-  box-shadow: 0 10px 28px rgba(26, 21, 13, .1);
-}
-
-.about-system-card__arrow::before {
-  content: "↗";
-  font-size: clamp(23px, 2vw, 30px);
-  font-weight: 500;
-  line-height: 1;
-}
-
 .about-page .about-system-card--support {
   display: flex;
   flex-direction: column;
@@ -3843,10 +3822,35 @@
 .about-page .about-depth-principles {
   box-sizing: border-box;
   width: min(1400px, calc(100% - (clamp(76px, 7vw, 112px) * 2)));
-  margin: 0 auto clamp(64px, 7vw, 104px);
+  margin: clamp(48px, 5vw, 76px) auto clamp(64px, 7vw, 104px);
   padding: clamp(48px, 5vw, 70px) clamp(32px, 4vw, 58px);
   border-radius: clamp(24px, 2vw, 32px);
   box-shadow: 0 30px 72px rgba(5, 15, 80, .22);
+}
+
+/* The shared closing section owns its own line reveal. Excluding it from the
+   About reveal above prevents nested line masks from clipping "achieve", and
+   restoring the full lead-form measure keeps the title and form balanced. */
+@media (min-width: 701px) {
+  .about-page .final-cta-stage--lead,
+  .about-page .final-cta-stage--lead .final-cta-stage__sticky {
+    min-height: clamp(600px, 76svh, 760px);
+    height: clamp(600px, 76svh, 760px);
+  }
+
+  .about-page .final-cta-stage--lead .final-cta--lead {
+    min-height: 100%;
+    height: 100%;
+  }
+
+  .about-page .final-cta--lead .final-cta__content--lead {
+    width: min(100%, 1120px);
+  }
+
+  .about-page .final-cta--lead .final-cta__content--lead > h2 {
+    max-width: 560px;
+    text-wrap: balance;
+  }
 }
 
 .about-page .about-depth-principles__header {
@@ -3895,6 +3899,7 @@
 @media (max-width: 700px) {
   .about-page .about-depth-principles {
     width: calc(100% - 32px);
+    margin-top: 36px;
     margin-bottom: 48px;
     padding: 34px 18px;
     border-radius: 20px;
