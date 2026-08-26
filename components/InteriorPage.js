@@ -182,6 +182,16 @@ export default function InteriorPage({ content, title, section }) {
   const media = imageSetFor(page);
   const isMethodology = page.variant === "methodology";
   const isIndustryDetail = Boolean(page.industryKey);
+  const videoIntro =
+    page.videoIntro ||
+    (isIndustryDetail && page.accentWord && page.industryKey !== "investors"
+      ? {
+          titleLead: "How ",
+          titleEmphasis: `Regen helps ${page.accentWord}`,
+          titleTail: " businesses",
+          copy: page.body,
+        }
+      : null);
 
   return (
     <main
@@ -215,16 +225,20 @@ export default function InteriorPage({ content, title, section }) {
       {isMethodology ? <MethodologySystemGraphic /> : null}
       {/* A page can trade the system diagram for a video slot, as the home page
           has. Industries without one keep the diagram. */}
-      {isIndustryDetail && page.videoIntro ? (
+      {/* Every industry detail page takes the video slot. Only SaaS carries its
+          own copy; the rest reuse the body that stood in this position before,
+          and the investors page keeps the diagram, its label not reading as an
+          industry. */}
+      {videoIntro ? (
         <section className="home-section video-placeholder industry-video">
           <div className="home-section__intro">
             <StaggerText lineReveal>
-              {page.videoIntro.titleLead}
-              <em>{page.videoIntro.titleEmphasis}</em>
-              {page.videoIntro.titleTail}
+              {videoIntro.titleLead}
+              <em>{videoIntro.titleEmphasis}</em>
+              {videoIntro.titleTail}
             </StaggerText>
           </div>
-          <p className="industry-video__lede">{page.videoIntro.copy}</p>
+          <p className="industry-video__lede">{videoIntro.copy}</p>
           <div className="video-placeholder__frame">
             <span className="video-placeholder__label">Placeholder for video</span>
           </div>
