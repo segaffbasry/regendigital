@@ -33,9 +33,13 @@ const cases = [
     number: "03",
     name: "IntusHQ",
     service: "Founder-Led ABM & Organic",
-    sector: "Wealth Tech & Family Office",
-    image: "/IntusHQ/intushq-cover.png",
+    sector: "SaaS & Wealth Tech",
+    image: "/IntusHQ/intushq-cover.jpg",
     href: "/work/intushq",
+    marks: [
+      { src: "/IntusHQ/intushq-mark.png", alt: "IntusHQ" },
+      { src: "/IntusHQ/katy-jeffcoate.png", alt: "Katy Jeffcoate, founder of IntusHQ" },
+    ],
     summary: "A founder-led system across strategy, account-based marketing and organic social that put the platform in front of the families and offices it was built for.",
     proof: "5x audience reached",
   },
@@ -55,7 +59,20 @@ function WorkCase({ item }) {
       </div>
       <div className="work-case__caption">
         <span>{item.number}</span>
-        <h2>{item.name}</h2>
+        {item.marks?.length ? (
+          <div className="work-case__identity">
+            <span className="work-case__marks" aria-hidden="true">
+              {item.marks.map((mark) => (
+                <span className="work-case__mark" key={mark.src}>
+                  <img alt="" loading="lazy" src={mark.src} />
+                </span>
+              ))}
+            </span>
+            <h2>{item.name}</h2>
+          </div>
+        ) : (
+          <h2>{item.name}</h2>
+        )}
         <p>{item.summary}</p>
         <div><span>{item.service}</span><span>{item.sector}</span></div>
       </div>

@@ -996,3 +996,20 @@
 .editorial-page--industry-detail .editorial-hero {
   background: var(--white);
 }
+
+/* The oversized ring behind the stats heading. */
+.industry-stats::after {
+  content: none;
+}
+
+/* Double the space above the video slot's title. Scoped past
+   .home-section.video-placeholder, which is set in a later stylesheet. */
+.editorial-page .industry-video.video-placeholder {
+  padding-top: calc(2 * clamp(12px, 1.4vw, 22px));
+}
+
+@media (max-width: 820px) {
+  .editorial-page .industry-video.video-placeholder {
+    padding-top: 16px;
+  }
+}

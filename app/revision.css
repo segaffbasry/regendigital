@@ -4698,3 +4698,61 @@
     justify-content: space-between;
   }
 }
+
+/* A work card can carry client marks beside its title: two small circles, the
+   second overlapping the first, with the title set to their right and stepped
+   down so the pairing reads as one unit. */
+/* The caption puts every direct child div in column 3; this one belongs in
+   column 2, where the title would otherwise sit. */
+.work-case-grid .work-case__caption > .work-case__identity {
+  display: flex;
+  grid-column: 2;
+  gap: 12px;
+  align-items: center;
+  min-width: 0;
+}
+
+.work-case__marks {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+}
+
+.work-case__mark {
+  display: block;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  overflow: hidden;
+  border: 1px solid rgba(5, 5, 5, .12);
+  border-radius: 50%;
+  background: var(--white);
+}
+
+/* The headshot sits over the mark rather than beside it. */
+.work-case__mark + .work-case__mark {
+  margin-left: -13px;
+}
+
+.work-case__mark img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.work-case-grid .work-case__identity h2 {
+  margin: 0;
+  font-size: clamp(24px, 2.3vw, 36px);
+}
+
+@media (max-width: 900px) {
+  .work-case__mark {
+    width: 32px;
+    height: 32px;
+  }
+
+  .work-case__mark + .work-case__mark {
+    margin-left: -11px;
+  }
+}
