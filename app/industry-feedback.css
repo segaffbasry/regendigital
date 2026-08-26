@@ -953,8 +953,46 @@
 /* The lede under a video-slot title, matching the section's own measure. */
 .industry-video__lede {
   width: min(100%, 780px);
-  margin: clamp(16px, 1.6vw, 24px) 0 clamp(30px, 3.2vw, 48px);
+  margin: clamp(16px, 1.6vw, 24px) auto clamp(30px, 3.2vw, 48px);
+  text-align: center;
   font-family: var(--font-helv);
   font-size: clamp(15px, 1.05vw, 18px);
   line-height: 1.45;
+}
+
+/* ---------------------------------------------------------------------------
+   Industry page headings take the same face and size as the home page section
+   titles, rather than the oversized editorial serif they carried. Appended so
+   these settle the earlier rules, including the narrow-screen override.
+   --------------------------------------------------------------------------- */
+
+.industry-stats > header h2,
+.industry-realities__panel > header h2 {
+  font-family: var(--font-display);
+  /* The value every section title on the home page resolves to. */
+  font-size: calc(clamp(34px, 3.75vw, 58px) - 4px);
+  font-weight: 500;
+  letter-spacing: -.02em;
+  line-height: 1;
+}
+
+.industry-stats > header h2 em,
+.industry-realities__panel > header h2 em {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -.02em;
+}
+
+@media (max-width: 900px) {
+  .industry-stats > header h2,
+  .industry-realities__panel > header h2 {
+    font-size: calc(clamp(34px, 3.75vw, 58px) - 4px);
+  }
+}
+
+/* The industry hero moves onto white, leaving the bone ground to the sections
+   that follow it. The nav sits over this block, so its ink stays dark. */
+.editorial-page--industry-detail .editorial-hero {
+  background: var(--white);
 }
