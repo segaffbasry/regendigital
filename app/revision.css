@@ -4709,7 +4709,9 @@
 .work-case-grid .work-case__caption > .work-case__identity {
   display: flex;
   grid-column: 1 / 3;
-  gap: 24px;
+  /* Two points tighter than the gap out to the copy, so the wordmark sits with
+     the marks rather than floating between them and the sentence. */
+  gap: 22px;
   align-items: center;
   min-width: 0;
 }
