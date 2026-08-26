@@ -16,9 +16,9 @@ const industryHeroMedia = {
   saas: [
     {
       after: 1,
-      // Slack sits behind to read as the SaaS cue; its artwork is still to come.
+      // Slack sits behind to read as the SaaS cue, Finden's mark over it.
       apps: [
-        { placeholder: true },
+        { src: "/apps/slack.jpg" },
         { src: "/Finden/finden-mark.jpg" },
       ],
     },

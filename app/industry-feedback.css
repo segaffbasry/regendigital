@@ -26,7 +26,9 @@
   height: .7em;
   /* The type was sitting right up against the image on both sides. */
   margin-inline: .26em;
-  border-radius: 2px;
+  /* Square, like the rest of the imagery on the page. Only the app tiles beside
+     them keep a radius, since that is what makes them read as app icons. */
+  border-radius: 0;
   transform: none;
 }
 
