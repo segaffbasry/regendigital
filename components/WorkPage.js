@@ -20,6 +20,20 @@ const cases = [
   },
   {
     number: "02",
+    name: "IntusHQ",
+    service: "Founder-Led ABM & Organic",
+    sector: "SaaS & Wealth Tech",
+    image: "/IntusHQ/intushq-cover.jpg",
+    href: "/work/intushq",
+    marks: [
+      { src: "/IntusHQ/intushq-mark.png", alt: "IntusHQ" },
+      { src: "/IntusHQ/katy-jeffcoate.png", alt: "Katy Jeffcoate, founder of IntusHQ" },
+    ],
+    summary: "A founder-led system across strategy, account-based marketing and organic social that put the platform in front of the families and offices it was built for.",
+    proof: "5x audience reached",
+  },
+  {
+    number: "03",
     name: "Finden",
     service: "Go-to-Market Relaunch",
     sector: "AI & Tech Industry",
@@ -37,20 +51,6 @@ const cases = [
       "/pics/_ (1) 1.png",
       "/pics/_ (2) 1.png",
     ],
-  },
-  {
-    number: "03",
-    name: "IntusHQ",
-    service: "Founder-Led ABM & Organic",
-    sector: "SaaS & Wealth Tech",
-    image: "/IntusHQ/intushq-cover.jpg",
-    href: "/work/intushq",
-    marks: [
-      { src: "/IntusHQ/intushq-mark.png", alt: "IntusHQ" },
-      { src: "/IntusHQ/katy-jeffcoate.png", alt: "Katy Jeffcoate, founder of IntusHQ" },
-    ],
-    summary: "A founder-led system across strategy, account-based marketing and organic social that put the platform in front of the families and offices it was built for.",
-    proof: "5x audience reached",
   },
 ];
 
