@@ -20,6 +20,10 @@ const cases = [
     sector: "AI & Tech Industry",
     image: "/pics/ChatGPT Image Jul 31, 2026, 10_27_29 AM.png",
     href: "/work/finden",
+    marks: [
+      { src: "/Finden/finden-mark.jpg", alt: "Finden" },
+      { src: "/Finden/randeep-wilkhu.png", alt: "Randeep Wilkhu, founder of Finden" },
+    ],
     summary: "A connected relaunch across organic, Product Hunt, creator content, and paid social that multiplied landing page views on flat spend.",
     proof: "+511% landing page views",
     heroResult: "Grew landing page views by 511% and placed 3rd out of 280+ companies on launch day.",
