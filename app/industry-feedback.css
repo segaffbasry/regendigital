@@ -1131,30 +1131,61 @@
 }
 
 /* An app-tile stack standing in for a headline image: rounded squares scaled to
-   the type, the front one lifted off the one behind it. */
+   the type, the front one lifted and tilted off the one behind it, both drifting
+   gently so they read as floating rather than pasted in. */
 .editorial-hero__apps {
   display: inline-flex;
-  height: .78em;
+  height: .70em;
   align-items: center;
   margin-inline: .26em;
   vertical-align: -.06em;
 }
 
 .editorial-hero__app {
+  --app-tilt: 0deg;
   display: block;
-  width: .78em;
-  height: .78em;
+  width: .70em;
+  height: .70em;
   flex: 0 0 auto;
   overflow: hidden;
-  border-radius: .19em;
+  border-radius: .17em;
   background: var(--white);
+  /* Slack's mark is white to its edges, so without a rim it dissolves into the
+     page. The ring gives it one, the shadow lifts it off. */
+  box-shadow:
+    0 0 0 1px rgba(5, 5, 5, .09),
+    .01em .02em .06em rgba(5, 5, 5, .16);
+  animation: hero-app-bob 4.4s ease-in-out infinite;
 }
 
 .editorial-hero__app + .editorial-hero__app {
-  margin-left: -.2em;
+  --app-tilt: -7deg;
+  margin-left: -.18em;
   box-shadow:
     0 0 0 1px rgba(255, 255, 255, .92),
-    .02em .03em .08em rgba(5, 5, 5, .28);
+    .02em .04em .1em rgba(5, 5, 5, .3);
+  /* Offset so the two are never at the same point in the drift. */
+  animation-delay: -1.7s;
+}
+
+/* The tilt rides inside the keyframes; declaring it separately would be
+   overwritten the moment the animation takes the transform. */
+@keyframes hero-app-bob {
+  0%,
+  100% {
+    transform: translateY(.02em) rotate(var(--app-tilt));
+  }
+
+  50% {
+    transform: translateY(-.05em) rotate(var(--app-tilt));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .editorial-hero__app {
+    animation: none;
+    transform: rotate(var(--app-tilt));
+  }
 }
 
 .editorial-hero__app img {
