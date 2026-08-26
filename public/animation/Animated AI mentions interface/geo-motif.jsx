@@ -2,7 +2,7 @@
 const { useComposition, animate, interpolate, Easing, clamp } = window;
 
 const W = 1200, H = 800;
-const FONT = '-apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif';
+const FONT = '"Arimo", Arial, sans-serif';
 
 const MOTION = {
   // card rise + settle

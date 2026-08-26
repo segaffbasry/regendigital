@@ -149,7 +149,7 @@ function Piece({ t }) {
         <div style={{
           alignSelf: 'flex-start', marginTop: 'auto', fontSize: 12, letterSpacing: '0.09em',
           textTransform: 'uppercase', fontWeight: 600, color: accent,
-          fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
+          fontFamily: '"Arimo", Arial, sans-serif',
           background: 'rgba(0,40,250,0.07)', padding: '5px 10px', borderRadius: 7,
         }}>Target account</div>
       </div>
@@ -177,7 +177,7 @@ function Piece({ t }) {
             <div style={{
               fontSize: 15, fontWeight: 500, color: INK, whiteSpace: 'nowrap',
               letterSpacing: '-0.005em',
-              fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
+              fontFamily: '"Arimo", Arial, sans-serif',
             }}>{g.label}</div>
             <Tick p={tick} accent={accent} />
           </div>

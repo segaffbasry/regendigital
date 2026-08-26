@@ -2628,11 +2628,9 @@
   }
 }
 
-/* The Helvetica face is loaded as a single weight, so asking for 700 inside the
-   family renders identically to the body copy. Drop to the system stack for the
-   emphasised runs so bold actually reads as bold. */
+/* Keep emphasised runs visibly bold. */
 .home-body-large strong {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Arimo", Arial, sans-serif;
   font-weight: 700;
 }
 

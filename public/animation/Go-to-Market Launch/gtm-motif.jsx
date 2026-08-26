@@ -2,7 +2,7 @@
 const { useComposition, animate, Easing, interpolate, clamp } = window;
 
 const W = 1200, H = 800;
-const FONT = "'Montserrat', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif";
+const FONT = "'Montserrat', 'Arimo', Arial, sans-serif";
 const BONE = '#EEF0E5';
 const INK = '#0B0B0C';
 const GREY = '#D9D6CE';

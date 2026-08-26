@@ -9,7 +9,7 @@ const G1 = '#E6E4DC'; // greeked fill (light)
 const G2 = '#D3D1C8'; // greeked fill (mid)
 const BORDER = 'rgba(17,17,17,0.07)';
 const SHADOW = '0 1px 2px rgba(17,17,17,0.04), 0 12px 32px rgba(17,17,17,0.06)';
-const SANS = '"Helvetica Neue", Helvetica, Arial, sans-serif';
+const SANS = '"Arimo", Arial, sans-serif';
 
 const MOTION = {
   enter: (from, to, start, end) => animate({ from, to, start, end, ease: Easing.easeOutQuart }),

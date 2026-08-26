@@ -1,14 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500;1,6..72,600&display=swap");
-
-@font-face {
-  font-family: "Helvetica Neue Regen";
-  src:
-    local("Helvetica Neue"),
-    url("/HelveticaNeue.ttc") format("collection");
-  font-style: normal;
-  font-weight: 500 600;
-  font-display: swap;
-}
+@import url("https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Caveat:wght@500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500;1,6..72,600&display=swap");
 
 :root {
   --blue: #0028fa;
@@ -21,12 +11,12 @@
   --black: #050505;
   --sheet-r: clamp(22px, 3vw, 36px);
   --page-gutter: clamp(20px, 5vw, 80px);
-  --font-display: "Helvetica Neue Regen", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-body: "Helvetica Neue Regen", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-helv: "Helvetica Neue Regen", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-display: "Arimo", Arial, sans-serif;
+  --font-body: "Arimo", Arial, sans-serif;
+  --font-helv: "Arimo", Arial, sans-serif;
   --font-editorial: "Newsreader", Georgia, serif;
   --font-freehand: "Caveat", "Bradley Hand", "Segoe Print", cursive;
-  /* Newsreader's x-height is about 12% shorter than Helvetica Neue Regen's at
+  /* Newsreader's x-height is about 12% shorter than Arimo's at
      the same font-size (measured 13.65 vs 15.51 units of ink at 30px), so an
      editorial phrase set inline in a sans line reads a size smaller than the
      words either side of it. Scaling the italic by this factor brings the two
@@ -4368,7 +4358,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline
 .methodology-scroll__header h2 {
   max-width: 760px;
   margin: 0;
-  font-family: var(--font-sans), "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-sans), "Arimo", Arial, sans-serif;
   font-size: clamp(56px, 6.2vw, 112px);
   font-weight: 400;
   line-height: .88;
