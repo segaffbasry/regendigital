@@ -113,7 +113,6 @@ export function IndustryRealities({ realities }) {
     <section className="industry-realities" aria-labelledby="industry-realities-title">
       <div className="industry-realities__panel">
         <header>
-          <p className="editorial-kicker">What&apos;s included</p>
           <h2 id="industry-realities-title"><IndustryRealityTitle title={realities.title} /></h2>
         </header>
         <div className="industry-realities__grid">

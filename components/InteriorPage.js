@@ -6,6 +6,7 @@ import InteriorMotion from "./InteriorMotion";
 import MethodologySystemGraphic from "./MethodologySystemGraphic";
 import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
+import StaggerText from "./StaggerText";
 import { contentForPath } from "../lib/page-content";
 import ResultsSection from "./ResultsSection";
 
@@ -212,7 +213,25 @@ export default function InteriorPage({ content, title, section }) {
       ) : null}
 
       {isMethodology ? <MethodologySystemGraphic /> : null}
-      {isIndustryDetail ? <IndustrySystemGraphic body={page.body} type={page.industryKey} /> : null}
+      {/* A page can trade the system diagram for a video slot, as the home page
+          has. Industries without one keep the diagram. */}
+      {isIndustryDetail && page.videoIntro ? (
+        <section className="home-section video-placeholder industry-video">
+          <div className="home-section__intro">
+            <StaggerText lineReveal>
+              {page.videoIntro.titleLead}
+              <em>{page.videoIntro.titleEmphasis}</em>
+              {page.videoIntro.titleTail}
+            </StaggerText>
+          </div>
+          <p className="industry-video__lede">{page.videoIntro.copy}</p>
+          <div className="video-placeholder__frame">
+            <span className="video-placeholder__label">Placeholder for video</span>
+          </div>
+        </section>
+      ) : isIndustryDetail ? (
+        <IndustrySystemGraphic body={page.body} type={page.industryKey} />
+      ) : null}
       {isIndustryDetail ? <IndustryStats stats={page.industryStats} /> : null}
       {isIndustryDetail ? <IndustryRealities realities={page.industryRealities} /> : null}
 

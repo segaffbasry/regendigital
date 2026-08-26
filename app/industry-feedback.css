@@ -851,3 +851,110 @@
     animation: none;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   The realities block takes the shape of "Everything the work needs to
+   perform." on the service pages: no card, no tinted ground, and a plain ruled
+   grid rather than bordered tiles. Mirrored here rather than borrowing the
+   service classes, since those are scoped under .service-detail--refined and
+   carry a good deal else with them.
+   --------------------------------------------------------------------------- */
+
+.industry-realities {
+  padding: clamp(34px, 3.4vw, 50px) max(5vw, 28px) clamp(58px, 5.5vw, 82px);
+  background: var(--white);
+}
+
+.industry-realities__panel {
+  width: 100%;
+  margin-inline: 0;
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.industry-realities__panel > header {
+  display: block;
+  width: 100%;
+  margin: 0 0 clamp(20px, 2.1vw, 30px);
+  text-align: left;
+}
+
+.industry-realities__panel > header h2 {
+  max-width: 900px;
+  margin: 0;
+  font-size: clamp(42px, 4.2vw, 66px);
+  letter-spacing: -.03em;
+  line-height: 1;
+}
+
+.industry-realities__grid {
+  width: 100%;
+  gap: 0;
+  margin-inline: 0;
+  border-top: 1px solid rgba(5, 5, 5, .2);
+  border-bottom: 1px solid rgba(5, 5, 5, .2);
+  border-left: 0;
+}
+
+.industry-realities__grid article,
+.industry-realities__grid article:hover {
+  display: block;
+  min-height: 0;
+  padding: clamp(15px, 1.25vw, 20px) clamp(15px, 1.55vw, 24px) clamp(18px, 1.55vw, 24px);
+  border: 0;
+  border-left: 1px solid rgba(5, 5, 5, .14);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  transition: none;
+}
+
+.industry-realities__grid article:nth-child(3n + 1) {
+  border-left: 0;
+}
+
+.industry-realities__grid article:nth-child(n + 4) {
+  border-top: 1px solid rgba(5, 5, 5, .14);
+}
+
+/* The tile hover rule drew this. */
+.industry-realities__grid article::after {
+  display: none;
+}
+
+.industry-realities__grid article > span {
+  padding: 0;
+  border: 0;
+  color: rgba(5, 5, 5, .45);
+  font-size: 11px;
+  letter-spacing: .08em;
+}
+
+.industry-realities__grid h3 {
+  max-width: none;
+  margin: clamp(16px, 1.4vw, 22px) 0 0;
+  font-size: clamp(18px, 1.25vw, 22px);
+  line-height: 1.02;
+}
+
+.industry-realities__grid p {
+  max-width: 390px;
+  margin: 7px 0 0;
+  padding-right: 0;
+  font-size: clamp(12.5px, .85vw, 14.5px);
+  letter-spacing: -.015em;
+  line-height: 1.3;
+}
+
+/* The lede under a video-slot title, matching the section's own measure. */
+.industry-video__lede {
+  width: min(100%, 780px);
+  margin: clamp(16px, 1.6vw, 24px) 0 clamp(30px, 3.2vw, 48px);
+  font-family: var(--font-helv);
+  font-size: clamp(15px, 1.05vw, 18px);
+  line-height: 1.45;
+}
