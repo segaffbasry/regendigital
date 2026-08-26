@@ -26,9 +26,10 @@
   height: .7em;
   /* The type was sitting right up against the image on both sides. */
   margin-inline: .26em;
-  /* Square, like the rest of the imagery on the page. Only the app tiles beside
-     them keep a radius, since that is what makes them read as app icons. */
-  border-radius: 0;
+  /* Curved, in step with the framed imagery further down the page. Relative to
+     the type so it holds its proportion as the headline scales. Kept under the
+     app tiles' .17em, so those still read as app icons and these as pictures. */
+  border-radius: .12em;
   transform: none;
 }
 
