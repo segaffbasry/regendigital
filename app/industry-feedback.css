@@ -1075,3 +1075,32 @@
 .editorial-page--industry-detail .results-section {
   padding-top: clamp(24px, 2.5vw, 40px);
 }
+
+/* 173px stood between the video frame and the market kicker -- 43px of padding
+   below the slot and 130px above the section. Both come down, closing it to
+   roughly half. */
+.editorial-page--industry-detail .industry-video.video-placeholder {
+  padding-bottom: clamp(16px, 1.7vw, 26px);
+}
+
+.editorial-page--industry-detail .industry-stats {
+  padding-top: clamp(44px, 4.4vw, 68px);
+}
+
+/* The card headings take the editorial italic at the size the service index
+   cards use, rather than the display face at up to 38px. Appended so it settles
+   the base rule and the narrow-screen override that pinned it to 29px. */
+.industry-stat-card h3 {
+  font-family: var(--font-editorial);
+  font-size: clamp(22px, 1.5vw, 25px);
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: -.02em;
+  line-height: 1.1;
+}
+
+@media (max-width: 900px) {
+  .industry-stat-card h3 {
+    font-size: clamp(20px, 4.4vw, 24px);
+  }
+}
