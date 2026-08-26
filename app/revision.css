@@ -4779,3 +4779,20 @@
 .work-case__visual::after {
   content: none;
 }
+
+/* With marks in place of the number, the caption drops to two columns that size
+   to their content, so the gap from the title to the copy matches the gap from
+   the marks to the title rather than inheriting the old number-column measure. */
+.work-case-grid .work-case__caption--marked {
+  grid-template-columns: max-content minmax(0, 1fr);
+  column-gap: 12px;
+}
+
+.work-case-grid .work-case__caption--marked > .work-case__identity {
+  grid-column: 1;
+}
+
+.work-case-grid .work-case__caption--marked > p,
+.work-case-grid .work-case__caption--marked > div:not(.work-case__identity) {
+  grid-column: 2;
+}

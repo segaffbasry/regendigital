@@ -991,8 +991,14 @@
   }
 }
 
-/* The industry hero moves onto white, leaving the bone ground to the sections
-   that follow it. The nav sits over this block, so its ink stays dark. */
+/* The industry pages move onto white. Setting the page itself rather than the
+   token leaves the link colours, which derive from --editorial-bg, alone. The
+   sections that carry their own ground -- the stats canvas, the closing panel --
+   are unaffected. */
+.editorial-page--industry-detail {
+  background: var(--white);
+}
+
 .editorial-page--industry-detail .editorial-hero {
   background: var(--white);
 }
