@@ -4808,3 +4808,8 @@
   border-top: 0;
   padding-top: 18px;
 }
+
+/* An empty mark holds the slot until its artwork arrives. */
+.work-case__mark--empty {
+  background: rgba(5, 5, 5, .06);
+}
