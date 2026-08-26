@@ -13,7 +13,7 @@ const cases = [
     marks: [
       // Holding the slot until the updated Agency AI logo lands.
       { placeholder: true },
-      { src: "/AgencyAI/max-modlin.png", alt: "Max Modlin, founder of Agency AI" },
+      { src: "/AgencyAI/max-modlin.png", alt: "Max Modlin, founder of Agency AI", mono: true },
     ],
     summary: "A connected organic, search and outbound system that grew qualified traffic and started more of the right sales conversations.",
     proof: "+15% referral traffic",
@@ -73,7 +73,7 @@ function WorkCase({ item }) {
             <span className="work-case__marks" aria-hidden="true">
               {item.marks.map((mark, index) => (
                 <span
-                  className={`work-case__mark${mark.placeholder ? " work-case__mark--empty" : ""}`}
+                  className={`work-case__mark${mark.placeholder ? " work-case__mark--empty" : ""}${mark.mono ? " work-case__mark--mono" : ""}`}
                   key={mark.src || `placeholder-${index}`}
                 >
                   {mark.src ? <img alt="" loading="lazy" src={mark.src} /> : null}

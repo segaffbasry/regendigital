@@ -1104,3 +1104,19 @@
     font-size: clamp(20px, 4.4vw, 24px);
   }
 }
+
+/* The smaller headings left the cards with slack under the source line while
+   their min-height held. The copy row takes the remainder and sits at the foot,
+   so the block drops into that space instead of leaving it open. */
+.industry-stat-card {
+  grid-template-rows: minmax(144px, 192px) 1fr;
+}
+
+.industry-stat-card__copy {
+  align-self: end;
+}
+
+/* And the cards come up closer to the title. */
+.industry-stats > header {
+  margin-bottom: clamp(40px, 4vw, 60px);
+}
