@@ -1065,10 +1065,16 @@
 
 /* The hero button sat 20px under the copy and 145px off the title below it.
    This drops it so the two read as one measure. */
-/* The hero holds a fixed height, so moving the button down closes the gap below
-   it at half the rate it opens the gap above. 85px lands the two level. */
+/* The button sat 114px off the copy, which read as adrift. It comes in to 60px.
+   The hero centres its content inside a 558px minimum, so cutting the margin
+   alone would hand that space straight back below the button; the minimum comes
+   down with it and the block sizes to what it holds. */
+.editorial-page--industry-detail .editorial-hero {
+  min-height: clamp(400px, 50svh, 500px);
+}
+
 .editorial-page--industry-detail .editorial-hero .cta-button {
-  margin-top: 94px;
+  margin-top: 40px;
 }
 
 /* The proof strip followed the home page's measure, which is too open here. */
