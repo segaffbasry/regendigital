@@ -4704,9 +4704,11 @@
    down so the pairing reads as one unit. */
 /* The caption puts every direct child div in column 3; this one belongs in
    column 2, where the title would otherwise sit. */
+/* Spans the number column too, so the marks start flush with the frame above
+   rather than indented past an empty column. */
 .work-case-grid .work-case__caption > .work-case__identity {
   display: flex;
-  grid-column: 2;
+  grid-column: 1 / 3;
   gap: 12px;
   align-items: center;
   min-width: 0;
@@ -4729,6 +4731,8 @@
   text-transform: none;
 }
 
+/* The ring is drawn as a spread shadow rather than a border, so it sits outside
+   the artwork and the overlap reads cleanly where the two meet. */
 .work-case__mark {
   display: block;
   width: 38px;
@@ -4736,6 +4740,9 @@
   flex: 0 0 auto;
   overflow: hidden;
   border-radius: 50%;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, .9),
+    0 2px 7px rgba(5, 5, 5, .18);
 }
 
 /* The headshot sits over the mark rather than beside it. */
