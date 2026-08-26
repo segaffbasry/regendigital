@@ -7,8 +7,9 @@ import "../app/results-section.css";
    where the box and the rhythm around it are different.
 
    The client logos are the same files the hero strip uses, and those are white
-   artwork cut for the blue band. On the sky panel they would be invisible, so
-   they are kept as-is on the sky panel. */
+   artwork cut for the blue band, so they are knocked back to ink for this light
+   panel rather than kept as a second set of files. Swap in dark artwork and
+   drop the filter if the brand colours are ever wanted here. */
 const results = [
   {
     client: "Agency AI",

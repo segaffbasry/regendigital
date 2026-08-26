@@ -92,8 +92,10 @@
   height: 100%;
   object-fit: contain;
   object-position: left center;
-  /* Left as the white brand artwork. */
-  opacity: 1;
+  /* The source files are white artwork cut for the blue hero band. On this
+     light panel they need knocking back to ink to read at all. */
+  filter: brightness(0);
+  opacity: .82;
   transform: scale(var(--result-logo-scale, 1));
   transform-origin: left center;
 }
