@@ -14,7 +14,14 @@ const protectedTitleWords = new Set(["AI", "B2B", "GEO", "Google", "Regen", "Saa
 
 const industryHeroMedia = {
   saas: [
-    { after: 1, src: "/images/industries/saas-detail.webp", position: "50% 68%" },
+    {
+      after: 1,
+      // Slack sits behind to read as the SaaS cue; its artwork is still to come.
+      apps: [
+        { placeholder: true },
+        { src: "/Finden/finden-mark.jpg" },
+      ],
+    },
     { after: 4, src: "/images/industries/saas-team.webp", position: "50% 50%" },
   ],
   ai: [

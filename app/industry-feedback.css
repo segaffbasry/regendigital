@@ -24,7 +24,8 @@
 .editorial-page--industry-detail .editorial-hero__media {
   width: .9em;
   height: .7em;
-  margin-inline: .13em;
+  /* The type was sitting right up against the image on both sides. */
+  margin-inline: .26em;
   border-radius: 2px;
   transform: none;
 }
@@ -1125,4 +1126,49 @@
 /* And the cards come up closer to the title. */
 .industry-stats > header {
   margin-bottom: clamp(40px, 4vw, 60px);
+}
+
+/* An app-tile stack standing in for a headline image: rounded squares scaled to
+   the type, the front one lifted off the one behind it. */
+.editorial-hero__apps {
+  display: inline-flex;
+  height: .78em;
+  align-items: center;
+  margin-inline: .26em;
+  vertical-align: -.06em;
+}
+
+.editorial-hero__app {
+  display: block;
+  width: .78em;
+  height: .78em;
+  flex: 0 0 auto;
+  overflow: hidden;
+  border-radius: .19em;
+  background: var(--white);
+}
+
+.editorial-hero__app + .editorial-hero__app {
+  margin-left: -.2em;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, .92),
+    .02em .03em .08em rgba(5, 5, 5, .28);
+}
+
+.editorial-hero__app img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Holds the slot until the artwork lands. */
+.editorial-hero__app--empty {
+  background: rgba(5, 5, 5, .08);
+  box-shadow: inset 0 0 0 1px rgba(5, 5, 5, .1);
+}
+
+/* Two points off the industry hero titles across the board. */
+.editorial-page--industry-detail .editorial-hero h1 {
+  font-size: calc(clamp(48px, 5.2vw, 80px) - 2px);
 }

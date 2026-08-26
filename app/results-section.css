@@ -68,11 +68,11 @@
   margin-bottom: clamp(18px, 1.8vw, 26px);
 }
 
-/* The brand face only carries 500 to 600, so weight alone barely separates the
-   channel from the sentence around it. Colour does the rest of the work. */
+/* Colour alone separates the channel from the sentence; the heavier weight came
+   off, so the line reads evenly. */
 .result-card__label b {
   color: var(--black);
-  font-weight: 600;
+  font-weight: inherit;
 }
 
 /* The logo is pinned to the foot of the card so the three marks line up across
