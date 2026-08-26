@@ -4718,15 +4718,24 @@
   align-items: center;
 }
 
+/* The caption gives every span inside one of its divs the tag-pill treatment --
+   padding, a border and a 999px radius. That both ringed the pair and stopped
+   the square artwork ever reaching a circle, so it is reset here. */
+.work-case-grid .work-case__caption > .work-case__identity .work-case__marks,
+.work-case-grid .work-case__caption > .work-case__identity .work-case__mark {
+  padding: 0;
+  border: 0;
+  font-size: inherit;
+  text-transform: none;
+}
+
 .work-case__mark {
   display: block;
   width: 38px;
   height: 38px;
   flex: 0 0 auto;
   overflow: hidden;
-  border: 1px solid rgba(5, 5, 5, .12);
   border-radius: 50%;
-  background: var(--white);
 }
 
 /* The headshot sits over the mark rather than beside it. */
@@ -4755,4 +4764,11 @@
   .work-case__mark + .work-case__mark {
     margin-left: -11px;
   }
+}
+
+/* The scrim over the work imagery reached full strength exactly at the frame's
+   bottom edge, so it stopped dead against the page and read as a dark rule
+   under every card. The proof pill carries its own backing, so it goes. */
+.work-case__visual::after {
+  content: none;
 }

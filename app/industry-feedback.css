@@ -1013,3 +1013,18 @@
     padding-top: 16px;
   }
 }
+
+/* The hero is white now, so the header's backdrop follows it. Both states are
+   set: until the observer marks the header as sitting on light it falls back to
+   the dark scrim, which reads as a grey smear across a white hero. Same
+   treatment the refined service pages use. The ink is left alone, so the header
+   still inverts over the darker sections further down. */
+.editorial-page--industry-detail .site-header::before,
+.editorial-page--industry-detail .site-header.is-on-light::before {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, .98) 0%,
+    rgba(255, 255, 255, .9) 62%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}

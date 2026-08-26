@@ -58,7 +58,7 @@ function WorkCase({ item }) {
         {!item.placeholder ? <span className="work-case__open"><Arrow /></span> : null}
       </div>
       <div className="work-case__caption">
-        <span>{item.number}</span>
+        {item.marks?.length ? null : <span>{item.number}</span>}
         {item.marks?.length ? (
           <div className="work-case__identity">
             <span className="work-case__marks" aria-hidden="true">
