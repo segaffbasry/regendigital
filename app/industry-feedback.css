@@ -541,7 +541,13 @@
 .stat-geo-window__surface { fill: var(--bone); }
 .stat-geo-prompt rect { fill: #fff; }
 .stat-geo-prompt circle { fill: var(--blue); }
-.stat-geo-prompt text { fill: rgba(5, 5, 5, .72); font-size: 14px; font-weight: 600; }
+.stat-geo-prompt text {
+  fill: rgba(5, 5, 5, .72);
+  font-family: var(--font-editorial);
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 500;
+}
 
 .stat-geo-answer circle { fill: var(--blue); }
 .stat-geo-answer path { fill: none; stroke: #fff; stroke-linecap: round; stroke-width: 2; }
@@ -560,6 +566,10 @@
 
 .industry-stat-card--ai-research .stat-answer-score {
   animation: stat-score-overlap 4.2s ease-in-out infinite;
+}
+
+.industry-stat-visual--illustration .stat-answer-score__value {
+  font-size: 31px;
 }
 
 .stat-orbit,

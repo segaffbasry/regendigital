@@ -29,8 +29,8 @@ function GrowthPlot({ type }) {
           <path d="M74 39v155h382" />
           <path d="M74 145h382M74 96h382" />
         </g>
-        <text className="stat-growth-label stat-growth-label--start" x="82" y="185">
-          {isTech ? "$5tn" : "NOW"}
+        <text className="stat-growth-label stat-growth-label--start" x="82" y={isTech ? "185" : "211"}>
+          {isTech ? "$5tn" : "Now"}
         </text>
         <path
           className="stat-growth-line"
@@ -159,7 +159,7 @@ const statVisuals = {
         </g>
         <g className="stat-answer-score">
           <circle cx="410" cy="151" r="44" />
-          <text className="stat-value" x="410" y="158" textAnchor="middle">94%</text>
+          <text className="stat-value stat-answer-score__value" x="410" y="158" textAnchor="middle">94%</text>
         </g>
       </svg>
     </div>
