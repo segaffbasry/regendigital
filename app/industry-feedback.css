@@ -401,6 +401,10 @@
   transform-origin: center;
 }
 
+.industry-stat-visual--illustration .stat-percentage-dial__value--compact {
+  font-size: 48px;
+}
+
 .stat-gap-axis path {
   fill: none;
   stroke: var(--bone);
@@ -566,10 +570,6 @@
 
 .industry-stat-card--ai-research .stat-answer-score {
   animation: stat-score-overlap 4.2s ease-in-out infinite;
-}
-
-.industry-stat-visual--illustration .stat-answer-score__value {
-  font-size: 31px;
 }
 
 .stat-orbit,

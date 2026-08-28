@@ -1,4 +1,4 @@
-function PercentageDial({ value }) {
+function PercentageDial({ value, compactValue = false }) {
   return (
     <div className="industry-stat-visual industry-stat-visual--illustration industry-stat-visual--percentage" aria-hidden="true">
       <svg viewBox="0 0 520 240" role="presentation">
@@ -13,7 +13,14 @@ function PercentageDial({ value }) {
             strokeDasharray={`${value} ${100 - value}`}
           />
         </g>
-        <text className="stat-value stat-value--xl stat-percentage-dial__value" x="260" y="139" textAnchor="middle">{value}%</text>
+        <text
+          className={`stat-value stat-value--xl stat-percentage-dial__value${compactValue ? " stat-percentage-dial__value--compact" : ""}`}
+          x="260"
+          y="139"
+          textAnchor="middle"
+        >
+          {value}%
+        </text>
       </svg>
     </div>
   );
@@ -133,7 +140,7 @@ const statVisuals = {
       </svg>
     </div>
   ),
-  "ai-scrutiny": <PercentageDial value={58} />,
+  "ai-scrutiny": <PercentageDial value={58} compactValue />,
   "ai-market": <GrowthPlot type="ai" />,
   "ai-research": (
     <div className="industry-stat-visual industry-stat-visual--illustration" aria-hidden="true">
@@ -159,7 +166,7 @@ const statVisuals = {
         </g>
         <g className="stat-answer-score">
           <circle cx="410" cy="151" r="44" />
-          <text className="stat-value stat-answer-score__value" x="410" y="158" textAnchor="middle">94%</text>
+          <text className="stat-value" x="410" y="158" textAnchor="middle">94%</text>
         </g>
       </svg>
     </div>
