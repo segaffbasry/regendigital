@@ -2,6 +2,7 @@ import FaqItem from "./FaqItem";
 import IndustryHeroMedia from "./IndustryHeroMedia";
 import IndustrySystemGraphic, { IndustryCardGraphic } from "./IndustrySystemGraphic";
 import { IndustryRealities, IndustryStats } from "./IndustryStats";
+import InvestorTracks from "./InvestorTracks";
 import InteriorMotion from "./InteriorMotion";
 import MethodologySystemGraphic from "./MethodologySystemGraphic";
 import SiteFooter from "./SiteFooter";
@@ -37,7 +38,14 @@ const industryHeroMedia = {
     { after: 5, src: "/images/industries/professional-services-team.webp", position: "50% 50%" },
   ],
   investors: [
-    { after: 1, src: "/images/industries/investors-detail.webp", position: "50% 50%" },
+    {
+      after: 1,
+      // Global 500 behind, Y Combinator over it.
+      apps: [
+        { src: "/apps/global-500.jpg" },
+        { src: "/apps/y-combinator.png" },
+      ],
+    },
     { after: 5, src: "/images/industries/investors-team.webp", position: "50% 50%" },
   ],
 };
@@ -255,6 +263,7 @@ export default function InteriorPage({ content, title, section }) {
       ) : null}
       {isIndustryDetail ? <IndustryStats stats={page.industryStats} /> : null}
       {isIndustryDetail ? <IndustryRealities realities={page.industryRealities} /> : null}
+      {page.investorTracks ? <InvestorTracks tracks={page.investorTracks} /> : null}
 
       {!page.emptyWork && !isMethodology && !isIndustryDetail ? (
         <section className="editorial-media-stage">
@@ -262,9 +271,16 @@ export default function InteriorPage({ content, title, section }) {
         </section>
       ) : null}
 
-      {page.included?.length && !page.industryRealities ? (
+      {page.included?.length && (!page.industryRealities || page.showIncludedWithRealities) ? (
         <section className="editorial-included">
-          <div><p className="editorial-kicker">{page.listTitle || "What's included"}</p><h2>Everything connected.<br /><em>Nothing wasted.</em></h2></div>
+          <div>
+            <p className="editorial-kicker">{page.listTitle || "What's included"}</p>
+            <h2>
+              {page.includedTitle?.lead || "Everything connected."}
+              <br />
+              <em>{page.includedTitle?.emphasis || "Nothing wasted."}</em>
+            </h2>
+          </div>
           <ol>{page.included.map((item, index) => <li key={item}><span>{String(index + 1).padStart(2, "0")}</span><p>{item}</p></li>)}</ol>
         </section>
       ) : null}
@@ -322,8 +338,8 @@ export default function InteriorPage({ content, title, section }) {
       <section className="founder-cta">
         <div className="founder-cta__copy">
           <p className="editorial-kicker">Ready when you are</p>
-          <h2>Ready to move the business forward?</h2>
-          <p>An open conversation about your current marketing and where the business is heading, to see whether there is genuine potential for a collaboration.</p>
+          <h2>{page.ctaHeading || "Ready to move the business forward?"}</h2>
+          <p>{page.ctaBody || "An open conversation about your current marketing and where the business is heading, to see whether there is genuine potential for a collaboration."}</p>
         </div>
         <div className="founder-cta__card">
           <div className="founder-cta__faces" aria-label="Holly and Taylor, Regen co-founders">
