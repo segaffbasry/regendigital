@@ -1,3 +1,56 @@
+function PercentageDial({ value }) {
+  return (
+    <div className="industry-stat-visual industry-stat-visual--illustration industry-stat-visual--percentage" aria-hidden="true">
+      <svg viewBox="0 0 520 240" role="presentation">
+        <g className="stat-percentage-dial">
+          <circle className="stat-percentage-dial__track" cx="260" cy="116" r="84" pathLength="100" />
+          <circle
+            className="stat-percentage-dial__progress"
+            cx="260"
+            cy="116"
+            r="84"
+            pathLength="100"
+            strokeDasharray={`${value} ${100 - value}`}
+          />
+        </g>
+        <text className="stat-value stat-value--xl stat-percentage-dial__value" x="260" y="139" textAnchor="middle">{value}%</text>
+      </svg>
+    </div>
+  );
+}
+
+function GrowthPlot({ type }) {
+  const isTech = type === "tech";
+
+  return (
+    <div className={`industry-stat-visual industry-stat-visual--illustration industry-stat-visual--growth-plot industry-stat-visual--growth-plot-${type}`} aria-hidden="true">
+      <svg viewBox="0 0 520 240" role="presentation">
+        <g className="stat-growth-axis">
+          <path d="M74 39v155h382" />
+          <path d="M74 145h382M74 96h382" />
+        </g>
+        <text className="stat-growth-label stat-growth-label--start" x="82" y="185">
+          {isTech ? "$5tn" : "NOW"}
+        </text>
+        <path
+          className="stat-growth-line"
+          pathLength="100"
+          d={isTech ? "M92 169C155 164 188 148 235 132S333 105 420 58" : "M91 174C159 168 190 155 238 138S335 102 420 53"}
+        />
+        <circle className="stat-growth-dot stat-growth-dot--start" cx="92" cy={isTech ? "169" : "174"} r="7" />
+        <circle className="stat-growth-dot stat-growth-dot--end" cx="420" cy={isTech ? "58" : "53"} r="10" />
+        <g className="stat-growth-end-label">
+          <rect x="304" y="22" width="152" height="54" rx="18" />
+          <text x="380" y="58" textAnchor="middle">{isTech ? "$6.37tn" : "$3.5tn"}</text>
+        </g>
+        <text className="stat-growth-label stat-growth-label--end" x="454" y="211" textAnchor="end">
+          {isTech ? "+14.2%" : "2033"}
+        </text>
+      </svg>
+    </div>
+  );
+}
+
 const statVisuals = {
   "saas-cost": (
     <div className="industry-stat-visual industry-stat-visual--asset industry-stat-visual--asset-cost" aria-hidden="true">
@@ -14,49 +67,38 @@ const statVisuals = {
       <img src="/asset/Buyers%20Decide%20Without%20You.svg" alt="" />
     </div>
   ),
-  "professional-clarity": (
-    <div className="industry-stat-visual industry-stat-visual--illustration" aria-hidden="true">
-      <svg viewBox="0 0 520 240" role="presentation">
-        <g className="stat-orbit">
-          <circle className="stat-bone-stroke" cx="260" cy="116" r="78" pathLength="100" />
-          <circle className="stat-blue-stroke" cx="260" cy="116" r="78" pathLength="100" strokeDasharray="15 85" />
-        </g>
-        <circle cx="260" cy="116" r="51" fill="#fff" />
-        <text className="stat-value stat-value--large" x="260" y="136" textAnchor="middle">15%</text>
-        <path className="stat-signal stat-signal--red" d="M116 62l18 13 17-25 20 12" />
-        <path className="stat-signal stat-signal--red" d="M158 47l13 15-20 4" />
-      </svg>
-    </div>
-  ),
+  "professional-clarity": <PercentageDial value={15} />,
   "professional-growth": (
     <div className="industry-stat-visual industry-stat-visual--illustration" aria-hidden="true">
       <svg viewBox="0 0 520 240" role="presentation">
-        <g className="stat-panel stat-panel--muted">
-          <rect x="67" y="120" width="170" height="75" rx="24" />
-          <text className="stat-panel-value" x="152" y="171" textAnchor="middle">1×</text>
+        <g className="stat-gap-axis">
+          <path d="M74 125h372" />
+          <circle cx="74" cy="125" r="8" />
         </g>
-        <g className="stat-panel stat-panel--active">
-          <rect x="255" y="45" width="198" height="150" rx="28" />
-          <text className="stat-value stat-value--xl" x="325" y="142" textAnchor="middle">4×</text>
-          <path d="M372 146l43-48m-20 1h21v21" />
+        <path className="stat-gap-line" pathLength="100" d="M74 125h346" />
+        <g className="stat-gap-marker">
+          <circle cx="420" cy="125" r="16" />
+          <circle cx="420" cy="125" r="6" />
         </g>
-        <path className="stat-signal stat-signal--green" d="M82 88l22 13 25-31 24 13" />
-        <path className="stat-signal stat-signal--green" d="M139 66l15 17-21 5" />
+        <text className="stat-gap-label" x="74" y="174">0×</text>
+        <text className="stat-value stat-value--xl stat-gap-value" x="420" y="96" textAnchor="middle">4×</text>
       </svg>
     </div>
   ),
   "professional-expertise": (
     <div className="industry-stat-visual industry-stat-visual--illustration" aria-hidden="true">
       <svg viewBox="0 0 520 240" role="presentation">
-        <g className="stat-door-grid">
-          <rect x="66" y="49" width="82" height="62" rx="17" />
-          <rect x="158" y="49" width="82" height="62" rx="17" />
-          <rect x="66" y="121" width="82" height="62" rx="17" />
-          <rect className="stat-door-grid__open" x="158" y="121" width="82" height="62" rx="17" />
+        <g className="stat-expertise-track">
+          <rect x="77" y="174" width="366" height="18" rx="9" />
+          <rect className="stat-expertise-track__fill" x="77" y="174" width="275" height="18" rx="9" />
         </g>
-        <path className="stat-route" d="M250 152h45c18 0 24-18 24-38V91" />
-        <path className="stat-route" d="M307 101l12-12 12 12" />
-        <text className="stat-value stat-value--large" x="390" y="145" textAnchor="middle">75%</text>
+        <g className="stat-expertise-ticker">
+          <text className="stat-value stat-value--xl" x="260" y="139" textAnchor="middle">25%</text>
+          <text className="stat-value stat-value--xl" x="260" y="139" textAnchor="middle">38%</text>
+          <text className="stat-value stat-value--xl" x="260" y="139" textAnchor="middle">52%</text>
+          <text className="stat-value stat-value--xl" x="260" y="139" textAnchor="middle">64%</text>
+          <text className="stat-value stat-value--xl" x="260" y="139" textAnchor="middle">75%</text>
+        </g>
       </svg>
     </div>
   ),
@@ -64,85 +106,60 @@ const statVisuals = {
     <div className="industry-stat-visual industry-stat-visual--illustration" aria-hidden="true">
       <svg viewBox="0 0 520 240" role="presentation">
         <g className="stat-people-grid">
-          <circle cx="111" cy="74" r="27" /><circle cx="173" cy="74" r="27" />
-          <circle cx="235" cy="74" r="27" /><circle cx="297" cy="74" r="27" />
-          <circle cx="359" cy="74" r="27" /><circle cx="142" cy="139" r="27" />
-          <circle cx="204" cy="139" r="27" /><circle cx="266" cy="139" r="27" />
-          <circle className="stat-people-grid__muted" cx="328" cy="139" r="27" />
-          <circle className="stat-people-grid__muted" cx="390" cy="139" r="27" />
+          {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((person) => {
+            const x = 102 + (person % 5) * 79;
+            const y = person < 5 ? 61 : 145;
+            return (
+              <g className={person > 4 ? "stat-person stat-person--joining" : "stat-person"} key={person} style={{ "--person-delay": `${(person - 5) * .18}s` }}>
+                <circle cx={x} cy={y} r="16" />
+                <path d={`M${x - 25} ${y + 47}c0-18 10-29 25-29s25 11 25 29v5h-50z`} />
+              </g>
+            );
+          })}
         </g>
-        <text className="stat-value stat-value--large" x="260" y="218" textAnchor="middle">6–10</text>
       </svg>
     </div>
   ),
-  "tech-spend": (
-    <div className="industry-stat-visual industry-stat-visual--illustration" aria-hidden="true">
-      <svg viewBox="0 0 520 240" role="presentation">
-        <rect className="stat-spend-panel" x="63" y="43" width="394" height="154" rx="31" />
-        <text className="stat-value stat-value--spend" x="218" y="139" textAnchor="middle">$6.37tn</text>
-        <path className="stat-route stat-route--spend" d="M336 157c28-8 50-29 76-71" />
-        <path className="stat-route stat-route--spend" d="M394 88l19-3 2 20" />
-      </svg>
-    </div>
-  ),
+  "tech-spend": <GrowthPlot type="tech" />,
   "tech-budget": (
     <div className="industry-stat-visual industry-stat-visual--illustration" aria-hidden="true">
       <svg viewBox="0 0 520 240" role="presentation">
-        <text className="stat-value stat-value--xl" x="260" y="120" textAnchor="middle">7.7%</text>
+        <g className="stat-budget-values">
+          <text className="stat-value stat-value--xl stat-budget-value--start" x="260" y="129" textAnchor="middle">10%</text>
+          <text className="stat-value stat-value--xl stat-budget-value--end" x="260" y="129" textAnchor="middle">7.7%</text>
+        </g>
         <rect className="stat-budget-track" x="90" y="173" width="340" height="25" rx="12.5" />
-        <rect className="stat-budget-fill" x="90" y="173" width="92" height="25" rx="12.5" />
-        <path className="stat-signal" d="M112 52h78m-12-12 12 12-12 12M408 52h-78m12-12-12 12 12 12" />
+        <rect className="stat-budget-fill" x="90" y="173" width="340" height="25" rx="12.5" />
       </svg>
     </div>
   ),
-  "ai-scrutiny": (
-    <div className="industry-stat-visual industry-stat-visual--illustration" aria-hidden="true">
-      <svg viewBox="0 0 520 240" role="presentation">
-        <g className="stat-document">
-          <rect x="73" y="43" width="286" height="154" rx="25" />
-          <rect x="101" y="76" width="118" height="13" rx="6.5" />
-          <rect x="101" y="105" width="204" height="11" rx="5.5" />
-          <rect x="101" y="130" width="164" height="11" rx="5.5" />
-          <rect x="101" y="155" width="91" height="11" rx="5.5" />
-        </g>
-        <g className="stat-magnifier">
-          <circle cx="351" cy="109" r="58" />
-          <path d="M393 151l49 49" />
-        </g>
-        <text className="stat-value" x="351" y="119" textAnchor="middle">58%</text>
-      </svg>
-    </div>
-  ),
-  "ai-market": (
-    <div className="industry-stat-visual industry-stat-visual--illustration" aria-hidden="true">
-      <svg viewBox="0 0 520 240" role="presentation">
-        <g className="stat-network">
-          <path d="M78 174l80-49 83 29 88-84 111-25" />
-          <circle cx="78" cy="174" r="16" /><circle cx="158" cy="125" r="16" />
-          <circle cx="241" cy="154" r="16" /><circle cx="329" cy="70" r="16" />
-          <circle cx="440" cy="45" r="16" />
-        </g>
-        <text className="stat-value stat-value--xl" x="259" y="105" textAnchor="middle">$3.5tn</text>
-        <path className="stat-route" d="M399 31h42v42" />
-      </svg>
-    </div>
-  ),
+  "ai-scrutiny": <PercentageDial value={58} />,
+  "ai-market": <GrowthPlot type="ai" />,
   "ai-research": (
     <div className="industry-stat-visual industry-stat-visual--illustration" aria-hidden="true">
       <svg viewBox="0 0 520 240" role="presentation">
-        <g className="stat-ai-answer">
-          <rect x="64" y="38" width="392" height="164" rx="27" />
-          <circle cx="102" cy="78" r="15" />
-          <path d="M96 78h12M102 72v12" />
-          <rect x="130" y="67" width="128" height="12" rx="6" />
-          <rect x="130" y="88" width="77" height="9" rx="4.5" />
-          <rect x="93" y="127" width="246" height="10" rx="5" />
-          <rect x="93" y="151" width="188" height="10" rx="5" />
-          <rect x="93" y="175" width="220" height="10" rx="5" />
+        <g className="stat-geo-window">
+          <rect className="stat-geo-window__surface" x="54" y="27" width="412" height="186" rx="28" />
+          <g className="stat-geo-prompt">
+            <rect x="77" y="49" width="366" height="46" rx="16" />
+            <circle cx="102" cy="72" r="8" />
+            <text x="121" y="77">Which AI partner?</text>
+          </g>
+          <g className="stat-geo-answer">
+            <circle cx="93" cy="125" r="12" />
+            <path d="M88 125h10M93 120v10" />
+            <rect x="116" y="116" width="185" height="11" rx="5.5" />
+            <rect x="116" y="138" width="257" height="9" rx="4.5" />
+            <rect x="116" y="157" width="211" height="9" rx="4.5" />
+          </g>
+          <g className="stat-geo-citations">
+            <g><rect x="78" y="181" width="62" height="22" rx="11" /><text x="109" y="196" textAnchor="middle">01</text></g>
+            <g><rect x="149" y="181" width="62" height="22" rx="11" /><text x="180" y="196" textAnchor="middle">02</text></g>
+          </g>
         </g>
         <g className="stat-answer-score">
-          <circle cx="390" cy="142" r="55" />
-          <text className="stat-value" x="390" y="148" textAnchor="middle">94%</text>
+          <circle cx="410" cy="151" r="44" />
+          <text className="stat-value" x="410" y="158" textAnchor="middle">94%</text>
         </g>
       </svg>
     </div>
