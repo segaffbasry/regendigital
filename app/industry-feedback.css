@@ -314,8 +314,6 @@
 .stat-people-grid .stat-person circle,
 .stat-people-grid .stat-person path {
   fill: inherit;
-  stroke: #fff;
-  stroke-width: 7;
 }
 
 .stat-budget-fill { fill: var(--blue); }
@@ -467,20 +465,18 @@
 .stat-expertise-ticker text:nth-child(5) { animation: stat-ticker-five 4s infinite; }
 
 .stat-people-grid .stat-person {
+  color: var(--blue);
   fill: var(--blue);
-  stroke: #fff;
-  stroke-linejoin: round;
-  stroke-width: 7;
   transform-box: fill-box;
   transform-origin: center;
 }
 
 .stat-people-grid .stat-person--dim {
-  animation: stat-person-dim 5.8s cubic-bezier(.4, 0, .2, 1) infinite;
+  animation: stat-person-dim 7.2s cubic-bezier(.37, 0, .18, 1) infinite;
 }
 
 .stat-people-grid .stat-person--focus {
-  animation: stat-person-focus 5.8s cubic-bezier(.22, .75, .24, 1) var(--person-focus-delay) infinite both;
+  animation: stat-person-focus 7.2s cubic-bezier(.22, .78, .22, 1) var(--person-focus-delay) infinite both;
   will-change: transform;
 }
 
@@ -694,14 +690,14 @@
 
 @keyframes stat-person-dim {
   0%, 20% { opacity: 1; }
-  36%, 72% { opacity: .2; }
+  42%, 68% { opacity: 0; }
   90%, 100% { opacity: 1; }
 }
 
 @keyframes stat-person-focus {
   0%, 20% { transform: translate(0, 0) scale(1); }
-  39%, 70% { transform: translate(var(--person-focus-x), var(--person-focus-y)) scale(1.23); }
-  89%, 100% { transform: translate(0, 0) scale(1); }
+  42%, 68% { transform: translate(var(--person-focus-x), var(--person-focus-y)) scale(1.25); }
+  90%, 100% { transform: translate(0, 0) scale(1); }
 }
 
 @keyframes stat-growth-dot {

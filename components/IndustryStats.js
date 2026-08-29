@@ -131,8 +131,13 @@ const statVisuals = {
                   "--person-focus-delay": focus.delay,
                 } : undefined}
               >
-                <circle cx={x} cy={y} r="16" />
-                <path d={`M${x - 25} ${y + 47}c0-18 10-29 25-29s25 11 25 29v5h-50z`} />
+                <svg x={x - 34} y={y - 29} width="68" height="68" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    fillRule="evenodd"
+                    d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z"
+                    clipRule="evenodd"
+                  />
+                </svg>
               </g>
             );
           })}
@@ -150,8 +155,7 @@ const statVisuals = {
           </clipPath>
         </defs>
         <g className="stat-budget-bar stat-budget-bar--seven">
-          <rect className="stat-budget-bar__track" x="75" y="24" width="46" height="190" rx="23" />
-          <rect className="stat-budget-bar__fill" x="75" y="176" width="46" height="38" rx="23" />
+          <circle className="stat-budget-bar__fill" cx="98" cy="191" r="23" />
         </g>
         <g className="stat-budget-bar stat-budget-bar--ten">
           <rect className="stat-budget-bar__track" x="399" y="24" width="46" height="190" rx="23" />
@@ -159,12 +163,12 @@ const statVisuals = {
         </g>
         <g className="stat-budget-copy" clipPath="url(#stat-budget-copy-mask)">
           <g className="stat-budget-copy__state stat-budget-copy__state--then">
-            <text className="stat-budget-copy__number" x="260" y="112" textAnchor="middle">7,7%</text>
-            <text className="stat-budget-copy__word" x="260" y="158" textAnchor="middle">then</text>
+            <text className="stat-budget-copy__number" x="260" y="122" textAnchor="middle">7,7%</text>
+            <text className="stat-budget-copy__word" x="260" y="168" textAnchor="middle">then</text>
           </g>
           <g className="stat-budget-copy__state stat-budget-copy__state--now">
-            <text className="stat-budget-copy__number" x="260" y="112" textAnchor="middle">10%</text>
-            <text className="stat-budget-copy__word" x="260" y="158" textAnchor="middle">now</text>
+            <text className="stat-budget-copy__number" x="260" y="122" textAnchor="middle">10%</text>
+            <text className="stat-budget-copy__word" x="260" y="168" textAnchor="middle">now</text>
           </g>
         </g>
       </svg>
