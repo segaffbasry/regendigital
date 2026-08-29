@@ -119,6 +119,7 @@ const statVisuals = {
               6: { x: "-1px", y: "-35px", delay: ".12s" },
               8: { x: "1px", y: "-35px", delay: ".24s" },
             }[person];
+            const dimOrder = [0, 1, 3, 4, 5, 7, 9].indexOf(person);
             return (
               <g
                 className={`stat-person ${focus ? "stat-person--focus" : "stat-person--dim"}`}
@@ -127,7 +128,7 @@ const statVisuals = {
                   "--person-focus-x": focus.x,
                   "--person-focus-y": focus.y,
                   "--person-focus-delay": focus.delay,
-                } : undefined}
+                } : { "--person-dim-delay": `${dimOrder * .1}s` }}
               >
                 <svg x={x - 34} y={y - 29} width="68" height="68" viewBox="0 0 24 24" fill="currentColor">
                   <path

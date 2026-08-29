@@ -472,7 +472,7 @@
 }
 
 .stat-people-grid .stat-person--dim {
-  animation: stat-person-dim 8s cubic-bezier(.37, 0, .18, 1) infinite;
+  animation: stat-person-dim 8s cubic-bezier(.37, 0, .18, 1) var(--person-dim-delay) infinite both;
 }
 
 .stat-people-grid .stat-person--focus {
@@ -686,9 +686,11 @@
 @keyframes stat-ticker-five { 0%, 35% { opacity: 0; transform: translateY(8px); } 40%, 90% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; transform: translateY(-5px); } }
 
 @keyframes stat-person-dim {
-  0%, 32% { opacity: 1; }
-  42%, 64% { opacity: 0; }
-  74%, 100% { opacity: 1; }
+  0%, 18% { color: var(--blue); opacity: 1; }
+  25%, 32% { color: #EEF0E5; opacity: 1; }
+  42%, 64% { color: #EEF0E5; opacity: 0; }
+  74%, 80% { color: #EEF0E5; opacity: 0; }
+  90%, 100% { color: var(--blue); opacity: 1; }
 }
 
 @keyframes stat-person-focus {
