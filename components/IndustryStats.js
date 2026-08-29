@@ -116,8 +116,21 @@ const statVisuals = {
           {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((person) => {
             const x = 102 + (person % 5) * 79;
             const y = person < 5 ? 61 : 145;
+            const focus = {
+              2: { x: "0px", y: "20px", delay: "0s" },
+              6: { x: "44px", y: "-8px", delay: ".16s" },
+              8: { x: "-44px", y: "-8px", delay: ".32s" },
+            }[person];
             return (
-              <g className={person > 4 ? "stat-person stat-person--joining" : "stat-person"} key={person} style={{ "--person-delay": `${(person - 5) * .18}s` }}>
+              <g
+                className={`stat-person ${focus ? "stat-person--focus" : "stat-person--dim"}`}
+                key={person}
+                style={focus ? {
+                  "--person-focus-x": focus.x,
+                  "--person-focus-y": focus.y,
+                  "--person-focus-delay": focus.delay,
+                } : undefined}
+              >
                 <circle cx={x} cy={y} r="16" />
                 <path d={`M${x - 25} ${y + 47}c0-18 10-29 25-29s25 11 25 29v5h-50z`} />
               </g>
@@ -131,12 +144,29 @@ const statVisuals = {
   "tech-budget": (
     <div className="industry-stat-visual industry-stat-visual--illustration" aria-hidden="true">
       <svg viewBox="0 0 520 240" role="presentation">
-        <g className="stat-budget-values">
-          <text className="stat-value stat-value--xl stat-budget-value--start" x="260" y="129" textAnchor="middle">10%</text>
-          <text className="stat-value stat-value--xl stat-budget-value--end" x="260" y="129" textAnchor="middle">7.7%</text>
+        <defs>
+          <clipPath id="stat-budget-copy-mask">
+            <rect x="151" y="35" width="218" height="159" rx="20" />
+          </clipPath>
+        </defs>
+        <g className="stat-budget-bar stat-budget-bar--seven">
+          <rect className="stat-budget-bar__track" x="75" y="24" width="46" height="190" rx="23" />
+          <rect className="stat-budget-bar__fill" x="75" y="176" width="46" height="38" rx="23" />
         </g>
-        <rect className="stat-budget-track" x="90" y="173" width="340" height="25" rx="12.5" />
-        <rect className="stat-budget-fill" x="90" y="173" width="340" height="25" rx="12.5" />
+        <g className="stat-budget-bar stat-budget-bar--ten">
+          <rect className="stat-budget-bar__track" x="399" y="24" width="46" height="190" rx="23" />
+          <rect className="stat-budget-bar__fill stat-budget-bar__fill--ten" x="399" y="156" width="46" height="58" rx="23" />
+        </g>
+        <g className="stat-budget-copy" clipPath="url(#stat-budget-copy-mask)">
+          <g className="stat-budget-copy__state stat-budget-copy__state--then">
+            <text className="stat-budget-copy__number" x="260" y="112" textAnchor="middle">7,7%</text>
+            <text className="stat-budget-copy__word" x="260" y="158" textAnchor="middle">then</text>
+          </g>
+          <g className="stat-budget-copy__state stat-budget-copy__state--now">
+            <text className="stat-budget-copy__number" x="260" y="112" textAnchor="middle">10%</text>
+            <text className="stat-budget-copy__word" x="260" y="158" textAnchor="middle">now</text>
+          </g>
+        </g>
       </svg>
     </div>
   ),

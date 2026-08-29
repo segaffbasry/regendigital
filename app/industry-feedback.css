@@ -475,12 +475,13 @@
   transform-origin: center;
 }
 
-.stat-people-grid .stat-person:nth-child(2n) {
-  animation: stat-person-float 3.8s ease-in-out -1.3s infinite;
+.stat-people-grid .stat-person--dim {
+  animation: stat-person-dim 5.8s cubic-bezier(.4, 0, .2, 1) infinite;
 }
 
-.stat-people-grid .stat-person--joining {
-  animation: stat-person-join 5s calc(.65s + var(--person-delay)) ease-in-out infinite;
+.stat-people-grid .stat-person--focus {
+  animation: stat-person-focus 5.8s cubic-bezier(.22, .75, .24, 1) var(--person-focus-delay) infinite both;
+  will-change: transform;
 }
 
 .stat-growth-axis path:first-child {
@@ -532,15 +533,58 @@
   letter-spacing: -.02em;
 }
 
-.stat-budget-fill {
-  animation: stat-budget-shrink 4.6s cubic-bezier(.25, .85, .3, 1) infinite;
+.stat-budget-bar,
+.stat-budget-copy__state,
+.stat-budget-bar__fill--ten {
   transform-box: fill-box;
-  transform-origin: left center;
 }
 
-.stat-budget-values text { transform-box: fill-box; transform-origin: center; }
-.stat-budget-value--start { animation: stat-budget-start 4.6s ease-in-out infinite; }
-.stat-budget-value--end { animation: stat-budget-end 4.6s ease-in-out infinite; }
+.stat-budget-bar__track { fill: var(--bone); }
+.stat-budget-bar__fill { fill: var(--blue); }
+
+.stat-budget-bar--seven {
+  opacity: .5;
+  animation: stat-budget-seven 6s ease-in-out infinite;
+}
+
+.stat-budget-bar--ten {
+  animation: stat-budget-ten 6s cubic-bezier(.25, .8, .25, 1) infinite;
+  transform-origin: center bottom;
+}
+
+.stat-budget-bar__fill--ten {
+  animation: stat-budget-ten-fill 6s cubic-bezier(.25, .8, .25, 1) infinite;
+  transform-origin: center bottom;
+}
+
+.stat-budget-copy__state {
+  transform-origin: center;
+}
+
+.stat-budget-copy__state--then {
+  opacity: 0;
+  animation: stat-budget-copy-then 6s cubic-bezier(.4, 0, .2, 1) infinite;
+}
+
+.stat-budget-copy__state--now {
+  animation: stat-budget-copy-now 6s cubic-bezier(.4, 0, .2, 1) infinite;
+}
+
+.stat-budget-copy__number {
+  fill: var(--blue);
+  font-family: var(--font-display);
+  font-size: 72px;
+  font-weight: 600;
+  letter-spacing: -.07em;
+}
+
+.stat-budget-copy__word {
+  fill: var(--blue);
+  font-family: var(--font-editorial) !important;
+  font-size: 42px;
+  font-weight: 400;
+  letter-spacing: -.035em;
+}
 
 .stat-geo-window__surface { fill: var(--bone); }
 .stat-geo-prompt rect { fill: #fff; }
@@ -648,15 +692,16 @@
 @keyframes stat-ticker-four { 0%, 26% { opacity: 0; transform: translateY(8px); } 28%, 35% { opacity: 1; transform: translateY(0); } 37%, 100% { opacity: 0; transform: translateY(-8px); } }
 @keyframes stat-ticker-five { 0%, 35% { opacity: 0; transform: translateY(8px); } 40%, 90% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; transform: translateY(-5px); } }
 
-@keyframes stat-person-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
+@keyframes stat-person-dim {
+  0%, 20% { opacity: 1; }
+  36%, 72% { opacity: .2; }
+  90%, 100% { opacity: 1; }
 }
 
-@keyframes stat-person-join {
-  0%, 14% { fill: var(--bone); transform: translateY(4px) scale(.92); }
-  30%, 82% { fill: var(--blue); transform: translateY(0) scale(1); }
-  100% { fill: var(--bone); transform: translateY(4px) scale(.92); }
+@keyframes stat-person-focus {
+  0%, 20% { transform: translate(0, 0) scale(1); }
+  39%, 70% { transform: translate(var(--person-focus-x), var(--person-focus-y)) scale(1.23); }
+  89%, 100% { transform: translate(0, 0) scale(1); }
 }
 
 @keyframes stat-growth-dot {
@@ -672,22 +717,33 @@
   100% { opacity: 0; transform: translateY(-5px) scale(.9); }
 }
 
-@keyframes stat-budget-shrink {
-  0%, 12% { transform: scaleX(1); }
-  45%, 88% { transform: scaleX(.77); }
-  100% { transform: scaleX(1); }
+@keyframes stat-budget-seven {
+  0%, 35% { opacity: 1; }
+  49%, 91% { opacity: .5; }
+  100% { opacity: 1; }
 }
 
-@keyframes stat-budget-start {
-  0%, 20% { opacity: 1; transform: translateY(0); }
-  34%, 92% { opacity: 0; transform: translateY(-10px); }
-  100% { opacity: 1; transform: translateY(0); }
+@keyframes stat-budget-ten {
+  0%, 38% { opacity: 0; transform: translateX(18px) scale(.94); }
+  52%, 91% { opacity: 1; transform: translateX(0) scale(1); }
+  100% { opacity: 0; transform: translateX(12px) scale(.96); }
 }
 
-@keyframes stat-budget-end {
-  0%, 20% { opacity: 0; transform: translateY(10px); }
-  38%, 88% { opacity: 1; transform: translateY(0); }
-  100% { opacity: 0; transform: translateY(-10px); }
+@keyframes stat-budget-ten-fill {
+  0%, 40% { transform: scaleY(0); }
+  55%, 91% { transform: scaleY(1); }
+  100% { transform: scaleY(0); }
+}
+
+@keyframes stat-budget-copy-then {
+  0%, 34% { opacity: 1; transform: translateY(0); }
+  44%, 100% { opacity: 0; transform: translateY(-34px); }
+}
+
+@keyframes stat-budget-copy-now {
+  0%, 41% { opacity: 0; transform: translateY(34px); }
+  53%, 91% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-28px); }
 }
 
 @keyframes stat-citation-pop {
