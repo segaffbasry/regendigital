@@ -687,8 +687,8 @@
 
 @keyframes stat-person-dim {
   0%, 18% { color: var(--blue); opacity: 1; }
-  25%, 32% { color: #EEF0E5; opacity: 1; }
-  42%, 64% { color: #EEF0E5; opacity: 0; }
+  24%, 26% { color: #EEF0E5; opacity: 1; }
+  32%, 64% { color: #EEF0E5; opacity: 0; }
   74%, 80% { color: #EEF0E5; opacity: 0; }
   90%, 100% { color: var(--blue); opacity: 1; }
 }
