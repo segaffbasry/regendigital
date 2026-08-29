@@ -155,6 +155,7 @@ const statVisuals = {
           </clipPath>
         </defs>
         <g className="stat-budget-bar stat-budget-bar--seven">
+          <rect className="stat-budget-bar__track" x="75" y="24" width="46" height="190" rx="23" />
           <circle className="stat-budget-bar__fill" cx="98" cy="191" r="23" />
         </g>
         <g className="stat-budget-bar stat-budget-bar--ten">
