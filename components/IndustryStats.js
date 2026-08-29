@@ -36,7 +36,7 @@ function GrowthPlot({ type }) {
           <path d="M74 39v155h382" />
           <path d="M74 145h382M74 96h382" />
         </g>
-        <text className="stat-growth-label stat-growth-label--start" x="82" y={isTech ? "185" : "211"}>
+        <text className="stat-growth-label stat-growth-label--start" x="74" y="211">
           {isTech ? "$5tn" : "Now"}
         </text>
         <path
@@ -44,14 +44,12 @@ function GrowthPlot({ type }) {
           pathLength="100"
           d={isTech ? "M92 169C155 164 188 148 235 132S333 105 420 58" : "M91 174C159 168 190 155 238 138S335 102 420 53"}
         />
-        <circle className="stat-growth-dot stat-growth-dot--start" cx="92" cy={isTech ? "169" : "174"} r="7" />
-        <circle className="stat-growth-dot stat-growth-dot--end" cx="420" cy={isTech ? "58" : "53"} r="10" />
         <g className="stat-growth-end-label">
           <rect x="304" y="22" width="152" height="54" rx="18" />
           <text x="380" y="58" textAnchor="middle">{isTech ? "$6.37tn" : "$3.5tn"}</text>
         </g>
         <text className="stat-growth-label stat-growth-label--end" x="454" y="211" textAnchor="end">
-          {isTech ? "+14.2%" : "2033"}
+          {isTech ? "+14,2%" : "2033"}
         </text>
       </svg>
     </div>
