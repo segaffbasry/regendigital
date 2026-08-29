@@ -654,9 +654,10 @@
 }
 
 @keyframes stat-line-extend {
-  0%, 10% { stroke-dashoffset: 100; }
-  48%, 88% { stroke-dashoffset: 0; }
-  100% { stroke-dashoffset: -100; }
+  0%, 10% { opacity: 0; stroke-dashoffset: 100; }
+  18% { opacity: 1; }
+  48%, 88% { opacity: 1; stroke-dashoffset: 0; }
+  100% { opacity: 0; stroke-dashoffset: -100; }
 }
 
 @keyframes stat-marker-travel {
