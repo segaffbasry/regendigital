@@ -117,9 +117,9 @@ const statVisuals = {
             const x = 102 + (person % 5) * 79;
             const y = person < 5 ? 61 : 145;
             const focus = {
-              2: { x: "0px", y: "20px", delay: "0s" },
-              6: { x: "44px", y: "-8px", delay: ".16s" },
-              8: { x: "-44px", y: "-8px", delay: ".32s" },
+              2: { x: "0px", y: "49px", delay: "0s" },
+              6: { x: "44px", y: "-35px", delay: ".16s" },
+              8: { x: "-44px", y: "-35px", delay: ".32s" },
             }[person];
             return (
               <g
