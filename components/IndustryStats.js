@@ -118,8 +118,8 @@ const statVisuals = {
             const y = person < 5 ? 61 : 145;
             const focus = {
               2: { x: "0px", y: "49px", delay: "0s" },
-              6: { x: "44px", y: "-35px", delay: ".16s" },
-              8: { x: "-44px", y: "-35px", delay: ".32s" },
+              6: { x: "-1px", y: "-35px", delay: ".12s" },
+              8: { x: "1px", y: "-35px", delay: ".24s" },
             }[person];
             return (
               <g
