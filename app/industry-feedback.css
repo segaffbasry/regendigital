@@ -366,9 +366,21 @@
 .stat-ai-answer > rect:nth-of-type(2) { fill: var(--blue); }
 
 .stat-answer-score circle {
+  fill: var(--blue);
+  stroke: none;
+  filter: drop-shadow(0 8px 12px rgba(6, 46, 250, .18));
+}
+
+.industry-stat-visual--illustration .stat-answer-score__value {
   fill: #fff;
-  stroke: var(--blue);
-  stroke-width: 11;
+  font-size: 30px;
+  font-weight: 650;
+  letter-spacing: -.045em;
+}
+
+.industry-stat-visual--illustration .stat-answer-score__percent {
+  font-size: 21px;
+  letter-spacing: -.02em;
 }
 
 /* Purpose-built animated market cards. The forms intentionally run close to
@@ -390,11 +402,11 @@
 .stat-percentage-dial__progress {
   stroke: var(--blue);
   stroke-linecap: round;
-  animation: stat-dial-draw 4.8s cubic-bezier(.3, .8, .25, 1) infinite;
+  animation: stat-dial-draw 7.2s cubic-bezier(.22, .72, .22, 1) infinite;
 }
 
 .stat-percentage-dial__value {
-  animation: stat-value-breathe 4.8s ease-in-out infinite;
+  animation: stat-value-breathe 7.2s cubic-bezier(.22, .72, .22, 1) infinite;
   transform-box: fill-box;
   transform-origin: center;
 }
@@ -642,15 +654,15 @@
 }
 
 @keyframes stat-dial-draw {
-  0%, 9% { stroke-dashoffset: 100; }
-  48%, 88% { stroke-dashoffset: 0; }
-  100% { stroke-dashoffset: -100; }
+  0%, 10% { stroke-dashoffset: 100; }
+  46%, 84% { stroke-dashoffset: var(--dial-offset); }
+  100% { stroke-dashoffset: 100; }
 }
 
 @keyframes stat-value-breathe {
-  0%, 22% { opacity: .35; transform: scale(.88); }
-  48%, 88% { opacity: 1; transform: scale(1); }
-  100% { opacity: .35; transform: scale(.88); }
+  0%, 16% { opacity: .28; transform: scale(.94); }
+  46%, 84% { opacity: 1; transform: scale(1); }
+  100% { opacity: .28; transform: scale(.94); }
 }
 
 @keyframes stat-line-extend {

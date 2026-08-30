@@ -10,7 +10,9 @@ function PercentageDial({ value, compactValue = false }) {
             cy="116"
             r="84"
             pathLength="100"
-            strokeDasharray={`${value} ${100 - value}`}
+            strokeDasharray="100"
+            strokeDashoffset="100"
+            style={{ "--dial-offset": 100 - value }}
           />
         </g>
         <text
@@ -199,8 +201,16 @@ const statVisuals = {
           </g>
         </g>
         <g className="stat-answer-score">
-          <circle cx="410" cy="151" r="44" />
-          <text className="stat-value" x="410" y="158" textAnchor="middle">94%</text>
+          <circle cx="410" cy="151" r="45" />
+          <text
+            className="stat-value stat-answer-score__value"
+            x="410"
+            y="151"
+            textAnchor="middle"
+            dominantBaseline="central"
+          >
+            94<tspan className="stat-answer-score__percent">%</tspan>
+          </text>
         </g>
       </svg>
     </div>
