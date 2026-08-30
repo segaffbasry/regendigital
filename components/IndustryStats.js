@@ -1,3 +1,24 @@
+function ClarityPieChart() {
+  return (
+    <div className="industry-stat-visual industry-stat-visual--illustration industry-stat-visual--pie" aria-hidden="true">
+      <svg viewBox="0 0 520 240" role="presentation">
+        <g className="stat-pie-chart">
+          <path className="stat-pie-chart__slice stat-pie-chart__slice--highlight" d="M178 118L178 42A76 76 0 0 1 239.49 73.33Z" />
+          <path className="stat-pie-chart__slice" d="M178 118L239.49 73.33A76 76 0 0 1 201.49 190.28Z" />
+          <path className="stat-pie-chart__slice" d="M178 118L201.49 190.28A76 76 0 0 1 105.72 94.51Z" />
+          <path className="stat-pie-chart__slice" d="M178 118L105.72 94.51A76 76 0 0 1 178 42Z" />
+        </g>
+        <g className="stat-pie-chart__copy">
+          <text className="stat-value stat-pie-chart__value" x="368" y="116" textAnchor="middle" dominantBaseline="central">
+            15<tspan className="stat-pie-chart__percent">%</tspan>
+          </text>
+          <text className="stat-pie-chart__caption" x="368" y="158" textAnchor="middle">very good</text>
+        </g>
+      </svg>
+    </div>
+  );
+}
+
 function PercentageDial({ value, compactValue = false }) {
   return (
     <div className="industry-stat-visual industry-stat-visual--illustration industry-stat-visual--percentage" aria-hidden="true">
@@ -74,7 +95,7 @@ const statVisuals = {
       <img src="/asset/Buyers%20Decide%20Without%20You.svg" alt="" />
     </div>
   ),
-  "professional-clarity": <PercentageDial value={15} />,
+  "professional-clarity": <ClarityPieChart />,
   "professional-growth": (
     <div className="industry-stat-visual industry-stat-visual--illustration" aria-hidden="true">
       <svg viewBox="0 0 520 240" role="presentation">

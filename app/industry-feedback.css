@@ -383,6 +383,73 @@
   letter-spacing: -.02em;
 }
 
+.stat-pie-chart__slice {
+  --pie-from-x: 18px;
+  --pie-from-y: 16px;
+  --pie-from-rotation: -8deg;
+  fill: #e7e9df;
+  stroke: #fff;
+  stroke-linejoin: round;
+  stroke-width: 4;
+  animation: stat-pie-assemble 8s cubic-bezier(.2, .72, .2, 1) infinite both;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.stat-pie-chart__slice:nth-child(2) {
+  animation-delay: .1s;
+}
+
+.stat-pie-chart__slice:nth-child(3) {
+  --pie-from-x: -18px;
+  --pie-from-y: 14px;
+  --pie-from-rotation: 9deg;
+  fill: #eef0e7;
+  animation-delay: .2s;
+}
+
+.stat-pie-chart__slice:nth-child(4) {
+  --pie-from-x: -14px;
+  --pie-from-y: -16px;
+  --pie-from-rotation: -10deg;
+  fill: #f2f3ec;
+  animation-delay: .3s;
+}
+
+.stat-pie-chart__slice--highlight {
+  --pie-from-x: 8px;
+  --pie-from-y: -22px;
+  --pie-from-rotation: 12deg;
+  fill: var(--blue);
+  filter: drop-shadow(0 7px 10px rgba(6, 46, 250, .16));
+}
+
+.stat-pie-chart__copy {
+  animation: stat-pie-copy-reveal 8s cubic-bezier(.22, .72, .22, 1) infinite both;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.industry-stat-visual--illustration .stat-pie-chart__value {
+  fill: var(--blue);
+  font-size: 68px;
+  font-weight: 650;
+  letter-spacing: -.07em;
+}
+
+.industry-stat-visual--illustration .stat-pie-chart__percent {
+  font-size: 34px;
+  letter-spacing: -.03em;
+}
+
+.stat-pie-chart__caption {
+  fill: rgba(5, 5, 5, .44);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
 /* Purpose-built animated market cards. The forms intentionally run close to
    and across one another, echoing the oversized, cropped Figma source art. */
 .stat-percentage-dial {
@@ -663,6 +730,31 @@
   0%, 16% { opacity: .28; transform: scale(.94); }
   46%, 84% { opacity: 1; transform: scale(1); }
   100% { opacity: .28; transform: scale(.94); }
+}
+
+@keyframes stat-pie-assemble {
+  0%, 9% {
+    opacity: .2;
+    transform: translate(var(--pie-from-x), var(--pie-from-y)) rotate(var(--pie-from-rotation)) scale(.9);
+  }
+  31% {
+    opacity: 1;
+    transform: translate(0) rotate(0) scale(1.035);
+  }
+  39%, 82% {
+    opacity: 1;
+    transform: translate(0) rotate(0) scale(1);
+  }
+  100% {
+    opacity: .2;
+    transform: translate(var(--pie-from-x), var(--pie-from-y)) rotate(var(--pie-from-rotation)) scale(.9);
+  }
+}
+
+@keyframes stat-pie-copy-reveal {
+  0%, 12% { opacity: .38; transform: translateX(8px) scale(.97); }
+  41%, 82% { opacity: 1; transform: translateX(0) scale(1); }
+  100% { opacity: .38; transform: translateX(8px) scale(.97); }
 }
 
 @keyframes stat-line-extend {
