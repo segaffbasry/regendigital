@@ -94,8 +94,10 @@
   object-position: left center;
   /* The source files are white artwork cut for the blue hero band. On this
      light panel they need knocking back to ink to read at all. */
-  filter: brightness(0);
-  opacity: .82;
+  /* Force every source mark to solid black, including the white PNG and SVG
+     artwork shared with the blue client strip. */
+  filter: brightness(0) saturate(100%);
+  opacity: 1;
   transform: scale(var(--result-logo-scale, 1));
   transform-origin: left center;
 }
