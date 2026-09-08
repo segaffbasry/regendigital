@@ -4,6 +4,7 @@ import IndustrySystemGraphic, { IndustryCardGraphic } from "./IndustrySystemGrap
 import { IndustryRealities, IndustryStats } from "./IndustryStats";
 import InvestorTracks from "./InvestorTracks";
 import InteriorMotion from "./InteriorMotion";
+import MethodologySystemGraphic from "./MethodologySystemGraphic";
 import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
 import StaggerText from "./StaggerText";
@@ -236,6 +237,11 @@ export default function InteriorPage({ content, title, section }) {
         </section>
       ) : null}
 
+      {isMethodology ? (
+        <div className="method-system-stage">
+          <MethodologySystemGraphic />
+        </div>
+      ) : null}
       {/* A page can trade the system diagram for a video slot, as the home page
           has. Industries without one keep the diagram. */}
       {/* Every industry detail page takes the video slot. Only SaaS carries its

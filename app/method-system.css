@@ -1,11 +1,21 @@
-/* Methodology: a technical, closed-loop view of the Regen B2B growth system. */
+/* Methodology: a contained, light technical view of the Regen B2B growth system. */
+.method-system-stage {
+  padding: clamp(18px, 3vw, 48px) var(--page-gutter) clamp(28px, 4vw, 64px);
+  background: var(--bone);
+}
+
 .method-system {
   position: relative;
   isolation: isolate;
+  width: min(100%, 1180px);
   overflow: hidden;
-  padding: clamp(58px, 7vw, 112px) var(--page-gutter);
-  background: var(--black);
-  color: var(--white);
+  margin-inline: auto;
+  padding: clamp(34px, 4.5vw, 64px);
+  border: 1px solid rgba(5, 5, 5, .14);
+  border-radius: clamp(22px, 2.5vw, 34px);
+  background: #f7f8f1;
+  color: var(--black);
+  box-shadow: 0 24px 60px rgba(5, 5, 5, .08);
 }
 
 .method-system::before,
@@ -19,8 +29,8 @@
 
 .method-system::before {
   background:
-    linear-gradient(rgba(255, 255, 255, .035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, .035) 1px, transparent 1px);
+    linear-gradient(rgba(5, 5, 5, .045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(5, 5, 5, .045) 1px, transparent 1px);
   background-size: 48px 48px;
   mask-image: linear-gradient(to bottom, transparent, #000 16%, #000 84%, transparent);
   opacity: .72;
@@ -29,8 +39,8 @@
 .method-system::after {
   inset: -20% -10%;
   background:
-    radial-gradient(circle at 46% 52%, rgba(0, 40, 250, .19), transparent 25%),
-    radial-gradient(circle at 88% 68%, rgba(0, 40, 250, .1), transparent 18%);
+    radial-gradient(circle at 46% 52%, rgba(0, 40, 250, .09), transparent 25%),
+    radial-gradient(circle at 88% 68%, rgba(0, 40, 250, .06), transparent 18%);
 }
 
 .method-system__bar {
@@ -39,9 +49,9 @@
   justify-content: space-between;
   gap: 24px;
   padding: 13px 0;
-  border-top: 1px solid rgba(255, 255, 255, .24);
-  border-bottom: 1px solid rgba(255, 255, 255, .14);
-  color: rgba(255, 255, 255, .56);
+  border-top: 1px solid rgba(5, 5, 5, .2);
+  border-bottom: 1px solid rgba(5, 5, 5, .12);
+  color: rgba(5, 5, 5, .56);
   font-family: var(--font-helv);
   font-size: 10px;
   font-weight: 600;
@@ -53,7 +63,7 @@
   flex: 0 0 auto;
   align-items: center;
   gap: 8px;
-  color: rgba(255, 255, 255, .78);
+  color: rgba(5, 5, 5, .72);
 }
 
 .method-system__status i {
@@ -74,7 +84,7 @@
 }
 
 .method-system__heading .editorial-kicker {
-  color: rgba(255, 255, 255, .54);
+  color: rgba(5, 5, 5, .54);
 }
 
 .method-system__heading h2 {
@@ -89,7 +99,7 @@
 .method-system__heading > p {
   max-width: 470px;
   margin: 0;
-  color: rgba(255, 255, 255, .68);
+  color: rgba(5, 5, 5, .68);
   font-size: clamp(14px, 1.05vw, 17px);
   line-height: 1.48;
 }
@@ -105,12 +115,12 @@
   gap: clamp(8px, 1vw, 16px);
   align-items: stretch;
   padding: clamp(14px, 1.5vw, 22px);
-  border: 1px solid rgba(255, 255, 255, .18);
+  border: 1px solid rgba(5, 5, 5, .14);
   border-radius: clamp(20px, 2vw, 28px);
-  background: rgba(10, 10, 10, .84);
+  background: rgba(255, 255, 255, .58);
   box-shadow:
-    0 34px 90px rgba(0, 0, 0, .35),
-    inset 0 1px rgba(255, 255, 255, .045);
+    0 22px 50px rgba(5, 5, 5, .08),
+    inset 0 1px rgba(255, 255, 255, .8);
   backdrop-filter: blur(10px);
 }
 
@@ -119,8 +129,8 @@
   inset: 0;
   border-radius: inherit;
   background:
-    linear-gradient(110deg, transparent 0 42%, rgba(255, 255, 255, .032) 49%, transparent 57%),
-    repeating-linear-gradient(0deg, transparent 0 31px, rgba(255, 255, 255, .022) 32px);
+    linear-gradient(110deg, transparent 0 42%, rgba(0, 40, 250, .04) 49%, transparent 57%),
+    repeating-linear-gradient(0deg, transparent 0 31px, rgba(5, 5, 5, .025) 32px);
   background-size: 220% 100%, auto;
   content: "";
   pointer-events: none;
@@ -138,10 +148,10 @@
   gap: 11px;
   padding: clamp(16px, 1.5vw, 22px);
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, .16);
+  border: 1px solid rgba(5, 5, 5, .13);
   border-radius: 18px;
-  background: rgba(255, 255, 255, .035);
-  box-shadow: inset 0 1px rgba(255, 255, 255, .035);
+  background: rgba(255, 255, 255, .5);
+  box-shadow: inset 0 1px rgba(255, 255, 255, .8);
 }
 
 .method-system__column::after,
@@ -152,14 +162,14 @@
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, .24);
+  background: rgba(5, 5, 5, .24);
   content: "";
 }
 
 .method-system__label {
   display: block;
   margin-bottom: clamp(12px, 1.5vw, 22px);
-  color: rgba(255, 255, 255, .48);
+  color: rgba(5, 5, 5, .48);
   font-family: var(--font-helv);
   font-size: 9px;
   font-weight: 600;
@@ -175,10 +185,10 @@
   align-items: center;
   min-height: 42px;
   padding: 8px 10px;
-  border: 1px solid rgba(255, 255, 255, .12);
+  border: 1px solid rgba(5, 5, 5, .11);
   border-radius: 11px;
-  background: rgba(255, 255, 255, .025);
-  color: rgba(255, 255, 255, .78);
+  background: rgba(255, 255, 255, .58);
+  color: rgba(5, 5, 5, .76);
   font-size: clamp(10px, .72vw, 12px);
   line-height: 1.2;
 }
@@ -188,9 +198,9 @@
   width: 25px;
   aspect-ratio: 1;
   place-items: center;
-  border: 1px solid rgba(255, 255, 255, .22);
+  border: 1px solid rgba(5, 5, 5, .2);
   border-radius: 50%;
-  color: rgba(255, 255, 255, .48);
+  color: rgba(5, 5, 5, .48);
   font-size: 8px;
   font-style: normal;
 }
@@ -207,7 +217,7 @@
   right: 0;
   left: 0;
   height: 1px;
-  background: rgba(255, 255, 255, .24);
+  background: rgba(5, 5, 5, .24);
 }
 
 .method-system__connector > span::after {
@@ -216,8 +226,8 @@
   right: 0;
   width: 6px;
   height: 6px;
-  border-top: 1px solid rgba(255, 255, 255, .42);
-  border-right: 1px solid rgba(255, 255, 255, .42);
+  border-top: 1px solid rgba(5, 5, 5, .38);
+  border-right: 1px solid rgba(5, 5, 5, .38);
   content: "";
   transform: rotate(45deg);
 }
@@ -259,7 +269,7 @@
   place-content: center;
   align-self: center;
   justify-self: center;
-  border: 1px solid rgba(255, 255, 255, .2);
+  border: 1px solid rgba(5, 5, 5, .2);
   border-radius: 50%;
   text-align: center;
 }
@@ -267,7 +277,7 @@
 .method-system__engine-core::before,
 .method-system__engine-core::after {
   position: absolute;
-  border: 1px solid rgba(255, 255, 255, .13);
+  border: 1px solid rgba(5, 5, 5, .13);
   border-radius: 50%;
   content: "";
 }
@@ -284,14 +294,14 @@
 }
 
 .method-system__engine-core span {
-  color: rgba(255, 255, 255, .5);
+  color: rgba(5, 5, 5, .5);
   font-size: 8px;
   letter-spacing: .12em;
 }
 
 .method-system__engine-core strong {
   margin: 7px 0;
-  color: var(--white);
+  color: var(--black);
   font-size: clamp(13px, 1.05vw, 17px);
   font-weight: 600;
   letter-spacing: .04em;
@@ -323,10 +333,10 @@
   min-height: clamp(72px, 6vw, 92px);
   place-items: end start;
   padding: 11px;
-  border: 1px solid rgba(255, 255, 255, .12);
+  border: 1px solid rgba(5, 5, 5, .11);
   border-radius: 12px;
-  background: rgba(255, 255, 255, .025);
-  color: rgba(255, 255, 255, .76);
+  background: rgba(255, 255, 255, .58);
+  color: rgba(5, 5, 5, .74);
   font-size: clamp(10px, .75vw, 12px);
 }
 
@@ -350,13 +360,13 @@
   display: grid;
   gap: 9px;
   padding: 9px 0 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, .1);
+  border-bottom: 1px solid rgba(5, 5, 5, .1);
 }
 
 .method-system__output:last-child { border-bottom: 0; }
 
 .method-system__output > span {
-  color: rgba(255, 255, 255, .78);
+  color: rgba(5, 5, 5, .74);
   font-size: clamp(10px, .78vw, 12px);
   line-height: 1.2;
 }
@@ -388,7 +398,7 @@
   gap: clamp(12px, 1.6vw, 24px);
   align-items: center;
   margin-top: 18px;
-  color: rgba(255, 255, 255, .48);
+  color: rgba(5, 5, 5, .48);
   font-family: var(--font-helv);
   font-size: 9px;
   font-weight: 600;
@@ -399,7 +409,7 @@
   position: relative;
   display: block;
   height: 1px;
-  background: linear-gradient(90deg, rgba(0, 40, 250, .72), rgba(255, 255, 255, .18));
+  background: linear-gradient(90deg, rgba(0, 40, 250, .72), rgba(5, 5, 5, .18));
 }
 
 .method-system__feedback > i::before {
@@ -547,8 +557,13 @@
 }
 
 @media (max-width: 600px) {
+  .method-system-stage {
+    padding: 10px 10px 28px;
+  }
+
   .method-system {
-    padding-block: 48px 58px;
+    padding: 34px 18px 42px;
+    border-radius: 20px;
   }
 
   .method-system__bar {
