@@ -3411,11 +3411,19 @@
   border-radius: clamp(18px, 1.7vw, 26px);
   background: var(--white);
   color: var(--black);
-  grid-template-rows: auto auto 1fr;
+  grid-template-rows: auto auto 1fr auto;
   box-shadow:
     0 1px 2px rgba(5, 5, 5, .05),
     0 14px 34px rgba(5, 5, 5, .1);
 }
+
+.editorial-page--methodology .editorial-steps--methodology .editorial-steps__illustration {
+  position: relative;
+  z-index: 2;
+  margin: 10px -6px 0;
+  color: var(--blue);
+}
+.editorial-page--methodology .editorial-steps--methodology .editorial-steps__illustration svg { display: block; width: 100%; height: auto; }
 
 .editorial-page--methodology .editorial-steps--methodology article:first-child {
   background: var(--white);
@@ -3448,14 +3456,10 @@
   z-index: 2;
   align-self: end;
   max-width: 34ch;
-  margin: clamp(84px, 9vw, 132px) 0 0;
+  margin: 0;
   color: currentColor;
   font-size: clamp(14px, 1vw, 16px);
   line-height: 1.35;
-}
-
-.editorial-page--methodology .editorial-steps--methodology article:first-child p {
-  max-width: 34ch;
 }
 
 @media (max-width: 900px) {
@@ -3471,20 +3475,19 @@
     padding: 32px 20px;
   }
 
-  .editorial-page--methodology .editorial-steps--methodology article,
-  .editorial-page--methodology .editorial-steps--methodology article:first-child {
+  .editorial-page--methodology .editorial-steps--methodology article {
     min-height: 270px;
     grid-column: auto;
     padding: 22px;
   }
 
   .editorial-page--methodology .editorial-steps--methodology article p {
-    margin-top: 72px;
+    max-width: none;
   }
 
-  .editorial-page--methodology .editorial-steps--methodology article:first-child p {
-    max-width: none;
-    margin-top: 72px;
+  .editorial-page--methodology .editorial-steps--methodology .editorial-steps__illustration {
+    max-width: 220px;
+    margin-inline: auto;
   }
 }
 

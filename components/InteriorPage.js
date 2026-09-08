@@ -4,7 +4,7 @@ import IndustrySystemGraphic, { IndustryCardGraphic } from "./IndustrySystemGrap
 import { IndustryRealities, IndustryStats } from "./IndustryStats";
 import InvestorTracks from "./InvestorTracks";
 import InteriorMotion from "./InteriorMotion";
-import MethodologySystemGraphic from "./MethodologySystemGraphic";
+import MethodologySystemGraphic, { AuditGraphic, TestGraphic, AmplifyGraphic } from "./MethodologySystemGraphic";
 import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
 import StaggerText from "./StaggerText";
@@ -230,7 +230,7 @@ export default function InteriorPage({ content, title, section }) {
         </div>
       </section>
 
-      {!isIndustryDetail ? (
+      {!isIndustryDetail && !isMethodology ? (
         <section className="editorial-intro">
           <p className="editorial-kicker">{page.h1}</p>
           <p className="editorial-intro__body">{page.body}</p>
@@ -294,11 +294,18 @@ export default function InteriorPage({ content, title, section }) {
 
       {page.steps?.length ? (
         <section className={`editorial-steps${isMethodology ? " editorial-steps--methodology" : ""}`}>
-          {page.steps.map(([number, name, copy]) => (
-            <article key={number}>
-              <span>{number}</span><h2>{name}</h2><p>{copy}</p>
-            </article>
-          ))}
+          {page.steps.map(([number, name, copy], index) => {
+            const StepIllustration = [AuditGraphic, TestGraphic, AmplifyGraphic][index];
+            return (
+              <article key={number}>
+                <span>{number}</span><h2>{name}</h2>
+                {isMethodology && StepIllustration ? (
+                  <div className="editorial-steps__illustration" aria-hidden="true"><StepIllustration /></div>
+                ) : null}
+                <p>{copy}</p>
+              </article>
+            );
+          })}
         </section>
       ) : null}
 
