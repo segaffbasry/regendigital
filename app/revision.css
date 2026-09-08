@@ -4466,6 +4466,7 @@
 
 .editorial-page--methodology .editorial-intro {
   padding-block: clamp(42px, 5vw, 68px);
+  background: var(--white);
 }
 
 .editorial-page--methodology .editorial-intro__body {

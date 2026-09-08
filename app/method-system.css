@@ -1,7 +1,7 @@
 /* Methodology: a contained, light technical view of the Regen B2B growth system. */
 .method-system-stage {
   padding: clamp(18px, 3vw, 48px) var(--page-gutter) clamp(28px, 4vw, 64px);
-  background: var(--bone);
+  background: var(--white);
 }
 
 .method-system {
