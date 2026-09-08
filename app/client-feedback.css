@@ -3458,20 +3458,6 @@
   max-width: 34ch;
 }
 
-.editorial-page--methodology .editorial-steps--methodology article:first-child::after,
-.editorial-page--methodology .editorial-steps--methodology article:nth-child(2)::after,
-.editorial-page--methodology .editorial-steps--methodology article:nth-child(3)::after {
-  position: absolute;
-  right: 24px;
-  bottom: 24px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--blue);
-  box-shadow: 0 0 0 9px rgba(0, 40, 250, .16);
-  content: "";
-}
-
 @media (max-width: 900px) {
   .editorial-page--methodology .editorial-steps--methodology {
     grid-template-columns: 1fr;
