@@ -3391,31 +3391,34 @@
   }
 }
 
-/* The methodology steps mirror the compact, image-led Audit / Test / Amplify reference. */
+/* A centred proof-card treatment for the three methodology stages. */
 .editorial-page--methodology .editorial-steps--methodology {
   display: grid;
-  grid-template-columns: minmax(0, 1.85fr) repeat(2, minmax(0, 1fr));
-  gap: clamp(10px, 1vw, 14px);
-  padding: clamp(12px, 1.4vw, 20px);
-  background: var(--bone);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 1.8vw, 28px);
+  padding: clamp(48px, 5vw, 76px) max(var(--page-gutter), calc((100vw - 1180px) / 2));
+  background: var(--light-blue);
   color: var(--black);
 }
 
 .editorial-page--methodology .editorial-steps--methodology article {
   position: relative;
   display: grid;
-  min-height: clamp(300px, 27vw, 390px);
+  min-height: clamp(320px, 26vw, 380px);
   padding: clamp(20px, 2vw, 30px);
   overflow: hidden;
-  border: 1px solid rgba(5, 5, 5, .14);
+  border: 0;
   border-radius: clamp(18px, 1.7vw, 26px);
-  background: transparent;
+  background: var(--white);
   color: var(--black);
   grid-template-rows: auto auto 1fr;
+  box-shadow:
+    0 1px 2px rgba(5, 5, 5, .05),
+    0 14px 34px rgba(5, 5, 5, .1);
 }
 
 .editorial-page--methodology .editorial-steps--methodology article:first-child {
-  background: transparent;
+  background: var(--white);
   color: var(--black);
 }
 
@@ -3452,21 +3455,10 @@
 }
 
 .editorial-page--methodology .editorial-steps--methodology article:first-child p {
-  max-width: min(42ch, 58%);
+  max-width: 34ch;
 }
 
-.editorial-page--methodology .editorial-steps--methodology article img {
-  position: absolute;
-  right: -5%;
-  bottom: -10%;
-  width: 56%;
-  height: 82%;
-  object-fit: cover;
-  object-position: 58% 50%;
-  border-radius: 999px 999px 22px 999px;
-  filter: saturate(.72) contrast(.94);
-}
-
+.editorial-page--methodology .editorial-steps--methodology article:first-child::after,
 .editorial-page--methodology .editorial-steps--methodology article:nth-child(2)::after,
 .editorial-page--methodology .editorial-steps--methodology article:nth-child(3)::after {
   position: absolute;
@@ -3482,11 +3474,7 @@
 
 @media (max-width: 900px) {
   .editorial-page--methodology .editorial-steps--methodology {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .editorial-page--methodology .editorial-steps--methodology article:first-child {
-    grid-column: 1 / -1;
+    grid-template-columns: 1fr;
   }
 }
 
@@ -3494,7 +3482,7 @@
   .editorial-page--methodology .editorial-steps--methodology {
     grid-template-columns: 1fr;
     gap: 10px;
-    padding: 10px;
+    padding: 32px 20px;
   }
 
   .editorial-page--methodology .editorial-steps--methodology article,
@@ -3510,16 +3498,7 @@
 
   .editorial-page--methodology .editorial-steps--methodology article:first-child p {
     max-width: none;
-    margin-top: 160px;
-  }
-
-  .editorial-page--methodology .editorial-steps--methodology article img {
-    top: 68px;
-    right: 18px;
-    bottom: auto;
-    width: 46%;
-    height: 112px;
-    border-radius: 999px 999px 18px 999px;
+    margin-top: 72px;
   }
 }
 

@@ -294,10 +294,9 @@ export default function InteriorPage({ content, title, section }) {
 
       {page.steps?.length ? (
         <section className={`editorial-steps${isMethodology ? " editorial-steps--methodology" : ""}`}>
-          {page.steps.map(([number, name, copy], index) => (
+          {page.steps.map(([number, name, copy]) => (
             <article key={number}>
               <span>{number}</span><h2>{name}</h2><p>{copy}</p>
-              {isMethodology && index === 0 ? <img src="/images/methodology-audit.webp" alt="" loading="lazy" /> : null}
             </article>
           ))}
         </section>
