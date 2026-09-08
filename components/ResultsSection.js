@@ -6,17 +6,15 @@ import "../app/results-section.css";
    The logo scales are tuned for this panel, not inherited from the hero strip,
    where the box and the rhythm around it are different.
 
-   The client logos are the same files the hero strip uses, and those are white
-   artwork cut for the blue band, so they are knocked back to ink for this light
-   panel rather than kept as a second set of files. Swap in dark artwork and
-   drop the filter if the brand colours are ever wanted here. */
+   These cards use dedicated dark logo artwork so the marks keep their contrast
+   on the light-blue panels without relying on browser image filters. */
 const results = [
   {
     client: "Agency AI",
     headline: "15% increase in referral traffic",
     lead: "In the first 30 days, from ",
     emphasis: "organic, search and outbound",
-    logo: "/client-logos/client-04.png",
+    logo: "/client-logos/client-04-dark.png",
     logoScale: 3,
     href: "/work/agency-ai",
   },
@@ -25,7 +23,7 @@ const results = [
     headline: "5x the target audience reached",
     lead: "From ",
     emphasis: "account-based marketing and founder-led social",
-    logo: "/client-logos/IntusHQ/intushq.svg",
+    logo: "/client-logos/IntusHQ/intushq-dark.svg",
     logoScale: 0.62,
     href: "/work/intushq",
   },
@@ -34,7 +32,7 @@ const results = [
     headline: "Placed 3rd out of 280+ companies",
     lead: "At launch, from ",
     emphasis: "organic social and Product Hunt",
-    logo: "/client-logos/client-03.png",
+    logo: "/client-logos/client-03-dark.png",
     logoScale: 0.86,
     href: "/work/finden",
   },
