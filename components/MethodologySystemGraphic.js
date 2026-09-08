@@ -5,11 +5,6 @@ const outputs = ["Demand", "Qualified pipeline", "Revenue signal"];
 export default function MethodologySystemGraphic() {
   return (
     <section className="method-system" aria-labelledby="method-system-title">
-      <div className="method-system__bar">
-        <span>REGEN METHOD / CONTROL LAYER</span>
-        <span className="method-system__status"><i /> SYSTEM ONLINE</span>
-      </div>
-
       <div className="method-system__heading">
         <div>
           <p className="editorial-kicker">B2B growth architecture</p>
@@ -58,13 +53,6 @@ export default function MethodologySystemGraphic() {
         </div>
       </div>
 
-      <div className="method-system__feedback">
-        <span>COMMERCIAL FEEDBACK LOOP</span>
-        <i />
-        <span>LEARN</span>
-        <span>REFINE</span>
-        <span>REDEPLOY</span>
-      </div>
     </section>
   );
 }

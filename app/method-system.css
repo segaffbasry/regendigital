@@ -1,16 +1,20 @@
 /* Methodology: a contained, light technical view of the Regen B2B growth system. */
 .method-system-stage {
-  padding: clamp(18px, 3vw, 48px) var(--page-gutter) clamp(28px, 4vw, 64px);
+  padding: clamp(16px, 2.5vw, 36px) var(--page-gutter) clamp(28px, 4vw, 56px);
   background: var(--white);
 }
 
 .method-system {
   position: relative;
   isolation: isolate;
-  width: min(100%, 1180px);
+  display: grid;
+  width: min(100%, 1080px);
   overflow: hidden;
+  grid-template-columns: minmax(250px, .72fr) minmax(0, 1.28fr);
+  gap: clamp(30px, 4vw, 58px);
+  align-items: center;
   margin-inline: auto;
-  padding: clamp(34px, 4.5vw, 64px);
+  padding: clamp(32px, 3.5vw, 48px);
   border: 1px solid rgba(5, 5, 5, .14);
   border-radius: clamp(22px, 2.5vw, 34px);
   background: var(--white);
@@ -76,11 +80,8 @@
 }
 
 .method-system__heading {
-  display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(280px, .5fr);
-  gap: clamp(44px, 8vw, 132px);
-  align-items: end;
-  padding: clamp(42px, 5vw, 76px) 0 clamp(34px, 4vw, 58px);
+  display: block;
+  padding: 0;
 }
 
 .method-system__heading .editorial-kicker {
@@ -88,17 +89,17 @@
 }
 
 .method-system__heading h2 {
-  max-width: 900px;
+  max-width: 12ch;
   margin: 18px 0 0;
-  font-size: clamp(38px, 4.7vw, 76px);
+  font-size: clamp(34px, 3.2vw, 50px);
   font-weight: 500;
   letter-spacing: -.06em;
   line-height: .94;
 }
 
 .method-system__heading > p {
-  max-width: 470px;
-  margin: 0;
+  max-width: 36ch;
+  margin: clamp(20px, 2.4vw, 30px) 0 0;
   color: rgba(5, 5, 5, .68);
   font-size: clamp(14px, 1.05vw, 17px);
   line-height: 1.48;
@@ -108,18 +109,18 @@
   position: relative;
   display: grid;
   grid-template-columns:
-    minmax(140px, .9fr) minmax(24px, .18fr)
-    minmax(175px, 1fr) minmax(24px, .18fr)
-    minmax(160px, .95fr) minmax(24px, .18fr)
-    minmax(150px, .95fr);
-  gap: clamp(8px, 1vw, 16px);
+    minmax(0, .9fr) 16px
+    minmax(0, 1fr) 16px
+    minmax(0, .95fr) 16px
+    minmax(0, .95fr);
+  gap: 7px;
   align-items: stretch;
-  padding: clamp(14px, 1.5vw, 22px);
+  padding: 12px;
   border: 1px solid rgba(5, 5, 5, .14);
-  border-radius: clamp(20px, 2vw, 28px);
+  border-radius: 20px;
   background: rgba(255, 255, 255, .58);
   box-shadow:
-    0 22px 50px rgba(5, 5, 5, .08),
+    0 16px 36px rgba(5, 5, 5, .07),
     inset 0 1px rgba(255, 255, 255, .8);
   backdrop-filter: blur(10px);
 }
@@ -143,13 +144,13 @@
   z-index: 1;
   display: grid;
   min-width: 0;
-  min-height: clamp(280px, 24vw, 360px);
+  min-height: clamp(205px, 18vw, 245px);
   align-content: start;
-  gap: 11px;
-  padding: clamp(16px, 1.5vw, 22px);
+  gap: 8px;
+  padding: 12px;
   overflow: hidden;
   border: 1px solid rgba(5, 5, 5, .13);
-  border-radius: 18px;
+  border-radius: 14px;
   background: rgba(255, 255, 255, .5);
   box-shadow: inset 0 1px rgba(255, 255, 255, .8);
 }
@@ -168,7 +169,7 @@
 
 .method-system__label {
   display: block;
-  margin-bottom: clamp(12px, 1.5vw, 22px);
+  margin-bottom: 10px;
   color: rgba(5, 5, 5, .48);
   font-family: var(--font-helv);
   font-size: 9px;
@@ -180,11 +181,11 @@
 .method-system__chip {
   display: grid;
   min-width: 0;
-  grid-template-columns: 25px minmax(0, 1fr);
-  gap: 9px;
+  grid-template-columns: 20px minmax(0, 1fr);
+  gap: 6px;
   align-items: center;
-  min-height: 42px;
-  padding: 8px 10px;
+  min-height: 32px;
+  padding: 6px 7px;
   border: 1px solid rgba(5, 5, 5, .11);
   border-radius: 11px;
   background: rgba(255, 255, 255, .58);
@@ -195,7 +196,7 @@
 
 .method-system__chip i {
   display: grid;
-  width: 25px;
+  width: 20px;
   aspect-ratio: 1;
   place-items: center;
   border: 1px solid rgba(5, 5, 5, .2);
@@ -264,7 +265,7 @@
 .method-system__engine-core {
   position: relative;
   display: grid;
-  width: min(100%, 170px);
+  width: min(100%, 108px);
   aspect-ratio: 1;
   place-content: center;
   align-self: center;
@@ -302,7 +303,7 @@
 .method-system__engine-core strong {
   margin: 7px 0;
   color: var(--black);
-  font-size: clamp(13px, 1.05vw, 17px);
+  font-size: clamp(11px, .9vw, 14px);
   font-weight: 600;
   letter-spacing: .04em;
 }
@@ -322,7 +323,7 @@
 .method-system__test-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 9px;
+  gap: 6px;
   align-self: center;
 }
 
@@ -330,9 +331,9 @@
   position: relative;
   display: grid;
   min-width: 0;
-  min-height: clamp(72px, 6vw, 92px);
+  min-height: clamp(48px, 4vw, 62px);
   place-items: end start;
-  padding: 11px;
+  padding: 8px;
   border: 1px solid rgba(5, 5, 5, .11);
   border-radius: 12px;
   background: rgba(255, 255, 255, .58);
@@ -342,8 +343,8 @@
 
 .method-system__test-grid i {
   position: absolute;
-  top: 11px;
-  right: 11px;
+  top: 8px;
+  right: 8px;
   width: 6px;
   height: 6px;
   border-radius: 50%;
@@ -358,8 +359,8 @@
 
 .method-system__output {
   display: grid;
-  gap: 9px;
-  padding: 9px 0 12px;
+  gap: 6px;
+  padding: 7px 0 9px;
   border-bottom: 1px solid rgba(5, 5, 5, .1);
 }
 
@@ -481,6 +482,20 @@
 }
 
 @media (max-width: 1000px) {
+  .method-system {
+    grid-template-columns: 1fr;
+  }
+
+  .method-system__heading h2 {
+    max-width: 16ch;
+  }
+
+  .method-system__heading > p {
+    max-width: 54ch;
+  }
+}
+
+@media (max-width: 760px) {
   .method-system__heading {
     grid-template-columns: 1fr;
     gap: 24px;
