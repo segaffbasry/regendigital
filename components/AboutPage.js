@@ -40,14 +40,6 @@ const teamMembers = [
       "AI Partner who builds credible, effective AI systems across a range of businesses, bringing that expertise into Regen's strategy as we grow.",
   },
   {
-    name: "Ben Sanford",
-    image: "/pics/Ben.png",
-    title: "Google Ads Partner",
-    previousCompany: "Ex American Express",
-    bio:
-      "Google Ads partner working alongside Regen to extend paid search expertise across the team. Specialising in B2B Google Ads strategies built to drive measurable results.",
-  },
-  {
     name: "Cam Elson",
     image: "/pics/Cam.png",
     title: "Social Media Assistant",
