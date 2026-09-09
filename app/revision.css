@@ -4459,6 +4459,11 @@
   line-height: .94;
 }
 
+.editorial-page--methodology .editorial-hero__foot {
+  display: flex;
+  align-items: flex-end;
+}
+
 .editorial-page--methodology .editorial-hero__foot > p {
   max-width: 600px;
   font-size: clamp(14px, 1vw, 17px);

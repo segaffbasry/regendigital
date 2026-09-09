@@ -155,7 +155,7 @@ function LoopAmplify() {
 }
 
 const loopStages = [
-  { number: "01", name: "Inputs", Graphic: LoopInputs },
+  { number: "01", name: "Market signals", Graphic: LoopInputs },
   { number: "02", name: "Audit", Graphic: LoopAudit },
   { number: "03", name: "Test", Graphic: LoopTest },
   { number: "04", name: "Amplify", Graphic: LoopAmplify },
