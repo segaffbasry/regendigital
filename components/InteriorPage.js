@@ -225,7 +225,9 @@ export default function InteriorPage({ content, title, section }) {
           )}
         </h1>
         <div className="editorial-hero__foot">
-          <p>{isIndustryDetail ? (page.heroBody || page.entity || page.h1) : (page.entity || page.h1)}</p>
+          {!isMethodology ? (
+            <p>{isIndustryDetail ? (page.heroBody || page.entity || page.h1) : (page.entity || page.h1)}</p>
+          ) : null}
           <ArrowLink href={page.ctaHref}>{page.cta || "Book a Strategy Call"}</ArrowLink>
         </div>
       </section>
