@@ -19,9 +19,14 @@
   text-transform: uppercase;
 }
 
-/* Pull the first blue surface underneath the transparent sticky header. */
+/* Let the first blue surface start at the very top of the viewport. */
+.about-page > .site-header {
+  position: fixed;
+  inset: 0 0 auto;
+}
+
 .about-page .site-header + .about-depth-hero {
-  margin-top: -78px;
+  margin-top: 0;
 }
 
 .about-page .site-header:has(+ .about-depth-hero):not(.is-on-light) {
@@ -29,12 +34,7 @@
 }
 
 .about-page .site-header:has(+ .about-depth-hero):not(.is-on-light)::before {
-  background: linear-gradient(
-    180deg,
-    rgba(0, 18, 164, .48) 0%,
-    rgba(0, 18, 164, .18) 52%,
-    rgba(0, 18, 164, 0) 100%
-  );
+  background: none;
 }
 
 .about-depth-hero {
@@ -51,16 +51,7 @@
 }
 
 .about-depth-hero__grid {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, .085) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, .085) 1px, transparent 1px);
-  background-position: center;
-  background-size: clamp(52px, 5vw, 86px) clamp(52px, 5vw, 86px);
-  mask-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, .32) 72%, transparent 100%);
-  pointer-events: none;
+  display: none;
 }
 
 .about-depth-hero__content {
@@ -539,10 +530,6 @@
 }
 
 @media (max-width: 820px) {
-  .about-page .site-header + .about-depth-hero {
-    margin-top: -66px;
-  }
-
   .about-depth-hero {
     min-height: 0;
     grid-template-columns: 1fr;
