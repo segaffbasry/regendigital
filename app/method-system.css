@@ -29,6 +29,7 @@
   font-weight: 400;
   letter-spacing: -.05em;
 }
+.method-system__heading-phrase { white-space: nowrap; }
 .method-system__intro p { margin: 0; color: #60616c; font-size: clamp(15px, 1.2vw, 18px); line-height: 1.55; }
 .method-system__intro p:first-child { margin-bottom: 12px; color: var(--black); font-size: clamp(18px, 1.55vw, 22px); letter-spacing: -.02em; }
 .method-illustration { margin: 26px -8px 22px; color: var(--blue); }

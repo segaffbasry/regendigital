@@ -167,7 +167,7 @@ export default function MethodologySystemGraphic() {
       <div className="method-system__layout">
         <div className="method-system__copy">
           <p className="editorial-kicker">B2B growth architecture</p>
-          <h2 id="method-system-title">A closed-loop system for<br /><em>commercial learning.</em></h2>
+          <h2 id="method-system-title">A closed-loop <span className="method-system__heading-phrase">system for</span><br /><em>commercial learning.</em></h2>
           <div className="method-system__intro">
             <p>At Regen, we audit before we amplify.</p>
             <p>Most B2B marketing doesn&apos;t fail on tactics, it fails on foundations. Messaging that doesn&apos;t land, a target customer that&apos;s too broad, an offer nobody has pressure-tested. We audit what&apos;s already there, test it in market, then amplify only what the data proves. It&apos;s the method behind every result we&apos;ve produced.</p>

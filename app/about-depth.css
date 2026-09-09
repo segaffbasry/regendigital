@@ -477,12 +477,6 @@
   padding: clamp(22px, 3vw, 42px);
   border-right: 1px solid rgba(255, 255, 255, .4);
   border-bottom: 1px solid rgba(255, 255, 255, .4);
-  transition: background-color 350ms ease, color 350ms ease;
-}
-
-.about-depth-principles article:hover {
-  background: #fff;
-  color: var(--about-depth-blue);
 }
 
 .about-depth-principles article > span {
@@ -509,11 +503,6 @@
   font-family: var(--font-helv);
   font-size: clamp(15px, 1.15vw, 19px);
   line-height: 1.42;
-  transition: color 350ms ease;
-}
-
-.about-depth-principles article:hover p {
-  color: rgba(0, 40, 250, .76);
 }
 
 @media (max-width: 1040px) {
@@ -693,14 +682,6 @@
     transform: scale(1.015);
   }
 
-  .about-depth-principles article:hover {
-    background: transparent;
-    color: #fff;
-  }
-
-  .about-depth-principles article:hover p {
-    color: rgba(255, 255, 255, .74);
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

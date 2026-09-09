@@ -1735,15 +1735,70 @@
   }
 }
 
-/* The smaller headings left the cards with slack under the source line while
-   their min-height held. The copy row takes the remainder and sits at the foot,
-   so the block drops into that space instead of leaving it open. */
+/* Keep each graphic and its explanation together at every breakpoint. */
 .industry-stat-card {
-  grid-template-rows: minmax(144px, 192px) 1fr;
+  min-height: 0;
+  grid-template-rows: auto auto;
+  align-content: start;
+  gap: 22px;
+  padding: 24px clamp(22px, 1.84vw, 29px) 28px;
 }
 
 .industry-stat-card__copy {
-  align-self: end;
+  align-self: start;
+  padding-top: 0;
+}
+
+.industry-stat-card .industry-stat-visual {
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 2 / 1;
+  margin: 0;
+}
+
+.industry-stat-card .industry-stat-visual--asset img {
+  position: absolute;
+  inset: 0;
+}
+
+.industry-stat-visual--clean .stat-clean-number {
+  fill: var(--blue);
+  font-family: var(--font-display);
+  font-size: 72px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.05em;
+}
+
+.industry-stat-visual--clean .stat-clean-number--medium { font-size: 60px; }
+
+.industry-stat-visual--clean .stat-clean-label,
+.industry-stat-visual--clean .stat-clean-small {
+  fill: #535653;
+  font-family: var(--font-helv);
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -.02em;
+}
+
+.industry-stat-visual--clean .stat-clean-small { font-size: 16px; }
+.stat-clean-surface { fill: var(--bone); }
+.stat-clean-track { fill: none; stroke: var(--bone); stroke-width: 28px; }
+.stat-clean-progress { fill: none; stroke: var(--blue); stroke-width: 28px; }
+.stat-clean-arrow { fill: none; stroke-width: 6px; stroke-linecap: round; stroke-linejoin: round; }
+.stat-clean-arrow--up { stroke: #37bc03; }
+.stat-clean-arrow--down { stroke: #ca0000; }
+.stat-clean-axis { fill: none; stroke: var(--bone); stroke-width: 3px; }
+.stat-clean-trend { fill: none; stroke: var(--blue); stroke-width: 7px; stroke-linecap: round; }
+.stat-clean-assistant { fill: #fff; stroke: #e0e2d9; stroke-width: 1.5px; }
+
+@media (max-width: 900px) {
+  .industry-stat-card .industry-stat-visual {
+    max-width: 480px;
+    justify-self: center;
+  }
 }
 
 /* And the cards come up closer to the title. */

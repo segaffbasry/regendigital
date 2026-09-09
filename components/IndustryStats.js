@@ -1,241 +1,143 @@
-function ClarityPieChart() {
+import IndustryStatCount from "./IndustryStatCount";
+
+function StatFrame({ children, variant = "" }) {
   return (
-    <div className="industry-stat-visual industry-stat-visual--illustration industry-stat-visual--pie" aria-hidden="true">
-      <svg viewBox="0 0 520 240" role="presentation">
-        <g className="stat-pie-chart">
-          <path className="stat-pie-chart__slice stat-pie-chart__slice--highlight" d="M178 118L178 42A76 76 0 0 1 239.49 73.33Z" />
-          <path className="stat-pie-chart__slice" d="M178 118L239.49 73.33A76 76 0 0 1 201.49 190.28Z" />
-          <path className="stat-pie-chart__slice" d="M178 118L201.49 190.28A76 76 0 0 1 105.72 94.51Z" />
-          <path className="stat-pie-chart__slice" d="M178 118L105.72 94.51A76 76 0 0 1 178 42Z" />
-        </g>
-        <g className="stat-pie-chart__copy">
-          <text className="stat-value stat-pie-chart__value" x="368" y="116" textAnchor="middle" dominantBaseline="central">
-            15<tspan className="stat-pie-chart__percent">%</tspan>
-          </text>
-          <text className="stat-pie-chart__caption" x="368" y="158" textAnchor="middle">very good</text>
-        </g>
-      </svg>
+    <div className={`industry-stat-visual industry-stat-visual--illustration industry-stat-visual--clean ${variant}`} aria-hidden="true">
+      <svg viewBox="0 0 520 260" role="presentation">{children}</svg>
     </div>
   );
 }
 
-function PercentageDial({ value, compactValue = false }) {
+function PercentageDial({ value, label }) {
   return (
-    <div className="industry-stat-visual industry-stat-visual--illustration industry-stat-visual--percentage" aria-hidden="true">
-      <svg viewBox="0 0 520 240" role="presentation">
-        <g className="stat-percentage-dial">
-          <circle className="stat-percentage-dial__track" cx="260" cy="116" r="84" pathLength="100" />
-          <circle
-            className="stat-percentage-dial__progress"
-            cx="260"
-            cy="116"
-            r="84"
-            pathLength="100"
-            strokeDasharray="100"
-            strokeDashoffset="100"
-            style={{ "--dial-offset": 100 - value }}
-          />
+    <StatFrame>
+      <circle className="stat-clean-track" cx="260" cy="130" r="98" />
+      <circle className="stat-clean-progress" cx="260" cy="130" r="98"
+        pathLength="100" strokeDasharray={`${value} ${100 - value}`}
+        transform="rotate(-90 260 130)" />
+      <text className="stat-clean-number" x="260" y={label ? 128 : 151} textAnchor="middle">{value}%</text>
+      {label ? <text className="stat-clean-label" x="260" y="159" textAnchor="middle">{label}</text> : null}
+    </StatFrame>
+  );
+}
+
+function CostComparison() {
+  return (
+    <StatFrame>
+      {[{ value: "+20%", label: "then", y: 20 }, { value: "+60%", label: "now", y: 145 }].map(({ value, label, y }, index) => (
+        <g key={label}>
+          <rect className="stat-clean-surface" x="38" y={y} width="444" height="95" rx="24" />
+          <text className="stat-clean-number stat-clean-number--medium" x="65" y={y + 64}>{value}</text>
+          <text className="stat-clean-label" x="240" y={y + 59}>{label}</text>
+          <path className={`stat-clean-arrow stat-clean-arrow--${index ? "up" : "down"}`}
+            d={index ? `M407 ${y + 62}l15-18 15 9 20-25m-20 0h20v20` : `M407 ${y + 30}l15 18 15-9 20 25m-20 0h20v-20`} />
         </g>
-        <text
-          className={`stat-value stat-value--xl stat-percentage-dial__value${compactValue ? " stat-percentage-dial__value--compact" : ""}`}
-          x="260"
-          y="139"
-          textAnchor="middle"
-        >
-          {value}%
-        </text>
-      </svg>
-    </div>
+      ))}
+    </StatFrame>
   );
 }
 
 function GrowthPlot({ type }) {
   const isTech = type === "tech";
-
   return (
-    <div className={`industry-stat-visual industry-stat-visual--illustration industry-stat-visual--growth-plot industry-stat-visual--growth-plot-${type}`} aria-hidden="true">
-      <svg viewBox="0 0 520 240" role="presentation">
-        <g className="stat-growth-axis">
-          <path d="M74 39v155h382" />
-          <path d="M74 145h382M74 96h382" />
+    <StatFrame>
+      <text className="stat-clean-number" x="260" y="77" textAnchor="middle">{isTech ? "$6.37tn" : "$3.5tn"}</text>
+      <text className="stat-clean-label" x="260" y="105" textAnchor="middle">{isTech ? "worldwide IT spending" : "AI market by 2033"}</text>
+      <path className="stat-clean-axis" d="M65 130v87h390M65 174h390" />
+      <path className="stat-clean-trend" d="M76 207C157 201 175 192 230 180S352 155 444 130" />
+      <circle cx="444" cy="130" r="6" fill="var(--blue)" />
+      <text className="stat-clean-small" x="65" y="246">{isTech ? "2026" : "Forecast"}</text>
+      <text className="stat-clean-small" x="455" y="246" textAnchor="end">{isTech ? "+14.2%" : "2033"}</text>
+    </StatFrame>
+  );
+}
+
+function GrowthComparison() {
+  return (
+    <StatFrame>
+      <text className="stat-clean-number" x="260" y="82" textAnchor="middle">4×</text>
+      <text className="stat-clean-label" x="260" y="112" textAnchor="middle">faster growth</text>
+      <text className="stat-clean-small" x="54" y="158">Peers</text>
+      <rect className="stat-clean-surface" x="196" y="140" width="65" height="24" rx="12" />
+      <text className="stat-clean-small" x="54" y="208">High-growth firms</text>
+      <rect x="196" y="190" width="260" height="24" rx="12" fill="var(--blue)" />
+    </StatFrame>
+  );
+}
+
+function ExpertiseGraphic() {
+  return (
+    <StatFrame>
+      <IndustryStatCount className="stat-clean-number" value={75} x="260" y="122" textAnchor="middle" />
+      <text className="stat-clean-label" x="260" y="154" textAnchor="middle">of buyers</text>
+      <rect className="stat-clean-surface" x="70" y="188" width="380" height="20" rx="10" />
+      <rect x="70" y="188" width="285" height="20" rx="10" fill="var(--blue)" />
+    </StatFrame>
+  );
+}
+
+function BuyingCommittee() {
+  return (
+    <StatFrame>
+      <text className="stat-clean-number" x="260" y="77" textAnchor="middle">6–10</text>
+      <text className="stat-clean-label" x="260" y="107" textAnchor="middle">decision-makers</text>
+      {Array.from({ length: 10 }, (_, i) => (
+        <g key={i} transform={`translate(${92 + (i % 5) * 84} ${148 + Math.floor(i / 5) * 54})`}
+          fill={i < 6 ? "var(--blue)" : "#dfe2d5"}>
+          <circle cx="0" cy="0" r="10" />
+          <path d="M-17 29a17 17 0 0 1 34 0z" />
         </g>
-        <text className="stat-growth-label stat-growth-label--start" x="74" y="211">
-          {isTech ? "$5tn" : "Now"}
-        </text>
-        <path
-          className="stat-growth-line"
-          pathLength="100"
-          d={isTech ? "M92 169C155 164 188 148 235 132S333 105 420 58" : "M91 174C159 168 190 155 238 138S335 102 420 53"}
-        />
-        <g className="stat-growth-end-label">
-          <rect x="304" y="22" width="152" height="54" rx="18" />
-          <text x="380" y="58" textAnchor="middle">{isTech ? "$6.37tn" : "$3.5tn"}</text>
-        </g>
-        <text className="stat-growth-label stat-growth-label--end" x="454" y="211" textAnchor="end">
-          {isTech ? "+14,2%" : "2033"}
-        </text>
-      </svg>
-    </div>
+      ))}
+    </StatFrame>
+  );
+}
+
+const aiAssistants = [
+  ["ChatGPT", "ChatGPT-Logo.png"],
+  ["Gemini", "Google_Gemini_icon_2025.svg.webp"],
+  ["Claude", "Claude_AI_symbol.svg.webp"],
+  ["Perplexity", "perplexity-e6a4e1t06hd6dhczot580o.webp"],
+  ["Grok", "grok-ai-icon.webp"],
+];
+
+function AiResearchGraphic() {
+  return (
+    <StatFrame variant="industry-stat-visual--mentions">
+      <text className="stat-clean-number stat-clean-number--medium" x="260" y="53" textAnchor="middle">94%</text>
+      <text className="stat-clean-small" x="260" y="79" textAnchor="middle">of buyers research through AI</text>
+      {aiAssistants.map(([name, logo], i) => {
+        const x = i < 3 ? 70 + i * 132 : 136 + (i - 3) * 132;
+        const y = i < 3 ? 98 : 180;
+        return (
+          <g key={name}>
+            <rect className="stat-clean-assistant" x={x} y={y} width="116" height="68" rx="13" />
+            <image href={`/animation/Animated%20AI%20mentions%20interface/uploads/${logo}`}
+              x={x + 36} y={y + 8} width="44" height="25" />
+            <text className="stat-clean-small" x={x + 58} y={y + 54} textAnchor="middle">{name}</text>
+          </g>
+        );
+      })}
+    </StatFrame>
   );
 }
 
 const statVisuals = {
-  "saas-cost": (
-    <div className="industry-stat-visual industry-stat-visual--asset industry-stat-visual--asset-cost" aria-hidden="true">
-      <img src="/asset/Winning%20Customers%20Costs%20More.svg" alt="" />
-    </div>
-  ),
+  "saas-cost": <CostComparison />,
   "saas-market": (
     <div className="industry-stat-visual industry-stat-visual--asset industry-stat-visual--asset-market" aria-hidden="true">
       <img src="/asset/AI%20Huge,%20Crowd%20Market.svg" alt="" />
     </div>
   ),
-  "saas-journey": (
-    <div className="industry-stat-visual industry-stat-visual--asset industry-stat-visual--asset-journey" aria-hidden="true">
-      <img src="/asset/Buyers%20Decide%20Without%20You.svg" alt="" />
-    </div>
-  ),
-  "professional-clarity": <ClarityPieChart />,
-  "professional-growth": (
-    <div className="industry-stat-visual industry-stat-visual--illustration" aria-hidden="true">
-      <svg viewBox="0 0 520 240" role="presentation">
-        <g className="stat-gap-axis">
-          <path d="M74 125h372" />
-          <circle cx="74" cy="125" r="8" />
-        </g>
-        <path className="stat-gap-line" pathLength="100" d="M74 125h346" />
-        <g className="stat-gap-marker">
-          <circle cx="420" cy="125" r="16" />
-          <circle cx="420" cy="125" r="6" />
-        </g>
-        <text className="stat-gap-label" x="74" y="174">0×</text>
-        <text className="stat-value stat-value--xl stat-gap-value" x="420" y="96" textAnchor="middle">4×</text>
-      </svg>
-    </div>
-  ),
-  "professional-expertise": (
-    <div className="industry-stat-visual industry-stat-visual--illustration" aria-hidden="true">
-      <svg viewBox="0 0 520 240" role="presentation">
-        <g className="stat-expertise-track">
-          <rect x="77" y="174" width="366" height="18" rx="9" />
-          <rect className="stat-expertise-track__fill" x="77" y="174" width="275" height="18" rx="9" />
-        </g>
-        <g className="stat-expertise-ticker">
-          <text className="stat-value stat-value--xl" x="260" y="139" textAnchor="middle">25%</text>
-          <text className="stat-value stat-value--xl" x="260" y="139" textAnchor="middle">38%</text>
-          <text className="stat-value stat-value--xl" x="260" y="139" textAnchor="middle">52%</text>
-          <text className="stat-value stat-value--xl" x="260" y="139" textAnchor="middle">64%</text>
-          <text className="stat-value stat-value--xl" x="260" y="139" textAnchor="middle">75%</text>
-        </g>
-      </svg>
-    </div>
-  ),
-  "tech-committee": (
-    <div className="industry-stat-visual industry-stat-visual--illustration" aria-hidden="true">
-      <svg viewBox="0 0 520 240" role="presentation">
-        <g className="stat-people-grid">
-          {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((person) => {
-            const x = 102 + (person % 5) * 79;
-            const y = person < 5 ? 61 : 145;
-            const focus = {
-              2: { x: "0px", y: "49px", delay: "0s" },
-              6: { x: "-1px", y: "-35px", delay: ".12s" },
-              8: { x: "1px", y: "-35px", delay: ".24s" },
-            }[person];
-            const dimOrder = [0, 1, 3, 4, 5, 7, 9].indexOf(person);
-            return (
-              <g
-                className={`stat-person ${focus ? "stat-person--focus" : "stat-person--dim"}`}
-                key={person}
-                style={focus ? {
-                  "--person-focus-x": focus.x,
-                  "--person-focus-y": focus.y,
-                  "--person-focus-delay": focus.delay,
-                } : { "--person-dim-delay": `${dimOrder * .1}s` }}
-              >
-                <svg x={x - 34} y={y - 29} width="68" height="68" viewBox="0 0 24 24" fill="currentColor">
-                  <path
-                    fillRule="evenodd"
-                    d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </g>
-            );
-          })}
-        </g>
-      </svg>
-    </div>
-  ),
+  "saas-journey": <PercentageDial value={17} label="with suppliers" />,
+  "professional-clarity": <PercentageDial value={15} />,
+  "professional-growth": <GrowthComparison />,
+  "professional-expertise": <ExpertiseGraphic />,
+  "tech-committee": <BuyingCommittee />,
   "tech-spend": <GrowthPlot type="tech" />,
-  "tech-budget": (
-    <div className="industry-stat-visual industry-stat-visual--illustration" aria-hidden="true">
-      <svg viewBox="0 0 520 240" role="presentation">
-        <defs>
-          <clipPath id="stat-budget-copy-mask">
-            <rect x="151" y="35" width="218" height="159" rx="20" />
-          </clipPath>
-        </defs>
-        <g className="stat-budget-bar stat-budget-bar--seven">
-          <rect className="stat-budget-bar__track" x="75" y="24" width="46" height="190" rx="23" />
-          <circle className="stat-budget-bar__fill" cx="98" cy="191" r="23" />
-        </g>
-        <g className="stat-budget-bar stat-budget-bar--ten">
-          <rect className="stat-budget-bar__track" x="399" y="24" width="46" height="190" rx="23" />
-          <rect className="stat-budget-bar__fill stat-budget-bar__fill--ten" x="399" y="156" width="46" height="58" rx="23" />
-        </g>
-        <g className="stat-budget-copy" clipPath="url(#stat-budget-copy-mask)">
-          <g className="stat-budget-copy__state stat-budget-copy__state--then">
-            <text className="stat-budget-copy__number" x="260" y="122" textAnchor="middle">7,7%</text>
-            <text className="stat-budget-copy__word" x="260" y="168" textAnchor="middle">then</text>
-          </g>
-          <g className="stat-budget-copy__state stat-budget-copy__state--now">
-            <text className="stat-budget-copy__number" x="260" y="122" textAnchor="middle">10%</text>
-            <text className="stat-budget-copy__word" x="260" y="168" textAnchor="middle">now</text>
-          </g>
-        </g>
-      </svg>
-    </div>
-  ),
-  "ai-scrutiny": <PercentageDial value={58} compactValue />,
+  "tech-budget": <PercentageDial value={7.7} label="of revenue" />,
+  "ai-scrutiny": <PercentageDial value={58} />,
   "ai-market": <GrowthPlot type="ai" />,
-  "ai-research": (
-    <div className="industry-stat-visual industry-stat-visual--illustration" aria-hidden="true">
-      <svg viewBox="0 0 520 240" role="presentation">
-        <g className="stat-geo-window">
-          <rect className="stat-geo-window__surface" x="54" y="27" width="412" height="186" rx="28" />
-          <g className="stat-geo-prompt">
-            <rect x="77" y="49" width="366" height="46" rx="16" />
-            <circle cx="102" cy="72" r="8" />
-            <text x="121" y="77">Which AI partner?</text>
-          </g>
-          <g className="stat-geo-answer">
-            <circle cx="93" cy="125" r="12" />
-            <path d="M88 125h10M93 120v10" />
-            <rect x="116" y="116" width="185" height="11" rx="5.5" />
-            <rect x="116" y="138" width="257" height="9" rx="4.5" />
-            <rect x="116" y="157" width="211" height="9" rx="4.5" />
-          </g>
-          <g className="stat-geo-citations">
-            <g><rect x="78" y="181" width="62" height="22" rx="11" /><text x="109" y="196" textAnchor="middle">01</text></g>
-            <g><rect x="149" y="181" width="62" height="22" rx="11" /><text x="180" y="196" textAnchor="middle">02</text></g>
-          </g>
-        </g>
-        <g className="stat-answer-score">
-          <circle cx="410" cy="151" r="45" />
-          <text
-            className="stat-value stat-answer-score__value"
-            x="410"
-            y="151"
-            textAnchor="middle"
-            dominantBaseline="central"
-          >
-            94<tspan className="stat-answer-score__percent">%</tspan>
-          </text>
-        </g>
-      </svg>
-    </div>
-  ),
+  "ai-research": <AiResearchGraphic />,
 };
 
 export function IndustryStats({ stats }) {
