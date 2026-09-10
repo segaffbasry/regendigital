@@ -21,22 +21,6 @@ function PercentageDial({ value, label }) {
   );
 }
 
-function CostComparison() {
-  return (
-    <StatFrame>
-      {[{ value: "+20%", label: "then", y: 20 }, { value: "+60%", label: "now", y: 145 }].map(({ value, label, y }, index) => (
-        <g key={label}>
-          <rect className="stat-clean-surface" x="38" y={y} width="444" height="95" rx="24" />
-          <text className="stat-clean-number stat-clean-number--medium" x="65" y={y + 64}>{value}</text>
-          <text className="stat-clean-label" x="240" y={y + 59}>{label}</text>
-          <path className={`stat-clean-arrow stat-clean-arrow--${index ? "up" : "down"}`}
-            d={index ? `M407 ${y + 62}l15-18 15 9 20-25m-20 0h20v20` : `M407 ${y + 30}l15 18 15-9 20 25m-20 0h20v-20`} />
-        </g>
-      ))}
-    </StatFrame>
-  );
-}
-
 function GrowthPlot({ type }) {
   const isTech = type === "tech";
   return (
@@ -122,13 +106,21 @@ function AiResearchGraphic() {
 }
 
 const statVisuals = {
-  "saas-cost": <CostComparison />,
+  "saas-cost": (
+    <div className="industry-stat-visual industry-stat-visual--asset industry-stat-visual--asset-cost" aria-hidden="true">
+      <img src="/asset/Winning%20Customers%20Costs%20More.svg" alt="" />
+    </div>
+  ),
   "saas-market": (
     <div className="industry-stat-visual industry-stat-visual--asset industry-stat-visual--asset-market" aria-hidden="true">
       <img src="/asset/AI%20Huge,%20Crowd%20Market.svg" alt="" />
     </div>
   ),
-  "saas-journey": <PercentageDial value={17} label="with suppliers" />,
+  "saas-journey": (
+    <div className="industry-stat-visual industry-stat-visual--asset industry-stat-visual--asset-journey" aria-hidden="true">
+      <img src="/asset/Buyers%20Decide%20Without%20You.svg" alt="" />
+    </div>
+  ),
   "professional-clarity": <PercentageDial value={15} />,
   "professional-growth": <GrowthComparison />,
   "professional-expertise": <ExpertiseGraphic />,
