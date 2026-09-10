@@ -260,9 +260,10 @@ export default function InteriorPage({ content, title, section }) {
             </StaggerText>
           </div>
           <p className="industry-video__lede">{videoIntro.copy}</p>
-          <div className="video-placeholder__frame">
-            <span className="video-placeholder__label">Placeholder for video</span>
-          </div>
+          {/* The frame is out while the videos are being cut. The heading and
+              the copy stay: on these pages that copy appears nowhere else, and
+              dropping the section outright would fall through to the system
+              diagram this slot replaced. Restore the frame here for the embed. */}
         </section>
       ) : isIndustryDetail ? (
         <IndustrySystemGraphic body={page.body} type={page.industryKey} />

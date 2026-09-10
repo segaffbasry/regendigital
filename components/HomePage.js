@@ -218,14 +218,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="home-section video-placeholder">
-        <div className="home-section__intro">
-          <StaggerText lineReveal>How <em>Regen helps B2B</em> businesses</StaggerText>
-        </div>
-        <div className="video-placeholder__frame">
-          <span className="video-placeholder__label">Placeholder for video</span>
-        </div>
-      </section>
+      {/* The film slot is out while the videos are being cut. Nothing else lived
+          in this section, so the whole block comes out rather than leaving a
+          heading over empty sand; the styles for it stay in service-index.css,
+          ready for the embed. */}
 
       <section className="home-section services-section">
         <header className="services-section__head">

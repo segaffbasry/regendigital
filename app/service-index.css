@@ -424,3 +424,25 @@
     align-self: start;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Film slot out.
+   --------------------------------------------------------------------------- */
+
+/* The video section carried the foot of the sand block -- .what-we-do stopped
+   at 12-22px because the slot sat under it on the same ground. With the slot
+   out, the animation runs almost straight into the white services section, so
+   .what-we-do takes that foot padding back. Appended so it settles the tablet
+   and narrow-screen rules set earlier. */
+.home-section.what-we-do {
+  padding-bottom: clamp(28px, 3vw, 44px);
+}
+
+/* The industry slots keep their heading and copy -- that copy appears nowhere
+   else on those pages -- but lose the frame. The lede's bottom margin was the
+   gap down to it, so with the lede now last in its section that margin is dead
+   space above the market block. Set here rather than in industry-feedback.css,
+   which loads earlier. */
+.industry-video__lede:last-child {
+  margin-bottom: 0;
+}
