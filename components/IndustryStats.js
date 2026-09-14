@@ -8,16 +8,17 @@ function StatFrame({ children, variant = "", viewBox = "0 0 520 260" }) {
   );
 }
 
-function PercentageDial({ value, label }) {
+function PercentageDial({ value, label, lifted = true }) {
   // Match the approved SaaS asset's canvas, ring, corner radius and lifted slice.
   const outer = 514.5;
   const inner = 309.594;
   const corner = 42.91;
   const sweep = (value / 100) * Math.PI * 2;
-  const start = -Math.PI / 2 - sweep;
-  const end = -Math.PI / 2;
+  const start = -Math.PI / 2 - (lifted ? sweep : 0);
+  const end = start + sweep;
   const middle = (start + end) / 2;
-  const lift = (outer - inner) / 2;
+  // A majority segment stays concentric so it does not overlap the inner opening.
+  const lift = lifted ? (outer - inner) / 2 : 0;
   const point = (radius, angle) => `${radius * Math.cos(angle)} ${radius * Math.sin(angle)}`;
   const outerTrim = corner / outer;
   const innerTrim = corner / inner;
@@ -151,7 +152,7 @@ const statVisuals = {
   "tech-committee": <BuyingCommittee />,
   "tech-spend": <GrowthPlot type="tech" />,
   "tech-budget": <PercentageDial value={7.7} label="of revenue" />,
-  "ai-scrutiny": <PercentageDial value={58} />,
+  "ai-scrutiny": <PercentageDial value={58} lifted={false} />,
   "ai-market": <GrowthPlot type="ai" />,
   "ai-research": <AiResearchGraphic />,
 };
