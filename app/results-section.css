@@ -1,24 +1,25 @@
-/* Proof strip shared by the home page, service pages and industry pages.
-   White ground, three light panels, big figure / short sentence / client mark
-   -- the same rhythm Gripped use on their results row. */
+/* "Our results" -- the shared proof strip that sits on the home page, the
+   service pages and the industry pages. White ground, three sky panels, and the
+   client's mark under each number. */
 
 .results-section {
   /* Top is lighter than the foot: the section above already carries its own
      bottom padding, so a matching top made the title drift away from it. */
-  padding: clamp(48px, 5.2vw, 88px) var(--page-gutter) clamp(56px, 6vw, 96px);
+  padding: clamp(40px, 4.6vw, 74px) var(--page-gutter) clamp(56px, 6vw, 96px);
   background: #fff;
   color: var(--black);
   text-align: center;
 }
 
 .results-section__title {
-  max-width: 920px;
-  margin: 0 auto clamp(36px, 4vw, 64px);
-  font-family: var(--font-editorial);
-  font-size: calc(clamp(34px, 3.75vw, 58px) - 2px);
+  max-width: 900px;
+  margin: 0 auto clamp(30px, 3.4vw, 52px);
+  font-family: var(--font-display);
+  /* The same value every other section title on the site resolves to. */
+  font-size: calc(clamp(34px, 3.75vw, 58px) - 4px);
   font-weight: 500;
   letter-spacing: -.02em;
-  line-height: 1.05;
+  line-height: 1;
 }
 
 .results-section__grid {
@@ -33,49 +34,45 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  min-height: 100%;
-  padding: clamp(28px, 2.6vw, 40px);
-  border-radius: clamp(18px, 1.8vw, 28px);
-  background: #f3f4f6;
+  padding: clamp(20px, 1.9vw, 28px);
+  border-radius: clamp(16px, 1.5vw, 22px);
+  background: var(--regen-sky);
   text-align: left;
+  box-shadow:
+    0 1px 2px rgba(5, 5, 5, .05),
+    0 14px 34px rgba(5, 5, 5, .12);
 }
 
-.result-card__metric {
+/* The figure leads as a phrase rather than standing alone, so it is sized as a
+   card heading rather than as a display number. */
+.result-card__headline {
   margin: 0;
-  color: var(--black);
   font-family: var(--font-editorial);
-  font-size: clamp(42px, 4.2vw, 64px);
+  font-size: clamp(21px, 1.85vw, 29px);
+  font-style: italic;
   font-weight: 600;
-  letter-spacing: -.04em;
-  line-height: .92;
-}
-
-.result-card__trend {
-  display: inline-block;
-  margin-left: .08em;
-  font-size: .55em;
-  font-weight: 600;
-  letter-spacing: 0;
-  line-height: 1;
-  vertical-align: super;
+  letter-spacing: -.025em;
+  line-height: 1.14;
 }
 
 .result-card__label {
-  max-width: 28ch;
-  margin: clamp(14px, 1.4vw, 20px) 0 0;
-  color: rgba(5, 5, 5, .55);
+  max-width: 30ch;
+  margin: clamp(12px, 1.2vw, 18px) 0 0;
+  color: rgba(5, 5, 5, .6);
   font-family: var(--font-helv);
-  font-size: clamp(14px, 1.05vw, 17px);
+  font-size: clamp(13px, .95vw, 15px);
   font-weight: 500;
   line-height: 1.45;
   /* Guarantees the gap above the mark even on the card with the longest
      sentence, where margin-top: auto below has no slack left to give. */
-  margin-bottom: clamp(22px, 2.2vw, 34px);
+  margin-bottom: clamp(18px, 1.8vw, 26px);
 }
 
+/* Colour alone separates the channel from the sentence; the heavier weight came
+   off, so the line reads evenly. */
 .result-card__label b {
   color: var(--black);
-  font-weight: 700;
+  font-weight: inherit;
 }
 
 /* The logo is pinned to the foot of the card so the three marks line up across
@@ -103,11 +100,11 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: clamp(34px, 3.6vw, 56px);
+  margin-top: clamp(30px, 3.2vw, 48px);
   color: var(--blue);
   font-family: var(--font-helv);
   font-size: clamp(14px, 1.05vw, 16px);
-  font-weight: 700;
+  font-weight: 600;
   text-decoration: none;
   transition: opacity .25s ease;
 }

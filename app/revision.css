@@ -2716,26 +2716,22 @@
   }
 
   /* Scoped to the parent so it outranks the dimmed `.site-header__mobile-secondary a`. */
-  .site-header__mobile-secondary .site-header__mobile-contact {
+  .site-header__mobile-secondary .site-header__mobile-contact,
+  .site-header__mobile-audit {
     display: flex;
     width: 100%;
+    min-height: 64px;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid rgba(255, 255, 255, .55);
+    padding: 0 24px;
+    border: 1px solid var(--white);
     border-radius: 999px;
-    color: var(--white);
+    background: var(--white);
+    color: var(--black);
+    font-size: 16px;
     font-weight: 600;
     opacity: 1;
     text-decoration: none;
-  }
-
-  .site-header__mobile-secondary .site-header__mobile-contact,
-  .site-header__mobile-audit {
-    width: 100%;
-    min-height: 64px;
-    justify-content: space-between;
-    padding: 0 24px;
-    font-size: 16px;
   }
 
   .site-header__mobile-contact .cta-arrow,

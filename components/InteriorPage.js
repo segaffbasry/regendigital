@@ -246,11 +246,11 @@ export default function InteriorPage({ content, title, section }) {
         </div>
       ) : null}
       {/* A page can trade the system diagram for a video slot, as the home page
-          has. Industries without one keep the diagram. */}
-      {/* Every industry detail page takes the video slot. Only SaaS carries its
-          own copy; the rest reuse the body that stood in this position before,
-          and the investors page keeps the diagram, its label not reading as an
-          industry. */}
+          has. Industries without one keep the diagram. Investors skips both and
+          leads with realities, so the page does not open on a second intro. */}
+      {page.industryKey === "investors" && page.industryRealities ? (
+        <IndustryRealities realities={page.industryRealities} />
+      ) : null}
       {videoIntro ? (
         <section className="home-section video-placeholder industry-video">
           <div className="home-section__intro">
@@ -266,11 +266,13 @@ export default function InteriorPage({ content, title, section }) {
               dropping the section outright would fall through to the system
               diagram this slot replaced. Restore the frame here for the embed. */}
         </section>
-      ) : isIndustryDetail ? (
+      ) : isIndustryDetail && page.industryKey !== "investors" ? (
         <IndustrySystemGraphic body={page.body} type={page.industryKey} />
       ) : null}
       {isIndustryDetail ? <IndustryStats stats={page.industryStats} /> : null}
-      {isIndustryDetail ? <IndustryRealities realities={page.industryRealities} /> : null}
+      {isIndustryDetail && page.industryKey !== "investors" ? (
+        <IndustryRealities realities={page.industryRealities} />
+      ) : null}
       {page.investorTracks ? <InvestorTracks tracks={page.investorTracks} /> : null}
 
       {!page.emptyWork && !isMethodology && !isIndustryDetail ? (

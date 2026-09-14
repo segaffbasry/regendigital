@@ -1486,7 +1486,7 @@
 
 .industry-realities {
   padding: clamp(34px, 3.4vw, 50px) max(5vw, 28px) clamp(58px, 5.5vw, 82px);
-  background: var(--white);
+  background: var(--bone);
 }
 
 .industry-realities__panel {
@@ -1898,9 +1898,13 @@
 
 .investor-partnership-how__header {
   display: grid;
-  grid-template-columns: minmax(110px, .28fr) minmax(0, 1.72fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: clamp(20px, 3vw, 42px);
   align-items: start;
+}
+
+.investor-partnership-how__header:has(.editorial-kicker) {
+  grid-template-columns: minmax(110px, .28fr) minmax(0, 1.72fr);
 }
 
 .investor-partnership-how__header .editorial-kicker {

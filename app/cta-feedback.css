@@ -40,17 +40,17 @@
 
 /* Light-page actions share the outlined surface-to-black interaction shown in
    the client reference. Brand-blue header actions retain their campaign role. */
-.editorial-page--bone .cta-button.cta-button:not(.site-header__audit):not(.site-header__call),
-.service-detail--refined .cta-button.cta-button:not(.site-header__audit):not(.site-header__call),
-.about-page .cta-button.cta-button:not(.site-header__audit):not(.site-header__call) {
+.editorial-page--bone .cta-button.cta-button:not(.site-header__audit):not(.site-header__call):not(.site-header__mobile-contact):not(.site-header__mobile-audit),
+.service-detail--refined .cta-button.cta-button:not(.site-header__audit):not(.site-header__call):not(.site-header__mobile-contact):not(.site-header__mobile-audit),
+.about-page .cta-button.cta-button:not(.site-header__audit):not(.site-header__call):not(.site-header__mobile-contact):not(.site-header__mobile-audit) {
   border-color: rgba(5, 5, 5, .58);
   background: transparent;
   color: var(--black);
 }
 
-.editorial-page--bone .cta-button.cta-button:not(.site-header__audit):not(.site-header__call):is(:hover, :focus-visible),
-.service-detail--refined .cta-button.cta-button:not(.site-header__audit):not(.site-header__call):is(:hover, :focus-visible),
-.about-page .cta-button.cta-button:not(.site-header__audit):not(.site-header__call):is(:hover, :focus-visible) {
+.editorial-page--bone .cta-button.cta-button:not(.site-header__audit):not(.site-header__call):not(.site-header__mobile-contact):not(.site-header__mobile-audit):is(:hover, :focus-visible),
+.service-detail--refined .cta-button.cta-button:not(.site-header__audit):not(.site-header__call):not(.site-header__mobile-contact):not(.site-header__mobile-audit):is(:hover, :focus-visible),
+.about-page .cta-button.cta-button:not(.site-header__audit):not(.site-header__call):not(.site-header__mobile-contact):not(.site-header__mobile-audit):is(:hover, :focus-visible) {
   border-color: var(--black);
   background: var(--black);
   color: var(--white);
