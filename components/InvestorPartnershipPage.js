@@ -35,6 +35,18 @@ const partnershipFaqs = [
     "B2B SaaS, AI, and tech businesses where the proposition is complex, the sale is considered, and marketing needs to catch up with the product or growth stage.",
   ],
   [
+    "Can you work across several companies at once?",
+    "Yes. Each company gets its own positioning and plan. The way we work stays consistent, so the fund can compare progress without reading five different agency reports.",
+  ],
+  [
+    "What do you report to the investment team?",
+    "Progress against the commercial goal, where the risk sits, and the next move. Pipeline and demand where the work has reached that stage.",
+  ],
+  [
+    "Do you replace an in-house marketing team?",
+    "No. Where a team exists, we give them the strategy and specialist delivery they cannot build alone. Where it does not, we cover the gap until the company is ready to hire.",
+  ],
+  [
     "What can you support?",
     "Positioning, strategy, go-to-market, content, SEO and GEO, paid media, ABM, and founder-led marketing—connected around one commercial goal.",
   ],

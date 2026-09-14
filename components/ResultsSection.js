@@ -1,18 +1,15 @@
 import "../app/results-section.css";
 
-/* One shared proof strip. The numbers and the wording after them come straight
-   from the three case studies, so this stays true to what those pages claim.
-
-   The logo scales are tuned for this panel, not inherited from the hero strip,
-   where the box and the rhythm around it are different.
-
-   These cards use dedicated dark logo artwork so the marks keep their contrast
-   on the light-blue panels without relying on browser image filters. */
+/* Shared proof strip, laid out the way Gripped do theirs: a big figure, a short
+   sentence with the channel called out, and the client mark pinned underneath.
+   Numbers and wording stay true to the three case studies. Logo scales are
+   tuned for these panels, not the hero strip. */
 const results = [
   {
     client: "Agency AI",
-    headline: "15% increase in referral traffic",
-    lead: "In the first 30 days, from ",
+    metric: "15%",
+    trend: "up",
+    lead: "Increase in referral traffic in the first 30 days from ",
     emphasis: "organic, search and outbound",
     logo: "/client-logos/client-04-dark.png",
     logoScale: 3,
@@ -20,8 +17,8 @@ const results = [
   },
   {
     client: "IntusHQ",
-    headline: "5x the target audience reached",
-    lead: "From ",
+    metric: "5x",
+    lead: "More of the target audience reached from ",
     emphasis: "account-based marketing and founder-led social",
     logo: "/client-logos/IntusHQ/intushq-dark.svg",
     logoScale: 0.62,
@@ -29,8 +26,8 @@ const results = [
   },
   {
     client: "Finden",
-    headline: "Placed 3rd out of 280+ companies",
-    lead: "At launch, from ",
+    metric: "3rd",
+    lead: "Out of 280+ companies at launch, from ",
     emphasis: "organic social and Product Hunt",
     logo: "/client-logos/client-03-dark.png",
     logoScale: 0.86,
@@ -41,15 +38,24 @@ const results = [
 export default function ResultsSection() {
   return (
     <section className="results-section" aria-labelledby="our-results-title">
-      <h2 className="results-section__title" id="our-results-title">Our results</h2>
+      <h2 className="results-section__title" id="our-results-title">
+        Results that moved the needle
+      </h2>
 
       <div className="results-section__grid">
         {results.map((result) => (
           <article className="result-card" key={result.client}>
-            <h3 className="result-card__headline">{result.headline}</h3>
+            <p className="result-card__metric">
+              {result.metric}
+              {result.trend === "up" ? (
+                <span className="result-card__trend" aria-hidden="true">
+                  ^
+                </span>
+              ) : null}
+            </p>
             <p className="result-card__label">
               {result.lead}
-              <b>{result.emphasis}</b>.
+              <b>{result.emphasis}</b>
             </p>
             <span className="result-card__logo">
               <img

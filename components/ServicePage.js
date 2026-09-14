@@ -105,8 +105,6 @@ export default function ServicePage({ content: page, serviceKey }) {
         </div>
       </section>
 
-      <ResultsSection />
-
       {faqs.length ? (
         <section className="editorial-faq">
           <div><p className="editorial-kicker">FAQs</p><h2>Questions,<br /><em>answered.</em></h2></div>
@@ -127,6 +125,8 @@ export default function ServicePage({ content: page, serviceKey }) {
           </div>
         </section>
       ) : null}
+
+      <ResultsSection />
 
       <section className="service-detail__closing">
         <div className="service-detail__closing-copy">

@@ -355,3 +355,7 @@
 .home-section h2 em {
   font-size: calc(1em * var(--editorial-optical-scale) + var(--editorial-optical-offset));
 }
+
+.proof-section .testimonial-card__avatar img {
+  filter: grayscale(1);
+}

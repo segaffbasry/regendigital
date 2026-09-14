@@ -292,9 +292,6 @@ export default function InteriorPage({ content, title, section }) {
         </section>
       ) : null}
 
-      {/* Industry pages only: the other interior pages are not proof pages. */}
-      {isIndustryDetail ? <ResultsSection /> : null}
-
       {page.steps?.length ? (
         <section className={`editorial-steps${isMethodology ? " editorial-steps--methodology" : ""}`}>
           {page.steps.map(([number, name, copy], index) => {
@@ -340,6 +337,10 @@ export default function InteriorPage({ content, title, section }) {
           </div>
         </section>
       ) : null}
+
+      {/* Industry pages: results first, then FAQs in the same blue accordion
+          pattern as the service pages, directly above the founder CTA. */}
+      {isIndustryDetail ? <ResultsSection /> : null}
 
       {page.faqs?.length ? (
         <section className="editorial-faq">
