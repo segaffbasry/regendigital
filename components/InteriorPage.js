@@ -2,6 +2,7 @@ import FaqItem from "./FaqItem";
 import IndustryHeroMedia from "./IndustryHeroMedia";
 import IndustrySystemGraphic, { IndustryCardGraphic } from "./IndustrySystemGraphic";
 import { IndustryRealities, IndustryStats } from "./IndustryStats";
+import InvestorPartnershipHow from "./InvestorPartnershipHow";
 import InvestorTracks from "./InvestorTracks";
 import InteriorMotion from "./InteriorMotion";
 import MethodologySystemGraphic, { AuditGraphic, TestGraphic, AmplifyGraphic } from "./MethodologySystemGraphic";
@@ -291,6 +292,8 @@ export default function InteriorPage({ content, title, section }) {
           <ol>{page.included.map((item, index) => <li key={item}><span>{String(index + 1).padStart(2, "0")}</span><p>{item}</p></li>)}</ol>
         </section>
       ) : null}
+
+      {page.partnershipHow ? <InvestorPartnershipHow partnership={page.partnershipHow} /> : null}
 
       {page.steps?.length ? (
         <section className={`editorial-steps${isMethodology ? " editorial-steps--methodology" : ""}`}>
