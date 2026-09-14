@@ -62,7 +62,7 @@
   padding: clamp(92px, 9vw, 140px) var(--page-gutter) clamp(76px, 8vw, 124px);
   overflow: hidden;
   background: var(--stats-canvas);
-  color: var(--black);
+  color: #000;
 }
 
 .industry-stats::before {
@@ -89,7 +89,7 @@
 }
 
 .industry-stats > header .editorial-kicker {
-  color: rgba(5, 5, 5, .56);
+  color: #000;
 }
 
 .industry-stats > header h2 {
@@ -161,7 +161,7 @@
 .industry-stat-card__copy > p {
   max-width: 430px;
   margin: 0;
-  color: rgba(5, 5, 5, .72);
+  color: #000;
   font-size: clamp(13px, .94vw, 15.5px);
   line-height: 1.4;
 }
@@ -169,7 +169,7 @@
 .industry-stat-card__source {
   display: block;
   margin-top: 20px;
-  color: rgba(5, 5, 5, .42);
+  color: #000;
   font-size: 9px;
   letter-spacing: .07em;
   line-height: 1.2;
@@ -1765,7 +1765,7 @@
 }
 
 .industry-stat-visual--clean .stat-clean-number {
-  fill: var(--blue);
+  fill: #000;
   font-family: var(--font-display);
   font-size: 72px;
   font-weight: 600;
@@ -1777,7 +1777,7 @@
 
 .industry-stat-visual--clean .stat-clean-label,
 .industry-stat-visual--clean .stat-clean-small {
-  fill: #535653;
+  fill: #000;
   font-family: var(--font-helv);
   font-size: 22px;
   font-style: normal;
@@ -1787,8 +1787,30 @@
 
 .industry-stat-visual--clean .stat-clean-small { font-size: 16px; }
 .stat-clean-surface { fill: var(--bone); }
-.stat-clean-track { fill: none; stroke: var(--bone); stroke-width: 28px; }
-.stat-clean-progress { fill: none; stroke: var(--blue); stroke-width: 28px; }
+.stat-clean-track { fill: none; stroke: #EEF0E5; }
+.stat-clean-progress { fill: #0C27F0; }
+.industry-stat-visual--dial svg {
+  position: absolute;
+  inset: 0;
+}
+.industry-stat-visual--dial .stat-clean-number {
+  font-family: var(--font-helv);
+  font-size: 132px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.industry-stat-visual--dial .stat-clean-label {
+  font-family: var(--font-editorial);
+  font-size: 83px;
+  letter-spacing: 0;
+}
+
+.industry-stats > header h2,
+.industry-stat-card h3,
+.industry-stats .industry-stats__cta,
+.industry-stats .industry-stats__cta > span {
+  color: #000;
+}
 .stat-clean-arrow { fill: none; stroke-width: 6px; stroke-linecap: round; stroke-linejoin: round; }
 .stat-clean-arrow--up { stroke: #37bc03; }
 .stat-clean-arrow--down { stroke: #ca0000; }

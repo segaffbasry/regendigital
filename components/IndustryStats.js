@@ -1,22 +1,46 @@
 import IndustryStatCount from "./IndustryStatCount";
 
-function StatFrame({ children, variant = "" }) {
+function StatFrame({ children, variant = "", viewBox = "0 0 520 260" }) {
   return (
     <div className={`industry-stat-visual industry-stat-visual--illustration industry-stat-visual--clean ${variant}`} aria-hidden="true">
-      <svg viewBox="0 0 520 260" role="presentation">{children}</svg>
+      <svg viewBox={viewBox} role="presentation">{children}</svg>
     </div>
   );
 }
 
 function PercentageDial({ value, label }) {
+  // Match the approved SaaS asset's canvas, ring, corner radius and lifted slice.
+  const outer = 514.5;
+  const inner = 309.594;
+  const corner = 42.91;
+  const sweep = (value / 100) * Math.PI * 2;
+  const start = -Math.PI / 2 - sweep;
+  const end = -Math.PI / 2;
+  const middle = (start + end) / 2;
+  const lift = (outer - inner) / 2;
+  const point = (radius, angle) => `${radius * Math.cos(angle)} ${radius * Math.sin(angle)}`;
+  const outerTrim = corner / outer;
+  const innerTrim = corner / inner;
+  // Round inward at the four corners, keeping the radial edges exactly value% apart.
+  const segment = [
+    `M ${point(outer - corner, start)}`,
+    `Q ${point(outer, start)} ${point(outer, start + outerTrim)}`,
+    `A ${outer} ${outer} 0 ${sweep - 2 * outerTrim > Math.PI ? 1 : 0} 1 ${point(outer, end - outerTrim)}`,
+    `Q ${point(outer, end)} ${point(outer - corner, end)}`,
+    `L ${point(inner + corner, end)}`,
+    `Q ${point(inner, end)} ${point(inner, end - innerTrim)}`,
+    `A ${inner} ${inner} 0 ${sweep - 2 * innerTrim > Math.PI ? 1 : 0} 0 ${point(inner, start + innerTrim)}`,
+    `Q ${point(inner, start)} ${point(inner + corner, start)} Z`,
+  ].join(" ");
+
   return (
-    <StatFrame>
-      <circle className="stat-clean-track" cx="260" cy="130" r="98" />
-      <circle className="stat-clean-progress" cx="260" cy="130" r="98"
-        pathLength="100" strokeDasharray={`${value} ${100 - value}`}
-        transform="rotate(-90 260 130)" />
-      <text className="stat-clean-number" x="260" y={label ? 128 : 151} textAnchor="middle">{value}%</text>
-      {label ? <text className="stat-clean-label" x="260" y="159" textAnchor="middle">{label}</text> : null}
+    <StatFrame variant="industry-stat-visual--dial" viewBox="0 0 2000 1161">
+      <circle className="stat-clean-track" cx="944.5" cy="620.5"
+        r={(outer + inner) / 2} strokeWidth={outer - inner} />
+      <path className="stat-clean-progress" d={segment}
+        transform={`translate(${944.5 + lift * Math.cos(middle)} ${620.5 + lift * Math.sin(middle)})`} />
+      <text className="stat-clean-number" x="944.5" y={label ? 636.906 : 667.5} textAnchor="middle">{value}%</text>
+      {label ? <text className="stat-clean-label" x="944.5" y="725.148" textAnchor="middle">{label}</text> : null}
     </StatFrame>
   );
 }
@@ -113,7 +137,7 @@ const statVisuals = {
   ),
   "saas-market": (
     <div className="industry-stat-visual industry-stat-visual--asset industry-stat-visual--asset-market" aria-hidden="true">
-      <img src="/asset/AI%20Huge,%20Crowd%20Market.svg" alt="" />
+      <img src="/asset/AI%20Huge%2C%20Crowd%20Market.svg" alt="" />
     </div>
   ),
   "saas-journey": (
