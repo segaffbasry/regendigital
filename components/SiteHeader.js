@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import { industries, services, whyRegen } from "../lib/site-structure";
+import { industries, services } from "../lib/site-structure";
 
 const childMenus = {
   services: {
@@ -12,10 +12,6 @@ const childMenus = {
   industries: {
     label: "Industries",
     items: industries.slice(1),
-  },
-  whyRegen: {
-    label: "Why Regen",
-    items: whyRegen,
   },
 };
 
@@ -390,11 +386,6 @@ export default function SiteHeader({ animated = false }) {
       label: "Industries",
       items: childMenus.industries.items,
     },
-    {
-      name: "whyRegen",
-      label: "Why Regen",
-      items: childMenus.whyRegen.items,
-    },
   ];
 
   return (
@@ -527,19 +518,15 @@ export default function SiteHeader({ animated = false }) {
           >
             <NavLabel>Our Work</NavLabel>
           </a>
-          <button
-            className={`site-header__link${activeMenu === "whyRegen" ? " is-active-menu" : ""}`}
-            type="button"
-            aria-label="Why Regen"
-            aria-expanded={activeMenu === "whyRegen"}
-            aria-controls="primary-child-menu"
-            onClick={(event) => handleMenuClick(event, "whyRegen")}
-            onFocus={() => openMenu("whyRegen")}
-            onPointerEnter={() => openMenu("whyRegen")}
+          <a
+            className="site-header__link"
+            href="/about"
+            aria-label="About Regen"
+            onFocus={closeMenu}
+            onPointerEnter={closeMenu}
           >
-            <NavLabel>Why Regen</NavLabel>
-            <span className="site-header__chevron" aria-hidden="true" />
-          </button>
+            <NavLabel>About Regen</NavLabel>
+          </a>
           <a className="site-header__audit site-header__action cta-motion cta-button" href="/audit">
             <span className="cta-motion__fill" aria-hidden="true" />
             <span className="cta-motion__clip">
@@ -625,43 +612,12 @@ export default function SiteHeader({ animated = false }) {
                 <strong>Our Work</strong>
               </a>
             </div>
-            {mobileMenus.slice(2).map((mobileMenu) => (
-              <div
-                className={`site-header__mobile-row${activeMobileSection === mobileMenu.name ? " is-expanded" : ""}`}
-                key={mobileMenu.name}
-              >
-                <span data-mobile-rule />
-                <button
-                  type="button"
-                  data-mobile-item
-                  aria-expanded={activeMobileSection === mobileMenu.name}
-                  aria-controls={`mobile-${mobileMenu.name}-menu`}
-                  onClick={() =>
-                    setActiveMobileSection((current) =>
-                      current === mobileMenu.name ? null : mobileMenu.name
-                    )
-                  }
-                >
-                  <strong>{mobileMenu.label}</strong>
-                  <span className="site-header__mobile-chevron" aria-hidden="true" />
-                </button>
-                <div
-                  className="site-header__mobile-dropdown"
-                  id={`mobile-${mobileMenu.name}-menu`}
-                  aria-hidden={activeMobileSection !== mobileMenu.name}
-                  inert={activeMobileSection !== mobileMenu.name}
-                  ref={(element) => {
-                    mobileDropdowns.current[mobileMenu.name] = element;
-                  }}
-                >
-                  <div>
-                    {mobileMenu.items.map((item) => (
-                      <a href={item.href} key={item.href}>{item.label}</a>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
+            <div className="site-header__mobile-row">
+              <span data-mobile-rule />
+              <a className="site-header__mobile-direct" href="/about" data-mobile-item>
+                <strong>About Regen</strong>
+              </a>
+            </div>
           </div>
           <div className="site-header__mobile-footer">
             <div className="site-header__mobile-secondary" data-mobile-item>
