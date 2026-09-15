@@ -11,8 +11,7 @@ const cases = [
     image: "/pics/Max.png",
     href: "/work/agency-ai",
     marks: [
-      // Holding the slot until the updated Agency AI logo lands.
-      { placeholder: true },
+      { src: "/AgencyAI/agency-ai-mark.svg", alt: "Agency AI" },
       { src: "/AgencyAI/max-modlin.png", alt: "Max Modlin, founder of Agency AI", mono: true },
     ],
     summary: "A connected organic, search and outbound system that grew qualified traffic and started more of the right sales conversations.",

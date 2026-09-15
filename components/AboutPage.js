@@ -47,14 +47,6 @@ const teamMembers = [
       "From daily scheduling to community management, keeping every client channel live, consistent, and on brand.",
   },
   {
-    name: "Jordan Stimpson",
-    image: "/pics/Jordan.png",
-    title: "Web Design and Build",
-    previousCompany: "Founder of Jords Co, a design studio for B2B brands",
-    bio:
-      "Jordan's our go-to for highly technical builds, sites with heavy animation and serious detail.",
-  },
-  {
     name: "Segaf Basry",
     image: "/pics/Segaf.png",
     title: "Design Lead",
