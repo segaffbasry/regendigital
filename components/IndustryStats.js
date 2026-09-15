@@ -97,12 +97,12 @@ const aiAssistants = [
 
 function AiResearchGraphic() {
   return (
-    <StatFrame variant="industry-stat-visual--mentions">
-      <text className="stat-clean-number stat-clean-number--medium" x="260" y="53" textAnchor="middle">94%</text>
-      <text className="stat-clean-small" x="260" y="79" textAnchor="middle">of buyers research through AI</text>
+    <StatFrame variant="industry-stat-visual--mentions" viewBox="0 0 520 301.86">
+      <text className="stat-clean-number stat-research-number" x="260" y="63.96" textAnchor="middle">94%</text>
+      <text className="stat-clean-label stat-research-label" x="260" y="88" textAnchor="middle">of buyers research through AI</text>
       {aiAssistants.map(([name, logo], i) => {
         const x = i < 3 ? 70 + i * 132 : 136 + (i - 3) * 132;
-        const y = i < 3 ? 98 : 180;
+        const y = i < 3 ? 108 : 190;
         return (
           <g key={name}>
             <rect className="stat-clean-assistant" x={x} y={y} width="116" height="68" rx="13" />

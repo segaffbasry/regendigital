@@ -1805,6 +1805,28 @@
   letter-spacing: 0;
 }
 
+/* Reference typography at 520/2000 scale: 131.49px bold and 80.77px regular. */
+.industry-stat-card .industry-stat-visual--mentions {
+  aspect-ratio: 2000 / 1161;
+}
+
+.industry-stat-visual--mentions .stat-research-number {
+  font-family: "Helvetica Neue", var(--font-helv);
+  font-size: 34.1874px;
+  font-weight: 700;
+  font-variant-numeric: normal;
+  letter-spacing: 0;
+  line-height: 1.1;
+}
+
+.industry-stat-visual--mentions .stat-research-label {
+  font-family: var(--font-editorial);
+  font-size: 21.0002px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.1;
+}
+
 .industry-stats > header h2,
 .industry-stat-card h3,
 .industry-stats .industry-stats__cta,
