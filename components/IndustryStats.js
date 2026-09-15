@@ -1,4 +1,5 @@
 import IndustryStatCount from "./IndustryStatCount";
+import IndustryGrowthPlot from "./IndustryGrowthPlot";
 
 function StatFrame({ children, variant = "", viewBox = "0 0 520 260" }) {
   return (
@@ -42,21 +43,6 @@ function PercentageDial({ value, label, lifted = true }) {
         transform={`translate(${944.5 + lift * Math.cos(middle)} ${620.5 + lift * Math.sin(middle)})`} />
       <text className="stat-clean-number" x="944.5" y={label ? 636.906 : 667.5} textAnchor="middle">{value}%</text>
       {label ? <text className="stat-clean-label" x="944.5" y="725.148" textAnchor="middle">{label}</text> : null}
-    </StatFrame>
-  );
-}
-
-function GrowthPlot({ type }) {
-  const isTech = type === "tech";
-  return (
-    <StatFrame>
-      <text className="stat-clean-number" x="260" y="77" textAnchor="middle">{isTech ? "$6.37tn" : "$3.5tn"}</text>
-      <text className="stat-clean-label" x="260" y="105" textAnchor="middle">{isTech ? "worldwide IT spending" : "AI market by 2033"}</text>
-      <path className="stat-clean-axis" d="M65 130v87h390M65 174h390" />
-      <path className="stat-clean-trend" d="M76 207C157 201 175 192 230 180S352 155 444 130" />
-      <circle cx="444" cy="130" r="6" fill="var(--blue)" />
-      <text className="stat-clean-small" x="65" y="246">{isTech ? "2026" : "Forecast"}</text>
-      <text className="stat-clean-small" x="455" y="246" textAnchor="end">{isTech ? "+14.2%" : "2033"}</text>
     </StatFrame>
   );
 }
@@ -150,10 +136,10 @@ const statVisuals = {
   "professional-growth": <GrowthComparison />,
   "professional-expertise": <ExpertiseGraphic />,
   "tech-committee": <BuyingCommittee />,
-  "tech-spend": <GrowthPlot type="tech" />,
+  "tech-spend": <IndustryGrowthPlot type="tech" />,
   "tech-budget": <PercentageDial value={7.7} label="of revenue" />,
   "ai-scrutiny": <PercentageDial value={58} lifted={false} />,
-  "ai-market": <GrowthPlot type="ai" />,
+  "ai-market": <IndustryGrowthPlot type="ai" />,
   "ai-research": <AiResearchGraphic />,
 };
 

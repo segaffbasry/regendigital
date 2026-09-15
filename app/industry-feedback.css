@@ -1818,6 +1818,16 @@
 .stat-clean-trend { fill: none; stroke: var(--blue); stroke-width: 7px; stroke-linecap: round; }
 .stat-clean-assistant { fill: #fff; stroke: #e0e2d9; stroke-width: 1.5px; }
 
+/* Keep the supplied growth artwork's canvas and proportions at every size. */
+.industry-stat-card .industry-growth-plot {
+  aspect-ratio: 2000 / 1161;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .industry-growth-plot__line { clip-path: none; }
+  .industry-growth-plot__bar { fill: #0C27F0; }
+}
+
 @media (max-width: 900px) {
   .industry-stat-card .industry-stat-visual {
     max-width: 480px;
