@@ -1823,6 +1823,17 @@
   aspect-ratio: 2000 / 1161;
 }
 
+.industry-growth-plot__line { opacity: 0; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .industry-growth-plot__line { transition: opacity 450ms ease-in-out; }
+
+  .industry-growth-plot[data-motion="running"] .industry-growth-plot__line {
+    opacity: 1;
+    transition: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .industry-growth-plot__line { clip-path: none; }
   .industry-growth-plot__bar { fill: #0C27F0; }
