@@ -1806,11 +1806,17 @@
 }
 
 /* Reference typography at 520/2000 scale: 131.49px bold and 80.77px regular. */
-.industry-stat-card .industry-stat-visual--mentions {
+.industry-stat-card .industry-stat-visual--mentions,
+.industry-stat-card--professional-clarity .industry-stat-visual,
+.industry-stat-card--professional-growth .industry-stat-visual,
+.industry-stat-card--professional-expertise .industry-stat-visual {
   aspect-ratio: 2000 / 1161;
 }
 
-.industry-stat-visual--mentions .stat-research-number {
+.industry-stat-visual--mentions .stat-research-number,
+.industry-stat-card--professional-clarity .stat-clean-number,
+.industry-stat-card--professional-growth .stat-clean-number,
+.industry-stat-card--professional-expertise .stat-clean-number {
   font-family: "Helvetica Neue", var(--font-helv);
   font-size: 34.1874px;
   font-weight: 700;
@@ -1819,7 +1825,13 @@
   line-height: 1.1;
 }
 
-.industry-stat-visual--mentions .stat-research-label {
+.industry-stat-card--professional-clarity .stat-clean-number {
+  font-size: 131.49px;
+}
+
+.industry-stat-visual--mentions .stat-research-label,
+.industry-stat-card--professional-growth .stat-clean-label,
+.industry-stat-card--professional-expertise .stat-clean-label {
   font-family: var(--font-editorial);
   font-size: 21.0002px;
   font-weight: 400;

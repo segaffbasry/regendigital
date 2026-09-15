@@ -49,9 +49,9 @@ function PercentageDial({ value, label, lifted = true }) {
 
 function GrowthComparison() {
   return (
-    <StatFrame>
+    <StatFrame viewBox="0 0 520 301.86">
       <text className="stat-clean-number" x="260" y="82" textAnchor="middle">4×</text>
-      <text className="stat-clean-label" x="260" y="112" textAnchor="middle">faster growth</text>
+      <text className="stat-clean-label" x="260" y="106.04" textAnchor="middle">faster growth</text>
       <text className="stat-clean-small" x="54" y="158">Peers</text>
       <rect className="stat-clean-surface" x="196" y="140" width="65" height="24" rx="12" />
       <text className="stat-clean-small" x="54" y="208">High-growth firms</text>
@@ -62,9 +62,9 @@ function GrowthComparison() {
 
 function ExpertiseGraphic() {
   return (
-    <StatFrame>
+    <StatFrame viewBox="0 0 520 301.86">
       <IndustryStatCount className="stat-clean-number" value={75} x="260" y="122" textAnchor="middle" />
-      <text className="stat-clean-label" x="260" y="154" textAnchor="middle">of buyers</text>
+      <text className="stat-clean-label" x="260" y="146.04" textAnchor="middle">of buyers</text>
       <rect className="stat-clean-surface" x="70" y="188" width="380" height="20" rx="10" />
       <rect x="70" y="188" width="285" height="20" rx="10" fill="var(--blue)" />
     </StatFrame>
