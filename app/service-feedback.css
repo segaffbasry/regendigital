@@ -207,13 +207,13 @@
   color: var(--white);
 }
 
-.service-detail--refined .service-detail__hero-panel .cta-button.cta-button:not(.site-header__audit):not(.site-header__call) {
+.service-detail--refined .service-detail__hero-panel .cta-button.cta-button:not(.site-header__audit):not(.site-header__call):not(.site-header__mobile-contact):not(.site-header__mobile-audit) {
   border-color: rgba(255, 255, 255, .78);
   background: transparent;
   color: var(--white);
 }
 
-.service-detail--refined .service-detail__hero-panel .cta-button.cta-button:not(.site-header__audit):not(.site-header__call):is(:hover, :focus-visible) {
+.service-detail--refined .service-detail__hero-panel .cta-button.cta-button:not(.site-header__audit):not(.site-header__call):not(.site-header__mobile-contact):not(.site-header__mobile-audit):is(:hover, :focus-visible) {
   border-color: var(--white);
   background: var(--white);
   color: var(--blue);
