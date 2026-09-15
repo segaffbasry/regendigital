@@ -36,7 +36,7 @@ const cases = [
     name: "Finden",
     service: "Go-to-Market Relaunch",
     sector: "AI & Tech Industry",
-    image: "/pics/ChatGPT Image Jul 31, 2026, 10_27_29 AM.png",
+    image: "/Finden/finden-website.png",
     href: "/work/finden",
     marks: [
       { src: "/Finden/finden-mark.jpg", alt: "Finden" },

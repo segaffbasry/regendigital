@@ -231,6 +231,10 @@
   animation: none;
 }
 
+.industry-stat-visual--asset-scrutiny img {
+  animation: none;
+}
+
 .industry-stat-visual--illustration {
   display: grid;
   place-items: center;
@@ -1794,22 +1798,77 @@
   inset: 0;
 }
 .industry-stat-visual--dial .stat-clean-number {
-  font-family: var(--font-helv);
-  font-size: 132px;
+  font-family: "Helvetica Neue", var(--font-helv);
+  font-size: 131.49px;
   font-weight: 700;
+  font-variant-numeric: normal;
   letter-spacing: 0;
 }
 .industry-stat-visual--dial .stat-clean-label {
   font-family: var(--font-editorial);
-  font-size: 83px;
+  font-size: 80.77px;
   letter-spacing: 0;
+}
+
+/* Match the SaaS donut's contained 2000 × 1161 artwork in a 2:1 frame. */
+.industry-stat-card .industry-stat-visual--dial {
+  aspect-ratio: 2 / 1;
+}
+
+/* Animate outside the segment's translation so its exact share stays intact. */
+.stat-dial-sweep {
+  transform-box: view-box;
+  transform-origin: 47.225% 53.445%;
+}
+
+/* The scrutiny asset's ring sits on a different centre than the generated dial. */
+.stat-dial-sweep.stat-scrutiny-sweep {
+  transform-origin: 49.99% 50.06%;
+}
+
+.stat-dial-number {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.stat-growth-bar,
+.stat-expertise-bar {
+  transform-box: fill-box;
+  transform-origin: 0% 50%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .stat-dial-sweep { animation: industry-dial-rock 3.2s ease-in-out infinite; }
+  .stat-dial-number { animation: industry-dial-pulse 3.2s ease-in-out infinite; }
+  .stat-growth-bar { animation: industry-bar-grow 3.6s ease-in-out infinite; }
+  .stat-expertise-bar { animation: industry-bar-grow-wide 3.6s ease-in-out infinite; }
+}
+
+@keyframes industry-dial-rock {
+  0%, 100% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+}
+
+@keyframes industry-bar-grow {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(1.035); }
+}
+
+@keyframes industry-bar-grow-wide {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(1.02); }
+}
+
+@keyframes industry-dial-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.055); }
 }
 
 /* Reference typography at 520/2000 scale: 131.49px bold and 80.77px regular. */
 .industry-stat-card .industry-stat-visual--mentions,
-.industry-stat-card--professional-clarity .industry-stat-visual,
 .industry-stat-card--professional-growth .industry-stat-visual,
-.industry-stat-card--professional-expertise .industry-stat-visual {
+.industry-stat-card--professional-expertise .industry-stat-visual,
+.industry-stat-card .industry-stat-visual--committee {
   aspect-ratio: 2000 / 1161;
 }
 
@@ -1851,6 +1910,69 @@
 .stat-clean-axis { fill: none; stroke: var(--bone); stroke-width: 3px; }
 .stat-clean-trend { fill: none; stroke: var(--blue); stroke-width: 7px; stroke-linecap: round; }
 .stat-clean-assistant { fill: #fff; stroke: #e0e2d9; stroke-width: 1.5px; }
+
+/* Assistant cards appear one after another the first time the graphic scrolls into view. */
+.stat-assistant-card {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0) scale(.94);
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: opacity .6s cubic-bezier(.16, 1, .3, 1), transform .6s cubic-bezier(.16, 1, .3, 1);
+  transition-delay: var(--assistant-delay, 0ms);
+}
+
+.industry-stat-visual--mentions.is-in-view .stat-assistant-card {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stat-assistant-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Committee icons pop in one by one, then settle into a gentle, staggered bob. */
+.stat-committee-item {
+  opacity: 0;
+  transform: translate3d(0, 10px, 0) scale(.7);
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: opacity .5s cubic-bezier(.16, 1, .3, 1), transform .5s cubic-bezier(.16, 1, .3, 1);
+  transition-delay: var(--icon-delay, 0ms);
+}
+
+.industry-stat-visual--committee.is-in-view .stat-committee-item {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.stat-committee-bob {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .industry-stat-visual--committee.is-in-view .stat-committee-bob {
+    animation: industry-committee-bob 3.6s ease-in-out infinite;
+    animation-delay: var(--bob-delay, 0ms);
+  }
+}
+
+@keyframes industry-committee-bob {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(0, -4px, 0) rotate(-2deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stat-committee-item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
 
 /* Keep the supplied growth artwork's canvas and proportions at every size. */
 .industry-stat-card .industry-growth-plot {
