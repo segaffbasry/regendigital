@@ -48,6 +48,7 @@ export async function generateMetadata({ params }) {
   return {
     title: content?.title || `${page.title} | Regen`,
     description: content?.description,
+    alternates: { canonical: `/${slug.join("/")}` },
     robots: content?.robots,
     openGraph: content?.openGraph,
   };

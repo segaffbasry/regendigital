@@ -1,3 +1,4 @@
+import ServiceCallForm from "./ServiceCallForm";
 import FaqItem from "./FaqItem";
 import ClientLogoStrip from "./ClientLogoStrip";
 import ServiceAnimation from "./ServiceAnimation";
@@ -150,18 +151,7 @@ export default function ServicePage({ content: page, serviceKey }) {
           </div>
           <h3>Book a strategy call</h3>
           <p className="service-detail__closing-meta"><span aria-hidden="true">◷</span> 30 minute session</p>
-          <form className="service-detail__closing-form" action="/contact" method="get">
-            <label>
-              <span>Name</span>
-              <input autoComplete="name" type="text" name="name" placeholder="Your name*" required />
-            </label>
-            <label>
-              <span>Work email address</span>
-              <input autoComplete="email" type="email" name="email" placeholder="Your work email address*" required />
-            </label>
-            <p>By submitting this form, you agree to our <a href="/privacy-policy">Privacy Policy</a>.</p>
-            <button className="service-detail__link service-detail__closing-submit cta-button" type="submit">Let&apos;s talk <span className="cta-arrow" aria-hidden="true" /></button>
-          </form>
+          <ServiceCallForm />
         </div>
       </section>
 

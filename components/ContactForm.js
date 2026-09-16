@@ -1,30 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import useEnquiryForm from "./useEnquiryForm";
 
 export default function ContactForm() {
-  const [status, setStatus] = useState("");
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const subject = encodeURIComponent(`New Regen enquiry from ${data.get("name")}`);
-    const body = encodeURIComponent([
-      `Name: ${data.get("name")}`,
-      `Work email: ${data.get("email")}`,
-      `Company: ${data.get("company")}`,
-      `Looking for: ${data.get("service")}`,
-      "",
-      "What they want to achieve:",
-      data.get("message"),
-    ].join("\n"));
-
-    setStatus("Opening your email app…");
-    window.location.href = `mailto:info@regendigital.co?subject=${subject}&body=${body}`;
-  }
+  const { handleSubmit, status, pending } = useEnquiryForm("contact");
 
   return (
-    <form className="contact-form" onSubmit={handleSubmit}>
+    <form className="contact-form" onSubmit={handleSubmit} aria-busy={pending}>
       <div className="contact-form__grid">
         <label>
           <span>Your name</span>
@@ -63,7 +45,7 @@ export default function ContactForm() {
           By sending this, you agree to our <a href="/privacy-policy">privacy policy</a>.
           No mailing lists, no hard sell.
         </p>
-        <button className="cta-button" type="submit">
+        <button className="cta-button" type="submit" disabled={pending}>
           <span>Send enquiry</span>
           <span className="contact-submit-arrow" aria-hidden="true">
             <img src="/download.svg" alt="" />

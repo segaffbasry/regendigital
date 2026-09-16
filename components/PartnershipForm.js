@@ -1,32 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import useEnquiryForm from "./useEnquiryForm";
 
 export default function PartnershipForm() {
-  const [status, setStatus] = useState("");
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const firm = data.get("firm");
-    const subject = encodeURIComponent(`Portfolio partnership call request — ${firm}`);
-    const body = encodeURIComponent([
-      `Name: ${data.get("name")}`,
-      `Work email: ${data.get("email")}`,
-      `Fund or firm: ${firm}`,
-      `Website: ${data.get("website")}`,
-      `Partnership scope: ${data.get("scope")}`,
-      "",
-      "Portfolio context:",
-      data.get("context"),
-    ].join("\n"));
-
-    setStatus("Opening your email app…");
-    window.location.href = `mailto:info@regendigital.co?subject=${subject}&body=${body}`;
-  }
+  const { handleSubmit, status, pending } = useEnquiryForm("partnership");
 
   return (
-    <form className="contact-form partnership-form" onSubmit={handleSubmit}>
+    <form className="contact-form partnership-form" onSubmit={handleSubmit} aria-busy={pending}>
       <div className="contact-form__grid">
         <label>
           <span>Your name</span>
@@ -70,7 +50,7 @@ export default function PartnershipForm() {
           By sending this, you agree to our <a href="/privacy-policy">privacy policy</a>.
           Prefer email? Write to <a href="mailto:info@regendigital.co">info@regendigital.co</a>.
         </p>
-        <button className="cta-button" type="submit">
+        <button className="cta-button" type="submit" disabled={pending}>
           <span>Request the call</span>
           <span className="contact-submit-arrow" aria-hidden="true">
             <img src="/download.svg" alt="" />

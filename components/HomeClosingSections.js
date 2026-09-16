@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import useEnquiryForm from "./useEnquiryForm";
 import FaqItem from "./FaqItem";
 import StaggerText from "./StaggerText";
 
@@ -72,11 +72,11 @@ function ClosingArrowLink({ href, children }) {
   );
 }
 
-function ClosingSubmitButton({ children }) {
+function ClosingSubmitButton({ children, disabled }) {
   return (
     <button
       className="home-link cta-motion home-link--sand cta-button final-cta__submit"
-      type="submit"
+      type="submit" disabled={disabled}
     >
       <span className="cta-motion__fill" aria-hidden="true" />
       <span className="cta-motion__clip">
@@ -116,22 +116,7 @@ function FaqQuestion({ children }) {
 }
 
 export default function HomeClosingSections({ showLeadForm = false }) {
-  const [status, setStatus] = useState("");
-
-  function handleLeadSubmit(event) {
-    event.preventDefault();
-
-    const data = new FormData(event.currentTarget);
-    const name = String(data.get("name") || "").trim();
-    const email = String(data.get("email") || "").trim();
-    const subject = encodeURIComponent(`Strategy call enquiry from ${name}`);
-    const body = encodeURIComponent(
-      [`Name: ${name}`, `Work email: ${email}`, "", "I would like to book a strategy call."].join("\n")
-    );
-
-    setStatus("Opening your email app...");
-    window.location.href = `mailto:info@regendigital.co?subject=${subject}&body=${body}`;
-  }
+  const { handleSubmit: handleLeadSubmit, status, pending } = useEnquiryForm("strategy");
 
   return (
     <>
@@ -174,7 +159,7 @@ export default function HomeClosingSections({ showLeadForm = false }) {
                       <span>Your first conversation is with us.</span>
                     </div>
                   </div>
-                  <form className="final-cta__form" onSubmit={handleLeadSubmit}>
+                  <form className="final-cta__form" onSubmit={handleLeadSubmit} aria-busy={pending}>
                     <p>Start a conversation</p>
                     <div className="final-cta__fields">
                       <label>
@@ -200,7 +185,7 @@ export default function HomeClosingSections({ showLeadForm = false }) {
                     </div>
                     <div className="final-cta__form-footer">
                       <span>No mailing lists. No hard sell.</span>
-                      <ClosingSubmitButton>Book a Call</ClosingSubmitButton>
+                      <ClosingSubmitButton disabled={pending}>Book a Call</ClosingSubmitButton>
                     </div>
                     <p className="final-cta__status" aria-live="polite">
                       {status}

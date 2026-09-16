@@ -1,31 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import useEnquiryForm from "./useEnquiryForm";
 
 export default function AuditForm() {
-  const [status, setStatus] = useState("");
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const subject = encodeURIComponent(`Free marketing audit request from ${data.get("company")}`);
-    const body = encodeURIComponent([
-      `Name: ${data.get("name")}`,
-      `Work email: ${data.get("email")}`,
-      `Company: ${data.get("company")}`,
-      `Website: ${data.get("website")}`,
-      `Priority channel: ${data.get("channel")}`,
-      "",
-      "What they want reviewed:",
-      data.get("goal"),
-    ].join("\n"));
-
-    setStatus("Opening your email app…");
-    window.location.href = `mailto:info@regendigital.co?subject=${subject}&body=${body}`;
-  }
+  const { handleSubmit, status, pending } = useEnquiryForm("audit");
 
   return (
-    <form className="audit-review__form" onSubmit={handleSubmit}>
+    <form className="audit-review__form" onSubmit={handleSubmit} aria-busy={pending}>
       <div className="audit-review__fields">
         <label>
           <span>Your name</span>
@@ -62,7 +43,7 @@ export default function AuditForm() {
       </div>
       <div className="audit-review__form-footer">
         <p>By sending this, you agree to our <a href="/privacy-policy">privacy policy</a>. No mailing lists or automated scores.</p>
-        <button className="cta-button" type="submit">Request my free audit <span className="cta-arrow" aria-hidden="true" /></button>
+        <button className="cta-button" type="submit" disabled={pending}>Request my free audit <span className="cta-arrow" aria-hidden="true" /></button>
       </div>
       <p className="audit-review__status" aria-live="polite">{status}</p>
     </form>

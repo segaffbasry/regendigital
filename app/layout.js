@@ -12,9 +12,10 @@ import "./service-index.css";
 import "./case-study.css";
 import PageTransition from "../components/PageTransition";
 import SmoothScroll from "../components/SmoothScroll";
+import { siteUrl } from "../lib/site-url";
 
 export const metadata = {
-  metadataBase: new URL("https://regen.digital"),
+  metadataBase: new URL(siteUrl),
   title: "Regen — B2B Digital Marketing Agency for SaaS, AI, Tech & Professional Services",
   description:
     "Regen is a B2B digital marketing agency for SaaS, AI, tech, and professional services. We pair a strong strategic foundation with content, paid, and search to turn pipeline into predictable revenue.",
@@ -28,7 +29,7 @@ export const metadata = {
     description:
       "Strategy-led B2B marketing for SaaS, AI, tech, and professional services. One system of channels that turns pipeline into predictable revenue.",
     type: "website",
-    url: "https://regen.digital",
+    url: siteUrl,
   },
 };
 
