@@ -13,6 +13,7 @@ import "./case-study.css";
 import PageTransition from "../components/PageTransition";
 import SmoothScroll from "../components/SmoothScroll";
 import { siteUrl } from "../lib/site-url";
+import SiteAnalytics from "../components/SiteAnalytics";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
@@ -40,6 +41,7 @@ export default function RootLayout({ children }) {
         <SmoothScroll />
         <PageTransition />
         {children}
+        <SiteAnalytics />
       </body>
     </html>
   );

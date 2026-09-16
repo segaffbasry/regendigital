@@ -23,6 +23,11 @@ export default function useEnquiryForm(type) {
       });
       const result = await response.json();
       if (!response.ok) throw new Error(result.error || "We couldn’t send your enquiry. Please try again.");
+      try {
+        if (typeof window.gtag === "function") {
+          window.gtag("event", "generate_lead", { enquiry_type: type });
+        }
+      } catch {}
       setStatus("Thanks! Your enquiry has been sent. We’ll be in touch soon.");
       form.reset();
     } catch (error) {
