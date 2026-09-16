@@ -1748,18 +1748,22 @@
 /* Keep each graphic and its explanation together at every breakpoint. */
 .industry-stat-card {
   min-height: 0;
-  grid-template-rows: auto auto;
-  align-content: start;
+  grid-template-rows: auto 1fr;
+  align-content: stretch;
   gap: 22px;
   padding: 24px clamp(22px, 1.84vw, 29px) 28px;
 }
 
 .industry-stat-card__copy {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   justify-self: stretch;
-  align-self: start;
+  align-self: stretch;
   width: 100%;
+  height: 100%;
   margin: 0;
   padding: 0;
+  gap: 0;
   text-align: left;
 }
 
@@ -1775,13 +1779,24 @@
 
 .industry-stat-card h3 {
   margin-left: -0.04em;
+  /* Reserve two lines so body copy starts level across the row. */
+  min-height: calc(2 * 1.1em);
 }
 
+.industry-stat-card__copy > p {
+  align-self: start;
+}
+
+.industry-stat-card__source {
+  align-self: end;
+}
+
+/* One shared canvas for every Market Now graphic so titles start together. */
 .industry-stat-card .industry-stat-visual {
   width: 100%;
   height: auto;
   min-height: 0;
-  aspect-ratio: 2 / 1;
+  aspect-ratio: 2000 / 1161;
   margin: 0;
 }
 
@@ -1832,9 +1847,9 @@
   letter-spacing: 0;
 }
 
-/* Match the SaaS donut's contained 2000 × 1161 artwork in a 2:1 frame. */
+/* Match the shared Market Now canvas used by every card graphic. */
 .industry-stat-card .industry-stat-visual--dial {
-  aspect-ratio: 2 / 1;
+  aspect-ratio: 2000 / 1161;
 }
 
 /* Animate outside the segment's translation so its exact share stays intact. */
@@ -1887,13 +1902,6 @@
 }
 
 /* Reference typography at 520/2000 scale: 131.49px bold and 80.77px regular. */
-.industry-stat-card .industry-stat-visual--mentions,
-.industry-stat-card--professional-growth .industry-stat-visual,
-.industry-stat-card--professional-expertise .industry-stat-visual,
-.industry-stat-card .industry-stat-visual--committee {
-  aspect-ratio: 2000 / 1161;
-}
-
 .industry-stat-visual--mentions .stat-research-number,
 .industry-stat-card--professional-clarity .stat-clean-number,
 .industry-stat-card--professional-growth .stat-clean-number,
@@ -1997,10 +2005,6 @@
 }
 
 /* Keep the supplied growth artwork's canvas and proportions at every size. */
-.industry-stat-card .industry-growth-plot {
-  aspect-ratio: 2000 / 1161;
-}
-
 .industry-growth-plot__line { opacity: 0; }
 
 @media (prefers-reduced-motion: no-preference) {
