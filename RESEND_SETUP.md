@@ -1,5 +1,14 @@
 # Enquiry email setup
 
+## Production status — 16 September 2026
+
+- Resend reports `regendigital.co` verified with sending enabled.
+- `RESEND_API_KEY` and `RESEND_FROM_EMAIL` are saved as Production secrets in Vercel.
+- Sender: `Regen Website <website@regendigital.co>`.
+- A live contact-form test was delivered to both Holly and Taylor. Reply-To is the visitor's address.
+- GA4 stream `G-9FEPPKZ483` is connected. The `generate_lead` event is marked as a key event in Regen's property.
+- Google Analytics loads after visitors allow analytics. The shared form handler emits a lead event after a successful server response, with enquiry type and no entered personal details.
+
 Every enquiry form (homepage, service pages, contact, audit and partnership) posts to `/api/enquiry` using `components/useEnquiryForm.js`.
 
 The server sends through Resend to Holly and Taylor using `lib/enquiry-recipients.js`. The visitor’s address is Reply-To, so replies reach the visitor. Form type, page and all required fields are included in the email.
@@ -13,7 +22,7 @@ RESEND_FROM_EMAIL=Regen Website <website@regendigital.co>
 
 The From address must use the domain verified in Resend. If a subdomain is verified instead, use an address on that subdomain. No `NEXT_PUBLIC_` prefix: the API key must stay on the server. Redeploy after changing hosting environment variables.
 
-Until these variables are configured, forms show an unavailable message with Holly and Taylor’s email addresses. They preserve entered details on failure and only show success after Resend accepts the email.
+If these variables are absent, forms show an unavailable message with Holly and Taylor’s email addresses. They preserve entered details on failure and only show success after Resend accepts the email.
 
 Before launch:
 

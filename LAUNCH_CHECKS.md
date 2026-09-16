@@ -1,6 +1,6 @@
 # Launch checks — 16 September 2026
 
-Checked the local production build. Mailer, Google Analytics and the domain migration are pending separately.
+Checked the local production build. Resend and GA4 have since been configured on production (see `RESEND_SETUP.md`). The domain migration remains pending.
 
 ## Passed
 
@@ -23,7 +23,7 @@ Checked the local production build. Mailer, Google Analytics and the domain migr
 ## Remaining findings
 
 - `/cookie-policy` renders the generic interior-page fallback, not actual cookie-policy content. It also lacks a dedicated description.
-- Resolved: homepage, service, contact, audit and partnership forms now share `/api/enquiry` and the Resend recipient configuration. Real inbox delivery is pending the API key and verified sender.
+- Resolved: homepage, service, contact, audit and partnership forms now share `/api/enquiry` and the Resend recipient configuration. A live contact-form test was delivered to both configured recipients.
 - Resolved: service-page forms now submit directly through the shared enquiry endpoint; entered details are no longer put in contact-page query strings.
 - No default Open Graph sharing image is configured; three case-study pages specify their own.
 - Browser logs contained a MutationObserver error with no source URL and two GSAP missing-target warnings during the walkthrough. Source and user-visible impact remain unconfirmed.
@@ -34,7 +34,7 @@ Checked the local production build. Mailer, Google Analytics and the domain migr
 - Real iPhone Safari and Android Chrome checks; viewport checks here use the Codex in-app browser.
 - Performance measurement and complete keyboard interaction review.
 - Social destination verification (LinkedIn/Instagram) and deployed-site smoke test.
-- Real inbox delivery after Resend setup; successful-enquiry tracking after GA4 setup.
+- Confirm all remaining form variants in production; contact-form delivery has been verified. GA4 code and the enquiry key event are configured.
 - HTTPS, old-domain redirects and canonical/sitemap domain update at migration.
 
-Changes are local and have not been deployed.
+SEO, shared enquiry forms and GA4 integration are deployed to `regendigital.vercel.app`.
