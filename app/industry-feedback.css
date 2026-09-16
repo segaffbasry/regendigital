@@ -148,22 +148,24 @@
 }
 
 .industry-stat-card h3 {
-  max-width: 390px;
+  max-width: none;
   margin: 0 0 12px;
   font-family: var(--font-display);
   font-size: clamp(27px, 2.25vw, 38px);
   font-weight: 500;
   letter-spacing: -.05em;
   line-height: .94;
-  text-wrap: balance;
+  text-align: left;
+  text-wrap: wrap;
 }
 
 .industry-stat-card__copy > p {
-  max-width: 430px;
+  max-width: none;
   margin: 0;
   color: #000;
   font-size: clamp(13px, .94vw, 15.5px);
   line-height: 1.4;
+  text-align: left;
 }
 
 .industry-stat-card__source {
@@ -1733,6 +1735,8 @@
   font-weight: 600;
   letter-spacing: -.02em;
   line-height: 1.1;
+  text-align: left;
+  text-wrap: wrap;
 }
 
 @media (max-width: 900px) {
@@ -1751,8 +1755,26 @@
 }
 
 .industry-stat-card__copy {
+  justify-self: stretch;
   align-self: start;
-  padding-top: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+/* Keep heading, body, and source on one shared left edge across every card.
+   Italic display faces optically drift right; a slight pull corrects that. */
+.industry-stat-card h3,
+.industry-stat-card__copy > p,
+.industry-stat-card__source {
+  margin-inline: 0;
+  padding-inline: 0;
+  text-align: left;
+}
+
+.industry-stat-card h3 {
+  margin-left: -0.04em;
 }
 
 .industry-stat-card .industry-stat-visual {
