@@ -83,6 +83,11 @@ export default function ServicePage({ content: page, serviceKey }) {
 
       <section className="service-detail__opening" id={page.openingId}>
         <div className="service-detail__opening-copy">
+          {page.openingKicker ? (
+            <p className="editorial-kicker service-detail__opening-kicker">
+              <span>{page.openingKicker.index}</span>{page.openingKicker.label}
+            </p>
+          ) : null}
           {page.openingTitle ? (
             <h2>
               {emphasizedText(page.openingTitle, page.openingTitleEmphasis, "service-detail__opening-emphasis")}

@@ -43,11 +43,14 @@ export default function CanvasUgcSections({ canvas }) {
   return (
     <>
       <section className="canvas-ugc" id={canvas.id}>
+        <header className="canvas-ugc__masthead">
+          <span className="canvas-ugc__index">{canvas.index}</span>
+          <h2 className="canvas-ugc__title">{canvas.title}</h2>
+          <p className="canvas-ugc__tag">{canvas.tagline}</p>
+        </header>
+
         <div className="canvas-ugc__intro">
-          <div className="canvas-ugc__heading">
-            <p className="editorial-kicker">{canvas.kicker}</p>
-            <h2>{canvas.headline}<br /><em>{canvas.headlineEmphasis}</em></h2>
-          </div>
+          <h3 className="canvas-ugc__headline">{canvas.headline}<br /><em>{canvas.headlineEmphasis}</em></h3>
           <div className="canvas-ugc__copy">
             {canvas.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
           </div>
