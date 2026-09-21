@@ -7,7 +7,7 @@ import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
 import "../app/service-feedback.css";
 import ResultsSection from "./ResultsSection";
-import CanvasUgcSections, { ServiceSplit } from "./CanvasUgcSections";
+import CanvasUgcSections, { ServiceMasthead, ServiceSplit } from "./CanvasUgcSections";
 
 const protectedTitleWords = new Set(["AI", "B2B", "GEO", "Google", "Regen", "SaaS", "SEO"]);
 
@@ -82,12 +82,8 @@ export default function ServicePage({ content: page, serviceKey }) {
       {page.serviceSplit ? <ServiceSplit items={page.serviceSplit} /> : null}
 
       <section className="service-detail__opening" id={page.openingId}>
+        {page.serviceMasthead ? <ServiceMasthead {...page.serviceMasthead} /> : null}
         <div className="service-detail__opening-copy">
-          {page.openingKicker ? (
-            <p className="editorial-kicker service-detail__opening-kicker">
-              <span>{page.openingKicker.index}</span>{page.openingKicker.label}
-            </p>
-          ) : null}
           {page.openingTitle ? (
             <h2>
               {emphasizedText(page.openingTitle, page.openingTitleEmphasis, "service-detail__opening-emphasis")}

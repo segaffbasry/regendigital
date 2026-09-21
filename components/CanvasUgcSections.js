@@ -1,6 +1,19 @@
 import CanvasUgcVideo from "./CanvasUgcVideo";
 import "../app/canvas-ugc.css";
 
+// Shared title row so both services on the page carry the same weight.
+export function ServiceMasthead({ as: Title = "p", index, title, tagline }) {
+  return (
+    <header className="service-masthead">
+      <Title className="service-masthead__title">
+        <span className="service-masthead__index">{index}</span>
+        {title}
+      </Title>
+      {tagline ? <p className="service-masthead__tag">{tagline}</p> : null}
+    </header>
+  );
+}
+
 export function ServiceSplit({ items }) {
   return (
     <nav className="service-split" aria-label="Two ways to work with creators">
@@ -34,11 +47,7 @@ export default function CanvasUgcSections({ canvas }) {
   return (
     <>
       <section className="canvas-ugc" id={canvas.id}>
-        <header className="canvas-ugc__masthead">
-          <span className="canvas-ugc__index">{canvas.index}</span>
-          <h2 className="canvas-ugc__title">{canvas.title}</h2>
-          <p className="canvas-ugc__tag">{canvas.tagline}</p>
-        </header>
+        <ServiceMasthead as="h2" index={canvas.index} title={canvas.title} tagline={canvas.tagline} />
 
         <div className="canvas-ugc__intro">
           <h3 className="canvas-ugc__headline">{canvas.headline}<br /><em>{canvas.headlineEmphasis}</em></h3>
