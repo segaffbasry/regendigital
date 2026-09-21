@@ -255,11 +255,12 @@
   line-height: 1.35;
 }
 
+/* five creators side by side on desktop; narrower screens swipe through them */
 .canvas-ugc__videos {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(14px, 1.6vw, 24px);
-  max-width: 1040px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(12px, 1.2vw, 20px);
+  max-width: 1320px;
   margin-inline: auto;
 }
 
@@ -277,6 +278,32 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.canvas-ugc__sound {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  padding: 7px 12px;
+  border: 1px solid rgba(255, 255, 255, .35);
+  border-radius: 999px;
+  background: rgba(5, 5, 5, .55);
+  color: var(--white);
+  font: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transform: translateX(-50%);
+  backdrop-filter: blur(6px);
+  transition: background-color .2s ease;
+}
+
+.canvas-ugc__sound:hover,
+.canvas-ugc__sound[aria-pressed="true"] {
+  background: var(--blue);
 }
 
 .canvas-ugc__video-placeholder {
@@ -316,6 +343,28 @@
 }
 
 @media (max-width: 1100px) {
+  .canvas-ugc__videos {
+    grid-template-columns: none;
+    grid-auto-columns: 30%;
+    grid-auto-flow: column;
+    max-width: none;
+    margin-inline: calc(max(5vw, 28px) * -1);
+    padding-inline: max(5vw, 28px);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-padding-inline: max(5vw, 28px);
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .canvas-ugc__videos::-webkit-scrollbar {
+    display: none;
+  }
+
+  .canvas-ugc__video {
+    scroll-snap-align: start;
+  }
+
   .canvas-ugc__masthead {
     grid-template-columns: auto minmax(0, 1fr);
   }
@@ -381,26 +430,11 @@
     border-left: 0;
   }
 
-  /* three portrait videos swipe sideways rather than stacking into a very tall column */
   .canvas-ugc__videos {
-    grid-template-columns: none;
     grid-auto-columns: 72%;
-    grid-auto-flow: column;
-    max-width: none;
     margin-inline: -20px;
     padding-inline: 20px;
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
     scroll-padding-inline: 20px;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-  }
-
-  .canvas-ugc__videos::-webkit-scrollbar {
-    display: none;
-  }
-
-  .canvas-ugc__video {
-    scroll-snap-align: start;
   }
 }
+

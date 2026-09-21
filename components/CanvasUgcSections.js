@@ -1,3 +1,4 @@
+import CanvasUgcVideo from "./CanvasUgcVideo";
 import "../app/canvas-ugc.css";
 
 export function ServiceSplit({ items }) {
@@ -18,17 +19,7 @@ export function ServiceSplit({ items }) {
 
 function CanvasVideo({ video, index }) {
   if (video.src) {
-    return (
-      <video
-        className="canvas-ugc__video-media"
-        src={video.src}
-        poster={video.poster}
-        aria-label={video.label || `Canvas UGC example ${index + 1}`}
-        controls
-        playsInline
-        preload="metadata"
-      />
-    );
+    return <CanvasUgcVideo src={video.src} poster={video.poster} label={video.label || `Canvas UGC example ${index + 1}`} />;
   }
 
   return (
