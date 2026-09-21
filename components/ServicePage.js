@@ -7,6 +7,7 @@ import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
 import "../app/service-feedback.css";
 import ResultsSection from "./ResultsSection";
+import CanvasUgcSections, { ServiceSplit } from "./CanvasUgcSections";
 
 const protectedTitleWords = new Set(["AI", "B2B", "GEO", "Google", "Regen", "SaaS", "SEO"]);
 
@@ -78,7 +79,9 @@ export default function ServicePage({ content: page, serviceKey }) {
         </div>
       </section>
 
-      <section className="service-detail__opening">
+      {page.serviceSplit ? <ServiceSplit items={page.serviceSplit} /> : null}
+
+      <section className="service-detail__opening" id={page.openingId}>
         <div className="service-detail__opening-copy">
           {page.openingTitle ? (
             <h2>
@@ -92,7 +95,7 @@ export default function ServicePage({ content: page, serviceKey }) {
 
       <section className="service-detail__deliverables">
         <header>
-          <p className="editorial-kicker">What&apos;s included</p>
+          <p className="editorial-kicker">{page.includedKicker || "What's included"}</p>
           <h2>Everything the work<br /><em>needs to perform.</em></h2>
         </header>
         <div className="service-detail__deliverable-grid service-detail__deliverable-grid--primary">
@@ -105,6 +108,8 @@ export default function ServicePage({ content: page, serviceKey }) {
           ))}
         </div>
       </section>
+
+      {page.canvas ? <CanvasUgcSections canvas={page.canvas} /> : null}
 
       {faqs.length ? (
         <section className="editorial-faq">
