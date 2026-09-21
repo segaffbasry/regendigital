@@ -7,7 +7,7 @@ import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
 import "../app/service-feedback.css";
 import ResultsSection from "./ResultsSection";
-import CanvasUgcSections, { ServiceMasthead, ServiceSplit } from "./CanvasUgcSections";
+import CanvasUgcSections, { ServiceMasthead } from "./CanvasUgcSections";
 
 const protectedTitleWords = new Set(["AI", "B2B", "GEO", "Google", "Regen", "SaaS", "SEO"]);
 
@@ -78,8 +78,6 @@ export default function ServicePage({ content: page, serviceKey }) {
           <ClientLogoStrip />
         </div>
       </section>
-
-      {page.serviceSplit ? <ServiceSplit items={page.serviceSplit} /> : null}
 
       <section className="service-detail__opening" id={page.openingId}>
         {page.serviceMasthead ? <ServiceMasthead {...page.serviceMasthead} /> : null}

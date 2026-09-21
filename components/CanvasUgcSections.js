@@ -14,22 +14,6 @@ export function ServiceMasthead({ as: Title = "p", index, title, tagline }) {
   );
 }
 
-export function ServiceSplit({ items }) {
-  return (
-    <nav className="service-split" aria-label="Two ways to work with creators">
-      {items.map((item, index) => (
-        <a className="service-split__item" href={`#${item.id}`} key={item.id}>
-          <span className="service-split__index">{String(index + 1).padStart(2, "0")}</span>
-          <strong>{item.label}</strong>
-          <span className="service-split__summary">{item.summary}</span>
-          <span className="service-split__detail">{item.detail}</span>
-          <span className="service-split__arrow" aria-hidden="true">↓</span>
-        </a>
-      ))}
-    </nav>
-  );
-}
-
 function CanvasVideo({ video, index }) {
   if (video.src) {
     return <CanvasUgcVideo src={video.src} poster={video.poster} label={video.label || `Canvas UGC example ${index + 1}`} />;
