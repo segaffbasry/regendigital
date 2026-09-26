@@ -25,12 +25,14 @@ export const metadata = {
     shortcut: "/favicon.png",
     apple: "/favicon.png",
   },
+  twitter: { card: "summary_large_image", images: ["/share-image"] },
   openGraph: {
     title: "Regen — B2B Digital Marketing Agency",
     description:
       "Strategy-led B2B marketing for SaaS, AI, tech, and professional services. One system of channels that turns pipeline into predictable revenue.",
     type: "website",
     url: siteUrl,
+    images: [{ url: "/share-image", width: 1200, height: 630, alt: "Regen — Good strategy. Real growth." }],
   },
 };
 
