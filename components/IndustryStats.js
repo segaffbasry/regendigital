@@ -92,6 +92,14 @@ function ExpertiseGraphic() {
 }
 
 const statVisuals = {
+  "construction-referrals": <PercentageDial value={41} />,
+  "construction-shortlist": <PercentageDial value={81} lifted={false} />,
+  "construction-committee": (
+    <StatFrame>
+      <text className="stat-clean-number" x="260" y="135" textAnchor="middle">11</text>
+      <text className="stat-clean-label" x="260" y="175" textAnchor="middle">people in the buying group</text>
+    </StatFrame>
+  ),
   "saas-cost": (
     <div className="industry-stat-visual industry-stat-visual--asset industry-stat-visual--asset-cost" aria-hidden="true">
       <img src="/asset/Winning%20Customers%20Costs%20More.svg" alt="" />

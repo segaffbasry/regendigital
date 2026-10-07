@@ -359,3 +359,12 @@
 .proof-section .testimonial-card__avatar img {
   filter: grayscale(1);
 }
+
+/* Give the expanded homepage introduction room to breathe. */
+.home-hero__bottom {
+  max-width: 780px;
+}
+.home-hero__bottom p {
+  max-width: 780px;
+  line-height: 1.5;
+}

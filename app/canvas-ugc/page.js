@@ -1,5 +1,6 @@
 import SiteHeader from "../../components/SiteHeader";
 import CanvasMotion from "../../components/canvas/CanvasMotion";
+import CanvasUgcVideo from "../../components/CanvasUgcVideo";
 import CanvasExamples from "../../components/canvas/CanvasExamples";
 import CanvasInvestment from "../../components/canvas/CanvasInvestment";
 import { siteUrl } from "../../lib/site-url";
@@ -41,11 +42,11 @@ export default function CanvasUgcPage() {
             <p className="canvas-hero__lede">Your product. A whole network of voices.<br /> A managed creator programme that gets tech brands into the conversation—and keeps them there.</p>
             <div className="canvas-actions"><ContactLink light>Let’s talk Canvas</ContactLink><a className="canvas-text-link" href="#examples">See it in action <span className="canvas-icon canvas-icon--down" aria-hidden="true" /></a></div>
           </div>
-          <a className="canvas-hero__visual" href="#examples" aria-label="Watch the Juno campaign examples">
+          <div className="canvas-hero__visual" role="group" aria-label="Juno campaign videos">
             <span className="canvas-hero__orbit" aria-hidden="true" />
-            {[1, 3, 4].map((number, index) => <span className={`canvas-phone canvas-phone--${index + 1}`} key={number}><img src={`/videos/canvas/canvas-ugc-${number}.jpg`} alt="" width="360" height="640" fetchPriority={index === 1 ? "high" : "auto"} /><span className="canvas-phone__label">Juno / In the feed <span className="canvas-icon" aria-hidden="true" /></span></span>)}
+            {[1, 3, 4].map((number, index) => <span className={`canvas-phone canvas-phone--${index + 1}`} key={number}><CanvasUgcVideo src={`/videos/canvas/canvas-ugc-${number}.mp4`} poster={`/videos/canvas/canvas-ugc-${number}.jpg`} label={`Juno hero campaign video ${number}`} controls /><span className="canvas-phone__label">Juno / In the feed <span className="canvas-icon" aria-hidden="true" /></span></span>)}
             <span className="canvas-hero__note">Real creators.<br /> <em>Repeated discovery.</em></span>
-          </a>
+          </div>
           <div className="canvas-hero__foot"><span>Built for tech. Made for the feed.</span><span>TikTok / Instagram / YouTube</span></div>
         </section>
 

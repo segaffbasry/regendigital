@@ -16,10 +16,10 @@
 .canvas-hero__visual { position: relative; min-height: 460px; align-self: center; }
 .canvas-hero__orbit { position: absolute; width: 94%; aspect-ratio: 1; top: -4%; left: 5%; border: 1px solid #ffffff24; border-radius: 50%; }
 .canvas-phone { position: absolute; top: 70px; left: 8%; width: 39%; aspect-ratio: 9 / 16; overflow: hidden; border: 5px solid #eee; border-radius: 22px; background: #111; box-shadow: 0 22px 40px #00148140; transform: rotate(-13deg); }
-.canvas-phone img { width: 100%; height: 100%; object-fit: cover; }
+.canvas-phone img, .canvas-phone video { width: 100%; height: 100%; object-fit: cover; }
 .canvas-phone--2 { left: 35%; top: 10px; transform: rotate(4deg); z-index: 2; }
 .canvas-phone--3 { left: 61%; top: 100px; transform: rotate(14deg); }
-.canvas-phone__label { position: absolute; bottom: 0; left: 0; right: 0; display: flex; justify-content: space-between; padding: 28px 12px 14px; background: linear-gradient(transparent, #000c); color: white; font-size: 10px; }
+.canvas-phone__label { pointer-events: none; position: absolute; top: 0; left: 0; right: 0; display: flex; justify-content: space-between; padding: 14px 12px 28px; background: linear-gradient(#000c, transparent); color: white; font-size: 10px; }
 .canvas-hero__note { position: absolute; z-index: 3; bottom: -18px; left: 24%; font-size: 19px; line-height: 1.25; transform: rotate(-7deg); padding: 17px 26px; border: 1px solid #ffffff55; border-radius: 3px; background: var(--blue); }
 .canvas-hero__foot { grid-column: 1 / -1; display: flex; justify-content: space-between; gap: 16px; margin-top: 72px; padding-top: 20px; border-top: 1px solid #ffffff40; font-size: 11px; letter-spacing: .04em; }
 .canvas-proof { display: grid; grid-template-columns: repeat(4, 1fr); margin: 0 5vw; padding: 35px 0; border-bottom: 1px solid #05050530; }

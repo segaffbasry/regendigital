@@ -185,7 +185,7 @@ export default function HomePage() {
             </span>
           </StaggerText>
           <div className="home-hero__bottom hero-anim">
-            <p>Regen is a B2B digital marketing agency for SaaS, AI, tech, and professional services. We pair a strong strategic foundation with content, paid, and search to turn pipeline into predictable revenue.</p>
+            <p>Regen is a B2B digital marketing agency helping AI, tech, construction and professional services businesses build brand awareness and generate leads. Every project starts with a strong strategy. From there, we offer organic and paid social, Google Ads, SEO and GEO, and account-based marketing, on their own or combined, depending on what your business needs.</p>
             <div className="home-hero__actions">
               <ArrowLink href="/audit" className="home-link--sand">Free Audit</ArrowLink>
               <ArrowLink href="/contact" className="home-link--outline">Book a call</ArrowLink>

@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 const SOUND_EVENT = "canvas-ugc:sound";
 
 // Plays muted on loop while on screen, like a social feed. Only one clip has sound at a time.
-export default function CanvasUgcVideo({ src, poster, label }) {
+export default function CanvasUgcVideo({ src, poster, label, controls = false }) {
   const videoRef = useRef(null);
   const [muted, setMuted] = useState(true);
 
@@ -59,12 +59,13 @@ export default function CanvasUgcVideo({ src, poster, label }) {
         src={src}
         poster={poster}
         aria-label={label}
+        controls={controls}
         muted
         loop
         playsInline
         preload="none"
       />
-      <button
+      {!controls && <button
         type="button"
         className="canvas-ugc__sound"
         onClick={toggleSound}
@@ -72,7 +73,7 @@ export default function CanvasUgcVideo({ src, poster, label }) {
         aria-label={muted ? `Play ${label} with sound` : `Mute ${label}`}
       >
         <span aria-hidden="true">{muted ? "Tap for sound" : "Sound on"}</span>
-      </button>
+      </button>}
     </>
   );
 }
